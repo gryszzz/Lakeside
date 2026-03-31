@@ -3,6 +3,7 @@
 // - Facebook and Instagram links
 // - Formspree endpoints
 // - testimonial text, client names, and project details
+// - home hero placeholder images and trust cards
 // - image paths in featuredProjects and beforeAfterProjects
 export const business = {
   name: 'Lakeside Design + Build',
@@ -54,6 +55,51 @@ export const stats = [
   { value: '15+', label: 'Years in remodeling' },
   { value: '4.9', label: 'Average homeowner rating' },
   { value: '1 crew', label: 'Single accountable point of contact' }
+];
+
+export const heroTrustItems = [
+  {
+    title: '4.9 average',
+    detail: 'Verified homeowner reviews'
+  },
+  {
+    title: 'Licensed',
+    detail: 'Fully insured local contractor'
+  },
+  {
+    title: 'Detailed scopes',
+    detail: 'Clear pricing and planning'
+  }
+];
+
+export const homeSpotlights = [
+  {
+    title: 'Exterior Arrival',
+    detail: 'A polished first impression starts before the homeowner ever walks inside.',
+    image: 'images/projects/home-exterior.svg',
+    alt: 'Placeholder exterior project photo for contractor website hero',
+    label: 'Featured Home'
+  },
+  {
+    title: 'Design Walkthrough',
+    detail: 'Placeholder planning image for consultations, layout conversations, and finish review.',
+    image: 'images/projects/home-consultation.svg',
+    alt: 'Placeholder design consultation photo for contractor website',
+    label: 'Project Planning'
+  },
+  {
+    title: 'Materials & Finishes',
+    detail: 'Selections, samples, and specification details that make the final result feel considered.',
+    image: 'images/projects/home-materials.svg',
+    alt: 'Placeholder materials and finish board image for contractor website',
+    label: 'Selections'
+  }
+];
+
+export const homeQualityPoints = [
+  'Premium remodeling for kitchens, bathrooms, decks, windows, and selective whole-home improvements.',
+  'A calmer homeowner experience with cleaner communication, sharper finish standards, and tighter project organization.',
+  'Built to attract quote requests from people who care about quality, not bargain-basement pricing.'
 ];
 
 export const trustBadges = [

@@ -1,4 +1,4 @@
-import { business, faqs } from './content/site';
+import { business, faqs, heroTrustItems, homeQualityPoints, homeSpotlights } from './content/site';
 import { ContactForm, LeadSidebar, QuoteForm } from './components/Forms';
 import { FAQSection, PageHero, SiteShell } from './components/Layout';
 import {
@@ -23,10 +23,10 @@ function HomeHero() {
       <div className="container hero__grid">
         <div className="hero__content" data-reveal>
           <p className="eyebrow">Luxury-Focused General Contractor</p>
-          <h1>Craftsmanship you can see. Quality you can trust.</h1>
+          <h1>Beautiful remodels for homeowners who expect the details to be right.</h1>
           <p className="hero__body">
-            High-end kitchens, bathrooms, decks, windows, and home improvements for homeowners who want
-            beautiful work, clear communication, and a contractor that feels organized from day one.
+            High-end kitchens, bathrooms, decks, windows, and renovation work delivered with stronger finish
+            standards, cleaner communication, and a process that feels genuinely professional from the first call.
           </p>
           <div className="hero-actions">
             <a className="button" href={withBase('quote/')}>
@@ -36,28 +36,56 @@ function HomeHero() {
               View Projects
             </a>
           </div>
-          <div className="hero__meta">
-            <span>{business.license}</span>
-            <span>{business.reviewsLabel}</span>
-            <span>{business.serviceAreaLabel}</span>
+          <div className="hero-trust-grid">
+            {heroTrustItems.map((item) => (
+              <article key={item.title} className="hero-trust-card">
+                <strong>{item.title}</strong>
+                <span>{item.detail}</span>
+              </article>
+            ))}
           </div>
         </div>
         <div className="hero__visual" data-reveal>
           <div className="hero__image-card hero__image-card--main">
-            <img src={withBase('images/projects/kitchen-after.svg')} alt="Placeholder hero image for kitchen remodel" />
+            <img src={withBase(homeSpotlights[0].image)} alt={homeSpotlights[0].alt} />
             <div className="hero__image-overlay">
-              <p>Featured Project</p>
-              <strong>Lakeshore Kitchen Renovation</strong>
+              <p>{homeSpotlights[0].label}</p>
+              <strong>{homeSpotlights[0].title}</strong>
             </div>
           </div>
           <div className="hero__visual-grid">
-            <div className="hero__badge-card">
-              <span>15+ years</span>
-              <p>Refined remodel execution for lived-in homes.</p>
+            {homeSpotlights.slice(1).map((item) => (
+              <article key={item.title} className="hero__image-card hero__image-card--tile">
+                <img src={withBase(item.image)} alt={item.alt} />
+                <div className="hero__tile-copy">
+                  <p>{item.label}</p>
+                  <strong>{item.title}</strong>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomeOverviewSection() {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="home-overview-grid">
+          <div className="home-overview-copy" data-reveal>
+            <p className="eyebrow">Built to Win Trust Fast</p>
+            <h2>Premium presentation matters because homeowners decide quickly who feels credible.</h2>
+            <div className="home-quality-list">
+              {homeQualityPoints.map((point) => (
+                <p key={point}>{point}</p>
+              ))}
             </div>
-            <div className="hero__image-card">
-              <img src={withBase('images/projects/bathroom-after.svg')} alt="Placeholder bathroom remodel image" />
-            </div>
+          </div>
+          <div className="home-overview-panel" data-reveal>
+            <StatGrid />
           </div>
         </div>
       </div>
@@ -171,21 +199,7 @@ export function HomePage() {
     <SiteShell>
       <HomeHero />
       <TrustBar />
-      <section className="section">
-        <div className="container">
-          <div className="section-layout">
-            <div>
-              <p className="eyebrow">Built for Homeowners Who Care About Quality</p>
-              <h2>Premium remodeling without the inflated, corporate feel.</h2>
-              <p className="section-lead">
-                The goal is to look sharp, communicate clearly, and deliver work that feels tailored rather than
-                templated. Every part of the site is aimed at trust and conversion.
-              </p>
-            </div>
-            <StatGrid />
-          </div>
-        </div>
-      </section>
+      <HomeOverviewSection />
       <ServiceCards />
       <BeforeAfterShowcase />
       <WhyChooseUs />
