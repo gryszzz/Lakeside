@@ -73,7 +73,7 @@ export function ProjectPreview() {
         <SectionIntro
           eyebrow="Featured Projects"
           title="Work that helps homeowners picture their own upgrade more clearly"
-          body="Each project is organized so real photos can be swapped in later without rebuilding the layout."
+          body="See how layout, materials, and finish work come together across kitchens, bathrooms, decks, and broader home improvements."
         />
         <div className="project-grid">
           {previews.map((project) => (

@@ -1,4 +1,4 @@
-import { business, faqs, heroTrustItems, homeQualityPoints, homeSpotlights } from './content/site';
+import { business, faqs, heroTrustItems, homeQualityPoints, homeSpotlights, trustBadges } from './content/site';
 import { ContactForm, LeadSidebar, QuoteForm } from './components/Forms';
 import { FAQSection, PageHero, SiteShell } from './components/Layout';
 import {
@@ -9,7 +9,6 @@ import {
   ServiceQuoteSection,
   StatGrid,
   TestimonialCards,
-  TrustBar,
   ValuesGrid,
   WhyChooseUs
 } from './components/Marketing';
@@ -72,20 +71,36 @@ function HomeHero() {
 
 function HomeOverviewSection() {
   return (
-    <section className="section">
+    <section className="section section--home-overview">
       <div className="container">
         <div className="home-overview-grid">
           <div className="home-overview-copy" data-reveal>
             <p className="eyebrow">Built to Win Trust Fast</p>
             <h2>Premium presentation matters because homeowners decide quickly who feels credible.</h2>
+            <p className="home-overview-copy__body">
+              The strongest contractor sites do two things at once: they show real quality and they make the next
+              step feel easy. This homepage is built to do both, especially for mobile homeowners browsing quickly.
+            </p>
             <div className="home-quality-list">
               {homeQualityPoints.map((point) => (
                 <p key={point}>{point}</p>
               ))}
             </div>
           </div>
-          <div className="home-overview-panel" data-reveal>
+          <div className="home-overview-panel">
+            <div className="home-overview-note" data-reveal>
+              <strong>{business.reviewsLabel}</strong>
+              <p>
+                Organized proposals, cleaner communication, and craftsmanship that feels deliberate from the first
+                walkthrough to the final detail.
+              </p>
+            </div>
             <StatGrid />
+            <div className="home-overview-badges" data-reveal>
+              {trustBadges.slice(0, 3).map((badge) => (
+                <span key={badge}>{badge}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -198,14 +213,13 @@ export function HomePage() {
   return (
     <SiteShell>
       <HomeHero />
-      <TrustBar />
       <HomeOverviewSection />
       <ServiceCards />
       <BeforeAfterShowcase />
-      <WhyChooseUs />
-      <TestimonialCards />
-      <ProcessSteps />
       <ProjectPreview />
+      <WhyChooseUs />
+      <ProcessSteps />
+      <TestimonialCards />
       <FAQSection items={faqs} />
       <ServiceAreaSection />
     </SiteShell>
