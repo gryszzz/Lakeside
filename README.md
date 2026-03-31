@@ -2,6 +2,16 @@
 
 Premium multi-page contractor website built with Vite + React and designed to deploy cleanly to GitHub Pages.
 
+## Proprietary Notice
+
+This repository is proprietary and is not open source.
+
+It is published for site hosting, maintenance, and internal business use only. No license is granted to copy, reuse,
+modify, redistribute, resell, or create derivative works from this codebase, design system, copy, branding, or media
+without prior written permission from the owner.
+
+Public visibility on GitHub does not mean this project is open source.
+
 ## Project Structure
 
 ```text
