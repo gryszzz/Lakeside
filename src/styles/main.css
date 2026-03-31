@@ -42,6 +42,7 @@ body {
     linear-gradient(180deg, #050913, #09101a 38%, #0d1420);
   color: var(--text);
   font-family: 'Manrope', sans-serif;
+  font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -130,7 +131,7 @@ button {
 .eyebrow {
   margin: 0 0 0.9rem;
   color: var(--accent-strong);
-  font-size: 0.79rem;
+  font-size: 0.73rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -156,17 +157,17 @@ p {
 }
 
 h1 {
-  font-size: clamp(2.25rem, 7vw, 5.4rem);
+  font-size: clamp(1.95rem, 5.8vw, 4.25rem);
   line-height: 0.95;
 }
 
 h2 {
-  font-size: clamp(1.85rem, 4.4vw, 3.4rem);
+  font-size: clamp(1.55rem, 3.4vw, 2.8rem);
   line-height: 1;
 }
 
 h3 {
-  font-size: clamp(1.12rem, 2.5vw, 1.68rem);
+  font-size: clamp(1rem, 1.9vw, 1.4rem);
   line-height: 1.15;
 }
 
@@ -207,6 +208,7 @@ label {
   border-radius: 999px;
   background: linear-gradient(180deg, var(--accent-strong), var(--accent));
   color: #071120;
+  font-size: 0.96rem;
   font-weight: 800;
   box-shadow: 0 14px 34px rgba(79, 130, 255, 0.28);
 }
@@ -318,12 +320,12 @@ label {
 }
 
 .brand strong {
-  font-size: 0.96rem;
+  font-size: 0.9rem;
 }
 
 .brand small {
   color: var(--text-soft);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
 }
 
 .site-nav {
@@ -335,6 +337,7 @@ label {
 .site-nav a,
 .mobile-nav nav a {
   color: var(--text-soft);
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
@@ -474,7 +477,7 @@ label {
 }
 
 .hero h1 {
-  font-size: clamp(2.35rem, 5.3vw, 4.85rem);
+  font-size: clamp(2rem, 4.7vw, 3.95rem);
 }
 
 .hero__body,
@@ -497,12 +500,12 @@ label {
 .page-hero__body {
   max-width: 40rem;
   margin-top: 1.35rem;
-  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  font-size: clamp(0.95rem, 1.15vw, 1.04rem);
 }
 
 .hero__body {
   margin-top: 1rem;
-  font-size: clamp(1rem, 1.25vw, 1.1rem);
+  font-size: clamp(0.94rem, 1vw, 1rem);
 }
 
 .hero-actions {
@@ -526,7 +529,7 @@ label {
   border: 1px solid rgba(148, 179, 255, 0.16);
   background: rgba(140, 181, 255, 0.08);
   color: var(--warm);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
 }
 
 .hero__visual {
@@ -581,7 +584,7 @@ label {
 
 .hero__image-overlay p {
   color: var(--warm-soft);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
 }
 
 .hero__visual-grid {
@@ -599,7 +602,7 @@ label {
   display: block;
   color: var(--accent-strong);
   font-family: 'Sora', sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 800;
 }
 
@@ -672,7 +675,7 @@ label {
 
 .stat-card strong {
   display: block;
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-size: clamp(1.45rem, 2.5vw, 1.95rem);
 }
 
 .stat-card span {
@@ -724,7 +727,7 @@ label {
 
 .service-card h4 {
   margin-bottom: 0.7rem;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .service-card ul,
@@ -794,7 +797,7 @@ label {
   border-radius: 999px;
   background: rgba(6, 11, 20, 0.72);
   color: var(--heading);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 800;
   backdrop-filter: blur(12px);
 }
@@ -843,7 +846,7 @@ label {
 }
 
 .testimonial-card__quote {
-  font-size: 1.05rem;
+  font-size: 0.97rem;
 }
 
 .testimonial-card__meta {
@@ -853,7 +856,7 @@ label {
 .testimonial-card__meta span {
   display: block;
   color: var(--warm-soft);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   margin-top: 0.3rem;
 }
 
@@ -902,7 +905,7 @@ label {
 
 .project-card__topline strong {
   color: var(--accent-strong);
-  font-size: 0.9rem;
+  font-size: 0.84rem;
 }
 
 .project-card__tags {
@@ -1092,6 +1095,7 @@ label {
 .checkbox-fieldset legend {
   display: grid;
   gap: 0.5rem;
+  font-size: 0.94rem;
   font-weight: 700;
 }
 
@@ -1144,7 +1148,7 @@ label {
 .form-actions p {
   max-width: 24rem;
   color: var(--text-soft);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
 }
 
 .form-status {
@@ -1203,6 +1207,7 @@ label {
   list-style: none;
   cursor: pointer;
   font-family: 'Sora', sans-serif;
+  font-size: 0.98rem;
   font-weight: 700;
 }
 
