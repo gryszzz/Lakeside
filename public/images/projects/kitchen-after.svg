@@ -1,21 +1,21 @@
 <svg width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="kitchen-bg" x1="102" y1="118" x2="1224" y2="890" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F3ECDF"/>
-      <stop offset="1" stop-color="#C4A070"/>
+      <stop stop-color="#EDF4FF"/>
+      <stop offset="1" stop-color="#7A9DE0"/>
     </linearGradient>
   </defs>
-  <rect width="1400" height="1000" fill="#141818"/>
+  <rect width="1400" height="1000" fill="#09111D"/>
   <rect x="76" y="126" width="1248" height="780" rx="40" fill="url(#kitchen-bg)"/>
-  <rect x="132" y="176" width="1136" height="680" rx="30" fill="#FAF7F1"/>
-  <rect x="174" y="214" width="258" height="286" rx="18" fill="#B98F61"/>
-  <rect x="458" y="214" width="258" height="286" rx="18" fill="#B98F61"/>
-  <rect x="742" y="214" width="258" height="286" rx="18" fill="#B98F61"/>
-  <rect x="1028" y="214" width="196" height="286" rx="18" fill="#D8C4A4"/>
-  <rect x="204" y="566" width="992" height="154" rx="26" fill="#FDFBF8"/>
-  <rect x="460" y="742" width="478" height="74" rx="22" fill="#E6C48C"/>
-  <circle cx="998" cy="290" r="18" fill="#8F6A40"/>
-  <circle cx="1054" cy="290" r="18" fill="#8F6A40"/>
-  <circle cx="1110" cy="290" r="18" fill="#8F6A40"/>
-  <text x="150" y="152" fill="#161818" font-family="Sora, Arial, sans-serif" font-size="34" font-weight="700">Kitchen After</text>
+  <rect x="132" y="176" width="1136" height="680" rx="30" fill="#F8FBFF"/>
+  <rect x="174" y="214" width="258" height="286" rx="18" fill="#6C8BC1"/>
+  <rect x="458" y="214" width="258" height="286" rx="18" fill="#6C8BC1"/>
+  <rect x="742" y="214" width="258" height="286" rx="18" fill="#6C8BC1"/>
+  <rect x="1028" y="214" width="196" height="286" rx="18" fill="#D8E5F8"/>
+  <rect x="204" y="566" width="992" height="154" rx="26" fill="#FFFFFF"/>
+  <rect x="460" y="742" width="478" height="74" rx="22" fill="#9FC2FF"/>
+  <circle cx="998" cy="290" r="18" fill="#406AAE"/>
+  <circle cx="1054" cy="290" r="18" fill="#406AAE"/>
+  <circle cx="1110" cy="290" r="18" fill="#406AAE"/>
+  <text x="150" y="152" fill="#0A1220" font-family="Sora, Arial, sans-serif" font-size="34" font-weight="700">Kitchen After</text>
 </svg>
