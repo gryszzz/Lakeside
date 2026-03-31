@@ -1,5 +1,6 @@
 // Replace the content in this file first when customizing the site:
 // - business name, phone, email, service area, hours
+// - Facebook and Instagram links
 // - Formspree endpoints
 // - testimonial text, client names, and project details
 // - image paths in featuredProjects and beforeAfterProjects
@@ -26,6 +27,16 @@ export const business = {
   years: '15+ years',
   reviewsLabel: '4.9 average review rating',
   mapUrl: 'https://maps.google.com/?q=Your+City',
+  socialLinks: [
+    {
+      label: 'Instagram',
+      href: 'https://instagram.com/yourcompany'
+    },
+    {
+      label: 'Facebook',
+      href: 'https://facebook.com/yourcompany'
+    }
+  ],
   socialImage: 'images/branding/og-cover.svg',
   footerNote:
     'Luxury-focused remodeling, renovation, and exterior improvement work with craftsmanship, communication, and clean execution at every phase.'

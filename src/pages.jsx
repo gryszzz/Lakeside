@@ -6,6 +6,7 @@ import {
   ProcessSteps,
   ServiceAreaSection,
   ServiceCards,
+  ServiceQuoteSection,
   StatGrid,
   TestimonialCards,
   TrustBar,
@@ -217,6 +218,7 @@ export function ServicesPage() {
         aside={<StatGrid />}
       />
       <ServiceCards detailed />
+      <ServiceQuoteSection />
       <ProcessSteps />
       <FAQSection items={faqs.slice(0, 4)} intro="Questions that help homeowners evaluate fit before reaching out." />
     </SiteShell>

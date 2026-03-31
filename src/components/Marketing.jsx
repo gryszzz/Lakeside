@@ -68,11 +68,35 @@ export function ServiceCards({ detailed = false, intro }) {
                   </ul>
                 </div>
               </div>
-              <a className="text-link" href={withBase('quote/')}>
-                Request a quote
-              </a>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ServiceQuoteSection() {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="service-quote-card" data-reveal>
+          <div>
+            <p className="eyebrow">Project Fit</p>
+            <h2>Have a bathroom, kitchen, deck, window, or home improvement project in mind?</h2>
+            <p>
+              Instead of pushing a quote link under every service, this section keeps the next step simple. Tell us
+              what you are planning and we will help you figure out scope, fit, and timing.
+            </p>
+          </div>
+          <div className="hero-actions">
+            <a className="button" href={withBase('quote/')}>
+              Get a Quote
+            </a>
+            <a className="button button--ghost" href={business.phoneHref}>
+              Call {business.phone}
+            </a>
+          </div>
         </div>
       </div>
     </section>

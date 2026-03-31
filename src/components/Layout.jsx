@@ -82,9 +82,12 @@ export function Header() {
               aria-controls="mobile-menu"
               onClick={() => setOpen((value) => !value)}
             >
-              <span />
-              <span />
-              <span />
+              <span className="menu-toggle__label">{open ? 'Close' : 'Menu'}</span>
+              <span className="menu-toggle__icon" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
             </button>
           </div>
         </div>
@@ -111,6 +114,16 @@ export function Header() {
             <a className="button button--ghost" href={business.phoneHref}>
               Call {business.phone}
             </a>
+          </div>
+          <div className="mobile-nav__meta">
+            <p>{business.serviceAreaLabel}</p>
+            <div className="social-links social-links--mobile">
+              {business.socialLinks.map((link) => (
+                <a key={link.label} href={withBase(link.href)} onClick={() => setOpen(false)}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -163,10 +176,20 @@ export function Footer() {
             </li>
             <li>{business.hours}</li>
           </ul>
+          <div className="footer-social">
+            <p className="eyebrow">Social</p>
+            <div className="social-links">
+              {business.socialLinks.map((link) => (
+                <a key={link.label} href={withBase(link.href)}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <div className="container site-footer__bottom">
-        <p>Replace business details, service areas, and testimonials in `src/content/site.js`.</p>
+        <p>Replace business details, social links, service areas, and testimonials in `src/content/site.js`.</p>
         <p>{business.legalName}</p>
       </div>
     </footer>
