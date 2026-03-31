@@ -1,0 +1,17 @@
+{
+  "name": "Lakeside Design + Build",
+  "short_name": "Lakeside",
+  "description": "Premium remodeling and general contractor website placeholder.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0d0f0f",
+  "theme_color": "#0d0f0f",
+  "icons": [
+    {
+      "src": "images/branding/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lake-gradient" x1="38" y1="26" x2="198" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E3BB85"/>
+      <stop offset="1" stop-color="#8A6A43"/>
+    </linearGradient>
+    <linearGradient id="lake-dark" x1="120" y1="22" x2="120" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161A19"/>
+      <stop offset="1" stop-color="#0B0D0D"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="216" height="216" rx="108" fill="url(#lake-dark)"/>
+  <rect x="12" y="12" width="216" height="216" rx="108" stroke="rgba(255,255,255,0.12)" stroke-opacity="0.12"/>
+  <path d="M68 165L102 98L134 146L171 81L171 180H68V165Z" fill="url(#lake-gradient)"/>
+  <path d="M68 176H171" stroke="#F5EFE6" stroke-width="10" stroke-linecap="round" stroke-opacity="0.92"/>
+  <path d="M76 64L123 42L168 64" stroke="#F5EFE6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M93 141L123 82L150 129" stroke="#F5EFE6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

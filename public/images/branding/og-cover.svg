@@ -1,0 +1,28 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="142" y1="82" x2="1000" y2="592" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171B1A"/>
+      <stop offset="1" stop-color="#090B0B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(280 138) rotate(55.0961) scale(536.188 689.535)">
+      <stop stop-color="#E2BA82" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#E2BA82" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" rx="32" fill="url(#bg)"/>
+  <rect width="1200" height="630" rx="32" fill="url(#glow)"/>
+  <rect x="706" y="88" width="402" height="454" rx="28" fill="rgba(255,255,255,0.04)" fill-opacity="0.04" stroke="#3E3328"/>
+  <rect x="732" y="116" width="350" height="256" rx="22" fill="#232727"/>
+  <path d="M774 304H1040" stroke="#8A6A43" stroke-width="10" stroke-linecap="round"/>
+  <path d="M774 266H1026" stroke="#F4EFE7" stroke-width="14" stroke-linecap="round"/>
+  <rect x="770" y="400" width="154" height="92" rx="18" fill="#131716"/>
+  <rect x="936" y="400" width="138" height="92" rx="18" fill="#131716"/>
+  <rect x="96" y="106" width="200" height="200" rx="100" fill="#0C0F0F" stroke="#5C4A35"/>
+  <path d="M152 237L187 168L218 216L254 152L254 252H152V237Z" fill="#C8A06C"/>
+  <path d="M152 248H254" stroke="#F4EFE7" stroke-width="8" stroke-linecap="round"/>
+  <path d="M162 132L208 111L249 132" stroke="#F4EFE7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="376" fill="#DDB37D" font-family="Sora, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="5">LUXURY-FOCUSED GENERAL CONTRACTOR</text>
+  <text x="96" y="454" fill="#FFF8EF" font-family="Sora, Arial, sans-serif" font-size="64" font-weight="800">Beautiful Remodels.</text>
+  <text x="96" y="528" fill="#FFF8EF" font-family="Sora, Arial, sans-serif" font-size="64" font-weight="800">Built Right.</text>
+  <text x="96" y="580" fill="#B8B0A3" font-family="Manrope, Arial, sans-serif" font-size="24">Kitchens, bathrooms, decks, windows, and premium home improvements.</text>
+</svg>

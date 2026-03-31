@@ -1,0 +1,13 @@
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="1000" fill="#202424"/>
+  <rect x="72" y="116" width="1256" height="796" rx="36" fill="#4E5456"/>
+  <rect x="144" y="178" width="1112" height="676" rx="28" fill="#718082"/>
+  <path d="M212 714H1174" stroke="#5E6567" stroke-width="28" stroke-linecap="round"/>
+  <path d="M220 650H1166" stroke="#606769" stroke-width="18" stroke-linecap="round"/>
+  <path d="M220 586H1166" stroke="#606769" stroke-width="18" stroke-linecap="round"/>
+  <path d="M220 522H1166" stroke="#606769" stroke-width="18" stroke-linecap="round"/>
+  <path d="M316 282V722" stroke="#454B4C" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1084 282V722" stroke="#454B4C" stroke-width="18" stroke-linecap="round"/>
+  <path d="M356 296H1044" stroke="#454B4C" stroke-width="20" stroke-linecap="round"/>
+  <text x="150" y="146" fill="#F5F0E8" font-family="Sora, Arial, sans-serif" font-size="34" font-weight="700">Deck Before</text>
+</svg>
