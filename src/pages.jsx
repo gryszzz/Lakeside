@@ -8,7 +8,6 @@ import {
   homeSpotlights,
   trustBadges
 } from './content/site';
-import { LeadSidebar } from './components/Forms';
 import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
   ContactInfoGrid,
@@ -168,25 +167,6 @@ function ContactMapPlaceholder() {
   );
 }
 
-function QuoteHeroCard() {
-  return (
-    <div className="about-metric-card quote-hero-card">
-      <p className="eyebrow">Estimate Today</p>
-      <h3>Direct contact, cleaner communication, and clearer next steps.</h3>
-      <div className="quote-hero-card__items">
-        <div className="quote-hero-card__item">
-          <strong>Email photos anytime</strong>
-          <span>Current-space photos help us understand the project faster.</span>
-        </div>
-        <div className="quote-hero-card__item">
-          <strong>Service area</strong>
-          <span>{business.serviceAreaLabel}</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function QuickContactPanel() {
   return (
     <div className="about-metric-card">
@@ -203,10 +183,11 @@ function DirectEstimatePanel({
   eyebrow = 'Call Or Email',
   title = 'The fastest way to get an estimate is a quick call or direct email.',
   body = 'This page keeps the process simple. Reach out directly and we will help you figure out fit, timing, and the right next step.',
-  emailCopy = 'Email your project details, county or township, and current photos for review.'
+  emailCopy = 'Email your project details, county or township, and current photos for review.',
+  inHero = false
 }) {
   return (
-    <div className="lead-form estimate-panel" data-reveal>
+    <div className={inHero ? 'estimate-panel estimate-panel--hero' : 'lead-form estimate-panel'} data-reveal={inHero ? undefined : true}>
       <div className="estimate-panel__intro">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
@@ -266,17 +247,6 @@ function EstimateNextStepsSection() {
             </article>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function QuoteSection() {
-  return (
-    <section className="section">
-      <div className="container lead-layout">
-        <LeadSidebar />
-        <DirectEstimatePanel />
       </div>
     </section>
   );
@@ -444,9 +414,8 @@ export function QuotePage() {
             </a>
           </>
         }
-        aside={<QuoteHeroCard />}
+        aside={<DirectEstimatePanel inHero />}
       />
-      <QuoteSection />
       <EstimateNextStepsSection />
       <FAQSection
         items={[faqs[2], faqs[1], faqs[4], faqs[3]]}

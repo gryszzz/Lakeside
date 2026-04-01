@@ -1496,18 +1496,11 @@ label {
   cursor: pointer;
 }
 
-.quote-hero-card,
 .estimate-panel {
   display: grid;
   gap: 1rem;
 }
 
-.quote-hero-card__items {
-  display: grid;
-  gap: 0.7rem;
-}
-
-.quote-hero-card__item,
 .estimate-contact-row,
 .estimate-checklist-card {
   padding: 1rem;
@@ -1516,21 +1509,19 @@ label {
   background: rgba(255, 255, 255, 0.03);
 }
 
-.quote-hero-card__item strong,
-.quote-hero-card__item span {
-  display: block;
-}
-
-.quote-hero-card__item span {
-  margin-top: 0.35rem;
-  color: var(--text-soft);
-  font-size: 0.84rem;
-  line-height: 1.5;
-}
-
 .estimate-panel__intro h2,
 .estimate-contact-row h3 {
   margin: 0.2rem 0 0.45rem;
+}
+
+.estimate-panel--hero .estimate-panel__actions {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.estimate-panel--hero .estimate-panel__actions .button,
+.estimate-panel--hero .estimate-panel__actions .button--ghost {
+  width: 100%;
 }
 
 .estimate-method-grid {
