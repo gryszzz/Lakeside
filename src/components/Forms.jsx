@@ -94,6 +94,7 @@ export function QuoteForm() {
       className="lead-form"
       action={forms.quoteEndpoint}
       method="POST"
+      encType="multipart/form-data"
       onSubmit={(event) => submitForm(event, forms.quoteEndpoint, setStatus)}
       data-reveal
     >
@@ -183,6 +184,21 @@ export function QuoteForm() {
           </label>
         </div>
       </fieldset>
+      <label className="file-field" htmlFor="projectPhotos">
+        Current Space Photos
+        <input
+          id="projectPhotos"
+          type="file"
+          name="projectPhotos"
+          accept="image/*"
+          multiple
+          aria-describedby="project-photos-hint"
+        />
+        <span className="field-hint" id="project-photos-hint">
+          Upload photos of the current setup so we can understand the space faster. Phone camera or gallery photos are
+          fine.
+        </span>
+      </label>
       <label>
         Message
         <textarea
@@ -195,11 +211,11 @@ export function QuoteForm() {
       <StatusMessage status={status} />
       <div className="form-actions">
         <button className="button" type="submit">
-          Get My Free Estimate
+          Send Message
         </button>
         <p>
           Static-host ready. Replace the Formspree placeholder in `src/content/site.js` or use
-          `VITE_QUOTE_FORM_ENDPOINT`.
+          `VITE_QUOTE_FORM_ENDPOINT`. Your form provider must support file uploads if you want photo attachments.
         </p>
       </div>
     </form>

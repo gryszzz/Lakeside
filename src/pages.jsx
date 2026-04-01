@@ -165,8 +165,8 @@ function QuoteHeroCard() {
       <p className="eyebrow">Fast Trust Signals</p>
       <h3>Clear estimate process. Premium scope. Real communication.</h3>
       <p>
-        This page is built to convert on mobile while still feeling high-end. Replace the placeholder endpoint and
-        contact details before launch.
+        This page is built to convert on mobile while still feeling high-end. Homeowners can send a message, share
+        project details, and upload photos of the current space before launch.
       </p>
     </div>
   );
@@ -341,7 +341,7 @@ export function QuotePage() {
       <PageHero
         eyebrow="Request a Quote"
         title="Tell us about your project and we will help you map the next step"
-        body="The form is static-host friendly and ready for Formspree or a similar endpoint. Replace the placeholder endpoint before launch."
+        body="Share the basics, upload photos of the current setup, and we will help you map the right next step. The form is static-host friendly and ready for Formspree or a similar endpoint."
         actions={
           <>
             <a className="button" href={business.phoneHref}>
