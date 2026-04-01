@@ -392,3 +392,25 @@ export const quoteSidebarPoints = [
   'Clear next steps after first contact',
   'Friendly homeowner communication from day one'
 ];
+
+export const estimateChecklist = [
+  'Project address or neighborhood',
+  'Which space you want to improve',
+  'A few current photos if you are emailing',
+  'Your ideal timing and any budget target'
+];
+
+export const estimateNextSteps = [
+  {
+    title: 'Reach out directly',
+    text: 'Call for the fastest back-and-forth, or email if you want to send notes and current photos with your first message.'
+  },
+  {
+    title: 'We talk through fit',
+    text: 'We use the first conversation to understand the scope, answer early questions, and make sure the project is a good match.'
+  },
+  {
+    title: 'You get clear direction',
+    text: 'You leave the first step knowing whether to schedule a walkthrough, what information is still needed, and what comes next.'
+  }
+];

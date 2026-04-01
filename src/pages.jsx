@@ -1,6 +1,15 @@
-import { business, faqs, heroTrustItems, homeQualityPoints, homeSpotlights, trustBadges } from './content/site';
+import {
+  business,
+  estimateChecklist,
+  estimateNextSteps,
+  faqs,
+  heroTrustItems,
+  homeQualityPoints,
+  homeSpotlights,
+  trustBadges
+} from './content/site';
 import { LeadSidebar } from './components/Forms';
-import { FAQSection, PageHero, SiteShell } from './components/Layout';
+import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
   ContactInfoGrid,
   ProcessSteps,
@@ -161,13 +170,23 @@ function ContactMapPlaceholder() {
 
 function QuoteHeroCard() {
   return (
-    <div className="about-metric-card">
-      <p className="eyebrow">Fast Trust Signals</p>
-      <h3>Clear estimate process. Premium scope. Real communication.</h3>
-      <p>
-        This page is built to convert on mobile while still feeling high-end. Homeowners can call or email for an
-        estimate today, and email photos of the current space if that helps explain the project.
-      </p>
+    <div className="about-metric-card quote-hero-card">
+      <p className="eyebrow">Estimate Today</p>
+      <h3>Direct contact, cleaner communication, and clearer next steps.</h3>
+      <div className="quote-hero-card__items">
+        <div className="quote-hero-card__item">
+          <strong>Call during business hours</strong>
+          <span>{business.hours}</span>
+        </div>
+        <div className="quote-hero-card__item">
+          <strong>Email photos anytime</strong>
+          <span>Current-space photos help us understand the project faster.</span>
+        </div>
+        <div className="quote-hero-card__item">
+          <strong>Service area</strong>
+          <span>{business.serviceAreaLabel}</span>
+        </div>
+      </div>
     </div>
   );
 }
@@ -187,31 +206,43 @@ function QuickContactPanel() {
 function DirectEstimatePanel({
   eyebrow = 'Call Or Email',
   title = 'The fastest way to get an estimate is a quick call or direct email.',
-  body = 'There is no long form to fill out here. Call during business hours or send an email anytime and we will help you with the next step.',
+  body = 'This page keeps the process simple. Reach out directly and we will help you figure out fit, timing, and the right next step.',
   emailCopy = 'If you email, include your address, project type, and a few photos of the current setup so we can understand the space faster.'
 }) {
   return (
     <div className="lead-form estimate-panel" data-reveal>
-      <div>
+      <div className="estimate-panel__intro">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
         <p>{body}</p>
       </div>
-      <div className="estimate-contact-rows">
-        <article className="estimate-contact-row">
+      <div className="estimate-method-grid">
+        <article className="estimate-contact-row estimate-contact-row--call">
           <p className="eyebrow">Call For An Estimate</p>
           <h3>
             <a href={business.phoneHref}>{business.phone}</a>
           </h3>
-          <p>Talk through your project, timing, and the right next step without filling out a long form.</p>
+          <p>Best when you want quick answers on fit, timing, and whether the project is the right match.</p>
         </article>
-        <article className="estimate-contact-row">
+        <article className="estimate-contact-row estimate-contact-row--email">
           <p className="eyebrow">Email For An Estimate</p>
           <h3>
             <a href={business.emailHref}>{business.email}</a>
           </h3>
           <p>{emailCopy}</p>
         </article>
+      </div>
+      <div className="estimate-checklist-card">
+        <p className="eyebrow">Helpful To Include</p>
+        <ul className="estimate-checklist">
+          {estimateChecklist.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="estimate-panel__note">
+          If you are calling from your phone, start with the room, your city, and what you want to improve. We can
+          guide the rest from there.
+        </p>
       </div>
       <div className="hero-actions estimate-panel__actions">
         <a className="button" href={business.phoneHref}>
@@ -222,6 +253,29 @@ function DirectEstimatePanel({
         </a>
       </div>
     </div>
+  );
+}
+
+function EstimateNextStepsSection() {
+  return (
+    <section className="section section--soft">
+      <div className="container">
+        <SectionIntro
+          eyebrow="How It Works"
+          title="A simple estimate path that still feels professional"
+          body="The goal is not to make homeowners do more work. It is to make the first contact more useful and the next step easier to understand."
+        />
+        <div className="process-grid quote-next-steps">
+          {estimateNextSteps.map((step, index) => (
+            <article key={step.title} className="process-card quote-step-card" data-reveal>
+              <span className="process-card__step">0{index + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -386,8 +440,8 @@ export function QuotePage() {
     >
       <PageHero
         eyebrow="Request a Quote"
-        title="Tell us about your project and we will help you map the next step"
-        body="For estimates, call or email today. If emailing, send a few photos of the current setup and a short note about the project so we can understand the space faster."
+        title="Call or email for a remodeling estimate today."
+        body="The fastest path is direct contact. Call during business hours, or email a few photos and a short project summary so we can understand the space faster."
         actions={
           <>
             <a className="button" href={business.phoneHref}>
@@ -401,7 +455,11 @@ export function QuotePage() {
         aside={<QuoteHeroCard />}
       />
       <QuoteSection />
-      <FAQSection items={faqs} intro="Questions that often come up before homeowners submit a quote request." />
+      <EstimateNextStepsSection />
+      <FAQSection
+        items={[faqs[2], faqs[1], faqs[4], faqs[3]]}
+        intro="Questions that usually come up when homeowners are deciding whether to call or email for an estimate."
+      />
     </SiteShell>
   );
 }
