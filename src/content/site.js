@@ -54,7 +54,7 @@ export const stats = [
   { value: '300+', label: 'Projects completed' },
   { value: '15+', label: 'Years in remodeling' },
   { value: '4.9', label: 'Average homeowner rating' },
-  { value: '1 crew', label: 'Single accountable point of contact' }
+  { value: '1', label: 'Single point of contact' }
 ];
 
 export const heroTrustItems = [
