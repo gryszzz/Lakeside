@@ -175,10 +175,6 @@ function QuoteHeroCard() {
       <h3>Direct contact, cleaner communication, and clearer next steps.</h3>
       <div className="quote-hero-card__items">
         <div className="quote-hero-card__item">
-          <strong>Call during business hours</strong>
-          <span>{business.hours}</span>
-        </div>
-        <div className="quote-hero-card__item">
           <strong>Email photos anytime</strong>
           <span>Current-space photos help us understand the project faster.</span>
         </div>
