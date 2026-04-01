@@ -1323,11 +1323,6 @@ label {
   padding: 4.5rem 0 2rem;
 }
 
-.page-hero__aside,
-.page-hero__spotlight {
-  min-height: 100%;
-}
-
 .page-hero__spotlight {
   min-height: clamp(18rem, 36vw, 22rem);
 }
