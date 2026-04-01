@@ -1509,9 +1509,53 @@ label {
   background: rgba(255, 255, 255, 0.03);
 }
 
+.estimate-contact-row {
+  position: relative;
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(79, 130, 255, 0.1), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.03);
+}
+
+.estimate-contact-row::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, rgba(148, 179, 255, 0.75), rgba(79, 130, 255, 0.15));
+}
+
 .estimate-panel__intro h2,
 .estimate-contact-row h3 {
   margin: 0.2rem 0 0.45rem;
+}
+
+.estimate-contact-row__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.estimate-contact-row__top .eyebrow {
+  margin: 0;
+}
+
+.estimate-contact-row__tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.38rem 0.7rem;
+  border: 1px solid rgba(148, 179, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--warm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .estimate-panel--hero .estimate-panel__actions {
@@ -1533,9 +1577,34 @@ label {
 .estimate-contact-row h3 a {
   color: var(--heading);
   text-decoration: none;
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  letter-spacing: -0.02em;
 }
 
 .estimate-contact-row h3 a:hover {
+  color: var(--warm);
+}
+
+.estimate-contact-row p:last-of-type {
+  margin-bottom: 0.05rem;
+}
+
+.estimate-contact-row__link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.42rem 0.72rem;
+  border: 1px solid rgba(148, 179, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.estimate-contact-row__link:hover {
+  border-color: var(--line-strong);
   color: var(--warm);
 }
 
@@ -1622,6 +1691,10 @@ body[data-page='quote'] .checkbox-grid label {
 body[data-page='quote'] .estimate-contact-row,
 body[data-page='quote'] .estimate-checklist-card {
   padding: 0.9rem;
+}
+
+body[data-page='quote'] .estimate-contact-row {
+  gap: 0.5rem;
 }
 
 body[data-page='quote'] .form-actions {

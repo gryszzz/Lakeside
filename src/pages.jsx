@@ -196,18 +196,30 @@ function DirectEstimatePanel({
       </div>
       <div className="estimate-method-grid">
         <article className="estimate-contact-row estimate-contact-row--call">
-          <p className="eyebrow">Call For An Estimate</p>
+          <div className="estimate-contact-row__top">
+            <p className="eyebrow">Call For An Estimate</p>
+            <span className="estimate-contact-row__tag">Fast response</span>
+          </div>
           <h3>
             <a href={business.phoneHref}>{business.phone}</a>
           </h3>
           <p>Call for estimate questions, availability, and next steps.</p>
+          <a className="estimate-contact-row__link" href={business.phoneHref}>
+            Tap to call
+          </a>
         </article>
         <article className="estimate-contact-row estimate-contact-row--email">
-          <p className="eyebrow">Email For An Estimate</p>
+          <div className="estimate-contact-row__top">
+            <p className="eyebrow">Email For An Estimate</p>
+            <span className="estimate-contact-row__tag">Photos welcome</span>
+          </div>
           <h3>
             <a href={business.emailHref}>{business.email}</a>
           </h3>
           <p>{emailCopy}</p>
+          <a className="estimate-contact-row__link" href={business.emailHref}>
+            Start email
+          </a>
         </article>
       </div>
       <div className="estimate-checklist-card">
