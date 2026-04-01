@@ -184,7 +184,8 @@ function DirectEstimatePanel({
   title = 'The fastest way to get an estimate is a quick call or direct email.',
   body = 'This page keeps the process simple. Reach out directly and we will help you figure out fit, timing, and the right next step.',
   emailCopy = 'Email your project details, county or township, and current photos for review.',
-  inHero = false
+  inHero = false,
+  showActions = true
 }) {
   return (
     <div className={inHero ? 'estimate-panel estimate-panel--hero' : 'lead-form estimate-panel'} data-reveal={inHero ? undefined : true}>
@@ -217,14 +218,16 @@ function DirectEstimatePanel({
           ))}
         </ul>
       </div>
-      <div className="hero-actions estimate-panel__actions">
-        <a className="button" href={business.phoneHref}>
-          Call {business.phone}
-        </a>
-        <a className="button button--ghost" href={business.emailHref}>
-          Email Us
-        </a>
-      </div>
+      {showActions ? (
+        <div className="hero-actions estimate-panel__actions">
+          <a className="button" href={business.phoneHref}>
+            Call {business.phone}
+          </a>
+          <a className="button button--ghost" href={business.emailHref}>
+            Email Us
+          </a>
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -414,7 +417,7 @@ export function QuotePage() {
             </a>
           </>
         }
-        aside={<DirectEstimatePanel inHero />}
+        aside={<DirectEstimatePanel inHero showActions={false} />}
       />
       <EstimateNextStepsSection />
       <FAQSection
