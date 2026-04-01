@@ -741,6 +741,12 @@ label {
   left: 1rem;
 }
 
+.project-card__media span {
+  top: 1rem;
+  z-index: 1;
+  max-width: calc(100% - 2rem);
+}
+
 .hero__image-card {
   position: relative;
 }
@@ -1221,8 +1227,8 @@ label {
 
 .project-card__topline {
   display: grid;
-  gap: 0.35rem;
-  margin-bottom: 0.8rem;
+  gap: 0.25rem;
+  margin-bottom: 0.65rem;
 }
 
 .project-card__topline strong {
