@@ -207,7 +207,7 @@ function DirectEstimatePanel({
   eyebrow = 'Call Or Email',
   title = 'The fastest way to get an estimate is a quick call or direct email.',
   body = 'This page keeps the process simple. Reach out directly and we will help you figure out fit, timing, and the right next step.',
-  emailCopy = 'Email your project details, address, and current photos for review.'
+  emailCopy = 'Email your project details, county or township, and current photos for review.'
 }) {
   return (
     <div className="lead-form estimate-panel" data-reveal>
@@ -240,8 +240,8 @@ function DirectEstimatePanel({
           ))}
         </ul>
         <p className="estimate-panel__note">
-          If you are calling from your phone, start with the room, your city, and what you want to improve. We can
-          guide the rest from there.
+          If you are calling from your phone, start with the room, your county or township, and what you want to
+          improve. We can guide the rest from there.
         </p>
       </div>
       <div className="hero-actions estimate-panel__actions">

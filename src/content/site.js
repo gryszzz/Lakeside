@@ -394,7 +394,7 @@ export const quoteSidebarPoints = [
 ];
 
 export const estimateChecklist = [
-  'Project address or neighborhood',
+  'County or township',
   'Which space you want to improve',
   'A few current photos if you are emailing',
   'Your ideal timing and any budget target'
