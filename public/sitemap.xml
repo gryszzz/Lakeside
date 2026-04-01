@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace example.com with your real production domain before launch. -->
+<!-- Update this domain when a custom production domain is connected. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.example.com/</loc>
+    <loc>https://gryszzz.github.io/Lakeside/</loc>
   </url>
   <url>
-    <loc>https://www.example.com/services/</loc>
+    <loc>https://gryszzz.github.io/Lakeside/services/</loc>
   </url>
   <url>
-    <loc>https://www.example.com/projects/</loc>
+    <loc>https://gryszzz.github.io/Lakeside/projects/</loc>
   </url>
   <url>
-    <loc>https://www.example.com/about/</loc>
+    <loc>https://gryszzz.github.io/Lakeside/about/</loc>
   </url>
   <url>
-    <loc>https://www.example.com/quote/</loc>
+    <loc>https://gryszzz.github.io/Lakeside/quote/</loc>
   </url>
   <url>
-    <loc>https://www.example.com/contact/</loc>
+    <loc>https://gryszzz.github.io/Lakeside/contact/</loc>
   </url>
 </urlset>

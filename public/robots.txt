@@ -1,5 +1,5 @@
-# Replace example.com with your real production domain before launch.
+# Update this domain when a custom production domain is connected.
 User-agent: *
 Allow: /
 
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://gryszzz.github.io/Lakeside/sitemap.xml
