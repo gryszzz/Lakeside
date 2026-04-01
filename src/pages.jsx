@@ -399,16 +399,7 @@ export function AboutPage() {
 
 export function QuotePage() {
   return (
-    <SiteShell
-      finalCtaProps={{
-        title: 'Ready for an estimate?',
-        body: 'Call or email today and we can help you understand fit, next steps, and timing.',
-        primaryLabel: 'Call Today',
-        primaryHref: business.phoneHref,
-        secondaryLabel: 'Email Us',
-        secondaryHref: business.emailHref
-      }}
-    >
+    <SiteShell showFinalCta={false}>
       <PageHero
         eyebrow="Request a Quote"
         title="Call or email for a remodeling estimate today."
