@@ -181,8 +181,8 @@ function QuickContactPanel() {
 
 function DirectEstimatePanel({
   eyebrow = 'Call Or Email',
-  title = 'The fastest way to get an estimate is a quick call or direct email.',
-  body = 'This page keeps the process simple. Reach out directly and we will help you figure out fit, timing, and the right next step.',
+  title = 'Call or email for a faster, clearer estimate conversation.',
+  body = 'Reach out directly and we will help you understand fit, timing, and the right next step for your project.',
   emailCopy = 'Email your project details, county or township, and current photos for review.',
   inHero = false,
   showActions = true
