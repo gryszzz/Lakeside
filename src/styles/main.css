@@ -1573,14 +1573,6 @@ label {
   background: var(--accent);
 }
 
-.estimate-panel__note {
-  margin-top: 0.9rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid rgba(148, 179, 255, 0.12);
-  color: var(--text-soft);
-  font-size: 0.86rem;
-}
-
 .quote-next-steps {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
 }

@@ -239,10 +239,6 @@ function DirectEstimatePanel({
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <p className="estimate-panel__note">
-          If you are calling from your phone, start with the room, your county or township, and what you want to
-          improve. We can guide the rest from there.
-        </p>
       </div>
       <div className="hero-actions estimate-panel__actions">
         <a className="button" href={business.phoneHref}>
