@@ -207,7 +207,7 @@ function DirectEstimatePanel({
   eyebrow = 'Call Or Email',
   title = 'The fastest way to get an estimate is a quick call or direct email.',
   body = 'This page keeps the process simple. Reach out directly and we will help you figure out fit, timing, and the right next step.',
-  emailCopy = 'If you email, include your address, project type, and a few photos of the current setup so we can understand the space faster.'
+  emailCopy = 'Email your project details, address, and current photos for review.'
 }) {
   return (
     <div className="lead-form estimate-panel" data-reveal>
@@ -222,7 +222,7 @@ function DirectEstimatePanel({
           <h3>
             <a href={business.phoneHref}>{business.phone}</a>
           </h3>
-          <p>Best when you want quick answers on fit, timing, and whether the project is the right match.</p>
+          <p>Call for estimate questions, availability, and next steps.</p>
         </article>
         <article className="estimate-contact-row estimate-contact-row--email">
           <p className="eyebrow">Email For An Estimate</p>
@@ -302,7 +302,7 @@ function ContactSection() {
           eyebrow="Direct Contact"
           title="Call or email the team directly."
           body="This business is handling estimate requests by phone and email, so the easiest next step is to reach out directly."
-          emailCopy="Email project notes, photos, or questions anytime and we will respond with the best next step."
+          emailCopy="Email your project details, photos, or questions and we will respond with next steps."
         />
       </div>
     </section>
