@@ -1496,6 +1496,44 @@ label {
   cursor: pointer;
 }
 
+.estimate-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.estimate-panel h2 {
+  margin-bottom: 0.85rem;
+}
+
+.estimate-contact-rows {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.estimate-contact-row {
+  padding: 1rem;
+  border: 1px solid rgba(148, 179, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.estimate-contact-row h3 {
+  margin: 0.2rem 0 0.45rem;
+}
+
+.estimate-contact-row h3 a {
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.estimate-contact-row h3 a:hover {
+  color: var(--warm);
+}
+
+.estimate-panel__actions {
+  margin-top: 0.1rem;
+}
+
 body[data-page='quote'] .page-hero {
   padding: 3.8rem 0 1.25rem;
 }

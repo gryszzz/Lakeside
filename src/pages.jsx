@@ -1,5 +1,5 @@
 import { business, faqs, heroTrustItems, homeQualityPoints, homeSpotlights, trustBadges } from './content/site';
-import { ContactForm, LeadSidebar, QuoteForm } from './components/Forms';
+import { LeadSidebar } from './components/Forms';
 import { FAQSection, PageHero, SiteShell } from './components/Layout';
 import {
   ContactInfoGrid,
@@ -165,8 +165,8 @@ function QuoteHeroCard() {
       <p className="eyebrow">Fast Trust Signals</p>
       <h3>Clear estimate process. Premium scope. Real communication.</h3>
       <p>
-        This page is built to convert on mobile while still feeling high-end. Homeowners can send a message, share
-        project details, and upload photos of the current space before launch.
+        This page is built to convert on mobile while still feeling high-end. Homeowners can call or email for an
+        estimate today, and email photos of the current space if that helps explain the project.
       </p>
     </div>
   );
@@ -184,12 +184,53 @@ function QuickContactPanel() {
   );
 }
 
+function DirectEstimatePanel({
+  eyebrow = 'Call Or Email',
+  title = 'The fastest way to get an estimate is a quick call or direct email.',
+  body = 'There is no long form to fill out here. Call during business hours or send an email anytime and we will help you with the next step.',
+  emailCopy = 'If you email, include your address, project type, and a few photos of the current setup so we can understand the space faster.'
+}) {
+  return (
+    <div className="lead-form estimate-panel" data-reveal>
+      <div>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
+        <p>{body}</p>
+      </div>
+      <div className="estimate-contact-rows">
+        <article className="estimate-contact-row">
+          <p className="eyebrow">Call For An Estimate</p>
+          <h3>
+            <a href={business.phoneHref}>{business.phone}</a>
+          </h3>
+          <p>Talk through your project, timing, and the right next step without filling out a long form.</p>
+        </article>
+        <article className="estimate-contact-row">
+          <p className="eyebrow">Email For An Estimate</p>
+          <h3>
+            <a href={business.emailHref}>{business.email}</a>
+          </h3>
+          <p>{emailCopy}</p>
+        </article>
+      </div>
+      <div className="hero-actions estimate-panel__actions">
+        <a className="button" href={business.phoneHref}>
+          Call {business.phone}
+        </a>
+        <a className="button button--ghost" href={business.emailHref}>
+          Email Us
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function QuoteSection() {
   return (
     <section className="section">
       <div className="container lead-layout">
         <LeadSidebar />
-        <QuoteForm />
+        <DirectEstimatePanel />
       </div>
     </section>
   );
@@ -203,7 +244,12 @@ function ContactSection() {
           <ContactInfoGrid />
           <ContactMapPlaceholder />
         </div>
-        <ContactForm />
+        <DirectEstimatePanel
+          eyebrow="Direct Contact"
+          title="Call or email the team directly."
+          body="This business is handling estimate requests by phone and email, so the easiest next step is to reach out directly."
+          emailCopy="Email project notes, photos, or questions anytime and we will respond with the best next step."
+        />
       </div>
     </section>
   );
@@ -330,25 +376,25 @@ export function QuotePage() {
   return (
     <SiteShell
       finalCtaProps={{
-        title: 'Prefer to talk first?',
-        body: 'Call or email and we can help you decide whether now is the right time to move forward.',
+        title: 'Ready for an estimate?',
+        body: 'Call or email today and we can help you understand fit, next steps, and timing.',
         primaryLabel: 'Call Today',
         primaryHref: business.phoneHref,
-        secondaryLabel: 'Contact Us',
-        secondaryHref: 'contact/'
+        secondaryLabel: 'Email Us',
+        secondaryHref: business.emailHref
       }}
     >
       <PageHero
         eyebrow="Request a Quote"
         title="Tell us about your project and we will help you map the next step"
-        body="Share the basics, upload photos of the current setup, and we will help you map the right next step. The form is static-host friendly and ready for Formspree or a similar endpoint."
+        body="For estimates, call or email today. If emailing, send a few photos of the current setup and a short note about the project so we can understand the space faster."
         actions={
           <>
             <a className="button" href={business.phoneHref}>
               Call {business.phone}
             </a>
-            <a className="button button--ghost" href={withBase('projects/')}>
-              View Projects
+            <a className="button button--ghost" href={business.emailHref}>
+              Email Us
             </a>
           </>
         }
@@ -366,14 +412,14 @@ export function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Reach out the way that feels easiest"
-        body="Call, send a note, or use the contact form. The site keeps the path simple because many leads will come from mobile."
+        body="Call or email, whichever feels easier. The contact path stays simple so homeowners can reach out quickly from mobile or desktop."
         actions={
           <>
             <a className="button" href={business.phoneHref}>
               Call Now
             </a>
-            <a className="button button--ghost" href={withBase('quote/')}>
-              Request a Quote
+            <a className="button button--ghost" href={business.emailHref}>
+              Email Us
             </a>
           </>
         }

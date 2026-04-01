@@ -387,8 +387,8 @@ export const values = [
 ];
 
 export const quoteSidebarPoints = [
-  'Free estimate and project-fit conversation',
-  'Upload current-space photos to speed up scoping',
-  'Premium remodeling and renovation focus',
+  'Call today for a quick estimate conversation',
+  'Email photos and a short project summary anytime',
+  'Clear next steps after first contact',
   'Friendly homeowner communication from day one'
 ];
