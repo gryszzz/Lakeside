@@ -706,6 +706,7 @@ label {
 .hero__visual {
   position: relative;
   display: grid;
+  align-content: start;
   gap: 0.75rem;
 }
 
@@ -785,6 +786,7 @@ label {
 .hero__visual-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  align-items: start;
   gap: 0.8rem;
 }
 
@@ -957,6 +959,7 @@ label {
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  align-items: start;
   gap: 0.85rem;
 }
 
@@ -975,6 +978,7 @@ label {
 }
 
 .service-grid {
+  align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
 }
 
@@ -1054,16 +1058,20 @@ label {
 .before-after-showcase {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: start;
   gap: 0.85rem;
 }
 
 .before-after-showcase__stack {
   display: grid;
+  align-items: start;
   gap: 0.85rem;
 }
 
 .before-after {
   position: relative;
+  display: grid;
+  align-content: start;
 }
 
 .before-after__frame {
@@ -1124,6 +1132,9 @@ label {
 }
 
 .before-after__content {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
   padding: 1.15rem;
 }
 
@@ -1135,10 +1146,12 @@ label {
 .testimonial-grid,
 .project-grid,
 .contact-card-grid {
+  align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
 }
 
 .process-grid {
+  align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
 }
 
@@ -1180,6 +1193,8 @@ label {
 
 .project-card {
   position: relative;
+  display: grid;
+  align-content: start;
 }
 
 .project-card__media {
@@ -1198,6 +1213,9 @@ label {
 }
 
 .project-card__body {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
   padding: 1.1rem;
 }
 

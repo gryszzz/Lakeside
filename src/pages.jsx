@@ -214,8 +214,8 @@ export function HomePage() {
     <SiteShell>
       <HomeHero />
       <HomeOverviewSection />
-      <ServiceCards />
       <BeforeAfterShowcase />
+      <ServiceCards />
       <ProjectPreview />
       <WhyChooseUs />
       <ProcessSteps />
