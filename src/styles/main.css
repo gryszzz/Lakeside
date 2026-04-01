@@ -1533,31 +1533,6 @@ label {
   margin: 0.2rem 0 0.45rem;
 }
 
-.estimate-contact-row__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.estimate-contact-row__top .eyebrow {
-  margin: 0;
-}
-
-.estimate-contact-row__tag {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2rem;
-  padding: 0.38rem 0.7rem;
-  border: 1px solid rgba(148, 179, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--warm);
-  font-size: 0.72rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
 .estimate-panel--hero .estimate-panel__actions {
   display: grid;
   gap: 0.7rem;
