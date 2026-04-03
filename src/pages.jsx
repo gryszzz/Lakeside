@@ -78,10 +78,6 @@ function HomeHero() {
             {homeSpotlights.map((item) => (
               <article key={item.title} className="hero__image-card hero__image-card--tile">
                 <img src={withBase(item.image)} alt={item.alt} />
-                <div className="hero__tile-copy">
-                  <p>{item.label}</p>
-                  <strong>{item.title}</strong>
-                </div>
               </article>
             ))}
           </div>
