@@ -89,6 +89,9 @@ body.menu-open {
 .site-background__trace,
 .site-background__beam,
 .site-background__facet,
+.site-background__halo,
+.site-background__shadow,
+.site-background__slab,
 .site-background__plan {
   position: absolute;
 }
@@ -231,6 +234,134 @@ body.menu-open {
     translate3d(calc(var(--ambient-shift-x) * 0.22), calc(var(--ambient-shift-y) * -0.16), 0);
 }
 
+.site-background__halo,
+.site-background__shadow,
+.site-background__slab {
+  border-radius: 30px;
+  pointer-events: none;
+}
+
+.site-background__halo {
+  opacity: 0.34;
+  filter: blur(20px);
+  mix-blend-mode: screen;
+}
+
+.site-background__halo--kitchen {
+  top: 10%;
+  right: -7%;
+  width: min(42vw, 35rem);
+  height: min(31vw, 26rem);
+  background:
+    radial-gradient(circle at 34% 28%, rgba(153, 196, 255, 0.28), transparent 28%),
+    radial-gradient(circle at 68% 62%, rgba(79, 130, 255, 0.22), transparent 42%);
+  transform:
+    perspective(1300px)
+    rotateY(-16deg)
+    rotateX(15deg)
+    translate3d(calc(var(--ambient-shift-x) * 0.4 + 8px), calc(var(--ambient-shift-y) * 0.28 - 8px), 0);
+}
+
+.site-background__halo--bath {
+  left: -7%;
+  bottom: 8%;
+  width: min(34vw, 27rem);
+  height: min(26vw, 20rem);
+  background:
+    radial-gradient(circle at 66% 30%, rgba(150, 196, 255, 0.24), transparent 30%),
+    radial-gradient(circle at 34% 70%, rgba(79, 130, 255, 0.2), transparent 40%);
+  transform:
+    perspective(1180px)
+    rotateY(16deg)
+    rotateX(14deg)
+    translate3d(calc(var(--ambient-shift-x) * -0.36 - 6px), calc(var(--ambient-shift-y) * -0.24 + 8px), 0);
+}
+
+.site-background__shadow {
+  opacity: 0.28;
+  filter: blur(18px);
+  background: radial-gradient(circle at center, rgba(1, 6, 16, 0.7), transparent 70%);
+}
+
+.site-background__shadow--kitchen {
+  top: 17%;
+  right: -2%;
+  width: min(39vw, 32rem);
+  height: min(12vw, 9rem);
+  transform:
+    perspective(1200px)
+    rotateX(76deg)
+    rotateZ(-9deg)
+    translate3d(calc(var(--ambient-shift-x) * 0.32 + 18px), calc(var(--ambient-shift-y) * 0.22 + 22px), 0);
+}
+
+.site-background__shadow--bath {
+  left: 0%;
+  bottom: 9%;
+  width: min(31vw, 24rem);
+  height: min(10vw, 7rem);
+  transform:
+    perspective(1120px)
+    rotateX(76deg)
+    rotateZ(10deg)
+    translate3d(calc(var(--ambient-shift-x) * -0.28 - 12px), calc(var(--ambient-shift-y) * -0.18 + 16px), 0);
+}
+
+.site-background__slab {
+  overflow: hidden;
+  border: 1px solid rgba(148, 179, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(31, 52, 89, 0.28), rgba(8, 15, 27, 0.14) 46%, rgba(5, 10, 18, 0.08)),
+    linear-gradient(135deg, rgba(153, 196, 255, 0.08), transparent 52%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 24px 44px rgba(1, 7, 18, 0.18);
+  opacity: 0.4;
+}
+
+.site-background__slab::before,
+.site-background__slab::after {
+  content: '';
+  position: absolute;
+}
+
+.site-background__slab::before {
+  inset: 10px;
+  border: 1px solid rgba(148, 179, 255, 0.08);
+  border-radius: 22px;
+}
+
+.site-background__slab::after {
+  inset: auto 0 0;
+  height: 18%;
+  background: linear-gradient(180deg, transparent, rgba(140, 181, 255, 0.1));
+  opacity: 0.8;
+}
+
+.site-background__slab--kitchen {
+  top: 11%;
+  right: -4%;
+  width: min(37vw, 31rem);
+  height: min(29vw, 24rem);
+  transform:
+    perspective(1200px)
+    rotateY(-16deg)
+    rotateX(15deg)
+    translate3d(calc(var(--ambient-shift-x) * 0.36 + 18px), calc(var(--ambient-shift-y) * 0.26 + 14px), 0);
+}
+
+.site-background__slab--bath {
+  left: -4%;
+  bottom: 10%;
+  width: min(30vw, 24rem);
+  height: min(23vw, 18rem);
+  transform:
+    perspective(1100px)
+    rotateY(16deg)
+    rotateX(14deg)
+    translate3d(calc(var(--ambient-shift-x) * -0.34 - 16px), calc(var(--ambient-shift-y) * -0.24 + 12px), 0);
+}
+
 .site-background__plan {
   overflow: hidden;
   border: 1px solid rgba(148, 179, 255, 0.18);
@@ -240,14 +371,16 @@ body.menu-open {
     rgba(8, 15, 27, 0.14);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-    0 28px 60px rgba(1, 7, 18, 0.12);
-  opacity: 0.45;
+    0 36px 72px rgba(1, 7, 18, 0.2);
+  filter: drop-shadow(0 10px 18px rgba(140, 181, 255, 0.06));
+  opacity: 0.52;
 }
 
 .site-background__plan::before,
 .site-background__plan::after {
   content: '';
   position: absolute;
+  z-index: 0;
 }
 
 .site-background__plan::before {
@@ -3564,20 +3697,53 @@ body[data-page='projects'] .testimonial-grid--compact {
     opacity: 0.14;
   }
 
-  .site-background__plan {
-    opacity: 0.38;
+  .site-background__halo {
+    opacity: 0.24;
   }
 
+  .site-background__shadow,
+  .site-background__slab {
+    opacity: 0.26;
+  }
+
+  .site-background__plan {
+    opacity: 0.42;
+  }
+
+  .site-background__halo--kitchen {
+    right: -13%;
+    width: min(46vw, 32rem);
+    height: min(34vw, 24rem);
+  }
+
+  .site-background__slab--kitchen,
   .site-background__plan--kitchen {
     right: -10%;
     width: min(42vw, 29rem);
     height: min(31vw, 22rem);
   }
 
+  .site-background__shadow--kitchen {
+    right: -8%;
+    width: min(43vw, 30rem);
+  }
+
+  .site-background__halo--bath {
+    left: -13%;
+    width: min(38vw, 24rem);
+    height: min(29vw, 18rem);
+  }
+
+  .site-background__slab--bath,
   .site-background__plan--bath {
     left: -10%;
     width: min(34vw, 22rem);
     height: min(25vw, 16rem);
+  }
+
+  .site-background__shadow--bath {
+    left: -6%;
+    width: min(35vw, 22rem);
   }
 }
 
@@ -3592,10 +3758,27 @@ body[data-page='projects'] .testimonial-grid--compact {
     opacity: 0.12;
   }
 
-  .site-background__plan {
-    opacity: 0.3;
+  .site-background__halo {
+    opacity: 0.18;
   }
 
+  .site-background__shadow,
+  .site-background__slab {
+    opacity: 0.2;
+  }
+
+  .site-background__plan {
+    opacity: 0.34;
+  }
+
+  .site-background__halo--kitchen {
+    top: 8%;
+    right: -22%;
+    width: 29rem;
+    height: 20rem;
+  }
+
+  .site-background__slab--kitchen,
   .site-background__plan--kitchen {
     top: 9%;
     right: -18%;
@@ -3603,11 +3786,33 @@ body[data-page='projects'] .testimonial-grid--compact {
     height: 18rem;
   }
 
+  .site-background__shadow--kitchen {
+    top: 16%;
+    right: -14%;
+    width: 27rem;
+    height: 7rem;
+  }
+
+  .site-background__halo--bath {
+    left: -20%;
+    bottom: 7%;
+    width: 22rem;
+    height: 16rem;
+  }
+
+  .site-background__slab--bath,
   .site-background__plan--bath {
     left: -16%;
     bottom: 9%;
     width: 19rem;
     height: 14rem;
+  }
+
+  .site-background__shadow--bath {
+    left: -10%;
+    bottom: 8%;
+    width: 20rem;
+    height: 5.4rem;
   }
 
   .before-after-showcase,
@@ -3672,15 +3877,25 @@ body[data-page='projects'] .testimonial-grid--compact {
     display: none;
   }
 
+  .site-background__halo {
+    display: none;
+  }
+
   .site-background__beam--bottom,
   .site-background__facet--right {
     display: none;
+  }
+
+  .site-background__shadow,
+  .site-background__slab {
+    opacity: 0.14;
   }
 
   .site-background__plan {
     opacity: 0.2;
   }
 
+  .site-background__slab--kitchen,
   .site-background__plan--kitchen {
     top: 8%;
     right: -34%;
@@ -3688,11 +3903,26 @@ body[data-page='projects'] .testimonial-grid--compact {
     height: 14rem;
   }
 
+  .site-background__shadow--kitchen {
+    top: 14%;
+    right: -26%;
+    width: 21rem;
+    height: 5.4rem;
+  }
+
+  .site-background__slab--bath,
   .site-background__plan--bath {
     left: -26%;
     bottom: 12%;
     width: 15rem;
     height: 11rem;
+  }
+
+  .site-background__shadow--bath {
+    left: -18%;
+    bottom: 10%;
+    width: 15rem;
+    height: 4.4rem;
   }
 
   body {
@@ -4100,7 +4330,9 @@ body[data-page='projects'] .testimonial-grid--compact {
 
 @media (max-width: 480px) {
   .site-background__beam,
-  .site-background__facet {
+  .site-background__facet,
+  .site-background__shadow,
+  .site-background__slab {
     display: none;
   }
 
@@ -4329,6 +4561,9 @@ body[data-page='projects'] .testimonial-grid--compact {
   .site-background__trace,
   .site-background__beam,
   .site-background__facet,
+  .site-background__halo,
+  .site-background__shadow,
+  .site-background__slab,
   .site-background__plan {
     transform: none !important;
   }

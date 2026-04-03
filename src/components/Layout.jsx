@@ -35,6 +35,9 @@ function SiteBackground() {
       <div className="site-background__beam site-background__beam--bottom" />
       <div className="site-background__facet site-background__facet--left" />
       <div className="site-background__facet site-background__facet--right" />
+      <div className="site-background__halo site-background__halo--kitchen" />
+      <div className="site-background__shadow site-background__shadow--kitchen" />
+      <div className="site-background__slab site-background__slab--kitchen" />
 
       <div className="site-background__plan site-background__plan--kitchen">
         <span className="site-background__plan-tag" />
@@ -54,6 +57,9 @@ function SiteBackground() {
         <span className="site-background__marker site-background__marker--kitchen-b" />
       </div>
 
+      <div className="site-background__halo site-background__halo--bath" />
+      <div className="site-background__shadow site-background__shadow--bath" />
+      <div className="site-background__slab site-background__slab--bath" />
       <div className="site-background__plan site-background__plan--bath">
         <span className="site-background__plan-tag" />
         <span className="site-background__line site-background__fixture site-background__fixture--shower" />
