@@ -78,13 +78,6 @@ export const heroTrustItems = [
 
 export const homeSpotlights = [
   {
-    title: 'Custom Kitchen Remodel',
-    detail: 'Cabinetry, lighting, and layout decisions planned around the way the room gets used every day.',
-    image: 'images/projects/kitchen-after.svg',
-    alt: 'Custom kitchen remodel with refined cabinetry and layered lighting',
-    label: 'Featured Kitchen'
-  },
-  {
     title: 'Tile & Finish Direction',
     detail: 'Stone, tile, metal, and fixture selections that keep the final space cohesive and elevated.',
     image: 'images/projects/home-materials.svg',
@@ -97,6 +90,30 @@ export const homeSpotlights = [
     image: 'images/projects/home-consultation.svg',
     alt: 'Kitchen and bathroom remodeling consultation and planning session',
     label: 'Project Planning'
+  }
+];
+
+export const homeHeroSlides = [
+  {
+    title: 'Custom Kitchen Remodel',
+    detail: 'Cabinetry, lighting, and layout decisions planned around the way the room gets used every day.',
+    image: 'images/projects/kitchen-after.svg',
+    alt: 'Custom kitchen remodel with refined cabinetry and layered lighting',
+    label: 'Featured Kitchen'
+  },
+  {
+    title: 'Primary Bathroom Renovation',
+    detail: 'A brighter bathroom direction with cleaner tile lines, stronger materials, and a more finished daily feel.',
+    image: 'images/projects/bathroom-after.svg',
+    alt: 'Primary bathroom renovation with refined tile and vanity finishes',
+    label: 'Featured Bathroom'
+  },
+  {
+    title: 'Remodel Design Direction',
+    detail: 'Layouts, finishes, and project planning aligned before the work begins.',
+    image: 'images/projects/home-renovation.svg',
+    alt: 'Kitchen and bathroom remodel planning and design direction',
+    label: 'Design Direction'
   }
 ];
 

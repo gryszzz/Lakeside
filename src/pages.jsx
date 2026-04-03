@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import {
   business,
   estimateChecklist,
   homeConversionCards,
+  homeHeroSlides,
   heroTrustItems,
   homeSpotlights
 } from './content/site';
@@ -20,6 +22,13 @@ import { beforeAfterProjects } from './content/site';
 import { withBase } from './utils';
 
 function HomeHero() {
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+  const currentHeroSlide = homeHeroSlides[activeHeroSlide];
+
+  const showNextHeroSlide = () => {
+    setActiveHeroSlide((current) => (current + 1) % homeHeroSlides.length);
+  };
+
   return (
     <section className="hero">
       <div className="container hero__grid">
@@ -47,15 +56,26 @@ function HomeHero() {
           </div>
         </div>
         <div className="hero__visual" data-reveal>
-          <div className="hero__image-card hero__image-card--main">
-            <img src={withBase(homeSpotlights[0].image)} alt={homeSpotlights[0].alt} />
+          <button
+            type="button"
+            className="hero__image-card hero__image-card--main hero__image-card-button"
+            onClick={showNextHeroSlide}
+            aria-label={`Show next featured image. Currently showing ${currentHeroSlide.title}.`}
+          >
+            <img src={withBase(currentHeroSlide.image)} alt={currentHeroSlide.alt} />
             <div className="hero__image-overlay">
-              <p>{homeSpotlights[0].label}</p>
-              <strong>{homeSpotlights[0].title}</strong>
+              <p>{currentHeroSlide.label}</p>
+              <strong>{currentHeroSlide.title}</strong>
+              <span className="hero__image-hint">Click to view next</span>
             </div>
-          </div>
+            <div className="hero__image-progress" aria-hidden="true">
+              {homeHeroSlides.map((item, index) => (
+                <span key={item.title} className={index === activeHeroSlide ? 'is-active' : ''} />
+              ))}
+            </div>
+          </button>
           <div className="hero__visual-grid">
-            {homeSpotlights.slice(1).map((item) => (
+            {homeSpotlights.map((item) => (
               <article key={item.title} className="hero__image-card hero__image-card--tile">
                 <img src={withBase(item.image)} alt={item.alt} />
                 <div className="hero__tile-copy">

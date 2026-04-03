@@ -803,6 +803,18 @@ label {
   position: relative;
 }
 
+.hero__image-card-button {
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.hero__image-card-button:hover {
+  transform: translateY(-2px);
+}
+
 .hero__image-overlay {
   right: 1rem;
   bottom: 1rem;
@@ -816,6 +828,42 @@ label {
 .hero__image-overlay p {
   color: var(--warm-soft);
   font-size: 0.69rem;
+}
+
+.hero__image-hint {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 0.52rem;
+  padding: 0.34rem 0.58rem;
+  border: 1px solid rgba(148, 179, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(140, 181, 255, 0.1);
+  color: var(--heading);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.hero__image-progress {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.hero__image-progress span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 0 1px rgba(148, 179, 255, 0.18);
+}
+
+.hero__image-progress span.is-active {
+  width: 1.35rem;
+  background: linear-gradient(90deg, var(--accent-strong), var(--accent));
 }
 
 .hero__image-card--tile {
