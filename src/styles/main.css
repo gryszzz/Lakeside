@@ -1826,9 +1826,36 @@ label {
   z-index: 1;
   display: grid;
   align-content: start;
-  gap: 0.22rem;
+  gap: 0.34rem;
   min-width: 0;
   padding-top: 0.12rem;
+}
+
+.hero-trust-card__line {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.44rem;
+  min-width: 0;
+}
+
+.hero-trust-card__bullet {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: rgba(164, 195, 255, 0.9);
+  box-shadow:
+    0 0 0 0.18rem rgba(140, 181, 255, 0.08),
+    0 0 0.7rem rgba(120, 176, 255, 0.28),
+    0 0 1.25rem rgba(120, 176, 255, 0.18);
+}
+
+.hero-trust-card__bullet--strong {
+  background: rgba(216, 232, 255, 0.96);
+  box-shadow:
+    0 0 0 0.18rem rgba(140, 181, 255, 0.1),
+    0 0 0.9rem rgba(140, 181, 255, 0.32),
+    0 0 1.5rem rgba(140, 181, 255, 0.2);
 }
 
 .hero__visual {

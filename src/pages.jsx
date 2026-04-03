@@ -46,8 +46,14 @@ function HomeHero() {
             {heroTrustItems.map((item) => (
               <article key={item.title} className="hero-trust-card">
                 <div className="hero-trust-card__body">
-                  <span className="hero-trust-card__eyebrow">{item.detail}</span>
-                  <strong>{item.title}</strong>
+                  <div className="hero-trust-card__line hero-trust-card__line--detail">
+                    <span className="hero-trust-card__bullet" aria-hidden="true" />
+                    <span className="hero-trust-card__eyebrow">{item.detail}</span>
+                  </div>
+                  <div className="hero-trust-card__line hero-trust-card__line--title">
+                    <span className="hero-trust-card__bullet hero-trust-card__bullet--strong" aria-hidden="true" />
+                    <strong>{item.title}</strong>
+                  </div>
                 </div>
               </article>
             ))}
