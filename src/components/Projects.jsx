@@ -26,7 +26,6 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
   const isZoomed = zoom > 1.01;
   const hasPrev = activeIndex > 0;
   const hasNext = activeIndex < projects.length - 1;
-  const zoomLabel = `${Math.round(zoom * 100)}%`;
 
   useEffect(() => {
     zoomRef.current = zoom;
@@ -269,36 +268,6 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
               Next
             </button>
           ) : null}
-
-          <div className="lightbox__tools" aria-label="Image controls">
-            <button
-              type="button"
-              className="lightbox__tool-button"
-              onClick={() => applyZoom(zoomRef.current - LIGHTBOX_ZOOM_STEP)}
-              aria-label="Zoom out"
-            >
-              -
-            </button>
-            <div className="lightbox__zoom-readout" aria-live="polite">
-              {zoomLabel}
-            </div>
-            <button
-              type="button"
-              className="lightbox__tool-button"
-              onClick={() => applyZoom(zoomRef.current + LIGHTBOX_ZOOM_STEP)}
-              aria-label="Zoom in"
-            >
-              +
-            </button>
-            <button
-              type="button"
-              className="lightbox__tool-button lightbox__tool-button--reset"
-              onClick={resetView}
-              aria-label="Reset image position"
-            >
-              Fit
-            </button>
-          </div>
 
           <div
             ref={viewportRef}
