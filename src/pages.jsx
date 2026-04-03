@@ -272,13 +272,6 @@ export function AboutPage() {
         eyebrow="About"
         title="A specialist remodeling company should feel steady, skilled, and easy to trust"
         body="Homeowners investing in kitchens and bathrooms want clear guidance, strong craftsmanship, and a team that respects both the design and the construction details."
-        actions={
-          <>
-            <a className="button" href={withBase('quote/')}>
-              Request Estimate
-            </a>
-          </>
-        }
         aside={
           <div className="about-metric-card">
             <p className="eyebrow">What Homeowners Want</p>
