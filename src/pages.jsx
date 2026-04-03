@@ -178,10 +178,19 @@ function QuickContactPanel() {
   return (
     <div className="about-metric-card">
       <p className="eyebrow">Direct Contact</p>
-      <h3>{business.phone}</h3>
-      <p>{business.email}</p>
-      <p>{business.hours}</p>
-      <p>{business.serviceAreaLabel}</p>
+      <h3>Call or email for your kitchen or bathroom project.</h3>
+      <div className="quick-contact-panel__actions">
+        <a className="button" href={business.phoneHref}>
+          Call {business.phone}
+        </a>
+        <a className="button button--ghost" href={business.emailHref}>
+          Email {business.email}
+        </a>
+      </div>
+      <div className="quick-contact-panel__meta">
+        <p>{business.hours}</p>
+        <p>{business.serviceAreaLabel}</p>
+      </div>
     </div>
   );
 }
@@ -378,16 +387,6 @@ export function ContactPage() {
         eyebrow="Contact"
         title="Reach out about your kitchen or bathroom project"
         body="Call or email, whichever feels easier. The contact path stays direct so homeowners can get answers quickly from mobile or desktop."
-        actions={
-          <>
-            <a className="button" href={business.phoneHref}>
-              Call Now
-            </a>
-            <a className="button button--ghost" href={business.emailHref}>
-              Email Us
-            </a>
-          </>
-        }
         aside={<QuickContactPanel />}
       />
     </SiteShell>

@@ -1487,6 +1487,27 @@ label {
   margin-bottom: 0.8rem;
 }
 
+.quick-contact-panel__actions {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.3rem 0 0.45rem;
+}
+
+.quick-contact-panel__actions .button,
+.quick-contact-panel__actions .button--ghost {
+  width: 100%;
+  justify-content: center;
+}
+
+.quick-contact-panel__meta {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.quick-contact-panel__meta p {
+  margin: 0;
+}
+
 .story-card {
   display: grid;
 }
