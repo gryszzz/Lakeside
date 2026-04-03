@@ -5,9 +5,9 @@ import { isActivePath, useRevealAnimations, withBase } from '../utils';
 const navItems = [
   { label: 'Home', href: '' },
   { label: 'Services', href: 'services/' },
-  { label: 'Projects', href: 'projects/' },
+  { label: 'Portfolio', href: 'projects/' },
   { label: 'About', href: 'about/' },
-  { label: 'Quote', href: 'quote/' },
+  { label: 'Estimate', href: 'quote/' },
   { label: 'Contact', href: 'contact/' }
 ];
 
@@ -73,7 +73,7 @@ export function Header() {
               {business.phone}
             </a>
             <a className="button" href={withBase('quote/')}>
-              Request a Quote
+              Request Estimate
             </a>
             <button
               className="menu-toggle"
@@ -109,7 +109,7 @@ export function Header() {
           </nav>
           <div className="mobile-nav__cta">
             <a className="button" href={withBase('quote/')} onClick={() => setOpen(false)}>
-              Get Free Estimate
+              Request Estimate
             </a>
             <a className="button button--ghost" href={business.phoneHref}>
               Call {business.phone}
@@ -159,9 +159,8 @@ export function Footer() {
           <ul className="footer-list">
             <li>Bathroom Remodeling</li>
             <li>Kitchen Remodeling</li>
-            <li>Deck Building & Remodeling</li>
-            <li>Window Installation</li>
-            <li>General Home Improvements</li>
+            <li>Tile & Shower Work</li>
+            <li>Vanities, Flooring & Finish Updates</li>
           </ul>
         </div>
         <div>
@@ -189,7 +188,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container site-footer__bottom">
-        <p>Replace business details, social links, service areas, and testimonials in `src/content/site.js`.</p>
+        <p>Premium kitchen and bathroom remodeling with clean communication and finish-driven execution.</p>
         <p>{business.legalName}</p>
       </div>
     </footer>
@@ -200,10 +199,10 @@ export function MobileStickyCTA() {
   return (
     <div className="mobile-sticky-cta">
       <a className="mobile-sticky-cta__link" href={business.phoneHref}>
-        Call Now
+        Call
       </a>
       <a className="mobile-sticky-cta__link mobile-sticky-cta__link--primary" href={withBase('quote/')}>
-        Get Estimate
+        Estimate
       </a>
     </div>
   );
@@ -228,9 +227,9 @@ export function PageHero({ eyebrow, title, body, actions, aside }) {
 }
 
 export function FinalCta({
-  title = 'Start the conversation with a team that treats quality seriously.',
-  body = 'Tell us about your project and we will help you understand fit, scope, and next steps.',
-  primaryLabel = 'Request a Quote',
+  title = 'Start the conversation with a team that treats kitchen and bathroom work seriously.',
+  body = 'Tell us about the room you want to improve and we will help you understand fit, scope, and next steps.',
+  primaryLabel = 'Request Estimate',
   primaryHref = 'quote/',
   secondaryLabel = 'Call Today',
   secondaryHref = business.phoneHref

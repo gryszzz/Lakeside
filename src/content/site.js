@@ -7,7 +7,7 @@
 // - image paths in featuredProjects and beforeAfterProjects
 export const business = {
   name: 'Lakeside Design + Build',
-  tagline: 'Beautiful Remodels. Built Right.',
+  tagline: 'Kitchen & Bath Specialists',
   legalName: 'Lakeside Design + Build LLC',
   phone: '(555) 214-8902',
   phoneHref: 'tel:+15552148902',
@@ -40,7 +40,7 @@ export const business = {
   ],
   socialImage: 'images/branding/og-cover.svg',
   footerNote:
-    'Luxury-focused remodeling, renovation, and exterior improvement work with craftsmanship, communication, and clean execution at every phase.'
+    'Premium kitchen and bathroom remodeling with thoughtful planning, clean execution, and finish work that feels considered in every detail.'
 };
 
 export const forms = {
@@ -51,7 +51,7 @@ export const forms = {
 };
 
 export const stats = [
-  { value: '300+', label: 'Projects completed' },
+  { value: '300+', label: 'Kitchen & bath projects' },
   { value: '15+', label: 'Years in remodeling' },
   { value: '4.9', label: 'Average homeowner rating' },
   { value: '1', label: 'Single point of contact' }
@@ -64,69 +64,69 @@ export const heroTrustItems = [
   },
   {
     title: 'Licensed',
-    detail: 'Fully insured local contractor'
+    detail: 'Insured remodeling specialists'
   },
   {
     title: 'Detailed scopes',
-    detail: 'Clear pricing and planning'
+    detail: 'Clear pricing, selections, and planning'
   }
 ];
 
 export const homeSpotlights = [
   {
-    title: 'Exterior Arrival',
-    detail: 'A polished first impression starts before the homeowner ever walks inside.',
-    image: 'images/projects/home-exterior.svg',
-    alt: 'Placeholder exterior project photo for contractor website hero',
-    label: 'Featured Home'
+    title: 'Custom Kitchen Remodel',
+    detail: 'Cabinetry, lighting, and layout decisions planned around the way the room gets used every day.',
+    image: 'images/projects/kitchen-after.svg',
+    alt: 'Custom kitchen remodel with refined cabinetry and layered lighting',
+    label: 'Featured Kitchen'
   },
   {
-    title: 'Design Walkthrough',
-    detail: 'Placeholder planning image for consultations, layout conversations, and finish review.',
-    image: 'images/projects/home-consultation.svg',
-    alt: 'Placeholder design consultation photo for contractor website',
-    label: 'Project Planning'
-  },
-  {
-    title: 'Materials & Finishes',
-    detail: 'Selections, samples, and specification details that make the final result feel considered.',
+    title: 'Tile & Finish Direction',
+    detail: 'Stone, tile, metal, and fixture selections that keep the final space cohesive and elevated.',
     image: 'images/projects/home-materials.svg',
-    alt: 'Placeholder materials and finish board image for contractor website',
+    alt: 'Tile and finish selection board for a premium kitchen or bathroom remodel',
     label: 'Selections'
+  },
+  {
+    title: 'Bathroom Planning Review',
+    detail: 'Thoughtful walkthroughs for showers, vanities, storage, and the details that shape the finished result.',
+    image: 'images/projects/home-consultation.svg',
+    alt: 'Kitchen and bathroom remodeling consultation and planning session',
+    label: 'Project Planning'
   }
 ];
 
 export const homeQualityPoints = [
-  'Premium remodeling for kitchens, bathrooms, decks, windows, and selective whole-home improvements.',
-  'A calmer homeowner experience with cleaner communication, sharper finish standards, and tighter project organization.',
-  'Built to attract quote requests from people who care about quality, not bargain-basement pricing.'
+  'Custom kitchens and bathrooms built around layout, storage, material quality, and how the space is actually used.',
+  'Specialist craftsmanship in tile, showers, vanities, flooring, fixtures, and the finish details that have to hold up.',
+  'A cleaner homeowner experience with better planning, steadier communication, and disciplined remodel execution.'
 ];
 
 export const trustBadges = [
-  'Licensed & insured professionals',
-  'Detailed proposals with clear scopes',
+  'Licensed & insured remodeling specialists',
+  'Detailed proposals and finish planning',
   'Respectful crews and clean jobsites',
-  'Premium materials and finish quality'
+  'Tile, cabinetry, and waterproofing done right'
 ];
 
 export const services = [
   {
     slug: 'bathroom-remodeling',
     title: 'Bathroom Remodeling',
-    short: 'Spa-quality bathrooms with smarter layouts, better finishes, and cleaner everyday function.',
+    short: 'Bathroom renovations with stronger layouts, cleaner tile work, reliable waterproofing, and a more polished daily feel.',
     homeownerBenefits: [
       'Improve comfort, storage, and resale appeal',
-      'Upgrade dated finishes and worn fixtures',
-      'Create a calmer, more polished daily routine'
+      'Replace dated finishes, worn fixtures, and inefficient layouts',
+      'Create a calmer space that feels easier to use every day'
     ],
     examples: ['Full primary bath renovations', 'Guest bath updates', 'Tub-to-shower conversions'],
     value:
-      'A well-built bathroom remodel adds both everyday comfort and long-term home value when waterproofing, layout, and finish quality are done right.'
+      'A premium bath remodel solves the details that matter most: waterproofing, tile alignment, vanity function, lighting, storage, and the feel of the room once you live in it.'
   },
   {
     slug: 'kitchen-remodeling',
     title: 'Kitchen Remodeling',
-    short: 'High-function kitchens designed for gathering, cooking, storage, and visual impact.',
+    short: 'Custom kitchen remodels built for better flow, stronger storage, and a finished look that lifts the whole home.',
     homeownerBenefits: [
       'Better flow for busy family routines',
       'More usable storage and countertop space',
@@ -134,88 +134,75 @@ export const services = [
     ],
     examples: ['Full kitchen renovations', 'Layout reconfiguration', 'Cabinet, countertop, and lighting upgrades'],
     value:
-      'Kitchen projects deliver one of the strongest quality-of-life returns in the home when design, construction, and finish selections are handled together.'
+      'The kitchen is one of the hardest-working rooms in the house. Thoughtful planning and precise finish work make the investment feel justified every single day.'
   },
   {
-    slug: 'decks',
-    title: 'Deck Building & Remodeling',
-    short: 'Custom outdoor spaces that feel architected, durable, and built for real use.',
+    slug: 'tile-and-shower-work',
+    title: 'Tile & Shower Work',
+    short: 'Walk-in showers, tile surrounds, and waterproof assemblies that look refined and perform the way they should.',
     homeownerBenefits: [
-      'Expand living space outdoors',
-      'Replace unsafe or aging deck structures',
-      'Add entertaining value and curb appeal'
+      'Replace dated tubs or tired shower enclosures',
+      'Create durable surfaces that are easier to clean and maintain',
+      'Upgrade comfort with better layout, storage, and lighting details'
     ],
-    examples: ['New deck builds', 'Deck resurfacing', 'Stairs, railings, and covered deck updates'],
+    examples: ['Custom shower builds', 'Tile walls and bathroom floors', 'Glass, niche, and waterproofing details'],
     value:
-      'A properly built deck creates a strong visual upgrade outside while adding functional square footage your household can use for years.'
+      'Tile and shower work demand precision. Good waterproofing, layout planning, and finish alignment separate a premium result from one that only looks good at first glance.'
   },
   {
-    slug: 'window-installation',
-    title: 'Window Installation',
-    short: 'Tighter, cleaner, more efficient window upgrades with a finish that feels intentional.',
+    slug: 'vanities-flooring-and-finishes',
+    title: 'Vanities, Flooring & Finish Updates',
+    short: 'Targeted upgrades for vanities, fixtures, flooring, and finish details that make kitchens and bathrooms feel complete.',
     homeownerBenefits: [
-      'Reduce drafts and energy waste',
-      'Improve light and curb appeal',
-      'Upgrade tired trim and aging frames'
+      'Refresh the room without always needing a full gut remodel',
+      'Improve storage, function, and everyday usability',
+      'Modernize finishes with a more cohesive, higher-end look'
     ],
-    examples: ['Full-home window replacement', 'Feature window upgrades', 'Trim and flashing improvements'],
+    examples: ['Vanity replacements', 'Bathroom and kitchen flooring updates', 'Fixture, hardware, and trim refreshes'],
     value:
-      'Window installation is one of the fastest ways to sharpen the home’s look while improving efficiency, comfort, and envelope performance.'
-  },
-  {
-    slug: 'general-contracting',
-    title: 'General Home Improvements',
-    short: 'Thoughtful renovation work for the spaces, details, and updates that make a home feel finished.',
-    homeownerBenefits: [
-      'Tackle multiple priorities with one organized team',
-      'Improve everyday function room by room',
-      'Protect and modernize the home over time'
-    ],
-    examples: ['Interior finish updates', 'Structural and framing improvements', 'Whole-home renovation phases'],
-    value:
-      'General contracting support keeps projects coordinated, decisions cleaner, and workmanship consistent across every part of the job.'
+      'Selective kitchen and bath updates can transform how a room looks and works when the finishes are coordinated well and installed with discipline.'
   }
 ];
 
 export const reasons = [
   {
-    title: 'Craft-first execution',
-    text: 'We focus on details homeowners can see and details they never should have to think about later: waterproofing, alignment, fit, finish, and lasting performance.'
+    title: 'Remodel precision',
+    text: 'Kitchens and bathrooms expose every detail, so we focus on waterproofing, alignment, fit, finish, and the kind of durability that holds up after the reveal.'
   },
   {
     title: 'Clear planning up front',
-    text: 'Every project starts with a practical scope, realistic sequencing, and transparent communication so expectations stay grounded and confidence stays high.'
+    text: 'Selections, layout decisions, scope, and scheduling are discussed early so the remodel feels organized before the first day of construction.'
   },
   {
     title: 'Premium without the theater',
-    text: 'The experience feels polished and organized, but never over-branded or salesy. Homeowners trust us because the work looks disciplined and the process feels steady.'
+    text: 'The experience should feel polished and professional, but never overplayed. Homeowners trust steady communication and clean work more than sales language.'
   },
   {
     title: 'Respect for lived-in homes',
-    text: 'Clean jobsites, dependable scheduling, and thoughtful homeowner communication matter just as much as the final reveal.'
+    text: 'Clean jobsites, careful protection, dependable scheduling, and thoughtful communication matter just as much as the final tile line or fixture selection.'
   }
 ];
 
 export const processSteps = [
   {
-    title: 'Walkthrough & vision',
-    text: 'We learn how you use the space, what is not working, and what a successful finished project should feel like.'
+    title: 'Walkthrough & priorities',
+    text: 'We learn how you use the kitchen or bathroom now, what is not working, and what the finished space needs to do better.'
   },
   {
-    title: 'Scope & pricing',
-    text: 'You receive a clear proposal with the right level of detail to make decisions confidently without guesswork.'
+    title: 'Scope & direction',
+    text: 'You get a clear outline of the remodel, the right level of pricing detail, and practical guidance on layout and finish decisions.'
   },
   {
     title: 'Selections & scheduling',
-    text: 'Materials, finish decisions, and build sequencing are aligned before work begins so the project moves cleaner.'
+    text: 'Tile, cabinetry, fixtures, flooring, and scheduling are aligned before work begins so the build moves with fewer surprises.'
   },
   {
-    title: 'Build & communicate',
-    text: 'Our team manages the construction phase with strong communication, dependable site standards, and quality control.'
+    title: 'Build with precision',
+    text: 'We manage demolition, prep, installation, and finish work with clean execution, dependable site standards, and steady communication.'
   },
   {
-    title: 'Final walkthrough',
-    text: 'We review the finished work with you, tighten final details, and make sure the result feels complete, not merely done.'
+    title: 'Final detail review',
+    text: 'We walk the space with you, tighten final details, and make sure the remodel feels complete, considered, and ready to live in.'
   }
 ];
 
@@ -229,7 +216,7 @@ export const beforeAfterProjects = [
     afterImage: 'images/projects/bathroom-after.svg',
     altBefore: 'Placeholder before photo for bathroom remodeling project',
     altAfter: 'Placeholder after photo for bathroom remodeling project',
-    scope: 'Layout cleanup, tile, vanity, lighting, and shower upgrade',
+    scope: 'Custom shower, tile, vanity, lighting, and layout cleanup',
     value: 'Better daily flow, higher-end materials, and a more calming finished feel.'
   },
   {
@@ -245,16 +232,16 @@ export const beforeAfterProjects = [
     value: 'A stronger visual centerpiece that works harder every day.'
   },
   {
-    title: 'Backyard Deck Transformation',
-    location: 'Cedar Heights',
+    title: 'Hall Bath Shower Conversion',
+    location: 'North Ridge',
     summary:
-      'An aging exterior platform became a durable entertaining deck with integrated steps, modern rail details, and better site presence.',
-    beforeImage: 'images/projects/deck-before.svg',
-    afterImage: 'images/projects/deck-after.svg',
-    altBefore: 'Placeholder before photo for deck remodeling project',
-    altAfter: 'Placeholder after photo for deck remodeling project',
-    scope: 'Deck framing, resurfacing, railing package, and stair rebuild',
-    value: 'A safer, sharper outdoor extension of the home.'
+      'An outdated hall bath was simplified into a brighter, easier-to-maintain space with a walk-in shower, cleaner tile lines, and a better vanity layout.',
+    beforeImage: 'images/projects/bathroom-before.svg',
+    afterImage: 'images/projects/bathroom-after.svg',
+    altBefore: 'Before photo for hall bathroom renovation',
+    altAfter: 'After photo for hall bathroom renovation',
+    scope: 'Shower conversion, tile, flooring, vanity, and fixture updates',
+    value: 'A smaller room that now feels more open, functional, and current.'
   }
 ];
 
@@ -278,40 +265,40 @@ export const featuredProjects = [
     tags: ['Bathroom Remodel', 'Tile', 'Shower Glass']
   },
   {
-    title: 'Cedar View Deck',
-    category: 'Decks',
-    image: 'images/projects/deck-after.svg',
-    alt: 'Placeholder image for deck build project',
-    location: 'Cedar Heights',
-    summary: 'A custom outdoor build that expands usable living space and improves the backyard experience.',
-    tags: ['Deck Build', 'Exterior', 'Railing']
+    title: 'White Oak Entertainer Kitchen',
+    category: 'Kitchens',
+    image: 'images/projects/kitchen-after.svg',
+    alt: 'Kitchen renovation with warm cabinetry and improved layout',
+    location: 'Maple Glen',
+    summary: 'A tighter footprint reworked into a more open kitchen with better prep flow, stronger storage, and cleaner lines.',
+    tags: ['Kitchen Renovation', 'Storage', 'Island']
   },
   {
-    title: 'Sunlit Window Upgrade',
-    category: 'Windows',
-    image: 'images/projects/window-install.svg',
-    alt: 'Placeholder image for new window installation',
+    title: 'Frameless Shower Retreat',
+    category: 'Showers & Tile',
+    image: 'images/projects/bathroom-after.svg',
+    alt: 'Bathroom remodel with frameless shower and tile detailing',
     location: 'Westfield',
-    summary: 'Clean replacement windows with improved efficiency, better trim detailing, and more natural light.',
-    tags: ['Windows', 'Trim', 'Energy Efficiency']
+    summary: 'A dated enclosure was replaced with a cleaner shower layout, quieter material palette, and more refined fixture package.',
+    tags: ['Custom Shower', 'Tile Work', 'Fixtures']
   },
   {
-    title: 'Whole-Home Finish Refresh',
-    category: 'General Contracting',
-    image: 'images/projects/home-renovation.svg',
-    alt: 'Placeholder image for home improvement project',
+    title: 'Tailored Family Bath',
+    category: 'Bathrooms',
+    image: 'images/projects/bathroom-after.svg',
+    alt: 'Bathroom renovation with vanity, flooring, and refined finishes',
     location: 'Your City',
-    summary: 'A phased renovation approach that upgraded finishes, flow, and cohesion throughout the home.',
-    tags: ['Renovation', 'Finish Carpentry', 'Interior Updates']
+    summary: 'Better storage, brighter finishes, and more durable materials turned a basic family bath into a room that feels finished.',
+    tags: ['Vanity', 'Flooring', 'Bathroom Renovation']
   },
   {
-    title: 'Entertainer’s Deck Addition',
-    category: 'Decks',
-    image: 'images/projects/deck-after.svg',
-    alt: 'Placeholder image for deck addition project',
+    title: 'Stone & Brass Kitchen Update',
+    category: 'Kitchens',
+    image: 'images/projects/kitchen-after.svg',
+    alt: 'Premium kitchen remodel with stone surfaces and brass accents',
     location: 'Lakeside County',
-    summary: 'A low-maintenance composite build with integrated steps and cleaner transitions to the yard.',
-    tags: ['Deck Remodel', 'Composite', 'Outdoor Living']
+    summary: 'Updated cabinetry, stone counters, and layered lighting gave this kitchen a stronger visual anchor and more useful daily storage.',
+    tags: ['Countertops', 'Lighting', 'Cabinetry']
   }
 ];
 
@@ -325,17 +312,17 @@ export const testimonials = [
   },
   {
     quote:
-      'We talked to multiple contractors, and this was the first team that felt both high-end and grounded. The kitchen is beautiful and the communication stayed strong the whole time.',
+      'We talked to multiple companies, and this was the first team that felt both design-aware and dependable. The kitchen is beautiful and the communication stayed strong the whole time.',
     name: 'Daniel and Marisa T.',
     location: 'Maple Glen',
     project: 'Kitchen renovation'
   },
   {
     quote:
-      'Our old deck was becoming a problem. They rebuilt it with real attention to detail, and now it genuinely feels like part of the home.',
+      'The shower, vanity, and flooring all feel cleaner and better thought through now. It looks high-end, but more importantly it feels like it was done correctly.',
     name: 'Jonathan P.',
     location: 'Cedar Heights',
-    project: 'Deck rebuild'
+    project: 'Hall bathroom renovation'
   }
 ];
 
@@ -343,7 +330,7 @@ export const faqs = [
   {
     question: 'What types of projects are the best fit?',
     answer:
-      'Homeowners usually reach out for bathrooms, kitchens, decks, windows, and broader home improvements where quality, planning, and finish standards matter.'
+      'The best fit is kitchen remodeling, bathroom renovations, tile and shower work, and finish-driven updates where layout, craftsmanship, and clean execution matter.'
   },
   {
     question: 'Can you help shape the scope if we are still figuring things out?',
@@ -358,26 +345,26 @@ export const faqs = [
   {
     question: 'How long do remodels typically take?',
     answer:
-      'Timelines vary by scope, selections, and complexity. Smaller updates can move quickly, while full remodels require more planning and coordination. We set expectations clearly up front.'
+      'Timelines vary by scope, selections, and complexity. A focused bathroom update can move faster, while a full kitchen or primary bath remodel usually needs more planning and coordination. We set expectations clearly up front.'
   },
   {
     question: 'How should we prepare before contacting you?',
     answer:
-      'Helpful details include your address, project goals, preferred timing, inspiration photos if you have them, and any budget range you want us to consider.'
+      'Helpful details include your county or township, which room you want to renovate, your preferred timing, inspiration photos if you have them, and any budget range you want us to consider.'
   }
 ];
 
 export const values = [
   {
-    title: 'Honest craftsmanship',
-    text: 'No shortcuts hidden behind surface polish. The visible work and the behind-the-walls work should both hold up.'
+    title: 'Precision in the details',
+    text: 'No shortcuts hidden behind surface polish. The visible work and the behind-the-walls work both need to hold up.'
   },
   {
     title: 'Professional communication',
     text: 'Homeowners should not have to chase updates, guess at next steps, or wonder where the project stands.'
   },
   {
-    title: 'Design-aware construction',
+    title: 'Design-aware execution',
     text: 'The work needs to function beautifully, but it also needs to look refined, balanced, and well considered.'
   },
   {
@@ -387,30 +374,30 @@ export const values = [
 ];
 
 export const quoteSidebarPoints = [
-  'Call today for a quick estimate conversation',
+  'Call today for a kitchen or bathroom estimate conversation',
   'Email photos and a short project summary anytime',
   'Clear next steps after first contact',
-  'Friendly homeowner communication from day one'
+  'Professional homeowner communication from day one'
 ];
 
 export const estimateChecklist = [
-  'County or township',
   'Which space you want to improve',
+  'County or township',
   'A few current photos if you are emailing',
-  'Your ideal timing and any budget target'
+  'Your ideal timing and any budget range'
 ];
 
 export const estimateNextSteps = [
   {
     title: 'Reach out directly',
-    text: 'Call for the fastest back-and-forth, or email if you want to send notes and current photos with your first message.'
+    text: 'Call for the fastest conversation, or email if you want to send room photos and a short kitchen or bathroom project summary first.'
   },
   {
-    title: 'We talk through fit',
-    text: 'We use the first conversation to understand the scope, answer early questions, and make sure the project is a good match.'
+    title: 'We review the fit',
+    text: 'We use the first conversation to understand the scope, answer early questions, and make sure the remodel is a strong match.'
   },
   {
     title: 'You get clear direction',
-    text: 'You leave the first step knowing whether to schedule a walkthrough, what information is still needed, and what comes next.'
+    text: 'You leave the first step knowing whether to schedule a walkthrough, what information is still needed, and what the next step should be.'
   }
 ];

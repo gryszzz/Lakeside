@@ -29,18 +29,18 @@ function HomeHero() {
     <section className="hero">
       <div className="container hero__grid">
         <div className="hero__content" data-reveal>
-          <p className="eyebrow">Luxury-Focused General Contractor</p>
-          <h1>Beautiful remodels for homeowners who expect the details to be right.</h1>
+          <p className="eyebrow">Kitchen & Bathroom Remodeling</p>
+          <h1>Premium kitchens and bathrooms built with precision.</h1>
           <p className="hero__body">
-            High-end kitchens, bathrooms, decks, windows, and renovation work delivered with stronger finish
-            standards, cleaner communication, and a process that feels genuinely professional from the first call.
+            Custom remodels, tile and shower work, vanities, flooring, and finish upgrades delivered with clean
+            execution, steadier communication, and details that hold up after the project is complete.
           </p>
           <div className="hero-actions">
             <a className="button" href={withBase('quote/')}>
-              Request a Quote
+              Request Estimate
             </a>
             <a className="button button--ghost" href={withBase('projects/')}>
-              View Projects
+              View Portfolio
             </a>
           </div>
           <div className="hero-trust-grid">
@@ -83,11 +83,11 @@ function HomeOverviewSection() {
       <div className="container">
         <div className="home-overview-grid">
           <div className="home-overview-copy" data-reveal>
-            <p className="eyebrow">Built to Win Trust Fast</p>
-            <h2>Premium presentation matters because homeowners decide quickly who feels credible.</h2>
+            <p className="eyebrow">Kitchen & Bath Specialists</p>
+            <h2>The rooms homeowners use hardest deserve the strongest planning and finish work.</h2>
             <p className="home-overview-copy__body">
-              The strongest contractor sites do two things at once: they show real quality and they make the next
-              step feel easy. This homepage is built to do both, especially for mobile homeowners browsing quickly.
+              Kitchens and bathrooms have no room for weak layout decisions or sloppy execution. We focus on the
+              spaces where cabinetry, tile, lighting, storage, waterproofing, and finish quality matter most.
             </p>
             <div className="home-quality-list">
               {homeQualityPoints.map((point) => (
@@ -99,7 +99,7 @@ function HomeOverviewSection() {
             <div className="home-overview-note" data-reveal>
               <strong>{business.reviewsLabel}</strong>
               <p>
-                Organized proposals, cleaner communication, and craftsmanship that feels deliberate from the first
+                Clear scopes, thoughtful selections, and remodel management that feels organized from the first
                 walkthrough to the final detail.
               </p>
             </div>
@@ -122,25 +122,25 @@ function AboutStoryBlock() {
       <div className="container story-grid">
         <div data-reveal>
           <p className="eyebrow">Our Story</p>
-          <h2>A contractor brand built around calm confidence, strong finish work, and homeowner trust.</h2>
+          <h2>Kitchen and bathroom remodeling should feel organized, design-aware, and worth the investment.</h2>
           <p>
-            This site uses placeholder copy and contact details, but the positioning is intentional: homeowners are
-            not just buying labor, they are buying confidence in how the project will be handled. The brand should
-            feel premium because the process and workmanship are premium.
+            Homeowners making bigger remodel decisions want a team that understands tile lines, shower assemblies,
+            vanity planning, cabinetry, lighting, flooring transitions, and how those details come together in real
+            life.
           </p>
           <p>
-            Replace this section with the company’s real founding story, experience, team approach, and the reason
-            clients keep referring friends and neighbors.
+            The brand is built to communicate calm professionalism, clean execution, and the kind of craftsmanship
+            that justifies a meaningful kitchen or bathroom investment.
           </p>
         </div>
         <div className="story-card" data-reveal>
-          <img src={withBase('images/projects/home-renovation.svg')} alt="Placeholder image for contractor story section" />
+          <img src={withBase('images/projects/home-renovation.svg')} alt="Kitchen and bathroom remodeling craftsmanship story section" />
           <div>
-            <p className="eyebrow">Positioning</p>
-            <h3>More design-build confidence. Less small-business chaos.</h3>
+            <p className="eyebrow">Specialist Focus</p>
+            <h3>Fewer claims. Stronger execution.</h3>
             <p>
-              The visual system, layout, and copy are designed to move the company above the “cheap handyman” category
-              and into a more trusted remodeling lane.
+              The strongest positioning comes from doing fewer things better: kitchens and bathrooms handled with
+              thoughtful planning, disciplined installation, and finish work that feels deliberate.
             </p>
           </div>
         </div>
@@ -153,15 +153,15 @@ function ContactMapPlaceholder() {
   return (
     <div className="map-card" data-reveal>
       <div>
-        <p className="eyebrow">Map Placeholder</p>
-        <h3>Add your real showroom, office, or service-area map later.</h3>
+        <p className="eyebrow">Service Area</p>
+        <h3>Serving homeowners across Your City and nearby communities.</h3>
         <p>
-          This static card is intentionally lightweight for GitHub Pages. Replace the button URL or embed a map
-          screenshot if needed.
+          Reach out to confirm coverage, timing, and whether your kitchen or bathroom project is the right fit for the
+          schedule.
         </p>
       </div>
       <a className="button button--ghost" href={business.mapUrl}>
-        Open Google Maps
+        Open Service Area Map
       </a>
     </div>
   );
@@ -180,10 +180,10 @@ function QuickContactPanel() {
 }
 
 function DirectEstimatePanel({
-  eyebrow = 'Call Or Email',
-  title = 'Call or email for a faster, clearer estimate conversation.',
-  body = 'Reach out directly and we will help you understand fit, timing, and the right next step for your project.',
-  emailCopy = 'Email your project details, county or township, and current photos for review.',
+  eyebrow = 'Kitchen & Bath Estimates',
+  title = 'Call or email to talk through your kitchen or bathroom remodel.',
+  body = 'We keep the first step simple so you can get clarity on fit, timing, and what the next step should be.',
+  emailCopy = 'Email your project details, county or township, and current room photos for review.',
   inHero = false,
   showActions = true
 }) {
@@ -200,7 +200,7 @@ function DirectEstimatePanel({
           <h3>
             <a href={business.phoneHref}>{business.phone}</a>
           </h3>
-          <p>Call for estimate questions, availability, and next steps.</p>
+          <p>Call to discuss your kitchen or bathroom remodel, timing, and next steps.</p>
           <a className="estimate-contact-row__link" href={business.phoneHref}>
             Tap to call
           </a>
@@ -230,7 +230,7 @@ function DirectEstimatePanel({
             Call {business.phone}
           </a>
           <a className="button button--ghost" href={business.emailHref}>
-            Email Us
+            Email For Estimate
           </a>
         </div>
       ) : null}
@@ -244,8 +244,8 @@ function EstimateNextStepsSection() {
       <div className="container">
         <SectionIntro
           eyebrow="How It Works"
-          title="A simple estimate path that still feels professional"
-          body="The goal is not to make homeowners do more work. It is to make the first contact more useful and the next step easier to understand."
+          title="A simple estimate path for kitchen and bathroom remodels"
+          body="The first conversation should feel useful, not complicated. We keep the path clear so homeowners know whether to schedule a walkthrough and what comes next."
         />
         <div className="process-grid quote-next-steps">
           {estimateNextSteps.map((step, index) => (
@@ -271,9 +271,9 @@ function ContactSection() {
         </div>
         <DirectEstimatePanel
           eyebrow="Direct Contact"
-          title="Call or email the team directly."
-          body="This business is handling estimate requests by phone and email, so the easiest next step is to reach out directly."
-          emailCopy="Email your project details, photos, or questions and we will respond with next steps."
+          title="Call or email the remodeling team directly."
+          body="If you are planning a kitchen or bathroom project, the easiest next step is direct contact by phone or email."
+          emailCopy="Email photos, project notes, or questions about your kitchen or bathroom remodel and we will reply with next steps."
         />
       </div>
     </section>
@@ -302,15 +302,15 @@ export function ServicesPage() {
     <SiteShell>
       <PageHero
         eyebrow="Services"
-        title="High-end kitchens, bathrooms, decks, windows, and more"
-        body="Each service is presented to answer the questions homeowners actually ask: what gets improved, why it matters, and what kind of result they can expect."
+        title="Specialist kitchen and bathroom remodeling services"
+        body="Focused services for the rooms where layout, storage, tile work, waterproofing, fixtures, and finish quality matter most."
         actions={
           <>
             <a className="button" href={withBase('quote/')}>
-              Request a Quote
+              Request Estimate
             </a>
             <a className="button button--ghost" href={withBase('projects/')}>
-              View Projects
+              View Portfolio
             </a>
           </>
         }
@@ -319,7 +319,7 @@ export function ServicesPage() {
       <ServiceCards detailed />
       <ServiceQuoteSection />
       <ProcessSteps />
-      <FAQSection items={faqs.slice(0, 4)} intro="Questions that help homeowners evaluate fit before reaching out." />
+      <FAQSection items={faqs.slice(0, 4)} intro="Questions that help homeowners evaluate fit before reaching out about a kitchen or bathroom remodel." />
     </SiteShell>
   );
 }
@@ -328,28 +328,28 @@ export function ProjectsPage() {
   return (
     <SiteShell
       finalCtaProps={{
-        title: 'See something close to what you want?',
-        body: 'Tell us which project style you like and we can talk through whether it fits your home, priorities, and budget.',
-        primaryLabel: 'Request a Similar Project Quote'
+        title: 'See a kitchen or bathroom style you want to explore?',
+        body: 'Tell us which remodel direction you like and we can talk through whether it fits your home, priorities, and budget.',
+        primaryLabel: 'Ask About a Similar Remodel'
       }}
     >
       <PageHero
-        eyebrow="Projects"
-        title="A portfolio designed to make the craftsmanship feel real"
-        body="The gallery is structured so real photos can be dropped in later with minimal editing. Until then, the layout still sells the transformation story."
+        eyebrow="Portfolio"
+        title="Kitchen and bathroom work that makes the craftsmanship feel real"
+        body="Browse remodel directions, material palettes, and before-and-after transformations that help homeowners picture the result more clearly."
         actions={
           <>
             <a className="button" href={withBase('quote/')}>
-              Request a Quote
+              Request Estimate
             </a>
             <a className="button button--ghost" href="#featured-transformation">
-              Jump to Before & After
+              View Before & After
             </a>
           </>
         }
         aside={
           <div className="page-hero__spotlight">
-            <img src={withBase('images/projects/kitchen-after.svg')} alt="Placeholder featured project image" />
+            <img src={withBase('images/projects/kitchen-after.svg')} alt="Featured kitchen remodel" />
           </div>
         }
       />
@@ -369,12 +369,12 @@ export function AboutPage() {
     <SiteShell>
       <PageHero
         eyebrow="About"
-        title="A remodeling company should feel steady, skilled, and easy to trust"
-        body="This page is written to position the contractor as capable, design-aware, and honest about what quality work requires."
+        title="A specialist remodeling company should feel steady, skilled, and easy to trust"
+        body="Homeowners investing in kitchens and bathrooms want clear guidance, strong craftsmanship, and a team that respects both the design and the construction details."
         actions={
           <>
             <a className="button" href={withBase('quote/')}>
-              Request a Quote
+              Request Estimate
             </a>
             <a className="button button--ghost" href={withBase('contact/')}>
               Contact Us
@@ -384,8 +384,8 @@ export function AboutPage() {
         aside={
           <div className="about-metric-card">
             <p className="eyebrow">What Homeowners Want</p>
-            <h3>Professionalism without posturing</h3>
-            <p>Confident scope guidance, strong craftsmanship, and respectful communication from start to finish.</p>
+            <h3>Clear guidance without the sales act</h3>
+            <p>Confident scope advice, clean execution, and communication that stays professional from first walkthrough to final detail.</p>
           </div>
         }
       />
@@ -401,16 +401,16 @@ export function QuotePage() {
   return (
     <SiteShell showFinalCta={false}>
       <PageHero
-        eyebrow="Request a Quote"
-        title="Call or email for a remodeling estimate today."
-        body="The fastest path is direct contact. Call during business hours, or email a few photos and a short project summary so we can understand the space faster."
+        eyebrow="Request Estimate"
+        title="Call or email for a kitchen or bathroom estimate."
+        body="The fastest path is direct contact. Call during business hours, or email room photos and a short project summary so we can understand the remodel faster."
         actions={
           <>
             <a className="button" href={business.phoneHref}>
               Call {business.phone}
             </a>
             <a className="button button--ghost" href={business.emailHref}>
-              Email Us
+              Email For Estimate
             </a>
           </>
         }
@@ -419,7 +419,7 @@ export function QuotePage() {
       <EstimateNextStepsSection />
       <FAQSection
         items={[faqs[2], faqs[1], faqs[4], faqs[3]]}
-        intro="Questions that usually come up when homeowners are deciding whether to call or email for an estimate."
+        intro="Questions that usually come up when homeowners are deciding whether to call or email about a kitchen or bathroom estimate."
       />
     </SiteShell>
   );
@@ -430,8 +430,8 @@ export function ContactPage() {
     <SiteShell>
       <PageHero
         eyebrow="Contact"
-        title="Reach out the way that feels easiest"
-        body="Call or email, whichever feels easier. The contact path stays simple so homeowners can reach out quickly from mobile or desktop."
+        title="Reach out about your kitchen or bathroom project"
+        body="Call or email, whichever feels easier. The contact path stays direct so homeowners can get answers quickly from mobile or desktop."
         actions={
           <>
             <a className="button" href={business.phoneHref}>

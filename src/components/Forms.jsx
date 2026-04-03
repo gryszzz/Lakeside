@@ -68,7 +68,7 @@ export function LeadSidebar() {
   return (
     <aside className="lead-sidebar" data-reveal>
       <p className="eyebrow">What to Expect</p>
-      <h2>A quote request should feel simple, clear, and low pressure.</h2>
+      <h2>An estimate request should feel simple, clear, and low pressure.</h2>
       <ul>
         {quoteSidebarPoints.map((point) => (
           <li key={point}>{point}</li>
@@ -98,7 +98,7 @@ export function QuoteForm() {
       onSubmit={(event) => submitForm(event, forms.quoteEndpoint, setStatus)}
       data-reveal
     >
-      <input type="hidden" name="_subject" value={`${business.name} quote request`} />
+      <input type="hidden" name="_subject" value={`${business.name} estimate request`} />
       <div className="sr-only">
         <label htmlFor="company">Leave this field empty</label>
         <input id="company" name="company" type="text" autoComplete="off" tabIndex="-1" />
@@ -117,8 +117,8 @@ export function QuoteForm() {
           <input type="email" name="email" placeholder="you@example.com" required />
         </label>
         <label>
-          Address
-          <input type="text" name="address" placeholder="Project address" required />
+          County or Township
+          <input type="text" name="location" placeholder="Your county or township" required />
         </label>
         <label>
           Project Type
@@ -171,12 +171,12 @@ export function QuoteForm() {
             Kitchen Remodel
           </label>
           <label>
-            <input type="checkbox" name="interests[]" value="Deck" />
-            Deck
+            <input type="checkbox" name="interests[]" value="Tile & Shower Work" />
+            Tile & Shower Work
           </label>
           <label>
-            <input type="checkbox" name="interests[]" value="Windows" />
-            Windows
+            <input type="checkbox" name="interests[]" value="Vanities & Finish Updates" />
+            Vanities & Finish Updates
           </label>
           <label>
             <input type="checkbox" name="interests[]" value="Other" />
@@ -204,14 +204,14 @@ export function QuoteForm() {
         <textarea
           name="message"
           rows="6"
-          placeholder="Tell us what you want to improve, what feels dated, or what the finished space should do better."
+          placeholder="Tell us which kitchen or bathroom you want to improve, what feels dated now, and what you want the finished space to do better."
           required
         />
       </label>
       <StatusMessage status={status} />
       <div className="form-actions">
         <button className="button" type="submit">
-          Send Message
+          Send Estimate Request
         </button>
         <p>
           Static-host ready. Replace the Formspree placeholder in `src/content/site.js` or use
@@ -270,7 +270,7 @@ export function ContactForm() {
         <textarea
           name="message"
           rows="5"
-          placeholder="Share a quick overview of your project or question."
+          placeholder="Share a quick overview of your kitchen or bathroom project or question."
           required
         />
       </label>
@@ -280,7 +280,7 @@ export function ContactForm() {
           Send Message
         </button>
         <a className="text-link" href={withBase(business.mapUrl)}>
-          Open map placeholder
+          View service area
         </a>
       </div>
     </form>

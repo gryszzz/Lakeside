@@ -48,8 +48,8 @@ export function BeforeAfterShowcase() {
       <div className="container">
         <SectionIntro
           eyebrow="Before & After"
-          title="Transformation stories that make the quality feel tangible"
-          body="The easiest way to understand the value of remodeling is to see what changed, why it mattered, and how the finished space feels afterward."
+          title="Transformation stories that make the remodel quality feel tangible"
+          body="The easiest way to understand the value of kitchen and bathroom remodeling is to see what changed, why it mattered, and how the finished space feels afterward."
         />
         <div className="before-after-showcase">
           <BeforeAfterSlider project={beforeAfterProjects[0]} />
@@ -72,8 +72,8 @@ export function ProjectPreview() {
       <div className="container">
         <SectionIntro
           eyebrow="Featured Projects"
-          title="Work that helps homeowners picture their own upgrade more clearly"
-          body="See how layout, materials, and finish work come together across kitchens, bathrooms, decks, and broader home improvements."
+          title="Work that helps homeowners picture their own remodel more clearly"
+          body="See how layout, materials, tile, cabinetry, fixtures, and finish work come together across kitchens and bathrooms."
         />
         <div className="project-grid">
           {previews.map((project) => (
@@ -96,7 +96,7 @@ export function ProjectPreview() {
         </div>
         <div className="section-actions">
           <a className="button" href={withBase('projects/')}>
-            View All Projects
+            View Full Portfolio
           </a>
         </div>
       </div>
@@ -122,9 +122,9 @@ export function ProjectGallery() {
     <section className="section">
       <div className="container">
         <SectionIntro
-          eyebrow="Gallery"
-          title="A premium grid built to showcase real craftsmanship later"
-          body="Swap placeholder images in `public/images/projects` with finished photography to instantly upgrade the portfolio."
+          eyebrow="Portfolio"
+          title="Kitchen and bathroom projects with a cleaner, more tailored finish"
+          body="Browse remodel directions, materials, and project styles that show how the finished space can feel more functional, polished, and current."
         />
         <div className="project-filter" data-reveal>
           {filters.map((item) => (
@@ -196,7 +196,7 @@ export function ProjectGallery() {
                 ))}
               </div>
               <a className="button" href={withBase('quote/')}>
-                Ask About a Similar Project
+                Ask About a Similar Remodel
               </a>
             </div>
           </div>

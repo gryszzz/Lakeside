@@ -36,10 +36,10 @@ export function ServiceCards({ detailed = false, intro }) {
       <div className="container">
         <SectionIntro
           eyebrow="Services"
-          title={detailed ? 'Remodeling and improvement work with strong finish standards' : 'Built for the projects homeowners care about most'}
+          title={detailed ? 'Kitchen and bathroom services built around precision and finish quality' : 'Focused on the rooms that shape everyday living most'}
           body={
             intro ||
-            'From kitchens and bathrooms to decks, windows, and broader improvements, we build spaces that look sharper, function better, and feel more complete.'
+            'From full remodels to tile, shower, vanity, and finish updates, each service is centered on clean execution and a more polished finished result.'
           }
         />
         <div className={`service-grid ${detailed ? 'service-grid--detailed' : ''}`}>
@@ -83,15 +83,15 @@ export function ServiceQuoteSection() {
         <div className="service-quote-card" data-reveal>
           <div>
             <p className="eyebrow">Project Fit</p>
-            <h2>Have a bathroom, kitchen, deck, window, or home improvement project in mind?</h2>
+            <h2>Planning a kitchen or bathroom remodel?</h2>
             <p>
-              Instead of pushing a quote link under every service, this section keeps the next step simple. Tell us
-              what you are planning and we will help you figure out scope, fit, and timing.
+              Tell us what space you want to improve and what feels off today. We will help you sort through fit,
+              scope, timing, and the right next step.
             </p>
           </div>
           <div className="hero-actions">
             <a className="button" href={withBase('quote/')}>
-              Get a Quote
+              Request Estimate
             </a>
             <a className="button button--ghost" href={business.phoneHref}>
               Call {business.phone}
@@ -109,8 +109,8 @@ export function WhyChooseUs() {
       <div className="container">
         <SectionIntro
           eyebrow="Why Homeowners Choose Us"
-          title="The kind of contractor people feel comfortable letting into their home"
-          body="The goal is simple: deliver premium-looking work through a process that feels calm, capable, and well managed."
+          title="The kind of specialist team homeowners feel comfortable trusting with expensive rooms"
+          body="The goal is simple: deliver premium-looking kitchens and bathrooms through a process that feels calm, capable, and well managed."
         />
         <div className="reason-grid">
           {reasons.map((reason) => (
@@ -159,7 +159,7 @@ export function ProcessSteps() {
         <SectionIntro
           eyebrow="Process"
           title="A remodeling experience that feels organized from the beginning"
-          body="Homeowners do better when the process is clear. We keep each phase understandable, realistic, and steady."
+          body="Kitchen and bathroom projects go better when the process is clear. We keep each phase understandable, realistic, and steady."
         />
         <div className="process-grid">
           {processSteps.map((step, index) => (
@@ -182,7 +182,7 @@ export function ValuesGrid() {
         <SectionIntro
           eyebrow="Values"
           title="The standards behind the work"
-          body="The best remodeling companies feel dependable because their standards show up in both craftsmanship and communication."
+          body="The best kitchen and bathroom remodelers feel dependable because their standards show up in both craftsmanship and communication."
         />
         <div className="reason-grid">
           {values.map((value) => (
@@ -203,7 +203,7 @@ export function ServiceAreaSection() {
       <div className="container service-area">
         <div data-reveal>
           <p className="eyebrow">Service Area</p>
-          <h2>Local homeowners want a contractor who is close, responsive, and established.</h2>
+          <h2>Local homeowners want a remodeling specialist who is close, responsive, and established.</h2>
           <p>{business.serviceAreaLabel}</p>
         </div>
         <div className="service-area__list" data-reveal>
@@ -222,21 +222,21 @@ export function ContactInfoGrid() {
       title: 'Call',
       body: business.phone,
       href: business.phoneHref,
-      copy: 'Talk through your project, timeline, and next steps.',
+      copy: 'Talk through your kitchen or bathroom project, timing, and next steps.',
       label: 'Call now'
     },
     {
       title: 'Email',
       body: business.email,
       href: business.emailHref,
-      copy: 'Send photos, project notes, or renovation questions.',
+      copy: 'Send room photos, project notes, or remodeling questions.',
       label: 'Send email'
     },
     {
       title: 'Service Area',
       body: business.serviceAreaLabel,
       href: business.mapUrl,
-      copy: 'Use this placeholder area summary until real cities are added.',
+      copy: 'Confirm coverage for your kitchen or bathroom remodel before scheduling the next step.',
       label: 'View map'
     }
   ];
