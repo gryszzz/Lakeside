@@ -1189,19 +1189,11 @@ label {
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-}
-
-.hero-trust-card__index {
-  color: rgba(196, 214, 255, 0.68);
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
 }
 
 .hero-trust-card__signal {
   position: relative;
-  flex: 1;
+  width: 100%;
   height: 1px;
   background: linear-gradient(90deg, rgba(148, 179, 255, 0.24), rgba(148, 179, 255, 0.02));
 }
@@ -1376,8 +1368,7 @@ label {
 .hero__image-topline {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.7rem;
+  gap: 0.45rem;
 }
 
 .hero__image-topline p {
@@ -1386,22 +1377,6 @@ label {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.hero__image-topline span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 2rem;
-  min-height: 1.35rem;
-  padding: 0.16rem 0.45rem;
-  border: 1px solid rgba(148, 179, 255, 0.16);
-  border-radius: 999px;
-  background: rgba(140, 181, 255, 0.08);
-  color: var(--heading);
-  font-size: 0.67rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
 }
 
 .hero__image-hint {
@@ -2901,10 +2876,6 @@ body[data-page='about'] .final-cta {
 
   .hero-trust-card__eyebrow {
     font-size: 0.64rem;
-  }
-
-  .hero-trust-card__index {
-    font-size: 0.6rem;
   }
 
   .site-header {
