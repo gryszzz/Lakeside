@@ -29,11 +29,8 @@ function HomeHero() {
       <div className="container hero__grid">
         <div className="hero__content" data-reveal>
           <p className="eyebrow">Kitchen & Bathroom Remodeling</p>
-          <h1>Premium kitchens and bathrooms built with precision.</h1>
-          <p className="hero__body">
-            Custom remodels, tile and shower work, vanities, flooring, and finish upgrades delivered with clean
-            execution, steadier communication, and details that hold up after the project is complete.
-          </p>
+          <h1>Refined kitchens and bathrooms. Built right.</h1>
+          <p className="hero__body">Custom remodels with cleaner execution, steadier communication, and finish work that holds up.</p>
           <div className="hero-actions">
             <a className="button" href={withBase('quote/')}>
               Request Estimate
@@ -82,12 +79,9 @@ function HomeDecisionSection() {
       <div className="container">
         <div className="home-overview-grid">
           <div className="home-overview-copy" data-reveal>
-            <p className="eyebrow">Why Homeowners Reach Out</p>
-            <h2>Specialist remodeling makes the next step easier to trust.</h2>
-            <p className="home-overview-copy__body">
-              If you already know the kitchen or bathroom needs work, the first question is not whether someone can
-              build. It is whether they can plan, communicate, and execute the room cleanly from start to finish.
-            </p>
+            <p className="eyebrow">Specialist Focus</p>
+            <h2>Designed to feel clear, calm, and high-end from the first click.</h2>
+            <p className="home-overview-copy__body">The right remodel team should feel easy to trust before the walkthrough even happens.</p>
             <div className="home-specialty-grid">
               {homeConversionCards.map((card) => (
                 <article key={card.title} className="home-specialty-card">
@@ -100,10 +94,7 @@ function HomeDecisionSection() {
           <div className="home-overview-panel">
             <div className="home-overview-note" data-reveal>
               <strong>{business.reviewsLabel}</strong>
-              <p>
-                Homeowners usually reach out when they want better layout clarity, more confidence in the finish
-                work, and a cleaner estimate conversation.
-              </p>
+              <p>Clear scopes, strong finish standards, and a simpler estimate path.</p>
             </div>
             <StatGrid />
             <div className="hero-actions home-overview-actions" data-reveal>
@@ -291,11 +282,9 @@ export function HomePage() {
       <HomeHero />
       <HomeDecisionSection />
       <BeforeAfterShowcase />
-      <ServiceCards intro="Focused kitchen and bath remodeling services with cleaner scopes, sharper finish standards, and a more tailored finished result." />
-      <WhyChooseUs />
-      <TestimonialCards />
-      <FAQSection items={faqs} />
-      <ServiceAreaSection />
+      <ServiceCards compact intro="Focused services for kitchens and bathrooms with cleaner scopes and stronger finish standards." />
+      <WhyChooseUs compact />
+      <TestimonialCards compact limit={2} />
     </SiteShell>
   );
 }

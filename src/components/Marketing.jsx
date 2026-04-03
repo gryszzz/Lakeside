@@ -30,7 +30,7 @@ export function StatGrid() {
   );
 }
 
-export function ServiceCards({ detailed = false, intro }) {
+export function ServiceCards({ detailed = false, intro, compact = false }) {
   return (
     <section className="section">
       <div className="container">
@@ -44,30 +44,40 @@ export function ServiceCards({ detailed = false, intro }) {
         />
         <div className={`service-grid ${detailed ? 'service-grid--detailed' : ''}`}>
           {services.map((service) => (
-            <article key={service.slug} className="service-card" data-reveal>
+            <article key={service.slug} className={`service-card ${compact ? 'service-card--compact' : ''}`} data-reveal>
               <div className="service-card__header">
                 <p className="eyebrow">{service.title}</p>
                 <h3>{service.short}</h3>
               </div>
-              <p>{service.value}</p>
-              <div className="service-card__lists">
-                <div>
-                  <h4>Benefits</h4>
-                  <ul>
-                    {service.homeownerBenefits.map((benefit) => (
-                      <li key={benefit}>{benefit}</li>
-                    ))}
-                  </ul>
+              {compact ? (
+                <div className="service-chip-list">
+                  {service.examples.slice(0, 2).map((example) => (
+                    <span key={example}>{example}</span>
+                  ))}
                 </div>
-                <div>
-                  <h4>Common projects</h4>
-                  <ul>
-                    {service.examples.map((example) => (
-                      <li key={example}>{example}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              ) : (
+                <>
+                  <p>{service.value}</p>
+                  <div className="service-card__lists">
+                    <div>
+                      <h4>Benefits</h4>
+                      <ul>
+                        {service.homeownerBenefits.map((benefit) => (
+                          <li key={benefit}>{benefit}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4>Common projects</h4>
+                      <ul>
+                        {service.examples.map((example) => (
+                          <li key={example}>{example}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              )}
             </article>
           ))}
         </div>
@@ -103,18 +113,24 @@ export function ServiceQuoteSection() {
   );
 }
 
-export function WhyChooseUs() {
+export function WhyChooseUs({ compact = false }) {
+  const visibleReasons = compact ? reasons.slice(0, 3) : reasons;
+
   return (
     <section className="section section--contrast">
       <div className="container">
         <SectionIntro
           eyebrow="Why Homeowners Choose Us"
-          title="The kind of specialist team homeowners feel comfortable trusting with expensive rooms"
-          body="The goal is simple: deliver premium-looking kitchens and bathrooms through a process that feels calm, capable, and well managed."
+          title={compact ? 'Why the brand feels easy to trust' : 'The kind of specialist team homeowners feel comfortable trusting with expensive rooms'}
+          body={
+            compact
+              ? 'Clear planning, cleaner execution, and a more polished homeowner experience.'
+              : 'The goal is simple: deliver premium-looking kitchens and bathrooms through a process that feels calm, capable, and well managed.'
+          }
         />
         <div className="reason-grid">
-          {reasons.map((reason) => (
-            <article key={reason.title} className="reason-card" data-reveal>
+          {visibleReasons.map((reason) => (
+            <article key={reason.title} className={`reason-card ${compact ? 'reason-card--compact' : ''}`} data-reveal>
               <h3>{reason.title}</h3>
               <p>{reason.text}</p>
             </article>
@@ -125,18 +141,24 @@ export function WhyChooseUs() {
   );
 }
 
-export function TestimonialCards() {
+export function TestimonialCards({ compact = false, limit = testimonials.length }) {
+  const visibleTestimonials = testimonials.slice(0, limit);
+
   return (
     <section className="section">
       <div className="container">
         <SectionIntro
           eyebrow="Client Feedback"
-          title="Trust is earned through both the result and the experience"
-          body="Strong referrals come from homeowners who felt taken care of from the first conversation through the final detail."
+          title={compact ? 'What homeowners say after the work is done' : 'Trust is earned through both the result and the experience'}
+          body={
+            compact
+              ? 'Short, direct feedback from clients who cared about quality.'
+              : 'Strong referrals come from homeowners who felt taken care of from the first conversation through the final detail.'
+          }
         />
-        <div className="testimonial-grid">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.name} className="testimonial-card" data-reveal>
+        <div className={`testimonial-grid ${compact ? 'testimonial-grid--compact' : ''}`}>
+          {visibleTestimonials.map((testimonial) => (
+            <article key={testimonial.name} className={`testimonial-card ${compact ? 'testimonial-card--compact' : ''}`} data-reveal>
               <p className="testimonial-card__quote">“{testimonial.quote}”</p>
               <div className="testimonial-card__meta">
                 <strong>{testimonial.name}</strong>

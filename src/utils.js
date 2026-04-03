@@ -32,13 +32,33 @@ export function isActivePath(target) {
 
 export function useRevealAnimations() {
   useEffect(() => {
-    const nodes = Array.from(document.querySelectorAll('[data-reveal]'));
-    if (!nodes.length) return undefined;
+    const getRevealNodes = (root) => {
+      if (!(root instanceof Element) && root !== document.body) return [];
+
+      const nodes = [];
+      if (root instanceof Element && root.matches('[data-reveal]')) {
+        nodes.push(root);
+      }
+
+      return [...nodes, ...Array.from(root.querySelectorAll?.('[data-reveal]') || [])];
+    };
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-      nodes.forEach((node) => node.classList.add('is-visible'));
-      return undefined;
+      const showNodes = (root) => {
+        getRevealNodes(root).forEach((node) => node.classList.add('is-visible'));
+      };
+
+      showNodes(document.body);
+
+      const reducedMotionObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => showNodes(node));
+        });
+      });
+
+      reducedMotionObserver.observe(document.body, { childList: true, subtree: true });
+      return () => reducedMotionObserver.disconnect();
     }
 
     const observer = new IntersectionObserver(
@@ -53,7 +73,32 @@ export function useRevealAnimations() {
       { threshold: 0.18 }
     );
 
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    const observedNodes = new WeakSet();
+
+    const observeNode = (node) => {
+      if (!(node instanceof Element) || observedNodes.has(node) || node.classList.contains('is-visible')) {
+        return;
+      }
+
+      observedNodes.add(node);
+      observer.observe(node);
+    };
+
+    getRevealNodes(document.body).forEach((node) => observeNode(node));
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          getRevealNodes(node).forEach((revealNode) => observeNode(revealNode));
+        });
+      });
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
   }, []);
 }

@@ -48,8 +48,8 @@ export function BeforeAfterShowcase() {
       <div className="container">
         <SectionIntro
           eyebrow="Before & After"
-          title="Transformation stories that make the remodel quality feel tangible"
-          body="The easiest way to understand the value of kitchen and bathroom remodeling is to see what changed, why it mattered, and how the finished space feels afterward."
+          title="Transformation stories that make the work feel real"
+          body="See what changed, why it mattered, and how the finished room feels afterward."
         />
         <div className="before-after-showcase">
           <BeforeAfterSlider project={beforeAfterProjects[0]} />

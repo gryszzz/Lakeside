@@ -60,15 +60,15 @@ export const stats = [
 export const heroTrustItems = [
   {
     title: '4.9 average',
-    detail: 'Verified homeowner reviews'
+    detail: 'Verified reviews'
   },
   {
     title: 'Licensed',
-    detail: 'Insured remodeling specialists'
+    detail: 'Insured specialists'
   },
   {
     title: 'Detailed scopes',
-    detail: 'Clear pricing, selections, and planning'
+    detail: 'Clear planning'
   }
 ];
 
@@ -99,15 +99,15 @@ export const homeSpotlights = [
 export const homeConversionCards = [
   {
     title: 'Custom kitchens',
-    text: 'Layout, cabinetry, counters, lighting, and storage planned around how the room actually gets used.'
+    text: 'Layout, cabinetry, lighting, and storage planned around daily use.'
   },
   {
     title: 'Bathroom renovations',
-    text: 'Smarter layouts, reliable waterproofing, cleaner finishes, and a better daily routine once the work is done.'
+    text: 'Smarter layouts, reliable waterproofing, and a better daily routine.'
   },
   {
-    title: 'Tile, showers & finishes',
-    text: 'Shower builds, vanities, flooring, fixtures, and the finish details that separate premium remodels from surface-level updates.'
+    title: 'Finish precision',
+    text: 'Vanities, flooring, fixtures, and the details that make the room feel finished.'
   }
 ];
 
@@ -176,19 +176,19 @@ export const services = [
 export const reasons = [
   {
     title: 'Remodel precision',
-    text: 'Kitchens and bathrooms expose every detail, so we focus on waterproofing, alignment, fit, finish, and the kind of durability that holds up after the reveal.'
+    text: 'Waterproofing, alignment, fit, and finish handled the right way.'
   },
   {
     title: 'Clear planning up front',
-    text: 'Selections, layout decisions, scope, and scheduling are discussed early so the remodel feels organized before the first day of construction.'
+    text: 'Scope, selections, and scheduling are discussed early so the project feels organized.'
   },
   {
     title: 'Premium without the theater',
-    text: 'The experience should feel polished and professional, but never overplayed. Homeowners trust steady communication and clean work more than sales language.'
+    text: 'Polished, professional, and steady without the sales-heavy feel.'
   },
   {
     title: 'Respect for lived-in homes',
-    text: 'Clean jobsites, careful protection, dependable scheduling, and thoughtful communication matter just as much as the final tile line or fixture selection.'
+    text: 'Clean jobsites, careful protection, and respectful communication throughout.'
   }
 ];
 
@@ -314,21 +314,21 @@ export const featuredProjects = [
 export const testimonials = [
   {
     quote:
-      'The project felt organized from the first meeting through the final walkthrough. The bathroom looks exceptional, but what really stood out was how thoughtful the entire process felt.',
+      'The bathroom looks exceptional, but what stood out most was how organized the whole process felt.',
     name: 'Emily R.',
     location: 'Harbor Point',
     project: 'Primary bathroom remodel'
   },
   {
     quote:
-      'We talked to multiple companies, and this was the first team that felt both design-aware and dependable. The kitchen is beautiful and the communication stayed strong the whole time.',
+      'The kitchen is beautiful, and the communication stayed strong the whole time.',
     name: 'Daniel and Marisa T.',
     location: 'Maple Glen',
     project: 'Kitchen renovation'
   },
   {
     quote:
-      'The shower, vanity, and flooring all feel cleaner and better thought through now. It looks high-end, but more importantly it feels like it was done correctly.',
+      'It looks high-end, but more importantly it feels like it was done correctly.',
     name: 'Jonathan P.',
     location: 'Cedar Heights',
     project: 'Hall bathroom renovation'
