@@ -113,9 +113,6 @@ export function ProjectGallery() {
     return featuredProjects.filter((project) => project.category === filter);
   }, [filter]);
 
-  const kitchenCount = featuredProjects.filter((project) => project.category === 'Kitchens').length;
-  const bathroomCount = featuredProjects.filter((project) => project.category === 'Bathrooms').length;
-
   return (
     <section className="section">
       <div className="container">
@@ -127,20 +124,6 @@ export function ProjectGallery() {
               <p className="project-gallery__body">
                 Browse finished room directions, layout ideas, and higher-end material palettes. Open any project to see the look more closely.
               </p>
-            </div>
-            <div className="project-gallery__stats" aria-label="Portfolio summary">
-              <div className="project-gallery__stat">
-                <strong>{featuredProjects.length}</strong>
-                <span>Curated portfolio views</span>
-              </div>
-              <div className="project-gallery__stat">
-                <strong>{kitchenCount}</strong>
-                <span>Kitchen projects</span>
-              </div>
-              <div className="project-gallery__stat">
-                <strong>{bathroomCount}</strong>
-                <span>Bathroom projects</span>
-              </div>
             </div>
           </div>
           <div className="project-filter">
@@ -155,9 +138,6 @@ export function ProjectGallery() {
               </button>
             ))}
           </div>
-          <p className="project-gallery__active-count">
-            Showing <strong>{visibleProjects.length}</strong> project{visibleProjects.length === 1 ? '' : 's'}
-          </p>
         </div>
         <div className="project-grid project-grid--gallery">
           {visibleProjects.map((project) => (
