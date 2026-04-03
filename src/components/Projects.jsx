@@ -5,6 +5,9 @@ import { SectionIntro } from './Layout';
 
 const MIN_LIGHTBOX_ZOOM = 1;
 const LIGHTBOX_FOCUS_ZOOM = 2;
+const MAX_LIGHTBOX_ZOOM = 3.4;
+const LIGHTBOX_ZOOM_STEP = 0.4;
+const LIGHTBOX_WHEEL_STEP = 0.24;
 
 function clampValue(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -18,11 +21,22 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const zoomRef = useRef(zoom);
+  const offsetRef = useRef(offset);
   const isZoomed = zoom > 1.01;
   const hasPrev = activeIndex > 0;
   const hasNext = activeIndex < projects.length - 1;
+  const zoomLabel = `${Math.round(zoom * 100)}%`;
 
-  const limitOffset = (nextOffset, nextZoom = zoom) => {
+  useEffect(() => {
+    zoomRef.current = zoom;
+  }, [zoom]);
+
+  useEffect(() => {
+    offsetRef.current = offset;
+  }, [offset]);
+
+  const limitOffset = (nextOffset, nextZoom = zoomRef.current) => {
     const viewport = viewportRef.current;
 
     if (!viewport || nextZoom <= 1) {
@@ -39,9 +53,60 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
     };
   };
 
+  const applyZoom = (nextZoom, anchor) => {
+    const viewport = viewportRef.current;
+    const clampedZoom = clampValue(nextZoom, MIN_LIGHTBOX_ZOOM, MAX_LIGHTBOX_ZOOM);
+    const currentZoom = zoomRef.current;
+    const currentOffset = offsetRef.current;
+
+    if (!viewport) {
+      setZoom(clampedZoom);
+      if (clampedZoom <= MIN_LIGHTBOX_ZOOM) {
+        setOffset({ x: 0, y: 0 });
+      }
+      return;
+    }
+
+    const rect = viewport.getBoundingClientRect();
+    const focusPoint = anchor ?? { x: rect.width / 2, y: rect.height / 2 };
+
+    if (clampedZoom <= MIN_LIGHTBOX_ZOOM) {
+      setZoom(MIN_LIGHTBOX_ZOOM);
+      setOffset({ x: 0, y: 0 });
+      return;
+    }
+
+    const originX = focusPoint.x - rect.width / 2;
+    const originY = focusPoint.y - rect.height / 2;
+    const scaleRatio = clampedZoom / currentZoom;
+
+    setZoom(clampedZoom);
+    setOffset(
+      limitOffset(
+        {
+          x: originX - (originX - currentOffset.x) * scaleRatio,
+          y: originY - (originY - currentOffset.y) * scaleRatio
+        },
+        clampedZoom
+      )
+    );
+  };
+
+  const getAnchorFromEvent = (event) => {
+    const viewport = viewportRef.current;
+
+    if (!viewport) return undefined;
+
+    const rect = viewport.getBoundingClientRect();
+
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  };
+
   const zoomInView = () => {
-    setZoom(LIGHTBOX_FOCUS_ZOOM);
-    setOffset({ x: 0, y: 0 });
+    applyZoom(LIGHTBOX_FOCUS_ZOOM);
   };
 
   const resetView = () => {
@@ -70,6 +135,21 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
       if (event.key === 'ArrowRight' && hasNext) {
         event.preventDefault();
         onNavigate(activeIndex + 1);
+      }
+
+      if (event.key === '+' || event.key === '=') {
+        event.preventDefault();
+        applyZoom(zoom + LIGHTBOX_ZOOM_STEP);
+      }
+
+      if (event.key === '-' || event.key === '_') {
+        event.preventDefault();
+        applyZoom(zoom - LIGHTBOX_ZOOM_STEP);
+      }
+
+      if (event.key === '0') {
+        event.preventDefault();
+        resetView();
       }
     };
 
@@ -146,6 +226,13 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
     zoomInView();
   };
 
+  const handleWheel = (event) => {
+    event.preventDefault();
+
+    const delta = event.deltaY < 0 ? LIGHTBOX_WHEEL_STEP : -LIGHTBOX_WHEEL_STEP;
+    applyZoom(zoomRef.current + delta, getAnchorFromEvent(event));
+  };
+
   return (
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={project.title}>
       <button type="button" className="lightbox__backdrop" onClick={onClose} />
@@ -183,10 +270,41 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
             </button>
           ) : null}
 
+          <div className="lightbox__tools" aria-label="Image controls">
+            <button
+              type="button"
+              className="lightbox__tool-button"
+              onClick={() => applyZoom(zoomRef.current - LIGHTBOX_ZOOM_STEP)}
+              aria-label="Zoom out"
+            >
+              -
+            </button>
+            <div className="lightbox__zoom-readout" aria-live="polite">
+              {zoomLabel}
+            </div>
+            <button
+              type="button"
+              className="lightbox__tool-button"
+              onClick={() => applyZoom(zoomRef.current + LIGHTBOX_ZOOM_STEP)}
+              aria-label="Zoom in"
+            >
+              +
+            </button>
+            <button
+              type="button"
+              className="lightbox__tool-button lightbox__tool-button--reset"
+              onClick={resetView}
+              aria-label="Reset image position"
+            >
+              Fit
+            </button>
+          </div>
+
           <div
             ref={viewportRef}
             className={`lightbox__media ${isZoomed ? 'is-zoomed' : ''} ${isDragging ? 'is-dragging' : ''}`}
             onClick={handleMediaClick}
+            onWheel={handleWheel}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerRelease}
@@ -210,17 +328,6 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
             <h3>{project.title}</h3>
             <p>{project.summary}</p>
           </div>
-          <div className="lightbox__detail-list" aria-label="Project details">
-            <div className="lightbox__detail-row">
-              <span>Category</span>
-              <strong>{project.category}</strong>
-            </div>
-            <div className="lightbox__detail-row">
-              <span>Location</span>
-              <strong>{project.location}</strong>
-            </div>
-          </div>
-          <p className="lightbox__helper">{isZoomed ? 'Drag to inspect details. Click the image again to reset.' : 'Click the image to zoom in.'}</p>
           <div className="project-card__tags lightbox__tags">
             {project.tags.map((tag) => (
               <span key={tag}>{tag}</span>
