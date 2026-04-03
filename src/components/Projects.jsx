@@ -4,8 +4,7 @@ import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
 
 const MIN_LIGHTBOX_ZOOM = 1;
-const MAX_LIGHTBOX_ZOOM = 3;
-const LIGHTBOX_ZOOM_STEP = 0.35;
+const LIGHTBOX_FOCUS_ZOOM = 2;
 
 function clampValue(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -14,6 +13,7 @@ function clampValue(value, min, max) {
 function ProjectLightbox({ project, onClose }) {
   const viewportRef = useRef(null);
   const dragRef = useRef(null);
+  const suppressToggleRef = useRef(false);
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -36,16 +36,16 @@ function ProjectLightbox({ project, onClose }) {
     };
   };
 
-  const setZoomLevel = (nextZoom) => {
-    const safeZoom = clampValue(nextZoom, MIN_LIGHTBOX_ZOOM, MAX_LIGHTBOX_ZOOM);
-    setZoom(safeZoom);
-    setOffset((currentOffset) => limitOffset(currentOffset, safeZoom));
+  const zoomInView = () => {
+    setZoom(LIGHTBOX_FOCUS_ZOOM);
+    setOffset({ x: 0, y: 0 });
   };
 
   const resetView = () => {
     setZoom(MIN_LIGHTBOX_ZOOM);
     setOffset({ x: 0, y: 0 });
     setIsDragging(false);
+    suppressToggleRef.current = false;
     dragRef.current = null;
   };
 
@@ -58,32 +58,12 @@ function ProjectLightbox({ project, onClose }) {
       if (event.key === 'Escape') {
         onClose();
       }
-
-      if (event.key === '+' || event.key === '=') {
-        event.preventDefault();
-        setZoomLevel(zoom + LIGHTBOX_ZOOM_STEP);
-      }
-
-      if (event.key === '-' || event.key === '_') {
-        event.preventDefault();
-        setZoomLevel(zoom - LIGHTBOX_ZOOM_STEP);
-      }
-
-      if (event.key === '0') {
-        event.preventDefault();
-        resetView();
-      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose, zoom]);
-
-  const handleWheel = (event) => {
-    event.preventDefault();
-    setZoomLevel(zoom + (event.deltaY < 0 ? LIGHTBOX_ZOOM_STEP : -LIGHTBOX_ZOOM_STEP));
-  };
+  }, [onClose]);
 
   const handlePointerDown = (event) => {
     if (!isZoomed) return;
@@ -93,10 +73,10 @@ function ProjectLightbox({ project, onClose }) {
       startX: event.clientX,
       startY: event.clientY,
       originX: offset.x,
-      originY: offset.y
+      originY: offset.y,
+      moved: false
     };
 
-    setIsDragging(true);
     event.currentTarget.setPointerCapture(event.pointerId);
   };
 
@@ -105,23 +85,52 @@ function ProjectLightbox({ project, onClose }) {
 
     if (!dragState || dragState.pointerId !== event.pointerId || !isZoomed) return;
 
+    const deltaX = event.clientX - dragState.startX;
+    const deltaY = event.clientY - dragState.startY;
+    const moved = Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4;
+
+    if (moved) {
+      dragState.moved = true;
+      setIsDragging(true);
+    }
+
     setOffset(
       limitOffset({
-        x: dragState.originX + (event.clientX - dragState.startX),
-        y: dragState.originY + (event.clientY - dragState.startY)
+        x: dragState.originX + deltaX,
+        y: dragState.originY + deltaY
       })
     );
   };
 
   const handlePointerRelease = (event) => {
-    if (dragRef.current?.pointerId !== event.pointerId) return;
+    const dragState = dragRef.current;
+
+    if (dragState?.pointerId !== event.pointerId) return;
 
     if (event.currentTarget.hasPointerCapture(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);
     }
 
+    if (dragState.moved) {
+      suppressToggleRef.current = true;
+    }
+
     dragRef.current = null;
     setIsDragging(false);
+  };
+
+  const handleMediaClick = () => {
+    if (suppressToggleRef.current) {
+      suppressToggleRef.current = false;
+      return;
+    }
+
+    if (isZoomed) {
+      resetView();
+      return;
+    }
+
+    zoomInView();
   };
 
   return (
@@ -133,24 +142,10 @@ function ProjectLightbox({ project, onClose }) {
         </button>
 
         <div className="lightbox__media-shell">
-          <div className="lightbox__toolbar" aria-label="Image controls">
-            <span className="lightbox__zoom-readout">{Math.round(zoom * 100)}%</span>
-            <button type="button" className="lightbox__tool" onClick={() => setZoomLevel(zoom - LIGHTBOX_ZOOM_STEP)}>
-              -
-            </button>
-            <button type="button" className="lightbox__tool" onClick={resetView}>
-              Reset
-            </button>
-            <button type="button" className="lightbox__tool" onClick={() => setZoomLevel(zoom + LIGHTBOX_ZOOM_STEP)}>
-              +
-            </button>
-          </div>
-
           <div
             ref={viewportRef}
             className={`lightbox__media ${isZoomed ? 'is-zoomed' : ''} ${isDragging ? 'is-dragging' : ''}`}
-            onWheel={handleWheel}
-            onDoubleClick={() => setZoomLevel(isZoomed ? MIN_LIGHTBOX_ZOOM : 2)}
+            onClick={handleMediaClick}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerRelease}
@@ -165,9 +160,6 @@ function ProjectLightbox({ project, onClose }) {
                 transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`
               }}
             />
-            <p className="lightbox__hint">
-              {isZoomed ? 'Drag to move around the image.' : 'Double-click or use the controls to zoom in.'}
-            </p>
           </div>
         </div>
 
@@ -177,6 +169,9 @@ function ProjectLightbox({ project, onClose }) {
           </p>
           <h3>{project.title}</h3>
           <p>{project.summary}</p>
+          <p className="lightbox__helper">
+            {isZoomed ? 'Drag across the image to inspect details.' : 'Click the image to zoom in.'}
+          </p>
           <div className="project-card__tags">
             {project.tags.map((tag) => (
               <span key={tag}>{tag}</span>
