@@ -784,7 +784,7 @@ label {
 }
 
 .hero__image-card--main {
-  min-height: clamp(14rem, 29vw, 18rem);
+  min-height: clamp(15.6rem, 31vw, 19.4rem);
 }
 
 .hero__image-overlay,
@@ -806,19 +806,20 @@ label {
 .hero__image-overlay {
   right: 1rem;
   bottom: 1rem;
-  padding: 1rem 1.1rem;
-  border-radius: 1.2rem;
+  max-width: min(78%, 19rem);
+  padding: 0.72rem 0.84rem;
+  border-radius: 1rem;
   background: linear-gradient(180deg, rgba(6, 11, 20, 0.58), rgba(6, 11, 20, 0.9));
   backdrop-filter: blur(12px);
 }
 
 .hero__image-overlay p {
   color: var(--warm-soft);
-  font-size: 0.76rem;
+  font-size: 0.69rem;
 }
 
 .hero__image-card--tile {
-  min-height: 7.4rem;
+  min-height: 8.35rem;
 }
 
 .hero__tile-copy {
@@ -826,8 +827,9 @@ label {
   right: 0.9rem;
   bottom: 0.9rem;
   left: 0.9rem;
-  padding: 0.9rem 1rem;
-  border-radius: 18px;
+  max-width: min(84%, 15rem);
+  padding: 0.66rem 0.78rem;
+  border-radius: 15px;
   background: linear-gradient(180deg, rgba(6, 11, 20, 0.42), rgba(6, 11, 20, 0.88));
   backdrop-filter: blur(10px);
 }
@@ -835,10 +837,16 @@ label {
 .hero__tile-copy p {
   margin: 0 0 0.25rem;
   color: var(--warm-soft);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.hero__image-overlay strong,
+.hero__tile-copy strong {
+  font-size: 0.96rem;
+  line-height: 1.08;
 }
 
 .hero__visual-grid {
