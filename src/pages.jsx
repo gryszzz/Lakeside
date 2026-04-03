@@ -10,7 +10,6 @@ import {
   ContactInfoGrid,
   ServiceAreaSection,
   ServiceCards,
-  ServiceQuoteSection,
   StatGrid,
   TestimonialCards,
   ValuesGrid,
@@ -277,7 +276,6 @@ export function ServicesPage() {
         aside={<StatGrid />}
       />
       <ServiceCards detailed />
-      <ServiceQuoteSection />
     </SiteShell>
   );
 }
