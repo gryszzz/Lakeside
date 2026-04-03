@@ -41,8 +41,6 @@ export function BeforeAfterSlider({ project, compact = false }) {
 }
 
 export function BeforeAfterShowcase() {
-  const secondaryProjects = beforeAfterProjects.slice(1);
-
   return (
     <section className="section">
       <div className="container">
@@ -52,12 +50,9 @@ export function BeforeAfterShowcase() {
           body="See what changed, why it mattered, and how the finished room feels afterward."
         />
         <div className="before-after-showcase">
-          <BeforeAfterSlider project={beforeAfterProjects[0]} />
-          <div className="before-after-showcase__stack">
-            {secondaryProjects.map((project) => (
-              <BeforeAfterSlider key={project.title} project={project} compact />
-            ))}
-          </div>
+          {beforeAfterProjects.map((project) => (
+            <BeforeAfterSlider key={project.title} project={project} />
+          ))}
         </div>
       </div>
     </section>

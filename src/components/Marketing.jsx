@@ -36,10 +36,10 @@ export function ServiceCards({ detailed = false, intro, compact = false }) {
       <div className="container">
         <SectionIntro
           eyebrow="Services"
-          title={detailed ? 'Kitchen and bathroom services built around precision and finish quality' : 'Focused on the rooms that shape everyday living most'}
+          title={detailed ? 'Full kitchen and bathroom renovations' : 'Full kitchen and bathroom renovations'}
           body={
             intro ||
-            'From full kitchen remodels to complete bathroom renovations, each service is centered on clean execution and a more polished finished result.'
+            'Two core services, handled with cleaner planning, steadier communication, and a more finished result.'
           }
         />
         <div className={`service-grid ${detailed ? 'service-grid--detailed' : ''}`}>
@@ -58,23 +58,10 @@ export function ServiceCards({ detailed = false, intro, compact = false }) {
               ) : (
                 <>
                   <p>{service.value}</p>
-                  <div className="service-card__lists">
-                    <div>
-                      <h4>Benefits</h4>
-                      <ul>
-                        {service.homeownerBenefits.map((benefit) => (
-                          <li key={benefit}>{benefit}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4>Common projects</h4>
-                      <ul>
-                        {service.examples.map((example) => (
-                          <li key={example}>{example}</li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="service-chip-list service-chip-list--detailed">
+                    {service.examples.map((example) => (
+                      <span key={example}>{example}</span>
+                    ))}
                   </div>
                 </>
               )}

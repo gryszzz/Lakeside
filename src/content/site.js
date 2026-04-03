@@ -60,23 +60,19 @@ export const stats = [
 export const heroTrustItems = [
   {
     title: '4.9 average',
-    detail: 'Verified reviews',
-    graphic: 'review'
+    detail: 'Verified reviews'
   },
   {
     title: 'Licensed',
-    detail: 'Insured specialists',
-    graphic: 'license'
+    detail: 'Insured specialists'
   },
   {
     title: 'Detailed scopes',
-    detail: 'Clear planning',
-    graphic: 'scope'
+    detail: 'Clear planning'
   },
   {
     title: 'Kitchen & bath',
-    detail: 'Specialist focus',
-    graphic: 'focus'
+    detail: 'Specialist focus'
   }
 ];
 
@@ -106,16 +102,16 @@ export const homeSpotlights = [
 
 export const homeConversionCards = [
   {
-    title: 'Custom kitchens',
-    text: 'Layout, cabinetry, lighting, and storage planned around daily use.'
+    title: 'Full kitchen renovations',
+    text: 'Clearer layouts, stronger storage, and a kitchen that feels finished.'
   },
   {
-    title: 'Bathroom renovations',
-    text: 'Smarter layouts, reliable waterproofing, and a better daily routine.'
+    title: 'Full bathroom renovations',
+    text: 'Better shower planning, cleaner finishes, and a calmer daily routine.'
   },
   {
-    title: 'Finish precision',
-    text: 'Vanities, flooring, fixtures, and the details that make the room feel finished.'
+    title: 'Clear remodel process',
+    text: 'Straightforward scopes, direct communication, and cleaner execution.'
   }
 ];
 
@@ -130,28 +126,28 @@ export const services = [
   {
     slug: 'bathroom-remodeling',
     title: 'Bathroom Remodeling',
-    short: 'Bathroom renovations with stronger layouts, cleaner tile work, reliable waterproofing, and a more polished daily feel.',
+    short: 'Full bathroom renovations built around cleaner layouts, better shower systems, and a more finished daily feel.',
     homeownerBenefits: [
-      'Improve comfort, storage, and resale appeal',
-      'Replace dated finishes, worn fixtures, and inefficient layouts',
-      'Create a calmer space that feels easier to use every day'
+      'Improve comfort, storage, and everyday function',
+      'Replace dated layouts, worn finishes, and weak shower setups',
+      'Create a bathroom that feels cleaner, brighter, and easier to live with'
     ],
-    examples: ['Full primary bath renovations', 'Guest bath updates', 'Tub-to-shower conversions'],
+    examples: ['Primary bathroom renovations', 'Guest bathroom renovations', 'Full bath updates'],
     value:
-      'A premium bath remodel solves the details that matter most: waterproofing, tile alignment, vanity function, lighting, storage, and the feel of the room once you live in it.'
+      'From full gut renovations to more focused updates, the work centers on layout, shower and tile planning, vanities, fixtures, and the finished feel of the room.'
   },
   {
     slug: 'kitchen-remodeling',
     title: 'Kitchen Remodeling',
-    short: 'Custom kitchen remodels built for better flow, stronger storage, and a finished look that lifts the whole home.',
+    short: 'Full kitchen renovations built for better flow, stronger storage, and a cleaner finished look.',
     homeownerBenefits: [
-      'Better flow for busy family routines',
-      'More usable storage and countertop space',
-      'A premium centerpiece that elevates the entire home'
+      'Improve flow for cooking, gathering, and daily routines',
+      'Add better storage, prep space, and lighting',
+      'Create a kitchen that lifts the whole home'
     ],
     examples: ['Full kitchen renovations', 'Layout reconfiguration', 'Cabinet, countertop, and lighting upgrades'],
     value:
-      'The kitchen is one of the hardest-working rooms in the house. Thoughtful planning and precise finish work make the investment feel justified every single day.'
+      'The focus stays on full kitchen renovations that improve layout, cabinetry, counters, lighting, and the overall finished feel of the space.'
   }
 ];
 
