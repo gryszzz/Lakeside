@@ -395,10 +395,3 @@ export const quoteSidebarPoints = [
   'Clear next steps after first contact',
   'Professional homeowner communication from day one'
 ];
-
-export const estimateChecklist = [
-  'Kitchen or bathroom',
-  'County or township',
-  'A few current photos',
-  'Timing and budget range'
-];

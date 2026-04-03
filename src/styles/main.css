@@ -1657,8 +1657,7 @@ label {
   gap: 1rem;
 }
 
-.estimate-contact-row,
-.estimate-checklist-card {
+.estimate-contact-row {
   padding: 1rem;
   border: 1px solid rgba(148, 179, 255, 0.14);
   border-radius: 18px;
@@ -1755,31 +1754,6 @@ label {
   background: rgba(140, 181, 255, 0.06);
 }
 
-.estimate-checklist {
-  display: grid;
-  gap: 0.7rem;
-  list-style: none;
-  padding: 0;
-  margin: 0.35rem 0 0;
-}
-
-.estimate-checklist li {
-  position: relative;
-  padding-left: 1rem;
-  color: var(--text-soft);
-}
-
-.estimate-checklist li::before {
-  content: '';
-  position: absolute;
-  top: 0.6rem;
-  left: 0;
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
 .estimate-panel__actions {
   margin-top: 0.1rem;
 }
@@ -1826,8 +1800,7 @@ body[data-page='quote'] .checkbox-grid label {
   padding: 0.78rem 0.95rem;
 }
 
-body[data-page='quote'] .estimate-contact-row,
-body[data-page='quote'] .estimate-checklist-card {
+body[data-page='quote'] .estimate-contact-row {
   padding: 0.9rem;
 }
 

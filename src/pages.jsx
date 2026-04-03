@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   business,
-  estimateChecklist,
   homeConversionCards,
   homeHeroSlides,
   heroTrustItems,
@@ -191,14 +190,6 @@ function DirectEstimatePanel({
             Send Email
           </a>
         </article>
-      </div>
-      <div className="estimate-checklist-card">
-        <p className="eyebrow">Helpful To Include</p>
-        <ul className="estimate-checklist">
-          {estimateChecklist.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
       </div>
       {showActions ? (
         <div className="hero-actions estimate-panel__actions">
