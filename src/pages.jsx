@@ -76,14 +76,13 @@ function HomeHero() {
           <div className="hero-trust-grid">
             {heroTrustItems.map((item) => (
               <article key={item.title} className="hero-trust-card">
-                <div className="hero-trust-card__top">
-                  <span className={`hero-trust-card__graphic hero-trust-card__graphic--${item.graphic}`}>
-                    <TrustGraphic type={item.graphic} />
-                  </span>
-                  <span className="hero-trust-card__line" aria-hidden="true" />
+                <span className={`hero-trust-card__graphic hero-trust-card__graphic--${item.graphic}`}>
+                  <TrustGraphic type={item.graphic} />
+                </span>
+                <div className="hero-trust-card__body">
+                  <strong>{item.title}</strong>
+                  <span>{item.detail}</span>
                 </div>
-                <strong>{item.title}</strong>
-                <span>{item.detail}</span>
               </article>
             ))}
           </div>

@@ -697,27 +697,23 @@ label {
 
 .hero-trust-card {
   display: grid;
-  gap: 0.48rem;
-  padding: 0.74rem 0.8rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.72rem;
+  padding: 0.78rem 0.85rem;
   border: 1px solid rgba(148, 179, 255, 0.18);
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(140, 181, 255, 0.1), rgba(255, 255, 255, 0.02));
 }
 
-.hero-trust-card__top {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
 .hero-trust-card__graphic {
   display: inline-grid;
   place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.05rem;
+  height: 2.05rem;
   flex-shrink: 0;
   border: 1px solid rgba(148, 179, 255, 0.24);
-  border-radius: 14px;
+  border-radius: 12px;
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.14), transparent 62%),
     linear-gradient(180deg, rgba(79, 130, 255, 0.24), rgba(255, 255, 255, 0.03));
@@ -737,6 +733,10 @@ label {
   fill: none;
 }
 
+.hero-trust-card__body {
+  min-width: 0;
+}
+
 .hero-trust-card__graphic--review {
   color: #dce9ff;
 }
@@ -753,18 +753,13 @@ label {
   color: #f1f7ff;
 }
 
-.hero-trust-card__line {
-  height: 1px;
-  flex: 1;
-  background: linear-gradient(90deg, rgba(148, 179, 255, 0.5), rgba(148, 179, 255, 0.04));
-}
-
 .hero-trust-card strong,
 .hero-trust-card span {
   display: block;
 }
 
 .hero-trust-card strong {
+  margin-bottom: 0.1rem;
   font-size: 0.92rem;
 }
 
