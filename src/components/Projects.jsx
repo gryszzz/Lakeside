@@ -10,7 +10,8 @@ function clampValue(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
-function ProjectLightbox({ project, onClose }) {
+function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
+  const project = projects[activeIndex];
   const viewportRef = useRef(null);
   const dragRef = useRef(null);
   const suppressToggleRef = useRef(false);
@@ -18,6 +19,8 @@ function ProjectLightbox({ project, onClose }) {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const isZoomed = zoom > 1.01;
+  const hasPrev = activeIndex > 0;
+  const hasNext = activeIndex < projects.length - 1;
 
   const limitOffset = (nextOffset, nextZoom = zoom) => {
     const viewport = viewportRef.current;
@@ -58,12 +61,22 @@ function ProjectLightbox({ project, onClose }) {
       if (event.key === 'Escape') {
         onClose();
       }
+
+      if (event.key === 'ArrowLeft' && hasPrev) {
+        event.preventDefault();
+        onNavigate(activeIndex - 1);
+      }
+
+      if (event.key === 'ArrowRight' && hasNext) {
+        event.preventDefault();
+        onNavigate(activeIndex + 1);
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+  }, [activeIndex, hasNext, hasPrev, onClose, onNavigate]);
 
   const handlePointerDown = (event) => {
     if (!isZoomed) return;
@@ -137,11 +150,39 @@ function ProjectLightbox({ project, onClose }) {
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={project.title}>
       <button type="button" className="lightbox__backdrop" onClick={onClose} />
       <div className="lightbox__panel lightbox__panel--project">
+        <div className="lightbox__status">
+          <span className="lightbox__status-label">Portfolio Viewer</span>
+          <strong>
+            {activeIndex + 1} / {projects.length}
+          </strong>
+        </div>
         <button type="button" className="lightbox__close" onClick={onClose}>
           Close
         </button>
 
         <div className="lightbox__media-shell">
+          {hasPrev ? (
+            <button
+              type="button"
+              className="lightbox__nav lightbox__nav--prev"
+              onClick={() => onNavigate(activeIndex - 1)}
+              aria-label="View previous project"
+            >
+              Prev
+            </button>
+          ) : null}
+
+          {hasNext ? (
+            <button
+              type="button"
+              className="lightbox__nav lightbox__nav--next"
+              onClick={() => onNavigate(activeIndex + 1)}
+              aria-label="View next project"
+            >
+              Next
+            </button>
+          ) : null}
+
           <div
             ref={viewportRef}
             className={`lightbox__media ${isZoomed ? 'is-zoomed' : ''} ${isDragging ? 'is-dragging' : ''}`}
@@ -169,13 +210,32 @@ function ProjectLightbox({ project, onClose }) {
           </p>
           <h3>{project.title}</h3>
           <p>{project.summary}</p>
+          <div className="lightbox__meta">
+            <span>{project.category}</span>
+            <span>{project.location}</span>
+            <span>{isZoomed ? 'Detail view' : 'Fit view'}</span>
+          </div>
           <p className="lightbox__helper">
-            {isZoomed ? 'Drag across the image to inspect details.' : 'Click the image to zoom in.'}
+            {isZoomed
+              ? 'Drag across the image to inspect details. Click the image again to reset.'
+              : 'Click the image to zoom in. Use the side controls or keyboard arrows to browse.'}
           </p>
           <div className="project-card__tags">
             {project.tags.map((tag) => (
               <span key={tag}>{tag}</span>
             ))}
+          </div>
+          <div className="lightbox__actions">
+            {hasPrev ? (
+              <button type="button" className="button button--ghost lightbox__action-button" onClick={() => onNavigate(activeIndex - 1)}>
+                Previous Project
+              </button>
+            ) : null}
+            {hasNext ? (
+              <button type="button" className="button button--ghost lightbox__action-button" onClick={() => onNavigate(activeIndex + 1)}>
+                Next Project
+              </button>
+            ) : null}
           </div>
           <a className="button" href={withBase('quote/')}>
             Ask About a Similar Remodel
@@ -284,7 +344,7 @@ export function ProjectPreview() {
 
 export function ProjectGallery() {
   const [filter, setFilter] = useState('All');
-  const [activeProject, setActiveProject] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const filters = useMemo(
     () => ['All', ...new Set(featuredProjects.map((project) => project.category))],
@@ -323,16 +383,16 @@ export function ProjectGallery() {
           </div>
         </div>
         <div className="project-grid project-grid--gallery">
-          {visibleProjects.map((project) => (
+          {visibleProjects.map((project, index) => (
             <article
               key={project.title}
               className="project-card project-card--interactive"
               data-reveal
-              onClick={() => setActiveProject(project)}
+              onClick={() => setActiveIndex(index)}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
                   event.preventDefault();
-                  setActiveProject(project);
+                  setActiveIndex(index);
                 }
               }}
               role="button"
@@ -360,8 +420,13 @@ export function ProjectGallery() {
         </div>
       </div>
 
-      {activeProject ? (
-        <ProjectLightbox project={activeProject} onClose={() => setActiveProject(null)} />
+      {activeIndex !== null ? (
+        <ProjectLightbox
+          projects={visibleProjects}
+          activeIndex={activeIndex}
+          onClose={() => setActiveIndex(null)}
+          onNavigate={setActiveIndex}
+        />
       ) : null}
     </section>
   );
