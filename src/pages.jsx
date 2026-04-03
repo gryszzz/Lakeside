@@ -274,9 +274,9 @@ export function AboutPage() {
         body="Homeowners investing in kitchens and bathrooms want clear guidance, strong craftsmanship, and a team that respects both the design and the construction details."
         aside={
           <div className="about-metric-card">
-            <p className="eyebrow">What Homeowners Want</p>
-            <h3>Clear guidance without the sales act</h3>
-            <p>Confident scope advice, clean execution, and communication that stays professional from first walkthrough to final detail.</p>
+            <p className="eyebrow">Our Approach</p>
+            <h3>Steady planning. Clean execution.</h3>
+            <p>Kitchen and bathroom remodels handled with clear scope, disciplined craftsmanship, and communication that stays consistent throughout the project.</p>
           </div>
         }
       />
