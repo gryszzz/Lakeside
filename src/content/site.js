@@ -96,10 +96,19 @@ export const homeSpotlights = [
   }
 ];
 
-export const homeQualityPoints = [
-  'Custom kitchens and bathrooms built around layout, storage, material quality, and how the space is actually used.',
-  'Specialist craftsmanship in tile, showers, vanities, flooring, fixtures, and the finish details that have to hold up.',
-  'A cleaner homeowner experience with better planning, steadier communication, and disciplined remodel execution.'
+export const homeConversionCards = [
+  {
+    title: 'Custom kitchens',
+    text: 'Layout, cabinetry, counters, lighting, and storage planned around how the room actually gets used.'
+  },
+  {
+    title: 'Bathroom renovations',
+    text: 'Smarter layouts, reliable waterproofing, cleaner finishes, and a better daily routine once the work is done.'
+  },
+  {
+    title: 'Tile, showers & finishes',
+    text: 'Shower builds, vanities, flooring, fixtures, and the finish details that separate premium remodels from surface-level updates.'
+  }
 ];
 
 export const trustBadges = [
@@ -275,7 +284,7 @@ export const featuredProjects = [
   },
   {
     title: 'Frameless Shower Retreat',
-    category: 'Showers & Tile',
+    category: 'Bathrooms',
     image: 'images/projects/bathroom-after.svg',
     alt: 'Bathroom remodel with frameless shower and tile detailing',
     location: 'Westfield',

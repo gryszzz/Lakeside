@@ -3,10 +3,9 @@ import {
   estimateChecklist,
   estimateNextSteps,
   faqs,
+  homeConversionCards,
   heroTrustItems,
-  homeQualityPoints,
-  homeSpotlights,
-  trustBadges
+  homeSpotlights
 } from './content/site';
 import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
@@ -20,7 +19,7 @@ import {
   ValuesGrid,
   WhyChooseUs
 } from './components/Marketing';
-import { BeforeAfterShowcase, BeforeAfterSlider, ProjectGallery, ProjectPreview } from './components/Projects';
+import { BeforeAfterShowcase, BeforeAfterSlider, ProjectGallery } from './components/Projects';
 import { beforeAfterProjects } from './content/site';
 import { withBase } from './utils';
 
@@ -77,21 +76,24 @@ function HomeHero() {
   );
 }
 
-function HomeOverviewSection() {
+function HomeDecisionSection() {
   return (
     <section className="section section--home-overview">
       <div className="container">
         <div className="home-overview-grid">
           <div className="home-overview-copy" data-reveal>
-            <p className="eyebrow">Kitchen & Bath Specialists</p>
-            <h2>The rooms homeowners use hardest deserve the strongest planning and finish work.</h2>
+            <p className="eyebrow">Why Homeowners Reach Out</p>
+            <h2>Specialist remodeling makes the next step easier to trust.</h2>
             <p className="home-overview-copy__body">
-              Kitchens and bathrooms have no room for weak layout decisions or sloppy execution. We focus on the
-              spaces where cabinetry, tile, lighting, storage, waterproofing, and finish quality matter most.
+              If you already know the kitchen or bathroom needs work, the first question is not whether someone can
+              build. It is whether they can plan, communicate, and execute the room cleanly from start to finish.
             </p>
-            <div className="home-quality-list">
-              {homeQualityPoints.map((point) => (
-                <p key={point}>{point}</p>
+            <div className="home-specialty-grid">
+              {homeConversionCards.map((card) => (
+                <article key={card.title} className="home-specialty-card">
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </article>
               ))}
             </div>
           </div>
@@ -99,15 +101,18 @@ function HomeOverviewSection() {
             <div className="home-overview-note" data-reveal>
               <strong>{business.reviewsLabel}</strong>
               <p>
-                Clear scopes, thoughtful selections, and remodel management that feels organized from the first
-                walkthrough to the final detail.
+                Homeowners usually reach out when they want better layout clarity, more confidence in the finish
+                work, and a cleaner estimate conversation.
               </p>
             </div>
             <StatGrid />
-            <div className="home-overview-badges" data-reveal>
-              {trustBadges.slice(0, 3).map((badge) => (
-                <span key={badge}>{badge}</span>
-              ))}
+            <div className="hero-actions home-overview-actions" data-reveal>
+              <a className="button" href={withBase('quote/')}>
+                Request Estimate
+              </a>
+              <a className="button button--ghost" href={business.phoneHref}>
+                Call {business.phone}
+              </a>
             </div>
           </div>
         </div>
@@ -284,12 +289,10 @@ export function HomePage() {
   return (
     <SiteShell>
       <HomeHero />
-      <HomeOverviewSection />
+      <HomeDecisionSection />
       <BeforeAfterShowcase />
-      <ServiceCards />
-      <ProjectPreview />
+      <ServiceCards intro="Focused kitchen and bath remodeling services with cleaner scopes, sharper finish standards, and a more tailored finished result." />
       <WhyChooseUs />
-      <ProcessSteps />
       <TestimonialCards />
       <FAQSection items={faqs} />
       <ServiceAreaSection />
