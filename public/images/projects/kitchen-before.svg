@@ -1,12 +1,12 @@
 <svg width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1400" height="1000" fill="#242728"/>
-  <rect x="76" y="126" width="1248" height="780" rx="40" fill="#6D7375"/>
-  <rect x="148" y="188" width="1112" height="656" rx="28" fill="#8B9295"/>
-  <rect x="186" y="222" width="270" height="278" rx="16" fill="#666C6E"/>
-  <rect x="482" y="222" width="270" height="278" rx="16" fill="#707679"/>
-  <rect x="778" y="222" width="270" height="278" rx="16" fill="#666C6E"/>
-  <rect x="1096" y="222" width="126" height="278" rx="16" fill="#707679"/>
-  <rect x="210" y="572" width="950" height="142" rx="22" fill="#63686A"/>
-  <rect x="494" y="736" width="390" height="66" rx="18" fill="#575C5E"/>
-  <text x="150" y="152" fill="#F5F0E8" font-family="Sora, Arial, sans-serif" font-size="34" font-weight="700">Kitchen Before</text>
+  <rect width="1400" height="1000" fill="#232728"/>
+  <rect x="22" y="34" width="1356" height="932" rx="48" fill="#676E70"/>
+  <rect x="66" y="76" width="1268" height="848" rx="38" fill="#858C8F"/>
+  <rect x="108" y="114" width="1192" height="374" rx="28" fill="#747B7E"/>
+  <rect x="130" y="138" width="286" height="326" rx="22" fill="#5F6567"/>
+  <rect x="446" y="138" width="286" height="326" rx="22" fill="#696F72"/>
+  <rect x="762" y="138" width="286" height="326" rx="22" fill="#5F6567"/>
+  <rect x="1078" y="138" width="188" height="326" rx="22" fill="#6E7477"/>
+  <rect x="148" y="522" width="1104" height="184" rx="30" fill="#62676A"/>
+  <rect x="456" y="734" width="488" height="96" rx="28" fill="#565B5D"/>
 </svg>
