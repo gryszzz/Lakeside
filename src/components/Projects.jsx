@@ -1,7 +1,195 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { beforeAfterProjects, featuredProjects } from '../content/site';
 import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
+
+const MIN_LIGHTBOX_ZOOM = 1;
+const MAX_LIGHTBOX_ZOOM = 3;
+const LIGHTBOX_ZOOM_STEP = 0.35;
+
+function clampValue(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function ProjectLightbox({ project, onClose }) {
+  const viewportRef = useRef(null);
+  const dragRef = useRef(null);
+  const [zoom, setZoom] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const isZoomed = zoom > 1.01;
+
+  const limitOffset = (nextOffset, nextZoom = zoom) => {
+    const viewport = viewportRef.current;
+
+    if (!viewport || nextZoom <= 1) {
+      return { x: 0, y: 0 };
+    }
+
+    const rect = viewport.getBoundingClientRect();
+    const maxX = ((nextZoom - 1) * rect.width) / 2;
+    const maxY = ((nextZoom - 1) * rect.height) / 2;
+
+    return {
+      x: clampValue(nextOffset.x, -maxX, maxX),
+      y: clampValue(nextOffset.y, -maxY, maxY)
+    };
+  };
+
+  const setZoomLevel = (nextZoom) => {
+    const safeZoom = clampValue(nextZoom, MIN_LIGHTBOX_ZOOM, MAX_LIGHTBOX_ZOOM);
+    setZoom(safeZoom);
+    setOffset((currentOffset) => limitOffset(currentOffset, safeZoom));
+  };
+
+  const resetView = () => {
+    setZoom(MIN_LIGHTBOX_ZOOM);
+    setOffset({ x: 0, y: 0 });
+    setIsDragging(false);
+    dragRef.current = null;
+  };
+
+  useEffect(() => {
+    resetView();
+  }, [project]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+
+      if (event.key === '+' || event.key === '=') {
+        event.preventDefault();
+        setZoomLevel(zoom + LIGHTBOX_ZOOM_STEP);
+      }
+
+      if (event.key === '-' || event.key === '_') {
+        event.preventDefault();
+        setZoomLevel(zoom - LIGHTBOX_ZOOM_STEP);
+      }
+
+      if (event.key === '0') {
+        event.preventDefault();
+        resetView();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose, zoom]);
+
+  const handleWheel = (event) => {
+    event.preventDefault();
+    setZoomLevel(zoom + (event.deltaY < 0 ? LIGHTBOX_ZOOM_STEP : -LIGHTBOX_ZOOM_STEP));
+  };
+
+  const handlePointerDown = (event) => {
+    if (!isZoomed) return;
+
+    dragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      originX: offset.x,
+      originY: offset.y
+    };
+
+    setIsDragging(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event) => {
+    const dragState = dragRef.current;
+
+    if (!dragState || dragState.pointerId !== event.pointerId || !isZoomed) return;
+
+    setOffset(
+      limitOffset({
+        x: dragState.originX + (event.clientX - dragState.startX),
+        y: dragState.originY + (event.clientY - dragState.startY)
+      })
+    );
+  };
+
+  const handlePointerRelease = (event) => {
+    if (dragRef.current?.pointerId !== event.pointerId) return;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    dragRef.current = null;
+    setIsDragging(false);
+  };
+
+  return (
+    <div className="lightbox" role="dialog" aria-modal="true" aria-label={project.title}>
+      <button type="button" className="lightbox__backdrop" onClick={onClose} />
+      <div className="lightbox__panel lightbox__panel--project">
+        <button type="button" className="lightbox__close" onClick={onClose}>
+          Close
+        </button>
+
+        <div className="lightbox__media-shell">
+          <div className="lightbox__toolbar" aria-label="Image controls">
+            <span className="lightbox__zoom-readout">{Math.round(zoom * 100)}%</span>
+            <button type="button" className="lightbox__tool" onClick={() => setZoomLevel(zoom - LIGHTBOX_ZOOM_STEP)}>
+              -
+            </button>
+            <button type="button" className="lightbox__tool" onClick={resetView}>
+              Reset
+            </button>
+            <button type="button" className="lightbox__tool" onClick={() => setZoomLevel(zoom + LIGHTBOX_ZOOM_STEP)}>
+              +
+            </button>
+          </div>
+
+          <div
+            ref={viewportRef}
+            className={`lightbox__media ${isZoomed ? 'is-zoomed' : ''} ${isDragging ? 'is-dragging' : ''}`}
+            onWheel={handleWheel}
+            onDoubleClick={() => setZoomLevel(isZoomed ? MIN_LIGHTBOX_ZOOM : 2)}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerRelease}
+            onPointerCancel={handlePointerRelease}
+            onPointerLeave={handlePointerRelease}
+          >
+            <img
+              className="lightbox__image"
+              src={withBase(project.image)}
+              alt={project.alt}
+              style={{
+                transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`
+              }}
+            />
+            <p className="lightbox__hint">
+              {isZoomed ? 'Drag to move around the image.' : 'Double-click or use the controls to zoom in.'}
+            </p>
+          </div>
+        </div>
+
+        <div className="lightbox__content">
+          <p className="eyebrow">
+            {project.category} • {project.location}
+          </p>
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+          <div className="project-card__tags">
+            {project.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+          <a className="button" href={withBase('quote/')}>
+            Ask About a Similar Remodel
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function BeforeAfterSlider({ project, compact = false }) {
   const [value, setValue] = useState(54);
@@ -178,30 +366,7 @@ export function ProjectGallery() {
       </div>
 
       {activeProject ? (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label={activeProject.title}>
-          <button type="button" className="lightbox__backdrop" onClick={() => setActiveProject(null)} />
-          <div className="lightbox__panel">
-            <button type="button" className="lightbox__close" onClick={() => setActiveProject(null)}>
-              Close
-            </button>
-            <img src={withBase(activeProject.image)} alt={activeProject.alt} />
-            <div className="lightbox__content">
-              <p className="eyebrow">
-                {activeProject.category} • {activeProject.location}
-              </p>
-              <h3>{activeProject.title}</h3>
-              <p>{activeProject.summary}</p>
-              <div className="project-card__tags">
-                {activeProject.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-              <a className="button" href={withBase('quote/')}>
-                Ask About a Similar Remodel
-              </a>
-            </div>
-          </div>
-        </div>
+        <ProjectLightbox project={activeProject} onClose={() => setActiveProject(null)} />
       ) : null}
     </section>
   );
