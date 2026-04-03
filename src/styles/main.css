@@ -1947,79 +1947,27 @@ label {
 .hero__image-overlay {
   position: absolute;
   z-index: 2;
-  right: 1rem;
+  left: 1rem;
   bottom: 1rem;
-  max-width: min(62%, 15.2rem);
+  max-width: min(44%, 11.5rem);
   display: grid;
-  gap: 0.26rem;
-  padding: 0.62rem 0.72rem 0.68rem;
-  border: 1px solid rgba(148, 179, 255, 0.14);
-  border-radius: 0;
-  background:
-    linear-gradient(135deg, rgba(140, 181, 255, 0.1), transparent 38%),
-    linear-gradient(180deg, rgba(6, 11, 20, 0.64), rgba(6, 11, 20, 0.92));
-  box-shadow: 0 16px 28px rgba(4, 8, 15, 0.2);
-  backdrop-filter: blur(12px);
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-}
-
-.hero__image-overlay::before,
-.hero__image-overlay::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-}
-
-.hero__image-overlay::before {
-  inset: 1px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 13px 100%, 0 calc(100% - 13px));
-}
-
-.hero__image-overlay::after {
-  top: 0.58rem;
-  right: 0.6rem;
-  width: 0.85rem;
-  height: 0.85rem;
-  border-top: 1px solid rgba(148, 179, 255, 0.28);
-  border-right: 1px solid rgba(148, 179, 255, 0.28);
+  gap: 0.12rem;
+  padding: 0;
+  text-shadow: 0 8px 24px rgba(3, 7, 14, 0.72);
 }
 
 .hero__image-topline {
   display: flex;
   align-items: center;
-  gap: 0.36rem;
+  gap: 0.3rem;
 }
 
 .hero__image-topline p {
-  color: rgba(235, 244, 255, 0.76);
-  font-size: 0.58rem;
-  font-weight: 700;
+  color: rgba(235, 244, 255, 0.8);
+  font-size: 0.56rem;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.hero__image-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  margin-top: 0.12rem;
-  padding-top: 0.48rem;
-  border-top: 1px solid rgba(148, 179, 255, 0.1);
-  color: rgba(214, 229, 255, 0.74);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.hero__image-arrow {
-  width: 1.15rem;
-  height: 0.55rem;
-  border-top: 1px solid rgba(148, 179, 255, 0.38);
-  border-right: 1px solid rgba(148, 179, 255, 0.38);
-  transform: skewX(26deg);
 }
 
 .hero__image-progress {
@@ -2050,9 +1998,10 @@ label {
 
 .hero__image-overlay strong {
   display: block;
-  max-width: 12ch;
-  font-size: 0.9rem;
-  line-height: 1.12;
+  max-width: 10ch;
+  color: var(--heading);
+  font-size: 0.92rem;
+  line-height: 1.04;
   text-wrap: balance;
 }
 

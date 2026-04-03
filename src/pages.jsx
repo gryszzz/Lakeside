@@ -66,10 +66,6 @@ function HomeHero() {
                 <p>{currentHeroSlide.label}</p>
               </div>
               <strong>{currentHeroSlide.title}</strong>
-              <div className="hero__image-footer">
-                <span>View next</span>
-                <span className="hero__image-arrow" aria-hidden="true" />
-              </div>
             </div>
             <div className="hero__image-progress" aria-hidden="true">
               {homeHeroSlides.map((item, index) => (
