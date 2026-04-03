@@ -205,39 +205,28 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
         </div>
 
         <div className="lightbox__content">
-          <p className="eyebrow">
-            {project.category} • {project.location}
-          </p>
-          <h3>{project.title}</h3>
-          <p>{project.summary}</p>
-          <div className="lightbox__meta">
-            <span>{project.category}</span>
-            <span>{project.location}</span>
-            <span>{isZoomed ? 'Detail view' : 'Fit view'}</span>
+          <div className="lightbox__headline">
+            <p className="eyebrow">Featured Project</p>
+            <h3>{project.title}</h3>
+            <p>{project.summary}</p>
           </div>
-          <p className="lightbox__helper">
-            {isZoomed
-              ? 'Drag across the image to inspect details. Click the image again to reset.'
-              : 'Click the image to zoom in. Use the side controls or keyboard arrows to browse.'}
-          </p>
-          <div className="project-card__tags">
+          <div className="lightbox__detail-list" aria-label="Project details">
+            <div className="lightbox__detail-row">
+              <span>Category</span>
+              <strong>{project.category}</strong>
+            </div>
+            <div className="lightbox__detail-row">
+              <span>Location</span>
+              <strong>{project.location}</strong>
+            </div>
+          </div>
+          <p className="lightbox__helper">{isZoomed ? 'Drag to inspect details. Click the image again to reset.' : 'Click the image to zoom in.'}</p>
+          <div className="project-card__tags lightbox__tags">
             {project.tags.map((tag) => (
               <span key={tag}>{tag}</span>
             ))}
           </div>
-          <div className="lightbox__actions">
-            {hasPrev ? (
-              <button type="button" className="button button--ghost lightbox__action-button" onClick={() => onNavigate(activeIndex - 1)}>
-                Previous Project
-              </button>
-            ) : null}
-            {hasNext ? (
-              <button type="button" className="button button--ghost lightbox__action-button" onClick={() => onNavigate(activeIndex + 1)}>
-                Next Project
-              </button>
-            ) : null}
-          </div>
-          <a className="button" href={withBase('quote/')}>
+          <a className="button lightbox__cta" href={withBase('quote/')}>
             Ask About a Similar Remodel
           </a>
         </div>
