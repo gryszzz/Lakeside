@@ -61,12 +61,6 @@ function HomeHero() {
             aria-label={`Show next featured image. Currently showing ${currentHeroSlide.title}.`}
           >
             <img src={withBase(currentHeroSlide.image)} alt={currentHeroSlide.alt} />
-            <div className="hero__image-overlay">
-              <div className="hero__image-topline">
-                <p>{currentHeroSlide.label}</p>
-              </div>
-              <strong>{currentHeroSlide.title}</strong>
-            </div>
             <div className="hero__image-progress" aria-hidden="true">
               {homeHeroSlides.map((item, index) => (
                 <span key={item.title} className={index === activeHeroSlide ? 'is-active' : ''} />

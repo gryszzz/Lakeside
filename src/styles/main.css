@@ -1903,7 +1903,6 @@ label {
   min-height: clamp(18rem, 34vw, 22.2rem);
 }
 
-.hero__image-overlay,
 .project-card__media span {
   position: absolute;
   left: 1rem;
@@ -1944,32 +1943,6 @@ label {
   transform: translateY(-2px);
 }
 
-.hero__image-overlay {
-  position: absolute;
-  z-index: 2;
-  left: 1rem;
-  bottom: 1rem;
-  max-width: min(44%, 11.5rem);
-  display: grid;
-  gap: 0.12rem;
-  padding: 0;
-  text-shadow: 0 8px 24px rgba(3, 7, 14, 0.72);
-}
-
-.hero__image-topline {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.hero__image-topline p {
-  color: rgba(235, 244, 255, 0.8);
-  font-size: 0.56rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .hero__image-progress {
   position: absolute;
   left: 1rem;
@@ -1994,15 +1967,6 @@ label {
 
 .hero__image-card--tile {
   min-height: 10.6rem;
-}
-
-.hero__image-overlay strong {
-  display: block;
-  max-width: 10ch;
-  color: var(--heading);
-  font-size: 0.92rem;
-  line-height: 1.04;
-  text-wrap: balance;
 }
 
 .hero__visual-grid {
@@ -4000,13 +3964,8 @@ body[data-page='projects'] .testimonial-grid--compact {
     min-height: 8rem;
   }
 
-  .hero__image-overlay,
   .home-overview-note {
     padding: 0.9rem 0.95rem;
-  }
-
-  .hero__image-overlay strong {
-    font-size: 0.95rem;
   }
 
   .home-overview-copy,
