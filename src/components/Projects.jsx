@@ -116,11 +116,6 @@ export function ProjectGallery() {
   return (
     <section className="section">
       <div className="container">
-        <SectionIntro
-          eyebrow="Portfolio"
-          title="Kitchen and bathroom projects with a cleaner, more tailored finish"
-          body="Browse remodel directions, materials, and project styles that show how the finished space can feel more functional, polished, and current."
-        />
         <div className="project-filter" data-reveal>
           {filters.map((item) => (
             <button
