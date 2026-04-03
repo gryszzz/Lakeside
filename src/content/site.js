@@ -59,7 +59,7 @@ export const stats = [
 
 export const heroTrustItems = [
   {
-    title: '4.9 homeowner rating',
+    title: '4.9 rating',
     detail: 'Verified reviews'
   },
   {
@@ -67,12 +67,12 @@ export const heroTrustItems = [
     detail: 'Full coverage'
   },
   {
-    title: 'Clear scopes upfront',
+    title: 'Clear scopes',
     detail: 'Planning first'
   },
   {
-    title: 'Kitchen + bath specialists',
-    detail: 'Focused remodel work'
+    title: 'Kitchen + bath',
+    detail: 'Focused remodels'
   }
 ];
 
