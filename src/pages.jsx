@@ -177,6 +177,9 @@ function DirectEstimatePanel({
             <a href={business.phoneHref}>{business.phone}</a>
           </h3>
           <p>Best for quick questions, timing, and next steps.</p>
+          <a className="estimate-contact-row__action" href={business.phoneHref}>
+            Call Now
+          </a>
         </article>
         <article className="estimate-contact-row estimate-contact-row--email">
           <p className="eyebrow">Email</p>
@@ -184,6 +187,9 @@ function DirectEstimatePanel({
             <a href={business.emailHref}>{business.email}</a>
           </h3>
           <p>{emailCopy}</p>
+          <a className="estimate-contact-row__action estimate-contact-row__action--ghost" href={business.emailHref}>
+            Send Email
+          </a>
         </article>
       </div>
       <div className="estimate-checklist-card">

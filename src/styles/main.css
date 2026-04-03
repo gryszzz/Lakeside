@@ -1720,6 +1720,41 @@ label {
   margin-bottom: 0.05rem;
 }
 
+.estimate-contact-row__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  margin-top: 0.2rem;
+  padding: 0.62rem 0.9rem;
+  border: 1px solid rgba(148, 179, 255, 0.24);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(140, 181, 255, 0.16), rgba(79, 130, 255, 0.16));
+  color: var(--heading);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+.estimate-contact-row__action:hover,
+.estimate-contact-row__action:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(148, 179, 255, 0.42);
+  background: linear-gradient(180deg, rgba(140, 181, 255, 0.22), rgba(79, 130, 255, 0.22));
+  box-shadow: 0 14px 28px rgba(3, 8, 17, 0.22);
+}
+
+.estimate-contact-row__action--ghost {
+  background: rgba(140, 181, 255, 0.06);
+}
+
 .estimate-checklist {
   display: grid;
   gap: 0.7rem;
@@ -1798,6 +1833,10 @@ body[data-page='quote'] .estimate-checklist-card {
 
 body[data-page='quote'] .estimate-contact-row {
   gap: 0.5rem;
+}
+
+body[data-page='quote'] .estimate-contact-row__action {
+  width: 100%;
 }
 
 body[data-page='quote'] .form-actions {
