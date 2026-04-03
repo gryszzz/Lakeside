@@ -390,8 +390,6 @@ export function ContactPage() {
         }
         aside={<QuickContactPanel />}
       />
-      <ContactSection />
-      <ServiceAreaSection />
     </SiteShell>
   );
 }
