@@ -368,6 +368,16 @@ label {
   white-space: nowrap;
 }
 
+.site-header__phone {
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.site-header__phone:hover {
+  color: var(--heading);
+}
+
 .site-header__actions .button {
   min-height: 2.7rem;
   padding: 0.62rem 0.9rem;
@@ -542,6 +552,10 @@ label {
   display: grid;
   gap: 0.85rem;
   padding-top: 0.35rem;
+}
+
+.mobile-nav__call {
+  font-weight: 700;
 }
 
 .mobile-nav__meta p {
@@ -1995,6 +2009,7 @@ body[data-page='home'] .testimonial-grid--compact {
 
 @media (max-width: 1040px) {
   .site-nav,
+  .site-header__phone,
   .site-header__actions .button--ghost,
   .site-header__actions .button:not(.menu-toggle) {
     display: none;

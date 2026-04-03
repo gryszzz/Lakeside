@@ -69,7 +69,7 @@ export function Header() {
             ))}
           </nav>
           <div className="site-header__actions">
-            <a className="button button--ghost" href={business.phoneHref}>
+            <a className="site-header__phone" href={business.phoneHref}>
               {business.phone}
             </a>
             <a className="button" href={withBase('quote/')}>
@@ -111,11 +111,11 @@ export function Header() {
             <a className="button" href={withBase('quote/')} onClick={() => setOpen(false)}>
               Request Estimate
             </a>
-            <a className="button button--ghost" href={business.phoneHref}>
-              Call {business.phone}
-            </a>
           </div>
           <div className="mobile-nav__meta">
+            <a className="text-link mobile-nav__call" href={business.phoneHref}>
+              Call {business.phone}
+            </a>
             <p>{business.serviceAreaLabel}</p>
             <div className="social-links social-links--mobile">
               {business.socialLinks.map((link) => (
@@ -229,8 +229,8 @@ export function FinalCta({
   body = 'Tell us about the room you want to improve and we will help you understand fit, scope, and next steps.',
   primaryLabel = 'Request Estimate',
   primaryHref = 'quote/',
-  secondaryLabel = 'Call Today',
-  secondaryHref = business.phoneHref
+  secondaryLabel,
+  secondaryHref
 }) {
   return (
     <section className="final-cta">
@@ -244,9 +244,11 @@ export function FinalCta({
           <a className="button" href={withBase(primaryHref)}>
             {primaryLabel}
           </a>
-          <a className="button button--ghost" href={withBase(secondaryHref)}>
-            {secondaryLabel}
-          </a>
+          {secondaryLabel && secondaryHref ? (
+            <a className="button button--ghost" href={withBase(secondaryHref)}>
+              {secondaryLabel}
+            </a>
+          ) : null}
         </div>
       </div>
     </section>

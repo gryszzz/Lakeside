@@ -101,9 +101,6 @@ function HomeDecisionSection() {
               <a className="button" href={withBase('quote/')}>
                 Request Estimate
               </a>
-              <a className="button button--ghost" href={business.phoneHref}>
-                Call {business.phone}
-              </a>
             </div>
           </div>
         </div>
@@ -270,6 +267,7 @@ function ContactSection() {
           title="Call or email the remodeling team directly."
           body="If you are planning a kitchen or bathroom project, the easiest next step is direct contact by phone or email."
           emailCopy="Email photos, project notes, or questions about your kitchen or bathroom remodel and we will reply with next steps."
+          showActions={false}
         />
       </div>
     </section>
@@ -419,7 +417,7 @@ export function QuotePage() {
 
 export function ContactPage() {
   return (
-    <SiteShell>
+    <SiteShell showFinalCta={false}>
       <PageHero
         eyebrow="Contact"
         title="Reach out about your kitchen or bathroom project"

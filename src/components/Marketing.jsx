@@ -103,9 +103,6 @@ export function ServiceQuoteSection() {
             <a className="button" href={withBase('quote/')}>
               Request Estimate
             </a>
-            <a className="button button--ghost" href={business.phoneHref}>
-              Call {business.phone}
-            </a>
           </div>
         </div>
       </div>
