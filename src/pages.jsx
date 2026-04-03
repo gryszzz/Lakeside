@@ -176,15 +176,20 @@ function ContactMapPlaceholder() {
 
 function QuickContactPanel() {
   return (
-    <div className="about-metric-card">
+    <div className="about-metric-card quick-contact-panel">
       <p className="eyebrow">Direct Contact</p>
       <h3>Call or email for your kitchen or bathroom project.</h3>
-      <div className="quick-contact-panel__actions">
-        <a className="button" href={business.phoneHref}>
-          Call {business.phone}
+      <p className="quick-contact-panel__intro">Use whichever is easier. A quick call is fastest.</p>
+      <div className="quick-contact-panel__grid">
+        <a className="quick-contact-panel__option quick-contact-panel__option--call" href={business.phoneHref}>
+          <span className="quick-contact-panel__label">Call</span>
+          <strong>{business.phone}</strong>
+          <span className="quick-contact-panel__note">Quick questions, timing, and next steps</span>
         </a>
-        <a className="button button--ghost" href={business.emailHref}>
-          Email {business.email}
+        <a className="quick-contact-panel__option quick-contact-panel__option--email" href={business.emailHref}>
+          <span className="quick-contact-panel__label">Email</span>
+          <strong>{business.email}</strong>
+          <span className="quick-contact-panel__note">Photos, project notes, and room details</span>
         </a>
       </div>
       <div className="quick-contact-panel__meta">
