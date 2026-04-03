@@ -1919,6 +1919,60 @@ body[data-page='home'] .testimonial-grid--compact {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
 }
 
+body[data-page='about'] .page-hero {
+  padding: 3.8rem 0 1.45rem;
+}
+
+body[data-page='about'] .page-hero__grid,
+body[data-page='about'] .story-grid,
+body[data-page='about'] .service-area {
+  gap: 0.9rem;
+}
+
+body[data-page='about'] .section {
+  padding: 2.25rem 0;
+}
+
+body[data-page='about'] .page-hero h1 {
+  font-size: clamp(1.7rem, 2.3vw, 2.4rem);
+  line-height: 0.98;
+}
+
+body[data-page='about'] .page-hero__body,
+body[data-page='about'] .section-intro__body {
+  max-width: 35rem;
+  margin-top: 0.72rem;
+  font-size: 0.92rem;
+}
+
+body[data-page='about'] .section-intro {
+  max-width: 38rem;
+  margin-bottom: 0.95rem;
+}
+
+body[data-page='about'] .page-hero__aside,
+body[data-page='about'] .about-metric-card,
+body[data-page='about'] .story-card,
+body[data-page='about'] .reason-card {
+  padding: 1.15rem;
+}
+
+body[data-page='about'] .story-card img {
+  aspect-ratio: 1.32 / 1;
+}
+
+body[data-page='about'] .reason-grid {
+  gap: 0.8rem;
+}
+
+body[data-page='about'] .service-area__list {
+  gap: 0.55rem;
+}
+
+body[data-page='about'] .final-cta {
+  padding-bottom: 2.4rem;
+}
+
 @media (min-width: 1280px) {
   .site-header__inner,
   .site-footer__grid,
