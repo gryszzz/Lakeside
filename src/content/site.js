@@ -59,20 +59,20 @@ export const stats = [
 
 export const heroTrustItems = [
   {
-    title: '4.9 average',
-    detail: 'Verified reviews'
+    title: '4.9 average rating',
+    detail: 'Verified homeowner reviews'
   },
   {
-    title: 'Licensed',
-    detail: 'Insured specialists'
+    title: 'Licensed + insured',
+    detail: 'Professional remodel coverage'
   },
   {
-    title: 'Detailed scopes',
-    detail: 'Clear planning'
+    title: 'Scope-first planning',
+    detail: 'Clear kitchen and bath direction'
   },
   {
-    title: 'Kitchen & bath',
-    detail: 'Specialist focus'
+    title: 'Kitchen + bath only',
+    detail: 'Specialist remodel focus'
   }
 ];
 

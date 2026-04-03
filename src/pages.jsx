@@ -43,11 +43,15 @@ function HomeHero() {
             </a>
           </div>
           <div className="hero-trust-grid">
-            {heroTrustItems.map((item) => (
+            {heroTrustItems.map((item, index) => (
               <article key={item.title} className="hero-trust-card">
+                <div className="hero-trust-card__chrome" aria-hidden="true">
+                  <span className="hero-trust-card__index">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="hero-trust-card__signal" />
+                </div>
                 <div className="hero-trust-card__body">
+                  <span className="hero-trust-card__eyebrow">{item.detail}</span>
                   <strong>{item.title}</strong>
-                  <span>{item.detail}</span>
                 </div>
               </article>
             ))}
@@ -62,7 +66,10 @@ function HomeHero() {
           >
             <img src={withBase(currentHeroSlide.image)} alt={currentHeroSlide.alt} />
             <div className="hero__image-overlay">
-              <p>{currentHeroSlide.label}</p>
+              <div className="hero__image-topline">
+                <p>{currentHeroSlide.label}</p>
+                <span>{String(activeHeroSlide + 1).padStart(2, '0')}</span>
+              </div>
               <strong>{currentHeroSlide.title}</strong>
               <span className="hero__image-hint">Click to view next</span>
             </div>
