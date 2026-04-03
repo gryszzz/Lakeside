@@ -9,7 +9,6 @@ import {
 } from './content/site';
 import { PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
-  ContactInfoGrid,
   ServiceAreaSection,
   ServiceCards,
   StatGrid,
@@ -156,50 +155,6 @@ function AboutStoryBlock() {
   );
 }
 
-function ContactMapPlaceholder() {
-  return (
-    <div className="map-card" data-reveal>
-      <div>
-        <p className="eyebrow">Service Area</p>
-        <h3>Serving homeowners across Your City and nearby communities.</h3>
-        <p>
-          Reach out to confirm coverage, timing, and whether your kitchen or bathroom project is the right fit for the
-          schedule.
-        </p>
-      </div>
-      <a className="button button--ghost" href={business.mapUrl}>
-        Open Service Area Map
-      </a>
-    </div>
-  );
-}
-
-function QuickContactPanel() {
-  return (
-    <div className="about-metric-card quick-contact-panel">
-      <p className="eyebrow">Direct Contact</p>
-      <h3>Call or email for your kitchen or bathroom project.</h3>
-      <p className="quick-contact-panel__intro">Use whichever is easier. A quick call is fastest.</p>
-      <div className="quick-contact-panel__grid">
-        <a className="quick-contact-panel__option quick-contact-panel__option--call" href={business.phoneHref}>
-          <span className="quick-contact-panel__label">Call</span>
-          <strong>{business.phone}</strong>
-          <span className="quick-contact-panel__note">Quick questions, timing, and next steps</span>
-        </a>
-        <a className="quick-contact-panel__option quick-contact-panel__option--email" href={business.emailHref}>
-          <span className="quick-contact-panel__label">Email</span>
-          <strong>{business.email}</strong>
-          <span className="quick-contact-panel__note">Photos, project notes, and room details</span>
-        </a>
-      </div>
-      <div className="quick-contact-panel__meta">
-        <p>{business.hours}</p>
-        <p>{business.serviceAreaLabel}</p>
-      </div>
-    </div>
-  );
-}
-
 function DirectEstimatePanel({
   eyebrow = 'Direct Contact',
   title = 'Direct estimate contact',
@@ -250,26 +205,6 @@ function DirectEstimatePanel({
         </div>
       ) : null}
     </div>
-  );
-}
-
-function ContactSection() {
-  return (
-    <section className="section">
-      <div className="container lead-layout">
-        <div>
-          <ContactInfoGrid />
-          <ContactMapPlaceholder />
-        </div>
-        <DirectEstimatePanel
-          eyebrow="Direct Contact"
-          title="Call or email the remodeling team directly."
-          body="If you are planning a kitchen or bathroom project, the easiest next step is direct contact by phone or email."
-          emailCopy="Email photos, project notes, or questions about your kitchen or bathroom remodel and we will reply with next steps."
-          showActions={false}
-        />
-      </div>
-    </section>
   );
 }
 
@@ -342,9 +277,6 @@ export function AboutPage() {
             <a className="button" href={withBase('quote/')}>
               Request Estimate
             </a>
-            <a className="button button--ghost" href={withBase('contact/')}>
-              Contact Us
-            </a>
           </>
         }
         aside={
@@ -385,24 +317,10 @@ export function QuotePage() {
   );
 }
 
-export function ContactPage() {
-  return (
-    <SiteShell showFinalCta={false}>
-      <PageHero
-        eyebrow="Contact"
-        title="Reach out about your kitchen or bathroom project"
-        body="Call or email, whichever feels easier. The contact path stays direct so homeowners can get answers quickly from mobile or desktop."
-        aside={<QuickContactPanel />}
-      />
-    </SiteShell>
-  );
-}
-
 export const pages = {
   home: HomePage,
   services: ServicesPage,
   projects: ProjectsPage,
   about: AboutPage,
-  quote: QuotePage,
-  contact: ContactPage
+  quote: QuotePage
 };

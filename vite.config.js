@@ -18,8 +18,7 @@ export default defineConfig({
         services: resolve(__dirname, 'services/index.html'),
         projects: resolve(__dirname, 'projects/index.html'),
         about: resolve(__dirname, 'about/index.html'),
-        quote: resolve(__dirname, 'quote/index.html'),
-        contact: resolve(__dirname, 'contact/index.html')
+        quote: resolve(__dirname, 'quote/index.html')
       }
     }
   }

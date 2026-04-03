@@ -7,8 +7,7 @@ const navItems = [
   { label: 'Services', href: 'services/' },
   { label: 'Portfolio', href: 'projects/' },
   { label: 'About', href: 'about/' },
-  { label: 'Estimate', href: 'quote/' },
-  { label: 'Contact', href: 'contact/' }
+  { label: 'Estimate', href: 'quote/' }
 ];
 
 function Logo() {
