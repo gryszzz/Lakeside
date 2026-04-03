@@ -171,14 +171,6 @@ export function QuoteForm() {
             Kitchen Remodel
           </label>
           <label>
-            <input type="checkbox" name="interests[]" value="Tile & Shower Work" />
-            Tile & Shower Work
-          </label>
-          <label>
-            <input type="checkbox" name="interests[]" value="Vanities & Finish Updates" />
-            Vanities & Finish Updates
-          </label>
-          <label>
             <input type="checkbox" name="interests[]" value="Other" />
             Other
           </label>

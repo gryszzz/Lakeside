@@ -39,7 +39,7 @@ export function ServiceCards({ detailed = false, intro, compact = false }) {
           title={detailed ? 'Kitchen and bathroom services built around precision and finish quality' : 'Focused on the rooms that shape everyday living most'}
           body={
             intro ||
-            'From full remodels to tile, shower, vanity, and finish updates, each service is centered on clean execution and a more polished finished result.'
+            'From full kitchen remodels to complete bathroom renovations, each service is centered on clean execution and a more polished finished result.'
           }
         />
         <div className={`service-grid ${detailed ? 'service-grid--detailed' : ''}`}>

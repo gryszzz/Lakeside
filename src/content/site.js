@@ -144,32 +144,6 @@ export const services = [
     examples: ['Full kitchen renovations', 'Layout reconfiguration', 'Cabinet, countertop, and lighting upgrades'],
     value:
       'The kitchen is one of the hardest-working rooms in the house. Thoughtful planning and precise finish work make the investment feel justified every single day.'
-  },
-  {
-    slug: 'tile-and-shower-work',
-    title: 'Tile & Shower Work',
-    short: 'Walk-in showers, tile surrounds, and waterproof assemblies that look refined and perform the way they should.',
-    homeownerBenefits: [
-      'Replace dated tubs or tired shower enclosures',
-      'Create durable surfaces that are easier to clean and maintain',
-      'Upgrade comfort with better layout, storage, and lighting details'
-    ],
-    examples: ['Custom shower builds', 'Tile walls and bathroom floors', 'Glass, niche, and waterproofing details'],
-    value:
-      'Tile and shower work demand precision. Good waterproofing, layout planning, and finish alignment separate a premium result from one that only looks good at first glance.'
-  },
-  {
-    slug: 'vanities-flooring-and-finishes',
-    title: 'Vanities, Flooring & Finish Updates',
-    short: 'Targeted upgrades for vanities, fixtures, flooring, and finish details that make kitchens and bathrooms feel complete.',
-    homeownerBenefits: [
-      'Refresh the room without always needing a full gut remodel',
-      'Improve storage, function, and everyday usability',
-      'Modernize finishes with a more cohesive, higher-end look'
-    ],
-    examples: ['Vanity replacements', 'Bathroom and kitchen flooring updates', 'Fixture, hardware, and trim refreshes'],
-    value:
-      'Selective kitchen and bath updates can transform how a room looks and works when the finishes are coordinated well and installed with discipline.'
   }
 ];
 
@@ -339,7 +313,7 @@ export const faqs = [
   {
     question: 'What types of projects are the best fit?',
     answer:
-      'The best fit is kitchen remodeling, bathroom renovations, tile and shower work, and finish-driven updates where layout, craftsmanship, and clean execution matter.'
+      'The best fit is kitchen remodeling and bathroom renovations where layout, craftsmanship, and clean execution matter.'
   },
   {
     question: 'Can you help shape the scope if we are still figuring things out?',

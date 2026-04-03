@@ -159,8 +159,6 @@ export function Footer() {
           <ul className="footer-list">
             <li>Bathroom Remodeling</li>
             <li>Kitchen Remodeling</li>
-            <li>Tile & Shower Work</li>
-            <li>Vanities, Flooring & Finish Updates</li>
           </ul>
         </div>
         <div>
