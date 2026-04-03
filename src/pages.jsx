@@ -158,7 +158,7 @@ function AboutStoryBlock() {
 function DirectEstimatePanel({
   eyebrow = 'Direct Contact',
   title = 'Direct estimate contact',
-  body = 'A quick call is fastest. Email works well if you want to send photos.',
+  body = 'A quick call or text is fastest. Email works well if you want to send photos.',
   emailCopy = 'Email your county or township, the room you want to remodel, and a few current photos if you have them.',
   inHero = false,
   showActions = true
@@ -172,13 +172,13 @@ function DirectEstimatePanel({
       </div>
       <div className="estimate-method-grid">
         <article className="estimate-contact-row estimate-contact-row--call">
-          <p className="eyebrow">Call</p>
+          <p className="eyebrow">Call Or Text</p>
           <h3>
             <a href={business.phoneHref}>{business.phone}</a>
           </h3>
-          <p>Best for quick questions, timing, and next steps.</p>
+          <p>Best for quick questions, timing, and next steps by phone or text.</p>
           <a className="estimate-contact-row__action" href={business.phoneHref}>
-            Call Now
+            Call Or Text
           </a>
         </article>
         <article className="estimate-contact-row estimate-contact-row--email">
@@ -203,7 +203,7 @@ function DirectEstimatePanel({
       {showActions ? (
         <div className="hero-actions estimate-panel__actions">
           <a className="button" href={business.phoneHref}>
-            Call {business.phone}
+            Call Or Text {business.phone}
           </a>
           <a className="button button--ghost" href={business.emailHref}>
             Email For Estimate
@@ -305,9 +305,9 @@ export function QuotePage() {
           <DirectEstimatePanel
             inHero
             showActions={false}
-            eyebrow="Call Or Email"
+            eyebrow="Call, Text, Or Email"
             title="Kitchen and bathroom estimates"
-            body="Choose whichever is easier. A quick call is fastest."
+            body="Choose whichever is easier. A quick call or text is fastest."
             emailCopy="Email the room, your county or township, and photos if you have them."
           />
         }
