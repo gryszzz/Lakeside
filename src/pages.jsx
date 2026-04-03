@@ -1,7 +1,6 @@
 import {
   business,
   estimateChecklist,
-  estimateNextSteps,
   faqs,
   homeConversionCards,
   heroTrustItems,
@@ -173,10 +172,10 @@ function QuickContactPanel() {
 }
 
 function DirectEstimatePanel({
-  eyebrow = 'Kitchen & Bath Estimates',
-  title = 'Call or email to talk through your kitchen or bathroom remodel.',
-  body = 'We keep the first step simple so you can get clarity on fit, timing, and what the next step should be.',
-  emailCopy = 'Email your project details, county or township, and current room photos for review.',
+  eyebrow = 'Direct Contact',
+  title = 'Direct estimate contact',
+  body = 'A quick call is fastest. Email works well if you want to send photos.',
+  emailCopy = 'Email your county or township, the room you want to remodel, and a few current photos if you have them.',
   inHero = false,
   showActions = true
 }) {
@@ -189,24 +188,18 @@ function DirectEstimatePanel({
       </div>
       <div className="estimate-method-grid">
         <article className="estimate-contact-row estimate-contact-row--call">
-          <p className="eyebrow">Call For An Estimate</p>
+          <p className="eyebrow">Call</p>
           <h3>
             <a href={business.phoneHref}>{business.phone}</a>
           </h3>
-          <p>Call to discuss your kitchen or bathroom remodel, timing, and next steps.</p>
-          <a className="estimate-contact-row__link" href={business.phoneHref}>
-            Tap to call
-          </a>
+          <p>Best for quick questions, timing, and next steps.</p>
         </article>
         <article className="estimate-contact-row estimate-contact-row--email">
-          <p className="eyebrow">Email For An Estimate</p>
+          <p className="eyebrow">Email</p>
           <h3>
             <a href={business.emailHref}>{business.email}</a>
           </h3>
           <p>{emailCopy}</p>
-          <a className="estimate-contact-row__link" href={business.emailHref}>
-            Start email
-          </a>
         </article>
       </div>
       <div className="estimate-checklist-card">
@@ -228,29 +221,6 @@ function DirectEstimatePanel({
         </div>
       ) : null}
     </div>
-  );
-}
-
-function EstimateNextStepsSection() {
-  return (
-    <section className="section section--soft">
-      <div className="container">
-        <SectionIntro
-          eyebrow="How It Works"
-          title="A simple estimate path for kitchen and bathroom remodels"
-          body="The first conversation should feel useful, not complicated. We keep the path clear so homeowners know whether to schedule a walkthrough and what comes next."
-        />
-        <div className="process-grid quote-next-steps">
-          {estimateNextSteps.map((step, index) => (
-            <article key={step.title} className="process-card quote-step-card" data-reveal>
-              <span className="process-card__step">0{index + 1}</span>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -391,25 +361,19 @@ export function QuotePage() {
   return (
     <SiteShell showFinalCta={false}>
       <PageHero
-        eyebrow="Request Estimate"
-        title="Call or email for a kitchen or bathroom estimate."
-        body="The fastest path is direct contact. Call during business hours, or email room photos and a short project summary so we can understand the remodel faster."
-        actions={
-          <>
-            <a className="button" href={business.phoneHref}>
-              Call {business.phone}
-            </a>
-            <a className="button button--ghost" href={business.emailHref}>
-              Email For Estimate
-            </a>
-          </>
+        eyebrow="Estimate"
+        title="Start with a quick estimate conversation."
+        body="For kitchen and bathroom remodels, the first step is simple. Reach out directly and we will let you know the right next step."
+        aside={
+          <DirectEstimatePanel
+            inHero
+            showActions={false}
+            eyebrow="Call Or Email"
+            title="Kitchen and bathroom estimates"
+            body="Choose whichever is easier. A quick call is fastest."
+            emailCopy="Email the room, your county or township, and photos if you have them."
+          />
         }
-        aside={<DirectEstimatePanel inHero showActions={false} />}
-      />
-      <EstimateNextStepsSection />
-      <FAQSection
-        items={[faqs[2], faqs[1], faqs[4], faqs[3]]}
-        intro="Questions that usually come up when homeowners are deciding whether to call or email about a kitchen or bathroom estimate."
       />
     </SiteShell>
   );

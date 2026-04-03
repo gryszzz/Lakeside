@@ -69,6 +69,10 @@ export const heroTrustItems = [
   {
     title: 'Detailed scopes',
     detail: 'Clear planning'
+  },
+  {
+    title: 'Kitchen & bath',
+    detail: 'Specialist focus'
   }
 ];
 
@@ -225,6 +229,18 @@ export const beforeAfterProjects = [
     altAfter: 'After photo for hall bathroom renovation',
     scope: 'Shower conversion, tile, flooring, vanity, and fixture updates',
     value: 'A smaller room that now feels more open, functional, and current.'
+  },
+  {
+    title: 'Kitchen Refresh with Better Light',
+    location: 'Cedar Heights',
+    summary:
+      'A dark, tight kitchen was opened up with brighter finishes, cleaner cabinetry lines, and a more usable prep and gathering layout.',
+    beforeImage: 'images/projects/kitchen-before.svg',
+    afterImage: 'images/projects/kitchen-after.svg',
+    altBefore: 'Before photo for kitchen remodel with dated cabinetry and dim lighting',
+    altAfter: 'After photo for kitchen remodel with brighter cabinetry and improved layout',
+    scope: 'Cabinetry, counters, backsplash, island, and layered lighting',
+    value: 'A kitchen that feels lighter, more functional, and easier to live in every day.'
   }
 ];
 
@@ -364,23 +380,8 @@ export const quoteSidebarPoints = [
 ];
 
 export const estimateChecklist = [
-  'Which space you want to improve',
+  'Kitchen or bathroom',
   'County or township',
-  'A few current photos if you are emailing',
-  'Your ideal timing and any budget range'
-];
-
-export const estimateNextSteps = [
-  {
-    title: 'Reach out directly',
-    text: 'Call for the fastest conversation, or email if you want to send room photos and a short kitchen or bathroom project summary first.'
-  },
-  {
-    title: 'We review the fit',
-    text: 'We use the first conversation to understand the scope, answer early questions, and make sure the remodel is a strong match.'
-  },
-  {
-    title: 'You get clear direction',
-    text: 'You leave the first step knowing whether to schedule a walkthrough, what information is still needed, and what the next step should be.'
-  }
+  'A few current photos',
+  'Timing and budget range'
 ];
