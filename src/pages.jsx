@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   business,
   estimateChecklist,
@@ -21,16 +20,6 @@ import { beforeAfterProjects } from './content/site';
 import { withBase } from './utils';
 
 function HomeHero() {
-  const [activeSpotlight, setActiveSpotlight] = useState(0);
-  const currentSpotlight = homeSpotlights[activeSpotlight];
-  const secondarySpotlights = homeSpotlights.flatMap((item, index) =>
-    index === activeSpotlight ? [] : [{ ...item, index }]
-  );
-
-  const showNextSpotlight = () => {
-    setActiveSpotlight((current) => (current + 1) % homeSpotlights.length);
-  };
-
   return (
     <section className="hero">
       <div className="container hero__grid">
@@ -58,39 +47,22 @@ function HomeHero() {
           </div>
         </div>
         <div className="hero__visual" data-reveal>
-          <button
-            type="button"
-            className="hero__image-card hero__image-card--main hero__image-card-button"
-            onClick={showNextSpotlight}
-            aria-label={`Show next featured visual. Currently showing ${currentSpotlight.title}.`}
-          >
-            <img src={withBase(currentSpotlight.image)} alt={currentSpotlight.alt} />
+          <div className="hero__image-card hero__image-card--main">
+            <img src={withBase(homeSpotlights[0].image)} alt={homeSpotlights[0].alt} />
             <div className="hero__image-overlay">
-              <p>{currentSpotlight.label}</p>
-              <strong>{currentSpotlight.title}</strong>
-              <span className="hero__image-hint">Click to view next</span>
+              <p>{homeSpotlights[0].label}</p>
+              <strong>{homeSpotlights[0].title}</strong>
             </div>
-            <div className="hero__image-progress" aria-hidden="true">
-              {homeSpotlights.map((item, index) => (
-                <span key={item.title} className={index === activeSpotlight ? 'is-active' : ''} />
-              ))}
-            </div>
-          </button>
+          </div>
           <div className="hero__visual-grid">
-            {secondarySpotlights.map((item) => (
-              <button
-                key={item.title}
-                type="button"
-                className="hero__image-card hero__image-card--tile hero__image-card-button"
-                onClick={() => setActiveSpotlight(item.index)}
-                aria-label={`Show ${item.title} in the main image.`}
-              >
+            {homeSpotlights.slice(1).map((item) => (
+              <article key={item.title} className="hero__image-card hero__image-card--tile">
                 <img src={withBase(item.image)} alt={item.alt} />
                 <div className="hero__tile-copy">
                   <p>{item.label}</p>
                   <strong>{item.title}</strong>
                 </div>
-              </button>
+              </article>
             ))}
           </div>
         </div>
