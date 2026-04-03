@@ -51,7 +51,6 @@ function HomeHero() {
                     <span className="hero-trust-card__eyebrow">{item.detail}</span>
                   </div>
                   <div className="hero-trust-card__line hero-trust-card__line--title">
-                    <span className="hero-trust-card__bullet hero-trust-card__bullet--strong" aria-hidden="true" />
                     <strong>{item.title}</strong>
                   </div>
                 </div>
