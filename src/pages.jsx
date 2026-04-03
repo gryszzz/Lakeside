@@ -325,12 +325,12 @@ export function ProjectsPage() {
           </div>
         }
       />
+      <ProjectGallery />
       <section id="featured-transformation" className="section">
         <div className="container">
           <BeforeAfterSlider project={beforeAfterProjects[1]} />
         </div>
       </section>
-      <ProjectGallery />
       <TestimonialCards />
     </SiteShell>
   );
