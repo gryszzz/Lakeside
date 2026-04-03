@@ -116,17 +116,19 @@ export function ProjectGallery() {
   return (
     <section className="section">
       <div className="container">
-        <div className="project-filter" data-reveal>
-          {filters.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className={filter === item ? 'is-active' : ''}
-              onClick={() => setFilter(item)}
-            >
-              {item}
-            </button>
-          ))}
+        <div className="project-gallery__shell" data-reveal>
+          <div className="project-filter">
+            {filters.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={filter === item ? 'is-active' : ''}
+                onClick={() => setFilter(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="project-grid project-grid--gallery">
           {visibleProjects.map((project) => (

@@ -76,7 +76,12 @@ function SiteBackground() {
 export function SectionIntro({ eyebrow, title, body, align = 'left' }) {
   return (
     <div className={`section-intro section-intro--${align}`} data-reveal>
-      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+      {eyebrow ? (
+        <div className="section-intro__top">
+          <p className="eyebrow">{eyebrow}</p>
+          <span className="section-intro__rail" aria-hidden="true" />
+        </div>
+      ) : null}
       <h2>{title}</h2>
       {body ? <p className="section-intro__body">{body}</p> : null}
     </div>
@@ -267,11 +272,11 @@ export function PageHero({ eyebrow, title, body, actions, aside }) {
   return (
     <section className="page-hero">
       <div className="container page-hero__grid">
-        <div data-reveal>
-          <p className="eyebrow">{eyebrow}</p>
+        <div className="page-hero__content" data-reveal>
+          <p className="eyebrow page-hero__eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p className="page-hero__body">{body}</p>
-          {actions ? <div className="hero-actions">{actions}</div> : null}
+          {actions ? <div className="hero-actions hero-actions--tech page-hero__actions">{actions}</div> : null}
         </div>
         <div className="page-hero__aside" data-reveal>
           {aside}
