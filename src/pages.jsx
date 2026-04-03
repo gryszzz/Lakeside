@@ -259,7 +259,7 @@ export function ProjectsPage() {
           <BeforeAfterSlider project={beforeAfterProjects[1]} />
         </div>
       </section>
-      <TestimonialCards />
+      <TestimonialCards compact limit={2} />
     </SiteShell>
   );
 }

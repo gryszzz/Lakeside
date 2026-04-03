@@ -315,6 +315,51 @@ export const featuredProjects = [
     location: 'Lakeside County',
     summary: 'Updated cabinetry, stone counters, and layered lighting gave this kitchen a stronger visual anchor and more useful daily storage.',
     tags: ['Countertops', 'Lighting', 'Cabinetry']
+  },
+  {
+    title: 'Coastal White Kitchen',
+    category: 'Kitchens',
+    image: 'images/projects/kitchen-after.svg',
+    alt: 'Kitchen renovation with lighter finishes and calm layered materials',
+    location: 'Harbor Point',
+    summary: 'A brighter kitchen direction with calmer materials, stronger task lighting, and cleaner lines around the main work zones.',
+    tags: ['Kitchen Remodel', 'Stone Surfaces', 'Lighting']
+  },
+  {
+    title: 'Gathering Kitchen Renovation',
+    category: 'Kitchens',
+    image: 'images/projects/kitchen-after.svg',
+    alt: 'Kitchen remodel with island seating and refined cabinetry layout',
+    location: 'Westfield',
+    summary: 'This remodel focused on better circulation, more comfortable island seating, and cabinetry that made the room feel more tailored.',
+    tags: ['Island', 'Storage', 'Cabinetry']
+  },
+  {
+    title: 'Modern Brass Primary Bath',
+    category: 'Bathrooms',
+    image: 'images/projects/bathroom-after.svg',
+    alt: 'Primary bathroom renovation with brass fixtures and polished tile',
+    location: 'Maple Glen',
+    summary: 'A more spacious-feeling primary bath with cleaner shower glass, warmer fixture tones, and a calmer material palette.',
+    tags: ['Primary Bath', 'Shower Glass', 'Fixtures']
+  },
+  {
+    title: 'Calm Stone Hall Bath',
+    category: 'Bathrooms',
+    image: 'images/projects/bathroom-after.svg',
+    alt: 'Hall bathroom renovation with stone-look tile and compact vanity planning',
+    location: 'North Ridge',
+    summary: 'A tighter hall bath reworked into a more open daily-use room with stronger tile balance, brighter light, and more useful storage.',
+    tags: ['Bathroom Renovation', 'Tile', 'Vanity']
+  },
+  {
+    title: 'Double Vanity Bathroom',
+    category: 'Bathrooms',
+    image: 'images/projects/bathroom-after.svg',
+    alt: 'Bathroom remodel with double vanity and refined finish work',
+    location: 'Cedar Heights',
+    summary: 'An older bath was rebuilt with a better vanity layout, more polished finish work, and a cleaner shower zone that feels easier to maintain.',
+    tags: ['Double Vanity', 'Bathroom Remodel', 'Finish Work']
   }
 ];
 
