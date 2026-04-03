@@ -64,7 +64,7 @@ export const heroTrustItems = [
   },
   {
     title: 'Licensed + insured',
-    detail: 'Professional coverage'
+    detail: 'Full coverage'
   },
   {
     title: 'Clear scopes upfront',
