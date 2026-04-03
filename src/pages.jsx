@@ -79,8 +79,8 @@ function HomeDecisionSection() {
         <div className="home-overview-grid">
           <div className="home-overview-copy" data-reveal>
             <p className="eyebrow">Specialist Focus</p>
-            <h2>Designed to feel clear, calm, and high-end from the first click.</h2>
-            <p className="home-overview-copy__body">The right remodel team should feel easy to trust before the walkthrough even happens.</p>
+            <h2>Kitchen and bathroom specialists serving Connecticut homeowners.</h2>
+            <p className="home-overview-copy__body">Full remodels with cleaner planning, steadier communication, and a more finished result.</p>
             <div className="home-specialty-grid">
               {homeConversionCards.map((card) => (
                 <article key={card.title} className="home-specialty-card">
