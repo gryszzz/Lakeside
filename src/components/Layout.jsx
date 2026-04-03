@@ -37,7 +37,7 @@ function SiteBackground() {
       <div className="site-background__facet site-background__facet--right" />
 
       <div className="site-background__plan site-background__plan--kitchen">
-        <span className="site-background__plan-tag">Kitchen Renovation Plan</span>
+        <span className="site-background__plan-tag" />
         <span className="site-background__line site-background__counter site-background__counter--top" />
         <span className="site-background__line site-background__counter site-background__counter--left" />
         <span className="site-background__line site-background__counter site-background__counter--right" />
@@ -48,14 +48,14 @@ function SiteBackground() {
         <span className="site-background__zone site-background__zone--prep" />
         <span className="site-background__dimension site-background__dimension--horizontal" />
         <span className="site-background__dimension site-background__dimension--kitchen-vertical" />
-        <span className="site-background__callout site-background__callout--island">ISLAND</span>
-        <span className="site-background__callout site-background__callout--cabinet">CABINET RUN</span>
+        <span className="site-background__callout site-background__callout--island" />
+        <span className="site-background__callout site-background__callout--cabinet" />
         <span className="site-background__marker site-background__marker--kitchen-a" />
         <span className="site-background__marker site-background__marker--kitchen-b" />
       </div>
 
       <div className="site-background__plan site-background__plan--bath">
-        <span className="site-background__plan-tag">Bath Renovation Plan</span>
+        <span className="site-background__plan-tag" />
         <span className="site-background__line site-background__fixture site-background__fixture--shower" />
         <span className="site-background__line site-background__fixture site-background__fixture--vanity" />
         <span className="site-background__line site-background__fixture site-background__fixture--toilet" />
@@ -64,8 +64,8 @@ function SiteBackground() {
         <span className="site-background__zone site-background__zone--wet" />
         <span className="site-background__dimension site-background__dimension--vertical" />
         <span className="site-background__dimension site-background__dimension--bath-horizontal" />
-        <span className="site-background__callout site-background__callout--shower">SHOWER</span>
-        <span className="site-background__callout site-background__callout--vanity">VANITY</span>
+        <span className="site-background__callout site-background__callout--shower" />
+        <span className="site-background__callout site-background__callout--vanity" />
         <span className="site-background__marker site-background__marker--bath-a" />
         <span className="site-background__marker site-background__marker--bath-b" />
       </div>
