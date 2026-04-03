@@ -22,6 +22,41 @@ import { BeforeAfterShowcase, BeforeAfterSlider, ProjectGallery } from './compon
 import { beforeAfterProjects } from './content/site';
 import { withBase } from './utils';
 
+function TrustGraphic({ type }) {
+  switch (type) {
+    case 'review':
+      return (
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="10" />
+          <path d="M24 8v5M24 35v5M8 24h5M35 24h5M14 14l3 3M31 31l3 3M34 14l-3 3M17 31l-3 3" />
+        </svg>
+      );
+    case 'license':
+      return (
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 8l11 4v10c0 8-4.7 13.1-11 17-6.3-3.9-11-9-11-17V12l11-4z" />
+          <path d="M18.5 24.5l4 4 8-9" />
+        </svg>
+      );
+    case 'scope':
+      return (
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="10" y="12" width="28" height="24" rx="4" />
+          <path d="M18 12v24M30 12v24M10 20h28M10 28h18" />
+        </svg>
+      );
+    case 'focus':
+      return (
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M18 10H12a2 2 0 0 0-2 2v6M30 10h6a2 2 0 0 1 2 2v6M38 30v6a2 2 0 0 1-2 2h-6M18 38h-6a2 2 0 0 1-2-2v-6" />
+          <circle cx="24" cy="24" r="6" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 function HomeHero() {
   return (
     <section className="hero">
@@ -41,6 +76,12 @@ function HomeHero() {
           <div className="hero-trust-grid">
             {heroTrustItems.map((item) => (
               <article key={item.title} className="hero-trust-card">
+                <div className="hero-trust-card__top">
+                  <span className={`hero-trust-card__graphic hero-trust-card__graphic--${item.graphic}`}>
+                    <TrustGraphic type={item.graphic} />
+                  </span>
+                  <span className="hero-trust-card__line" aria-hidden="true" />
+                </div>
                 <strong>{item.title}</strong>
                 <span>{item.detail}</span>
               </article>

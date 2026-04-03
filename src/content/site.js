@@ -60,19 +60,23 @@ export const stats = [
 export const heroTrustItems = [
   {
     title: '4.9 average',
-    detail: 'Verified reviews'
+    detail: 'Verified reviews',
+    graphic: 'review'
   },
   {
     title: 'Licensed',
-    detail: 'Insured specialists'
+    detail: 'Insured specialists',
+    graphic: 'license'
   },
   {
     title: 'Detailed scopes',
-    detail: 'Clear planning'
+    detail: 'Clear planning',
+    graphic: 'scope'
   },
   {
     title: 'Kitchen & bath',
-    detail: 'Specialist focus'
+    detail: 'Specialist focus',
+    graphic: 'focus'
   }
 ];
 
