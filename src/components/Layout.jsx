@@ -152,20 +152,27 @@ export function Header() {
           </div>
           <nav aria-label="Mobile navigation">
             {navItems.map((item) => (
-              <a key={item.href || 'mobile-home'} href={withBase(item.href)} onClick={() => setOpen(false)}>
+              <a
+                key={item.href || 'mobile-home'}
+                href={withBase(item.href)}
+                className={isActivePath(item.href) ? 'is-active' : ''}
+                onClick={() => setOpen(false)}
+              >
                 {item.label}
               </a>
             ))}
           </nav>
           <div className="mobile-nav__cta">
-            <a className="button" href={withBase('quote/')} onClick={() => setOpen(false)}>
+            <a className="button button--mobile-tech button--mobile-tech--ghost" href={business.phoneHref} onClick={() => setOpen(false)}>
+              Call / Text
+            </a>
+            <a className="button button--mobile-tech" href={withBase('quote/')} onClick={() => setOpen(false)}>
               Request Estimate
             </a>
           </div>
           <div className="mobile-nav__meta">
-            <a className="text-link mobile-nav__call" href={business.phoneHref}>
-              Call {business.phone}
-            </a>
+            <p className="mobile-nav__meta-number">{business.phone}</p>
+            <p className="mobile-nav__meta-label">Service Area</p>
             <p>{business.serviceAreaLabel}</p>
             <div className="social-links social-links--mobile">
               {business.socialLinks.map((link) => (
