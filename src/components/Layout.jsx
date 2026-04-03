@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { business, trustBadges } from '../content/site';
 import { isActivePath, useRevealAnimations, withBase } from '../utils';
 
@@ -19,6 +19,38 @@ function Logo() {
         <small>{business.tagline}</small>
       </span>
     </a>
+  );
+}
+
+function SiteBackground() {
+  return (
+    <div className="site-background" aria-hidden="true">
+      <div className="site-background__ambient" />
+      <div className="site-background__mesh site-background__mesh--minor" />
+      <div className="site-background__mesh site-background__mesh--major" />
+      <div className="site-background__beam site-background__beam--top" />
+      <div className="site-background__beam site-background__beam--bottom" />
+      <div className="site-background__facet site-background__facet--left" />
+      <div className="site-background__facet site-background__facet--right" />
+
+      <div className="site-background__plan site-background__plan--kitchen">
+        <span className="site-background__plan-tag">Kitchen Blueprint</span>
+        <span className="site-background__line site-background__counter site-background__counter--top" />
+        <span className="site-background__line site-background__counter site-background__counter--left" />
+        <span className="site-background__line site-background__counter site-background__counter--island" />
+        <span className="site-background__line site-background__fixture site-background__fixture--sink" />
+        <span className="site-background__line site-background__fixture site-background__fixture--range" />
+        <span className="site-background__dimension site-background__dimension--horizontal" />
+      </div>
+
+      <div className="site-background__plan site-background__plan--bath">
+        <span className="site-background__plan-tag">Bath Blueprint</span>
+        <span className="site-background__line site-background__fixture site-background__fixture--shower" />
+        <span className="site-background__line site-background__fixture site-background__fixture--vanity" />
+        <span className="site-background__line site-background__fixture site-background__fixture--toilet" />
+        <span className="site-background__dimension site-background__dimension--vertical" />
+      </div>
+    </div>
   );
 }
 
@@ -273,15 +305,66 @@ export function FAQSection({ items, intro = 'Answers to the questions homeowners
 }
 
 export function SiteShell({ children, showFinalCta = true, finalCtaProps }) {
+  const shellRef = useRef(null);
+
   useRevealAnimations();
 
+  useEffect(() => {
+    const shell = shellRef.current;
+    if (!shell) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    shell.style.setProperty('--pointer-x', '68%');
+    shell.style.setProperty('--pointer-y', '16%');
+    shell.style.setProperty('--ambient-shift-x', '0px');
+    shell.style.setProperty('--ambient-shift-y', '0px');
+
+    if (reduceMotion) return;
+
+    let frame = 0;
+
+    const updateAmbient = (clientX, clientY) => {
+      cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        const ratioX = clientX / window.innerWidth;
+        const ratioY = clientY / window.innerHeight;
+        shell.style.setProperty('--pointer-x', `${(ratioX * 100).toFixed(2)}%`);
+        shell.style.setProperty('--pointer-y', `${(ratioY * 100).toFixed(2)}%`);
+        shell.style.setProperty('--ambient-shift-x', `${((ratioX - 0.5) * 32).toFixed(2)}px`);
+        shell.style.setProperty('--ambient-shift-y', `${((ratioY - 0.5) * 24).toFixed(2)}px`);
+      });
+    };
+
+    const handlePointerMove = (event) => updateAmbient(event.clientX, event.clientY);
+    const resetAmbient = () => {
+      shell.style.setProperty('--pointer-x', '68%');
+      shell.style.setProperty('--pointer-y', '16%');
+      shell.style.setProperty('--ambient-shift-x', '0px');
+      shell.style.setProperty('--ambient-shift-y', '0px');
+    };
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    window.addEventListener('blur', resetAmbient);
+    document.addEventListener('mouseleave', resetAmbient);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('blur', resetAmbient);
+      document.removeEventListener('mouseleave', resetAmbient);
+    };
+  }, []);
+
   return (
-    <>
-      <Header />
-      <main id="main-content">{children}</main>
-      {showFinalCta ? <FinalCta {...finalCtaProps} /> : null}
-      <Footer />
-      <MobileStickyCTA />
-    </>
+    <div className="site-shell" ref={shellRef}>
+      <SiteBackground />
+      <div className="site-shell__content">
+        <Header />
+        <main id="main-content">{children}</main>
+        {showFinalCta ? <FinalCta {...finalCtaProps} /> : null}
+        <Footer />
+        <MobileStickyCTA />
+      </div>
+    </div>
   );
 }
