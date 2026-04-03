@@ -305,26 +305,6 @@ export function ProjectsPage() {
         primaryLabel: 'Ask About a Similar Remodel'
       }}
     >
-      <PageHero
-        eyebrow="Portfolio"
-        title="Kitchen and bathroom work that makes the craftsmanship feel real"
-        body="Browse remodel directions, material palettes, and before-and-after transformations that help homeowners picture the result more clearly."
-        actions={
-          <>
-            <a className="button" href={withBase('quote/')}>
-              Request Estimate
-            </a>
-            <a className="button button--ghost" href="#featured-transformation">
-              View Before & After
-            </a>
-          </>
-        }
-        aside={
-          <div className="page-hero__spotlight">
-            <img src={withBase('images/projects/kitchen-after.svg')} alt="Featured kitchen remodel" />
-          </div>
-        }
-      />
       <ProjectGallery />
       <section id="featured-transformation" className="section">
         <div className="container">
