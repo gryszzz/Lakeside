@@ -45,9 +45,6 @@ function HomeHero() {
           <div className="hero-trust-grid">
             {heroTrustItems.map((item) => (
               <article key={item.title} className="hero-trust-card">
-                <div className="hero-trust-card__chrome" aria-hidden="true">
-                  <span className="hero-trust-card__signal" />
-                </div>
                 <div className="hero-trust-card__body">
                   <span className="hero-trust-card__eyebrow">{item.detail}</span>
                   <strong>{item.title}</strong>

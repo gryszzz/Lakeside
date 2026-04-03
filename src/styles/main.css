@@ -1006,7 +1006,7 @@ label {
 }
 
 .site-header__actions {
-  gap: 0.46rem;
+  gap: 0.4rem;
   flex-shrink: 0;
   justify-content: flex-end;
   justify-self: end;
@@ -1015,7 +1015,7 @@ label {
 
 .site-header__phone {
   color: var(--heading);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
 }
 
@@ -1026,13 +1026,13 @@ label {
 .button--header-tech {
   position: relative;
   overflow: hidden;
-  min-height: 2.48rem;
-  padding: 0.5rem 0.78rem;
+  min-height: 2.28rem;
+  padding: 0.42rem 0.68rem;
   border: 1px solid rgba(148, 179, 255, 0.2);
   border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  font-size: 0.69rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
@@ -1046,14 +1046,14 @@ label {
 .button--header-tech::before {
   inset: 1px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 7px 100%, 0 calc(100% - 7px));
 }
 
 .button--header-tech::after {
-  top: 0.4rem;
-  right: 0.42rem;
-  width: 0.7rem;
-  height: 0.7rem;
+  top: 0.34rem;
+  right: 0.34rem;
+  width: 0.58rem;
+  height: 0.58rem;
   border-top: 1px solid rgba(255, 255, 255, 0.32);
   border-right: 1px solid rgba(255, 255, 255, 0.32);
   opacity: 0.88;
@@ -1084,13 +1084,13 @@ label {
 }
 
 .site-header__actions .button--header-tech {
-  min-height: 2.48rem;
-  padding: 0.5rem 0.78rem;
-  font-size: 0.74rem;
+  min-height: 2.28rem;
+  padding: 0.42rem 0.68rem;
+  font-size: 0.69rem;
 }
 
 .site-header__actions .button--header-tech.button--ghost {
-  padding-inline: 0.8rem;
+  padding-inline: 0.72rem;
 }
 
 .site-header .brand {
@@ -1432,7 +1432,7 @@ label {
   position: relative;
   display: grid;
   align-content: start;
-  gap: 0.4rem;
+  gap: 0.28rem;
   min-height: 4.95rem;
   padding: 0.78rem 0.84rem 0.82rem;
   overflow: hidden;
@@ -1448,16 +1448,6 @@ label {
     transform 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease;
-}
-
-.hero-trust-card::before {
-  content: '';
-  position: absolute;
-  top: 0.9rem;
-  left: 0.95rem;
-  width: 3.6rem;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(140, 181, 255, 0.92), rgba(140, 181, 255, 0));
 }
 
 .hero-trust-card::after {
@@ -1478,33 +1468,6 @@ label {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.05),
     0 22px 36px rgba(4, 8, 15, 0.24);
-}
-
-.hero-trust-card__chrome {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-}
-
-.hero-trust-card__signal {
-  position: relative;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(148, 179, 255, 0.24), rgba(148, 179, 255, 0.02));
-}
-
-.hero-trust-card__signal::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 999px;
-  background: rgba(140, 181, 255, 0.92);
-  box-shadow: 0 0 0 0.22rem rgba(140, 181, 255, 0.08);
-  transform: translateY(-50%);
 }
 
 .hero-trust-card strong {
