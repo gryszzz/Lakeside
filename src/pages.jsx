@@ -34,11 +34,11 @@ function HomeHero() {
           <p className="eyebrow">Kitchen & Bathroom Remodeling</p>
           <h1>Refined kitchens and bathrooms. Built right.</h1>
           <p className="hero__body">Custom remodels with cleaner execution, steadier communication, and finish work that holds up.</p>
-          <div className="hero-actions">
-            <a className="button" href={withBase('quote/')}>
+          <div className="hero-actions hero-actions--tech">
+            <a className="button button--hero-tech" href={withBase('quote/')}>
               Request Estimate
             </a>
-            <a className="button button--ghost" href={withBase('projects/')}>
+            <a className="button button--ghost button--hero-tech button--hero-tech--ghost" href={withBase('projects/')}>
               View Portfolio
             </a>
           </div>

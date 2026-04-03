@@ -231,6 +231,76 @@ label {
   box-shadow: none;
 }
 
+.hero-actions--tech {
+  gap: 0.82rem;
+}
+
+.button--hero-tech {
+  position: relative;
+  overflow: hidden;
+  min-height: 3.35rem;
+  padding: 0.9rem 1.28rem;
+  border: 1px solid rgba(148, 179, 255, 0.3);
+  border-radius: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(140, 181, 255, 0.96), rgba(79, 130, 255, 0.82));
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  color: #071120;
+  font-size: 0.79rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 34px rgba(27, 55, 102, 0.3);
+}
+
+.button--hero-tech::before,
+.button--hero-tech::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.button--hero-tech::before {
+  inset: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 13px 100%, 0 calc(100% - 13px));
+}
+
+.button--hero-tech::after {
+  top: 0.62rem;
+  right: 0.7rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.42);
+  border-right: 1px solid rgba(255, 255, 255, 0.42);
+  opacity: 0.9;
+}
+
+.button--hero-tech:hover,
+.button--hero-tech:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(186, 207, 255, 0.48);
+  box-shadow: 0 20px 38px rgba(27, 55, 102, 0.38);
+}
+
+.button--hero-tech--ghost {
+  background:
+    linear-gradient(135deg, rgba(140, 181, 255, 0.12), transparent 36%),
+    rgba(10, 18, 31, 0.7);
+  color: var(--heading);
+  box-shadow: 0 12px 24px rgba(5, 10, 18, 0.18);
+}
+
+.button--hero-tech--ghost::before {
+  border-color: rgba(148, 179, 255, 0.14);
+}
+
+.button--hero-tech--ghost::after {
+  border-top-color: rgba(148, 179, 255, 0.34);
+  border-right-color: rgba(148, 179, 255, 0.34);
+}
+
 .text-link {
   color: var(--accent-strong);
   font-weight: 700;
