@@ -119,10 +119,10 @@ export function Header() {
             ))}
           </nav>
           <div className="site-header__actions">
-            <a className="site-header__phone" href={business.phoneHref}>
+            <a className="button button--ghost button--header-tech button--header-tech--ghost site-header__phone" href={business.phoneHref}>
               {business.phone}
             </a>
-            <a className="button" href={withBase('quote/')}>
+            <a className="button button--header-tech" href={withBase('quote/')}>
               Request Estimate
             </a>
             <button

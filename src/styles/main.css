@@ -1014,13 +1014,67 @@ label {
 }
 
 .site-header__phone {
-  color: var(--text-soft);
-  font-size: 0.84rem;
+  color: var(--heading);
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
 .site-header__phone:hover {
   color: var(--heading);
+}
+
+.button--header-tech {
+  position: relative;
+  overflow: hidden;
+  min-height: 2.7rem;
+  padding: 0.6rem 0.94rem;
+  border: 1px solid rgba(148, 179, 255, 0.2);
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.button--header-tech::before,
+.button--header-tech::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.button--header-tech::before {
+  inset: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+}
+
+.button--header-tech::after {
+  top: 0.48rem;
+  right: 0.5rem;
+  width: 0.82rem;
+  height: 0.82rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  border-right: 1px solid rgba(255, 255, 255, 0.32);
+  opacity: 0.88;
+}
+
+.button--header-tech--ghost {
+  background:
+    linear-gradient(135deg, rgba(140, 181, 255, 0.1), transparent 38%),
+    rgba(10, 18, 31, 0.72);
+  border-color: rgba(148, 179, 255, 0.16);
+  color: var(--heading);
+  box-shadow: 0 10px 22px rgba(5, 10, 18, 0.16);
+}
+
+.button--header-tech--ghost::before {
+  border-color: rgba(148, 179, 255, 0.1);
+}
+
+.button--header-tech--ghost::after {
+  border-top-color: rgba(148, 179, 255, 0.26);
+  border-right-color: rgba(148, 179, 255, 0.26);
 }
 
 .site-header__actions .button {
@@ -1029,8 +1083,14 @@ label {
   font-size: 0.84rem;
 }
 
-.site-header__actions .button.button--ghost {
-  padding-inline: 0.82rem;
+.site-header__actions .button--header-tech {
+  min-height: 2.7rem;
+  padding: 0.6rem 0.94rem;
+  font-size: 0.8rem;
+}
+
+.site-header__actions .button--header-tech.button--ghost {
+  padding-inline: 0.94rem;
 }
 
 .site-header .brand {
