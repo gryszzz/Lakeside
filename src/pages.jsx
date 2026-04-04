@@ -110,7 +110,7 @@ function HomeDecisionSection() {
             </div>
             <StatGrid />
             <div className="hero-actions home-overview-actions" data-reveal>
-              <a className="button" href={withBase('quote/')}>
+              <a className="button button--hero-tech button--hero-tech--compact" href={withBase('quote/')}>
                 Request Estimate
               </a>
             </div>
@@ -207,7 +207,11 @@ function DirectEstimatePanel({
 
 export function HomePage() {
   return (
-    <SiteShell>
+    <SiteShell
+      finalCtaProps={{
+        buttonVariant: 'tech'
+      }}
+    >
       <HomeHero />
       <HomeDecisionSection />
       <BeforeAfterShowcase />

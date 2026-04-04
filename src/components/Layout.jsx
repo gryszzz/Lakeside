@@ -264,7 +264,7 @@ export function Footer() {
 export function MobileStickyCTA() {
   return (
     <div className="mobile-sticky-cta">
-      <a className="mobile-sticky-cta__link" href={business.phoneHref}>
+      <a className="mobile-sticky-cta__link mobile-sticky-cta__link--ghost" href={business.phoneHref}>
         Call
       </a>
       <a className="mobile-sticky-cta__link mobile-sticky-cta__link--primary" href={withBase('quote/')}>
@@ -298,8 +298,16 @@ export function FinalCta({
   primaryLabel = 'Request Estimate',
   primaryHref = 'quote/',
   secondaryLabel,
-  secondaryHref
+  secondaryHref,
+  buttonVariant = 'default'
 }) {
+  const primaryClassName =
+    buttonVariant === 'tech' ? 'button button--hero-tech button--hero-tech--compact' : 'button';
+  const secondaryClassName =
+    buttonVariant === 'tech'
+      ? 'button button--ghost button--hero-tech button--hero-tech--ghost button--hero-tech--compact'
+      : 'button button--ghost';
+
   return (
     <section className="final-cta">
       <div className="container final-cta__card" data-reveal>
@@ -309,11 +317,11 @@ export function FinalCta({
           <p>{body}</p>
         </div>
         <div className="hero-actions">
-          <a className="button" href={withBase(primaryHref)}>
+          <a className={primaryClassName} href={withBase(primaryHref)}>
             {primaryLabel}
           </a>
           {secondaryLabel && secondaryHref ? (
-            <a className="button button--ghost" href={withBase(secondaryHref)}>
+            <a className={secondaryClassName} href={withBase(secondaryHref)}>
               {secondaryLabel}
             </a>
           ) : null}
