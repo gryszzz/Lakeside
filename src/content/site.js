@@ -1,6 +1,7 @@
 // Replace the content in this file first when customizing the site:
 // - business name, phone, email, service area, hours
 // - Facebook and Instagram links
+// - Google Business Profile links, map embed, and review placeholders
 // - Formspree endpoints
 // - testimonial text, client names, and project details
 // - home hero placeholder images and trust cards
@@ -26,8 +27,32 @@ export const business = {
   ],
   license: 'Licensed & Insured',
   years: '15+ years',
-  reviewsLabel: '4.9 average review rating',
+  reviewsLabel: '4.9 Google rating',
   mapUrl: 'https://maps.google.com/?q=Your+City',
+  // Replace the Google URLs below with your real Business Profile links.
+  googleProfile: {
+    rating: '4.9',
+    reviewCountLabel: '37+ homeowner reviews',
+    summary: 'Keep the Google profile, review history, and map easy to find while homeowners are deciding who to contact.',
+    profileUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
+    readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
+    writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
+    mapEmbedUrl: 'https://www.google.com/maps?q=Your+City&output=embed',
+    liveReviewsLabel: 'Google review highlights',
+    // Replace these sample cards with live synced Google reviews later if desired.
+    featuredReviews: [
+      {
+        quote: 'Professional from planning through the final finish details.',
+        author: 'Kitchen client',
+        location: 'North Ridge'
+      },
+      {
+        quote: 'The bathroom turned out beautifully, and the communication stayed steady.',
+        author: 'Bathroom client',
+        location: 'Harbor Point'
+      }
+    ]
+  },
   socialLinks: [
     {
       label: 'Instagram',

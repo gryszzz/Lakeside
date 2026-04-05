@@ -221,3 +221,103 @@ export function ServiceAreaSection() {
     </section>
   );
 }
+
+export function GooglePresenceSection() {
+  const googleProfile = business.googleProfile;
+
+  return (
+    <section className="section section--soft">
+      <div className="container google-presence">
+        <div className="google-presence__info">
+          <SectionIntro
+            eyebrow="Google Presence"
+            title="Make the Google profile easy to verify"
+            body="Keep the rating, review path, and map visible for homeowners who want quick proof before they reach out."
+          />
+          <div className="google-rating-card" data-reveal>
+            <div className="google-rating-card__score" aria-label={`Google rating ${googleProfile.rating} out of 5`}>
+              <strong>{googleProfile.rating}</strong>
+              <span>Google rating</span>
+            </div>
+            <div className="google-rating-card__copy">
+              <p className="eyebrow">Review Snapshot</p>
+              <h3>{googleProfile.reviewCountLabel}</h3>
+              <div className="google-rating-card__stars" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+              <p>{googleProfile.summary}</p>
+            </div>
+          </div>
+          <div className="hero-actions google-presence__actions" data-reveal>
+            <a
+              className="button button--hero-tech button--hero-tech--compact"
+              href={withBase(googleProfile.readReviewsUrl)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read Reviews
+            </a>
+            <a
+              className="button button--ghost button--hero-tech button--hero-tech--ghost button--hero-tech--compact"
+              href={withBase(googleProfile.writeReviewUrl)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Write a Review
+            </a>
+          </div>
+          <div className="google-review-stage" data-reveal>
+            <div className="google-review-stage__header">
+              <p className="eyebrow">{googleProfile.liveReviewsLabel}</p>
+            </div>
+            <div className="google-review-grid">
+              {googleProfile.featuredReviews.map((review) => (
+                <article key={`${review.author}-${review.location}`} className="google-review-card">
+                  <div className="google-review-card__stars" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <blockquote>{review.quote}</blockquote>
+                  <footer>
+                    <strong>{review.author}</strong>
+                    <span>{review.location}</span>
+                  </footer>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="map-card google-map-card" data-reveal>
+          <div className="google-map-card__copy">
+            <p className="eyebrow">Google Map</p>
+            <h3>Open the profile, check the map, and confirm the service area.</h3>
+            <p>{business.serviceAreaLabel}</p>
+            <a
+              className="text-link"
+              href={withBase(googleProfile.profileUrl)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open in Google Maps
+            </a>
+          </div>
+          <div className="google-map-card__frame">
+            <iframe
+              title={`${business.name} Google map`}
+              src={withBase(googleProfile.mapEmbedUrl)}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

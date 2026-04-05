@@ -8,6 +8,7 @@ import {
 } from './content/site';
 import { PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
+  GooglePresenceSection,
   ServiceAreaSection,
   ServiceCards,
   StatGrid,
@@ -253,6 +254,7 @@ export function HomePage() {
     >
       <HomeHero />
       <HomeDecisionSection />
+      <GooglePresenceSection />
       <BeforeAfterShowcase />
       <ServiceCards compact intro="Full kitchen and bathroom renovations with cleaner scopes and a more polished result." />
       <WhyChooseUs compact />

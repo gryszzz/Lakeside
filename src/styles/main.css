@@ -1674,6 +1674,9 @@ label {
 .hero__badge-card,
 .story-card,
 .map-card,
+.google-rating-card,
+.google-review-stage,
+.google-review-card,
 .project-card,
 .service-card,
 .reason-card,
@@ -3665,6 +3668,198 @@ body[data-page='quote'] .form-actions {
   padding: 1.5rem;
 }
 
+.google-presence {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: var(--space-shell);
+  align-items: start;
+}
+
+.google-presence__info {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.google-presence__info .section-intro {
+  margin-bottom: 0.1rem;
+}
+
+.google-rating-card,
+.google-review-stage {
+  position: relative;
+  overflow: hidden;
+  padding: 1.02rem 1.06rem;
+  border-radius: var(--radius);
+}
+
+.google-rating-card::before,
+.google-review-stage::before,
+.google-review-card::before {
+  content: '';
+  position: absolute;
+  inset: 0.82rem;
+  border: 1px solid rgba(148, 179, 255, 0.08);
+  border-radius: calc(var(--radius) - 10px);
+  pointer-events: none;
+}
+
+.google-rating-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.95rem;
+}
+
+.google-rating-card__score {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  min-width: 6.5rem;
+  padding: 0.95rem 0.82rem;
+  border: 1px solid rgba(148, 179, 255, 0.18);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(140, 181, 255, 0.16), transparent 38%),
+    rgba(8, 15, 28, 0.72);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 14px 28px rgba(4, 8, 15, 0.16);
+}
+
+.google-rating-card__score strong {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  line-height: 0.92;
+}
+
+.google-rating-card__score span {
+  color: rgba(196, 214, 255, 0.74);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.google-rating-card__copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: start;
+  gap: 0.25rem;
+}
+
+.google-rating-card__copy h3 {
+  font-size: 1.08rem;
+}
+
+.google-rating-card__stars,
+.google-review-card__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.google-rating-card__stars span,
+.google-review-card__stars span {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: rgba(165, 200, 255, 0.96);
+  box-shadow:
+    0 0 0 0.18rem rgba(140, 181, 255, 0.08),
+    0 0 0.7rem rgba(120, 176, 255, 0.18);
+}
+
+.google-presence__actions {
+  margin-top: 0;
+  justify-content: flex-start;
+}
+
+.google-review-stage {
+  display: grid;
+  gap: 0.78rem;
+}
+
+.google-review-stage__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.google-review-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.google-review-card {
+  position: relative;
+  display: grid;
+  gap: 0.68rem;
+  padding: 0.92rem 0.94rem;
+  border-radius: calc(var(--radius) - 6px);
+  background:
+    linear-gradient(135deg, rgba(140, 181, 255, 0.12), transparent 44%),
+    rgba(7, 13, 24, 0.72);
+}
+
+.google-review-card blockquote {
+  margin: 0;
+  color: var(--heading);
+  font-size: 0.92rem;
+  line-height: 1.52;
+}
+
+.google-review-card footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.google-review-card footer span {
+  color: rgba(196, 214, 255, 0.7);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.google-map-card {
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.google-map-card__copy {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.google-map-card__copy h3 {
+  max-width: 22ch;
+}
+
+.google-map-card__frame {
+  overflow: hidden;
+  min-height: 23rem;
+  border: 1px solid rgba(148, 179, 255, 0.16);
+  border-radius: calc(var(--radius) - 4px);
+  background: rgba(8, 15, 27, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.google-map-card__frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 23rem;
+  border: 0;
+  filter: saturate(0.88) contrast(1.02) brightness(0.95);
+}
+
 .service-area {
   align-items: center;
 }
@@ -4097,6 +4292,7 @@ body[data-page='projects'] .testimonial-grid--compact {
     position: static;
   }
 
+  .google-presence,
   .service-quote-card,
   .final-cta__card,
   .map-card,
@@ -4541,6 +4737,15 @@ body[data-page='projects'] .testimonial-grid--compact {
     gap: 0.9rem;
   }
 
+  .google-rating-card {
+    grid-template-columns: 1fr;
+  }
+
+  .google-rating-card__score {
+    min-width: 0;
+    justify-self: start;
+  }
+
   .contact-card-grid {
     margin-bottom: 1rem;
   }
@@ -4659,6 +4864,18 @@ body[data-page='projects'] .testimonial-grid--compact {
     min-height: 1.9rem;
     padding: 0.4rem 0.64rem;
     font-size: 0.64rem;
+  }
+
+  .google-review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .google-map-card__frame {
+    min-height: 18rem;
+  }
+
+  .google-map-card__frame iframe {
+    min-height: 18rem;
   }
 
   .hero-trust-card {
