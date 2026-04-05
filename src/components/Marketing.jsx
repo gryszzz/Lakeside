@@ -222,7 +222,11 @@ export function ServiceAreaSection() {
   );
 }
 
-export function GooglePresenceSection() {
+export function GooglePresenceSection({
+  eyebrow = 'Google Presence',
+  title = 'Make the Google profile easy to verify',
+  body = 'Keep the rating, review path, and map visible for homeowners who want quick proof before they reach out.'
+} = {}) {
   const googleProfile = business.googleProfile;
 
   return (
@@ -230,9 +234,9 @@ export function GooglePresenceSection() {
       <div className="container google-presence">
         <div className="google-presence__info">
           <SectionIntro
-            eyebrow="Google Presence"
-            title="Make the Google profile easy to verify"
-            body="Keep the rating, review path, and map visible for homeowners who want quick proof before they reach out."
+            eyebrow={eyebrow}
+            title={title}
+            body={body}
           />
           <div className="google-rating-card" data-reveal>
             <div className="google-rating-card__score" aria-label={`Google rating ${googleProfile.rating} out of 5`}>

@@ -254,11 +254,14 @@ export function HomePage() {
     >
       <HomeHero />
       <HomeDecisionSection />
-      <GooglePresenceSection />
       <BeforeAfterShowcase />
       <ServiceCards compact intro="Full kitchen and bathroom renovations with cleaner scopes and a more polished result." />
       <WhyChooseUs compact />
-      <TestimonialCards compact limit={2} />
+      <GooglePresenceSection
+        eyebrow="Client Feedback"
+        title="See the Google rating, review path, and map in one place"
+        body="Homeowners often want quick proof before they call. Keep the Google profile easy to open, review, and verify."
+      />
     </SiteShell>
   );
 }
