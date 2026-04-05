@@ -37,12 +37,17 @@ export const business = {
     profileUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
-    mapEmbedUrl: 'https://www.google.com/maps?q=41.095,-74.53&z=9&output=embed',
+    mapEmbedUrl: 'https://maps.google.com/maps?hl=en&q=41.02,-74.73&z=10&output=embed',
     // Replace these with the exact physical service-center coordinates if needed.
     coverageCenter: {
       lat: 41.03343,
       lng: -74.63849,
       label: 'Sparta, NJ'
+    },
+    mapView: {
+      lat: 41.02,
+      lng: -74.73,
+      zoom: 10
     },
     coverageAreas: ['Sussex County', 'Passaic County', 'Morris County', 'Warren County'],
     coverageTowns: [
