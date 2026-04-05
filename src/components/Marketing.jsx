@@ -426,11 +426,11 @@ export function GooglePresenceSection({
               {googleProfile.featuredReviews.map((review) => (
                 <article key={`${review.author}-${review.location}`} className="google-review-card">
                   <div className="google-review-card__stars" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                    <span />
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
                   </div>
                   <blockquote>{review.quote}</blockquote>
                   <footer>

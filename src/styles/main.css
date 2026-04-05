@@ -3798,8 +3798,7 @@ body[data-page='quote'] .form-actions {
   gap: 0.3rem;
 }
 
-.google-rating-card__stars span,
-.google-review-card__stars span {
+.google-rating-card__stars span {
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 999px;
@@ -3807,6 +3806,20 @@ body[data-page='quote'] .form-actions {
   box-shadow:
     0 0 0 0.18rem rgba(140, 181, 255, 0.08),
     0 0 0.7rem rgba(120, 176, 255, 0.18);
+}
+
+.google-review-card__stars {
+  gap: 0.22rem;
+  color: #d8e6ff;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-shadow:
+    0 0 0.45rem rgba(120, 176, 255, 0.18),
+    0 0 0.9rem rgba(120, 176, 255, 0.08);
+}
+
+.google-review-card__stars span {
+  line-height: 1;
 }
 
 .google-presence__actions {
