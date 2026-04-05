@@ -435,9 +435,12 @@ export function GooglePresenceSection({
         </div>
         <div className="map-card google-map-card" data-reveal>
           <div className="google-map-card__copy">
-            <p className="eyebrow">Map & Service Area</p>
+            <div className="google-map-card__copy-top">
+              <p className="eyebrow">Map & Service Area</p>
+              <span className="google-map-card__tag">{googleProfile.coverageCenter.label}</span>
+            </div>
             <a
-              className="text-link"
+              className="google-map-card__link"
               href={withBase(googleProfile.profileUrl)}
               target="_blank"
               rel="noreferrer"
