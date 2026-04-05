@@ -1,9 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { business, processSteps, reasons, services, stats, testimonials, trustBadges, values } from '../content/site';
+import serviceCounties from '../content/service-counties.json';
 import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
 
 let googleMapsLoaderPromise;
+
+function extendBoundsFromCoordinates(bounds, coordinates) {
+  if (!Array.isArray(coordinates)) {
+    return;
+  }
+
+  if (typeof coordinates[0] === 'number' && typeof coordinates[1] === 'number') {
+    bounds.extend({ lng: coordinates[0], lat: coordinates[1] });
+    return;
+  }
+
+  coordinates.forEach((value) => extendBoundsFromCoordinates(bounds, value));
+}
 
 function loadGoogleMapsApi(apiKey) {
   if (typeof window === 'undefined') {
@@ -56,7 +70,6 @@ function GoogleCoverageMap({ googleProfile }) {
   const mapRef = useRef(null);
   const [loadFailed, setLoadFailed] = useState(false);
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-  const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID;
 
   useEffect(() => {
     if (!apiKey || !mapRef.current) {
@@ -76,7 +89,6 @@ function GoogleCoverageMap({ googleProfile }) {
           center: coverageCenter,
           zoom: 8,
           mapTypeId: 'roadmap',
-          ...(mapId ? { mapId } : {}),
           disableDefaultUI: true,
           zoomControl: true,
           clickableIcons: false,
@@ -97,18 +109,27 @@ function GoogleCoverageMap({ googleProfile }) {
           }
         });
 
-        const mapCapabilities = map.getMapCapabilities?.();
-        if (mapId && mapCapabilities?.isDataDrivenStylingAvailable) {
-          const countyLayer = map.getFeatureLayer?.(window.google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_2);
-          if (countyLayer) {
-            countyLayer.style = () => ({
-              strokeColor: '#8bb2ff',
-              strokeOpacity: 0.9,
-              strokeWeight: 2,
-              fillColor: '#8bb2ff',
-              fillOpacity: 0.06
-            });
-          }
+        map.data.addGeoJson(serviceCounties);
+        map.data.setStyle({
+          strokeColor: '#8bb2ff',
+          strokeOpacity: 0.95,
+          strokeWeight: 2,
+          fillColor: '#8bb2ff',
+          fillOpacity: 0.06
+        });
+
+        const bounds = new maps.LatLngBounds();
+        serviceCounties.features.forEach((feature) => {
+          extendBoundsFromCoordinates(bounds, feature.geometry?.coordinates);
+        });
+        bounds.extend(coverageCenter);
+        if (!bounds.isEmpty()) {
+          map.fitBounds(bounds, 16);
+          maps.event.addListenerOnce(map, 'bounds_changed', () => {
+            if (map.getZoom() > 9) {
+              map.setZoom(9);
+            }
+          });
         }
 
       })
