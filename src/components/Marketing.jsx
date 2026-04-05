@@ -56,6 +56,7 @@ function GoogleCoverageMap({ googleProfile }) {
   const mapRef = useRef(null);
   const [loadFailed, setLoadFailed] = useState(false);
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID;
 
   useEffect(() => {
     if (!apiKey || !mapRef.current) {
@@ -75,6 +76,7 @@ function GoogleCoverageMap({ googleProfile }) {
           center: coverageCenter,
           zoom: 8,
           mapTypeId: 'roadmap',
+          ...(mapId ? { mapId } : {}),
           disableDefaultUI: true,
           zoomControl: true,
           clickableIcons: false,
@@ -94,6 +96,20 @@ function GoogleCoverageMap({ googleProfile }) {
             strokeWeight: 2
           }
         });
+
+        const mapCapabilities = map.getMapCapabilities?.();
+        if (mapId && mapCapabilities?.isDataDrivenStylingAvailable) {
+          const countyLayer = map.getFeatureLayer?.(window.google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_2);
+          if (countyLayer) {
+            countyLayer.style = () => ({
+              strokeColor: '#8bb2ff',
+              strokeOpacity: 0.9,
+              strokeWeight: 2,
+              fillColor: '#8bb2ff',
+              fillOpacity: 0.06
+            });
+          }
+        }
 
       })
       .catch(() => {
