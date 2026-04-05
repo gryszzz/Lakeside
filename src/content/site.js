@@ -37,7 +37,7 @@ export const business = {
     profileUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
-    mapEmbedUrl: 'https://www.google.com/maps?q=Sparta+NJ&output=embed',
+    mapEmbedUrl: 'https://www.google.com/maps?q=41.03343,-74.63849&z=8&output=embed',
     // Replace these with the exact physical service-center coordinates if needed.
     coverageCenter: {
       lat: 41.03343,
