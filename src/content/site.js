@@ -16,19 +16,19 @@ export const business = {
   emailHref: 'mailto:hello@lakesidedesignbuild.com',
   address: '123 Harbor Ridge Drive, Your City, ST 00000',
   hours: 'Mon - Fri: 8:00 AM - 6:00 PM',
-  serviceAreaLabel: 'Serving homeowners across Your City, Lakeside County, and nearby communities.',
+  serviceAreaLabel: 'Serving Sparta, West Milford, Franklin, Hamburg, and nearby North Jersey communities.',
   serviceAreas: [
-    'Your City',
-    'North Ridge',
-    'Harbor Point',
-    'Maple Glen',
-    'Westfield',
-    'Cedar Heights'
+    'Sparta',
+    'West Milford',
+    'Franklin',
+    'Hamburg',
+    'Hardyston',
+    'Vernon'
   ],
   license: 'Licensed & Insured',
   years: '15+ years',
   reviewsLabel: '4.9 Google rating',
-  mapUrl: 'https://maps.google.com/?q=Your+City',
+  mapUrl: 'https://maps.google.com/?q=Sparta+NJ',
   // Replace the Google URLs below with your real Business Profile links.
   googleProfile: {
     rating: '4.9',
@@ -37,7 +37,7 @@ export const business = {
     profileUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
-    mapEmbedUrl: 'https://www.google.com/maps?q=41.03343,-74.63849&z=8&output=embed',
+    mapEmbedUrl: 'https://www.google.com/maps?q=41.095,-74.53&z=9&output=embed',
     // Replace these with the exact physical service-center coordinates if needed.
     coverageCenter: {
       lat: 41.03343,
@@ -56,9 +56,19 @@ export const business = {
         label: 'Franklin',
         lat: 41.10704,
         lng: -74.5857
+      },
+      {
+        label: 'West Milford',
+        lat: 41.1312,
+        lng: -74.3677
+      },
+      {
+        label: 'Hamburg',
+        lat: 41.1532,
+        lng: -74.5769
       }
     ],
-    coverageSummary: 'Serving Sussex, Passaic, and nearby North Jersey communities.',
+    coverageSummary: 'Serving Sparta, West Milford, Franklin, Hamburg, and nearby North Jersey communities.',
     liveReviewsLabel: 'Review highlights',
     // Replace these sample cards with live synced Google reviews later if desired.
     featuredReviews: [
