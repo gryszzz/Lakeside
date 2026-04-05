@@ -949,6 +949,8 @@ label {
 
 .hero-actions--tech {
   gap: 0.68rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .button--hero-tech {
@@ -2026,6 +2028,7 @@ label {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.03),
     0 18px 32px rgba(4, 8, 15, 0.18);
+  text-align: center;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -2075,6 +2078,7 @@ label {
   z-index: 1;
   display: grid;
   align-content: start;
+  justify-items: center;
   gap: 0.34rem;
   min-width: 0;
   padding-top: 0.12rem;
@@ -2082,16 +2086,22 @@ label {
 
 .hero-trust-card__line {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  width: 100%;
   align-items: center;
   gap: 0.44rem;
   min-width: 0;
 }
 
+.hero-trust-card__line--detail {
+  grid-template-columns: auto auto;
+  justify-content: center;
+}
+
 .hero-trust-card__line--title {
-  grid-template-columns: minmax(0, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 0;
-  padding-left: 0.86rem;
+  padding-left: 0;
 }
 
 .hero-trust-card__bullet {
