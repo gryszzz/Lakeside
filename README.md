@@ -1,22 +1,65 @@
-# Lakeside Design + Build Website
+# Lakeside Design + Build
 
-Premium multi-page contractor website built with Vite + React and designed to deploy cleanly to GitHub Pages.
+Premium multi-page kitchen and bathroom remodeling website built with Vite + React and deployed as a static site on GitHub Pages.
+
+[Live Site](https://gryszzz.github.io/Lakeside/)
 
 ## Proprietary Notice
 
 This repository is proprietary and is not open source.
 
-It is published for site hosting, maintenance, and internal business use only. No license is granted to copy, reuse,
-modify, redistribute, resell, or create derivative works from this codebase, design system, copy, branding, or media
-without prior written permission from the owner.
+It is published for hosting, maintenance, internal business use, and client-facing deployment only. No license is granted to copy, reuse, modify, redistribute, resell, or create derivative works from this codebase, design system, copy, branding, or media without prior written permission from the owner.
 
 Public visibility on GitHub does not mean this project is open source.
+
+## Preview
+
+### Homepage
+
+![Homepage desktop preview](docs/readme/homepage-desktop.png)
+
+### Portfolio
+
+![Portfolio desktop preview](docs/readme/portfolio-desktop.png)
+
+### Mobile
+
+![Homepage mobile preview](docs/readme/homepage-mobile.png)
+
+## Site Overview
+
+This build is positioned as a premium kitchen and bathroom remodeling brand with:
+
+- specialist kitchen and bath messaging
+- multi-page static routing for Home, Services, Portfolio, About, and Estimate
+- high-end UI styling with blueprint-inspired background layers
+- before-and-after presentation
+- portfolio viewer interactions
+- GitHub Pages deployment support
+- custom domain support with `CNAME`-ready setup
+- mobile-first sticky CTA behavior
+
+## Stack
+
+- React 18
+- Vite 5
+- Static multi-page HTML entries
+- GitHub Actions for deploys
+- GitHub Pages for hosting
 
 ## Project Structure
 
 ```text
 .
 |-- .github/workflows/deploy.yml
+|-- about/index.html
+|-- docs/readme/
+|   |-- homepage-desktop.png
+|   |-- homepage-mobile.png
+|   `-- portfolio-desktop.png
+|-- index.html
+|-- package.json
+|-- projects/index.html
 |-- public/
 |   |-- .nojekyll
 |   |-- CNAME.example
@@ -25,6 +68,8 @@ Public visibility on GitHub does not mean this project is open source.
 |   `-- images/
 |       |-- branding/
 |       `-- projects/
+|-- quote/index.html
+|-- services/index.html
 |-- src/
 |   |-- components/
 |   |   |-- Forms.jsx
@@ -36,155 +81,151 @@ Public visibility on GitHub does not mean this project is open source.
 |   |-- pages.jsx
 |   |-- styles/main.css
 |   `-- utils.js
-|-- about/index.html
-|-- contact/index.html
-|-- projects/index.html
-|-- quote/index.html
-|-- services/index.html
-|-- index.html
-|-- package.json
 `-- vite.config.js
 ```
 
-## Setup
+## Main Edit Points
 
-1. Install dependencies:
+### Business content
+
+Update [`src/content/site.js`](src/content/site.js) for:
+
+- business name
+- phone and email
+- address and service area
+- social links
+- testimonials
+- project labels and descriptions
+- trust-card copy
+- photo paths
+
+### Page composition
+
+Update [`src/pages.jsx`](src/pages.jsx) for:
+
+- homepage sections
+- page hero content
+- estimate page copy
+- shared CTA usage
+
+### Reusable sections
+
+Update [`src/components/Layout.jsx`](src/components/Layout.jsx), [`src/components/Marketing.jsx`](src/components/Marketing.jsx), and [`src/components/Projects.jsx`](src/components/Projects.jsx) for:
+
+- header and footer
+- final CTA
+- services and testimonials
+- portfolio grid and viewer
+- before-and-after modules
+
+### Visual system
+
+Update [`src/styles/main.css`](src/styles/main.css) for:
+
+- colors
+- spacing
+- typography
+- background effects
+- responsive behavior
+- button treatments
+
+### Images
+
+Replace placeholder artwork in:
+
+- [`public/images/projects`](public/images/projects)
+- [`public/images/branding`](public/images/branding)
+
+If you keep the same filenames, the site updates without code changes. If you rename files, update the matching references in [`src/content/site.js`](src/content/site.js).
+
+## Local Development
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Start local development:
+Start the dev server:
 
 ```bash
 npm run dev
 ```
 
-3. Build production files:
+Build production files:
 
 ```bash
 npm run build
 ```
 
-The final static site will be generated in `dist/`.
-
-## Where To Replace Business Details
-
-Edit [`src/content/site.js`](/Users/anthonygryszkin/Desktop/Lakeside/src/content/site.js).
-
-This file contains:
-
-- business name
-- phone, email, address, hours
-- service area cities
-- testimonial copy
-- project descriptions
-- before/after content
-- placeholder Formspree endpoints
-
-## Where To Replace Photos
-
-Replace the SVG placeholders in:
-
-- [`public/images/projects`](/Users/anthonygryszkin/Desktop/Lakeside/public/images/projects)
-- [`public/images/branding`](/Users/anthonygryszkin/Desktop/Lakeside/public/images/branding)
-
-When swapping files, keep the same filenames if you want the site to update without changing code. If you prefer new filenames, update the matching image path in [`src/content/site.js`](/Users/anthonygryszkin/Desktop/Lakeside/src/content/site.js).
-
-## Quote Form / Contact Form Wiring
-
-The forms are static-host friendly and currently point to placeholder Formspree-style URLs.
-
-You can wire them in either of these ways:
-
-1. Edit the endpoints directly in [`src/content/site.js`](/Users/anthonygryszkin/Desktop/Lakeside/src/content/site.js)
-2. Set environment variables:
+Preview the production build locally:
 
 ```bash
-VITE_QUOTE_FORM_ENDPOINT=https://formspree.io/f/your-real-id
-VITE_CONTACT_FORM_ENDPOINT=https://formspree.io/f/your-real-id
+npm run preview
 ```
 
-If the placeholder endpoint is still present, the form shows a clear error message instead of silently failing.
+## Deployment
 
-## GitHub Pages Deployment
+### GitHub Pages
 
-This repo includes a GitHub Actions workflow in [`deploy.yml`](/Users/anthonygryszkin/Desktop/Lakeside/.github/workflows/deploy.yml).
+This repo is already configured for GitHub Pages via [`deploy.yml`](.github/workflows/deploy.yml).
 
-### Recommended setup
+Recommended setup:
 
-1. Push the repo to GitHub.
-2. In GitHub, open `Settings -> Pages`.
+1. Push to GitHub.
+2. Open `Settings -> Pages`.
 3. Set `Source` to `GitHub Actions`.
-4. Push to `main` and the workflow will build and deploy the site.
+4. Push to `main`.
 
 ### Base path behavior
 
-The Vite config automatically handles GitHub Pages project URLs like:
+[`vite.config.js`](vite.config.js) automatically handles:
 
-```text
-https://username.github.io/repository-name/
-```
+- repo-based Pages URLs such as `https://username.github.io/repo-name/`
+- custom-domain root deployment when `CUSTOM_DOMAIN=true`
 
-If you use a custom domain, set a repository variable so the build uses `/` instead of the repo name:
+Optional overrides:
 
 - `CUSTOM_DOMAIN=true`
-
-You can also override manually with:
-
 - `SITE_BASE=/`
 
-## Custom Domain Setup
+### Custom domain
 
-1. Copy [`public/CNAME.example`](/Users/anthonygryszkin/Desktop/Lakeside/public/CNAME.example) to `public/CNAME`
-2. Replace the contents with your real domain, for example:
+1. Copy [`public/CNAME.example`](public/CNAME.example) to `public/CNAME`
+2. Replace it with your real domain
+3. Add that same domain in GitHub Pages settings
+4. Point DNS to GitHub Pages
+5. Set `CUSTOM_DOMAIN=true`
 
-```text
-www.yourcontractorbrand.com
-```
+[`public/.nojekyll`](public/.nojekyll) is already included.
 
-3. In GitHub Pages settings, add the same custom domain.
-4. Point your DNS records to GitHub Pages.
-5. Set the repository variable `CUSTOM_DOMAIN=true` so asset URLs build with the root base path.
+## SEO And Static Hosting Notes
 
-The site already includes [`public/.nojekyll`](/Users/anthonygryszkin/Desktop/Lakeside/public/.nojekyll), so GitHub Pages will serve the built static files without Jekyll processing.
+Each page has its own HTML entry:
 
-## SEO Notes
+- [`index.html`](index.html)
+- [`services/index.html`](services/index.html)
+- [`projects/index.html`](projects/index.html)
+- [`about/index.html`](about/index.html)
+- [`quote/index.html`](quote/index.html)
 
-Each page has its own HTML file with page-specific title and description:
+Also review:
 
-- [`index.html`](/Users/anthonygryszkin/Desktop/Lakeside/index.html)
-- [`services/index.html`](/Users/anthonygryszkin/Desktop/Lakeside/services/index.html)
-- [`projects/index.html`](/Users/anthonygryszkin/Desktop/Lakeside/projects/index.html)
-- [`about/index.html`](/Users/anthonygryszkin/Desktop/Lakeside/about/index.html)
-- [`quote/index.html`](/Users/anthonygryszkin/Desktop/Lakeside/quote/index.html)
-- [`contact/index.html`](/Users/anthonygryszkin/Desktop/Lakeside/contact/index.html)
+- [`public/robots.txt`](public/robots.txt)
+- [`public/sitemap.xml`](public/sitemap.xml)
 
-Replace the placeholder titles, descriptions, and any domain references in:
+The live estimate flow is currently direct contact by phone or email. The older static form component remains in the codebase for future use, but the public estimate path is intentionally simplified.
 
-- those HTML files
-- [`public/robots.txt`](/Users/anthonygryszkin/Desktop/Lakeside/public/robots.txt)
-- [`public/sitemap.xml`](/Users/anthonygryszkin/Desktop/Lakeside/public/sitemap.xml)
+## Launch Checklist
 
-## Notes For Editing Later
+Before a real launch, replace:
 
-- The page layouts live in [`src/pages.jsx`](/Users/anthonygryszkin/Desktop/Lakeside/src/pages.jsx)
-- Shared sections and UI live in [`src/components`](/Users/anthonygryszkin/Desktop/Lakeside/src/components)
-- The full visual system lives in [`src/styles/main.css`](/Users/anthonygryszkin/Desktop/Lakeside/src/styles/main.css)
-- The mobile sticky CTA is included globally
-- The before/after comparison component is reusable and image-driven
-- The gallery modal and category filtering are already wired
-
-## Production Checklist
-
-Before launch, replace:
-
-- business contact info
-- testimonials
-- service area cities
-- project descriptions
-- all placeholder images
-- Formspree endpoints
-- meta descriptions and Open Graph copy
-- `robots.txt` and `sitemap.xml` domain references
-- optional `CNAME` file for a custom domain
+- business contact details
+- service area locations
+- project placeholders
+- screenshots and social share image
+- testimonial names and copy
+- map/address details
+- favicon and branding assets if needed
+- sitemap and robots domain references
+- optional `CNAME` file for custom domain use
