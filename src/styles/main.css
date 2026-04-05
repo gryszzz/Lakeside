@@ -3987,55 +3987,6 @@ body[data-page='quote'] .form-actions {
   filter: saturate(0.88) contrast(1.02) brightness(0.95);
 }
 
-.google-map-card__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.google-map-card__overlay-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.google-map-card__county-fill {
-  fill: rgba(132, 177, 255, 0.06);
-}
-
-.google-map-card__county-line {
-  fill: none;
-  stroke: rgba(173, 206, 255, 0.92);
-  stroke-width: 2.1;
-  stroke-linejoin: round;
-}
-
-.google-map-card__town text {
-  fill: rgba(233, 241, 255, 0.96);
-  font-size: 21px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.google-map-card__town-halo {
-  fill: rgba(132, 177, 255, 0.14);
-  stroke: rgba(173, 206, 255, 0.24);
-  stroke-width: 1.2;
-}
-
-.google-map-card__town-core {
-  fill: rgba(233, 241, 255, 0.98);
-  stroke: rgba(8, 15, 27, 0.92);
-  stroke-width: 2;
-}
-
-.google-map-card__town--primary .google-map-card__town-halo {
-  fill: rgba(132, 177, 255, 0.2);
-  stroke: rgba(191, 216, 255, 0.34);
-}
-
 .service-area {
   align-items: center;
 }
@@ -5107,10 +5058,6 @@ body[data-page='projects'] .testimonial-grid--compact {
   .google-map-card__canvas,
   .google-map-card__frame iframe {
     min-height: 18rem;
-  }
-
-  .google-map-card__town text {
-    font-size: 16px;
   }
 
   .hero-trust-card {

@@ -1,119 +1,144 @@
+import { useEffect, useRef, useState } from 'react';
 import { business, processSteps, reasons, services, stats, testimonials, trustBadges, values } from '../content/site';
 import serviceCounties from '../content/service-counties.json';
 import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
 
-const MAP_VIEWBOX_WIDTH = 1000;
-const MAP_VIEWBOX_HEIGHT = 760;
+let googleMapsLoaderPromise;
 
-function projectLngLatToViewBox(lng, lat, mapView) {
-  const scale = 256 * 2 ** mapView.zoom;
-  const centerX = ((mapView.lng + 180) / 360) * scale;
-  const centerSin = Math.sin((mapView.lat * Math.PI) / 180);
-  const centerY = (0.5 - Math.log((1 + centerSin) / (1 - centerSin)) / (4 * Math.PI)) * scale;
-
-  const x = ((lng + 180) / 360) * scale;
-  const sinLat = Math.sin((lat * Math.PI) / 180);
-  const y = (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * scale;
-
-  return {
-    x: x - centerX + MAP_VIEWBOX_WIDTH / 2,
-    y: y - centerY + MAP_VIEWBOX_HEIGHT / 2
-  };
-}
-
-function geometryToSvgPath(geometry, mapView) {
-  if (!geometry) {
-    return '';
+function loadGoogleMapsApi(apiKey) {
+  if (typeof window === 'undefined') {
+    return Promise.reject(new Error('Google Maps can only load in the browser.'));
   }
 
-  const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+  if (window.google?.maps?.Map) {
+    return Promise.resolve(window.google.maps);
+  }
 
-  return polygons
-    .map((polygon) =>
-      polygon
-        .map((ring) =>
-          ring
-            .map(([lng, lat], index) => {
-              const point = projectLngLatToViewBox(lng, lat, mapView);
-              return `${index === 0 ? 'M' : 'L'}${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
-            })
-            .concat('Z')
-            .join(' ')
-        )
-        .join(' ')
-    )
-    .join(' ');
-}
+  if (googleMapsLoaderPromise) {
+    return googleMapsLoaderPromise;
+  }
 
-function CoverageMapOverlay({ googleProfile }) {
-  const mapView = googleProfile.mapView ?? {
-    lat: googleProfile.coverageCenter.lat,
-    lng: googleProfile.coverageCenter.lng,
-    zoom: 10
-  };
+  googleMapsLoaderPromise = new Promise((resolve, reject) => {
+    const callbackName = '__lakesideGoogleMapsReady';
+    const existingScript = document.querySelector('script[data-google-maps-loader="true"]');
 
-  const townPoints = (googleProfile.coverageTowns ?? []).map((town) => ({
-    ...town,
-    ...projectLngLatToViewBox(town.lng, town.lat, mapView)
-  }));
+    window[callbackName] = () => {
+      if (window.google?.maps) {
+        resolve(window.google.maps);
+      } else {
+        reject(new Error('Google Maps failed to initialize.'));
+      }
+      delete window[callbackName];
+    };
 
-  return (
-    <div className="google-map-card__overlay" aria-hidden="true">
-      <svg className="google-map-card__overlay-svg" viewBox={`0 0 ${MAP_VIEWBOX_WIDTH} ${MAP_VIEWBOX_HEIGHT}`}>
-        <defs>
-          <filter id="coverage-line-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="rgba(133, 180, 255, 0.35)" />
-          </filter>
-        </defs>
+    if (existingScript) {
+      return;
+    }
 
-        <g className="google-map-card__counties" filter="url(#coverage-line-glow)">
-          {serviceCounties.features.map((feature) => (
-            <path
-              key={`${feature.id}-fill`}
-              d={geometryToSvgPath(feature.geometry, mapView)}
-              className="google-map-card__county-fill"
-            />
-          ))}
-          {serviceCounties.features.map((feature) => (
-            <path
-              key={`${feature.id}-line`}
-              d={geometryToSvgPath(feature.geometry, mapView)}
-              className="google-map-card__county-line"
-            />
-          ))}
-        </g>
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&loading=async&v=weekly&callback=${callbackName}`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.googleMapsLoader = 'true';
+    script.onerror = () => {
+      googleMapsLoaderPromise = null;
+      delete window[callbackName];
+      reject(new Error('Google Maps script failed to load.'));
+    };
 
-        <g className="google-map-card__towns">
-          {townPoints.map((town) => (
-            <g
-              key={town.label}
-              className={`google-map-card__town ${town.primary ? 'google-map-card__town--primary' : ''}`}
-              transform={`translate(${town.x.toFixed(2)} ${town.y.toFixed(2)})`}
-            >
-              <circle className="google-map-card__town-halo" r={town.primary ? 18 : 13} />
-              <circle className="google-map-card__town-core" r={town.primary ? 4.6 : 3.8} />
-              <text x={town.primary ? 18 : 14} y={town.primary ? -11 : -9}>
-                {town.label}
-              </text>
-            </g>
-          ))}
-        </g>
-      </svg>
-    </div>
-  );
+    document.head.append(script);
+  });
+
+  return googleMapsLoaderPromise;
 }
 
 function GoogleCoverageMap({ googleProfile }) {
+  const mapRef = useRef(null);
+  const [loadFailed, setLoadFailed] = useState(false);
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+  useEffect(() => {
+    if (!apiKey || !mapRef.current) {
+      return undefined;
+    }
+
+    let cancelled = false;
+
+    loadGoogleMapsApi(apiKey)
+      .then((maps) => {
+        if (cancelled || !mapRef.current) {
+          return;
+        }
+
+        const mapView = googleProfile.mapView ?? {
+          lat: googleProfile.coverageCenter.lat,
+          lng: googleProfile.coverageCenter.lng,
+          zoom: 10
+        };
+
+        const map = new maps.Map(mapRef.current, {
+          center: { lat: mapView.lat, lng: mapView.lng },
+          zoom: mapView.zoom,
+          mapTypeId: 'roadmap',
+          disableDefaultUI: true,
+          zoomControl: true,
+          clickableIcons: false,
+          gestureHandling: 'cooperative'
+        });
+
+        map.data.addGeoJson(serviceCounties);
+        map.data.setStyle({
+          strokeColor: '#9fc6ff',
+          strokeOpacity: 0.98,
+          strokeWeight: 2.25,
+          fillColor: '#9fc6ff',
+          fillOpacity: 0.05
+        });
+
+        (googleProfile.coverageTowns ?? []).forEach((town) => {
+          new maps.Marker({
+            map,
+            position: { lat: town.lat, lng: town.lng },
+            title: town.label,
+            label: {
+              text: town.label,
+              color: '#d9e7ff',
+              fontSize: '11px',
+              fontWeight: '700'
+            },
+            icon: {
+              path: maps.SymbolPath.CIRCLE,
+              scale: town.primary ? 5 : 4,
+              fillColor: '#d9e7ff',
+              fillOpacity: 1,
+              strokeColor: '#0c182b',
+              strokeWeight: 2
+            }
+          });
+        });
+      })
+      .catch(() => {
+        setLoadFailed(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [apiKey, googleProfile]);
+
   return (
     <div className="google-map-card__frame google-map-card__frame--coverage">
-      <iframe
-        title={`${business.name} Google map`}
-        src={withBase(googleProfile.mapEmbedUrl)}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
-      <CoverageMapOverlay googleProfile={googleProfile} />
+      {apiKey && !loadFailed ? (
+        <div ref={mapRef} className="google-map-card__canvas" />
+      ) : (
+        <iframe
+          title={`${business.name} Google map`}
+          src={withBase(googleProfile.mapEmbedUrl)}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      )}
     </div>
   );
 }
