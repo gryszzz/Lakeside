@@ -85,7 +85,9 @@ export const stats = [
 export const heroTrustItems = [
   {
     title: '4.9 rating',
-    detail: 'Verified reviews'
+    detail: 'Verified reviews',
+    href: business.googleProfile.readReviewsUrl,
+    actionLabel: 'Read on Google'
   },
   {
     title: 'Licensed + insured',

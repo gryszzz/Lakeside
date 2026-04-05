@@ -84,17 +84,39 @@ function HomeHero() {
           </div>
           <div className="hero-trust-grid">
             {heroTrustItems.map((item) => (
-              <article key={item.title} className="hero-trust-card">
-                <div className="hero-trust-card__body">
-                  <div className="hero-trust-card__line hero-trust-card__line--detail">
-                    <span className="hero-trust-card__bullet" aria-hidden="true" />
-                    <span className="hero-trust-card__eyebrow">{item.detail}</span>
+              item.href ? (
+                <a
+                  key={item.title}
+                  className="hero-trust-card hero-trust-card--link"
+                  href={withBase(item.href)}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${item.actionLabel || item.title} on Google`}
+                >
+                  <div className="hero-trust-card__body">
+                    <div className="hero-trust-card__line hero-trust-card__line--detail">
+                      <span className="hero-trust-card__bullet" aria-hidden="true" />
+                      <span className="hero-trust-card__eyebrow">{item.detail}</span>
+                    </div>
+                    <div className="hero-trust-card__line hero-trust-card__line--title">
+                      <strong>{item.title}</strong>
+                    </div>
+                    {item.actionLabel ? <span className="hero-trust-card__action">{item.actionLabel}</span> : null}
                   </div>
-                  <div className="hero-trust-card__line hero-trust-card__line--title">
-                    <strong>{item.title}</strong>
+                </a>
+              ) : (
+                <article key={item.title} className="hero-trust-card">
+                  <div className="hero-trust-card__body">
+                    <div className="hero-trust-card__line hero-trust-card__line--detail">
+                      <span className="hero-trust-card__bullet" aria-hidden="true" />
+                      <span className="hero-trust-card__eyebrow">{item.detail}</span>
+                    </div>
+                    <div className="hero-trust-card__line hero-trust-card__line--title">
+                      <strong>{item.title}</strong>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              )
             ))}
           </div>
         </div>
