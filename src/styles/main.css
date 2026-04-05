@@ -3900,28 +3900,6 @@ body[data-page='quote'] .form-actions {
   max-width: 22ch;
 }
 
-.google-map-card__areas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.2rem;
-}
-
-.google-map-card__areas span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2rem;
-  padding: 0.42rem 0.7rem;
-  border: 1px solid rgba(148, 179, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(140, 181, 255, 0.08);
-  color: rgba(224, 236, 255, 0.88);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
 .google-map-card__frame {
   position: relative;
   overflow: hidden;
@@ -3953,37 +3931,6 @@ body[data-page='quote'] .form-actions {
   min-height: 23rem;
   border: 0;
   filter: saturate(0.88) contrast(1.02) brightness(0.95);
-}
-
-.google-map-card__badge {
-  position: absolute;
-  left: 0.9rem;
-  bottom: 0.9rem;
-  z-index: 3;
-  display: grid;
-  gap: 0.14rem;
-  padding: 0.6rem 0.7rem;
-  border: 1px solid rgba(148, 179, 255, 0.2);
-  border-radius: 16px;
-  background:
-    linear-gradient(135deg, rgba(140, 181, 255, 0.16), transparent 42%),
-    rgba(7, 13, 24, 0.82);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 14px 28px rgba(4, 8, 15, 0.2);
-}
-
-.google-map-card__badge span {
-  color: rgba(196, 214, 255, 0.72);
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.google-map-card__badge strong {
-  font-size: 0.8rem;
-  line-height: 1.05;
 }
 
 .service-area {
@@ -5031,14 +4978,6 @@ body[data-page='projects'] .testimonial-grid--compact {
   .google-review-stage,
   .google-map-card {
     padding: 0.88rem 0.9rem;
-  }
-
-  .google-map-card__areas {
-    gap: 0.42rem;
-  }
-
-  .google-map-card__areas span {
-    flex: 1 1 calc(50% - 0.42rem);
   }
 
   .google-rating-card__score {

@@ -73,7 +73,7 @@ function GoogleCoverageMap({ googleProfile }) {
         const { coverageCenter } = googleProfile;
         const map = new maps.Map(mapRef.current, {
           center: coverageCenter,
-          zoom: 9,
+          zoom: 8,
           mapTypeId: 'roadmap',
           disableDefaultUI: true,
           zoomControl: true,
@@ -117,10 +117,6 @@ function GoogleCoverageMap({ googleProfile }) {
           referrerPolicy="no-referrer-when-downgrade"
         />
       )}
-      <div className="google-map-card__badge" aria-hidden="true">
-        <span>Primary area</span>
-        <strong>{googleProfile.coverageAreas.slice(0, 2).join(' + ')}</strong>
-      </div>
     </div>
   );
 }
@@ -424,12 +420,6 @@ export function GooglePresenceSection({
         <div className="map-card google-map-card" data-reveal>
           <div className="google-map-card__copy">
             <p className="eyebrow">Map & Service Area</p>
-            <h3>{googleProfile.coverageSummary}</h3>
-            <div className="google-map-card__areas" aria-label="Primary service areas">
-              {googleProfile.coverageAreas.map((area) => (
-                <span key={area}>{area}</span>
-              ))}
-            </div>
             <a
               className="text-link"
               href={withBase(googleProfile.profileUrl)}
