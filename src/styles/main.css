@@ -2057,6 +2057,7 @@ label {
 }
 
 .hero-trust-card__bullet {
+  position: relative;
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 999px;
@@ -2065,6 +2066,116 @@ label {
     0 0 0 0.18rem rgba(140, 181, 255, 0.08),
     0 0 0.7rem rgba(120, 176, 255, 0.28),
     0 0 1.25rem rgba(120, 176, 255, 0.18);
+  animation: hero-trust-bullet-core 3.4s ease-in-out infinite;
+}
+
+.hero-trust-card__bullet::before,
+.hero-trust-card__bullet::after {
+  content: '';
+  position: absolute;
+  inset: 50%;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-trust-card__bullet::before {
+  width: 100%;
+  height: 100%;
+  background: rgba(216, 232, 255, 0.78);
+  filter: blur(0.08rem);
+  animation: hero-trust-bullet-glow 3.4s ease-in-out infinite;
+}
+
+.hero-trust-card__bullet::after {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(140, 181, 255, 0.36);
+  opacity: 0;
+  animation: hero-trust-bullet-ring 3.4s ease-out infinite;
+}
+
+.hero-trust-card:nth-child(2) .hero-trust-card__bullet,
+.hero-trust-card:nth-child(2) .hero-trust-card__bullet::before,
+.hero-trust-card:nth-child(2) .hero-trust-card__bullet::after {
+  animation-delay: 0.48s;
+}
+
+.hero-trust-card:nth-child(3) .hero-trust-card__bullet,
+.hero-trust-card:nth-child(3) .hero-trust-card__bullet::before,
+.hero-trust-card:nth-child(3) .hero-trust-card__bullet::after {
+  animation-delay: 0.96s;
+}
+
+.hero-trust-card:nth-child(4) .hero-trust-card__bullet,
+.hero-trust-card:nth-child(4) .hero-trust-card__bullet::before,
+.hero-trust-card:nth-child(4) .hero-trust-card__bullet::after {
+  animation-delay: 1.44s;
+}
+
+.hero-trust-card:hover .hero-trust-card__bullet,
+.hero-trust-card:hover .hero-trust-card__bullet::after {
+  animation-duration: 1.9s;
+}
+
+.hero-trust-card:hover .hero-trust-card__bullet::before {
+  animation-duration: 1.9s;
+}
+
+@keyframes hero-trust-bullet-core {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 0.18rem rgba(140, 181, 255, 0.08),
+      0 0 0.7rem rgba(120, 176, 255, 0.28),
+      0 0 1.25rem rgba(120, 176, 255, 0.18);
+  }
+
+  45% {
+    transform: scale(1.18);
+    box-shadow:
+      0 0 0 0.26rem rgba(140, 181, 255, 0.1),
+      0 0 0.9rem rgba(140, 181, 255, 0.34),
+      0 0 1.6rem rgba(140, 181, 255, 0.22);
+  }
+}
+
+@keyframes hero-trust-bullet-ring {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.5;
+  }
+
+  75% {
+    width: 265%;
+    height: 265%;
+    opacity: 0;
+  }
+
+  100% {
+    width: 265%;
+    height: 265%;
+    opacity: 0;
+  }
+}
+
+@keyframes hero-trust-bullet-glow {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.55);
+  }
 }
 
 .hero__visual {
@@ -4671,5 +4782,11 @@ body[data-page='projects'] .testimonial-grid--compact {
   .site-background__slab,
   .site-background__plan {
     transform: none !important;
+  }
+
+  .hero-trust-card__bullet,
+  .hero-trust-card__bullet::before,
+  .hero-trust-card__bullet::after {
+    animation: none !important;
   }
 }
