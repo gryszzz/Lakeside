@@ -1,6 +1,150 @@
+import { useEffect, useRef, useState } from 'react';
 import { business, processSteps, reasons, services, stats, testimonials, trustBadges, values } from '../content/site';
 import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
+
+let googleMapsLoaderPromise;
+
+function loadGoogleMapsApi(apiKey) {
+  if (typeof window === 'undefined') {
+    return Promise.reject(new Error('Google Maps can only load in the browser.'));
+  }
+
+  if (window.google?.maps?.Map) {
+    return Promise.resolve(window.google.maps);
+  }
+
+  if (googleMapsLoaderPromise) {
+    return googleMapsLoaderPromise;
+  }
+
+  googleMapsLoaderPromise = new Promise((resolve, reject) => {
+    const callbackName = '__lakesideGoogleMapsReady';
+    const existingScript = document.querySelector('script[data-google-maps-loader="true"]');
+
+    window[callbackName] = () => {
+      if (window.google?.maps) {
+        resolve(window.google.maps);
+      } else {
+        reject(new Error('Google Maps failed to initialize.'));
+      }
+      delete window[callbackName];
+    };
+
+    if (existingScript) {
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&loading=async&v=weekly&callback=${callbackName}`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.googleMapsLoader = 'true';
+    script.onerror = () => {
+      googleMapsLoaderPromise = null;
+      delete window[callbackName];
+      reject(new Error('Google Maps script failed to load.'));
+    };
+
+    document.head.append(script);
+  });
+
+  return googleMapsLoaderPromise;
+}
+
+function GoogleCoverageMap({ googleProfile }) {
+  const mapRef = useRef(null);
+  const [loadFailed, setLoadFailed] = useState(false);
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+  useEffect(() => {
+    if (!apiKey || !mapRef.current) {
+      return undefined;
+    }
+
+    let cancelled = false;
+
+    loadGoogleMapsApi(apiKey)
+      .then((maps) => {
+        if (cancelled || !mapRef.current) {
+          return;
+        }
+
+        const { coverageCenter, coverageRadiusMiles } = googleProfile;
+        const circleRadiusMeters = coverageRadiusMiles * 1609.344;
+        const map = new maps.Map(mapRef.current, {
+          center: coverageCenter,
+          zoom: 9,
+          mapTypeId: 'roadmap',
+          disableDefaultUI: true,
+          zoomControl: true,
+          clickableIcons: false,
+          gestureHandling: 'cooperative'
+        });
+
+        const circle = new maps.Circle({
+          map,
+          center: coverageCenter,
+          radius: circleRadiusMeters,
+          strokeColor: '#8bb2ff',
+          strokeOpacity: 0.86,
+          strokeWeight: 2,
+          fillColor: '#6f9dff',
+          fillOpacity: 0.13
+        });
+
+        new maps.Marker({
+          map,
+          position: coverageCenter,
+          title: googleProfile.coverageCenter.label,
+          icon: {
+            path: maps.SymbolPath.CIRCLE,
+            scale: 5.5,
+            fillColor: '#d9e7ff',
+            fillOpacity: 1,
+            strokeColor: '#0c182b',
+            strokeWeight: 2
+          }
+        });
+
+        const bounds = circle.getBounds();
+        if (bounds) {
+          map.fitBounds(bounds);
+          maps.event.addListenerOnce(map, 'bounds_changed', () => {
+            if (map.getZoom() > 9) {
+              map.setZoom(9);
+            }
+          });
+        }
+      })
+      .catch(() => {
+        setLoadFailed(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [apiKey, googleProfile]);
+
+  return (
+    <div className="google-map-card__frame google-map-card__frame--coverage">
+      {apiKey && !loadFailed ? (
+        <div ref={mapRef} className="google-map-card__canvas" />
+      ) : (
+        <iframe
+          title={`${business.name} Google map`}
+          src={withBase(googleProfile.mapEmbedUrl)}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      )}
+      <div className="google-map-card__badge" aria-hidden="true">
+        <span>{`${googleProfile.coverageRadiusMiles}-mile radius`}</span>
+        <strong>{googleProfile.coverageCenter.label}</strong>
+      </div>
+    </div>
+  );
+}
 
 export function TrustBar() {
   return (
@@ -301,7 +445,7 @@ export function GooglePresenceSection({
         <div className="map-card google-map-card" data-reveal>
           <div className="google-map-card__copy">
             <p className="eyebrow">Map & Service Area</p>
-            <h3>Open the Google map and confirm coverage.</h3>
+            <h3>{`${googleProfile.coverageRadiusMiles}-mile service radius centered on ${googleProfile.coverageCenter.label}.`}</h3>
             <p>{business.serviceAreaLabel}</p>
             <a
               className="text-link"
@@ -312,14 +456,7 @@ export function GooglePresenceSection({
               Open Google Maps
             </a>
           </div>
-          <div className="google-map-card__frame">
-            <iframe
-              title={`${business.name} Google map`}
-              src={withBase(googleProfile.mapEmbedUrl)}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          <GoogleCoverageMap googleProfile={googleProfile} />
         </div>
       </div>
     </section>

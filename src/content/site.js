@@ -37,7 +37,14 @@ export const business = {
     profileUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
-    mapEmbedUrl: 'https://www.google.com/maps?q=Your+City&output=embed',
+    mapEmbedUrl: 'https://www.google.com/maps?q=Sparta+NJ&output=embed',
+    // Replace these with the exact physical service-center coordinates if needed.
+    coverageCenter: {
+      lat: 41.03343,
+      lng: -74.63849,
+      label: 'Sparta, NJ'
+    },
+    coverageRadiusMiles: 30,
     liveReviewsLabel: 'Review highlights',
     // Replace these sample cards with live synced Google reviews later if desired.
     featuredReviews: [
