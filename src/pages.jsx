@@ -19,6 +19,28 @@ import { BeforeAfterShowcase, BeforeAfterSlider, ProjectGallery } from './compon
 import { beforeAfterProjects } from './content/site';
 import { withBase } from './utils';
 
+function SocialIcon({ label }) {
+  if (label === 'Instagram') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25" />
+        <circle cx="12" cy="12" r="4.05" />
+        <circle cx="17.2" cy="6.8" r="1.1" className="hero-social-link__dot" />
+      </svg>
+    );
+  }
+
+  if (label === 'Facebook') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13.65 20V12.72H16.1L16.48 9.88H13.65V8.07C13.65 7.25 13.88 6.69 15.06 6.69H16.58V4.15C15.84 4.06 15.1 4.01 14.36 4C12.17 4 10.67 5.34 10.67 7.79V9.88H8.2V12.72H10.67V20H13.65Z" />
+      </svg>
+    );
+  }
+
+  return null;
+}
+
 function HomeHero() {
   const [activeHeroSlide, setActiveHeroSlide] = useState(0);
   const currentHeroSlide = homeHeroSlides[activeHeroSlide];
@@ -41,6 +63,23 @@ function HomeHero() {
             <a className="button button--ghost button--hero-tech button--hero-tech--ghost" href={withBase('projects/')}>
               View Portfolio
             </a>
+          </div>
+          <div className="hero-social-links" data-reveal>
+            {business.socialLinks.map((link) => (
+              <a
+                key={link.label}
+                className="hero-social-link"
+                href={withBase(link.href)}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit ${business.name} on ${link.label}`}
+              >
+                <span className="hero-social-link__icon">
+                  <SocialIcon label={link.label} />
+                </span>
+                <span>{link.label}</span>
+              </a>
+            ))}
           </div>
           <div className="hero-trust-grid">
             {heroTrustItems.map((item) => (
