@@ -223,9 +223,9 @@ export function ServiceAreaSection() {
 }
 
 export function GooglePresenceSection({
-  eyebrow = 'Google Presence',
-  title = 'Make the Google profile easy to verify',
-  body = 'Keep the rating, review path, and map visible for homeowners who want quick proof before they reach out.'
+  eyebrow = 'Reviews',
+  title = 'Google reviews, rating, and map',
+  body = 'Read the Google feedback, check the rating, and open the map before you reach out.'
 } = {}) {
   const googleProfile = business.googleProfile;
 
@@ -244,7 +244,7 @@ export function GooglePresenceSection({
               <span>Google rating</span>
             </div>
             <div className="google-rating-card__copy">
-              <p className="eyebrow">Review Snapshot</p>
+              <p className="eyebrow">Google reviews</p>
               <h3>{googleProfile.reviewCountLabel}</h3>
               <div className="google-rating-card__stars" aria-hidden="true">
                 <span />
@@ -263,7 +263,7 @@ export function GooglePresenceSection({
               target="_blank"
               rel="noreferrer"
             >
-              Read Reviews
+              Read Google Reviews
             </a>
             <a
               className="button button--ghost button--hero-tech button--hero-tech--ghost button--hero-tech--compact"
@@ -271,7 +271,7 @@ export function GooglePresenceSection({
               target="_blank"
               rel="noreferrer"
             >
-              Write a Review
+              Leave a Review
             </a>
           </div>
           <div className="google-review-stage" data-reveal>
@@ -300,8 +300,8 @@ export function GooglePresenceSection({
         </div>
         <div className="map-card google-map-card" data-reveal>
           <div className="google-map-card__copy">
-            <p className="eyebrow">Google Map</p>
-            <h3>Open the profile, check the map, and confirm the service area.</h3>
+            <p className="eyebrow">Map & Service Area</p>
+            <h3>Open the Google map and confirm coverage.</h3>
             <p>{business.serviceAreaLabel}</p>
             <a
               className="text-link"
@@ -309,7 +309,7 @@ export function GooglePresenceSection({
               target="_blank"
               rel="noreferrer"
             >
-              Open in Google Maps
+              Open Google Maps
             </a>
           </div>
           <div className="google-map-card__frame">

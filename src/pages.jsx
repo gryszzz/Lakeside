@@ -280,9 +280,9 @@ export function HomePage() {
       <ServiceCards compact intro="Full kitchen and bathroom renovations with cleaner scopes and a more polished result." />
       <WhyChooseUs compact />
       <GooglePresenceSection
-        eyebrow="Client Feedback"
-        title="See the Google rating, review path, and map in one place"
-        body="Homeowners often want quick proof before they call. Keep the Google profile easy to open, review, and verify."
+        eyebrow="Reviews"
+        title="Google reviews, rating, and map"
+        body="Read the Google feedback, check the rating, and open the map before you reach out."
       />
     </SiteShell>
   );

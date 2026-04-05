@@ -32,13 +32,13 @@ export const business = {
   // Replace the Google URLs below with your real Business Profile links.
   googleProfile: {
     rating: '4.9',
-    reviewCountLabel: '37+ homeowner reviews',
-    summary: 'Keep the Google profile, review history, and map easy to find while homeowners are deciding who to contact.',
+    reviewCountLabel: '37+ Google reviews',
+    summary: 'Read the rating, review history, and map in one place before you reach out.',
     profileUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
     writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
     mapEmbedUrl: 'https://www.google.com/maps?q=Your+City&output=embed',
-    liveReviewsLabel: 'Google review highlights',
+    liveReviewsLabel: 'Review highlights',
     // Replace these sample cards with live synced Google reviews later if desired.
     featuredReviews: [
       {
