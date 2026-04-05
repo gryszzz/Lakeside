@@ -3799,13 +3799,13 @@ body[data-page='quote'] .form-actions {
 }
 
 .google-rating-card__stars span {
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 999px;
-  background: rgba(165, 200, 255, 0.96);
-  box-shadow:
-    0 0 0 0.18rem rgba(140, 181, 255, 0.08),
-    0 0 0.7rem rgba(120, 176, 255, 0.18);
+  color: #dbe8ff;
+  font-size: 0.76rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-shadow:
+    0 0 0.45rem rgba(120, 176, 255, 0.18),
+    0 0 0.9rem rgba(120, 176, 255, 0.08);
 }
 
 .google-review-card__stars {

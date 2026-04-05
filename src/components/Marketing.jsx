@@ -391,11 +391,11 @@ export function GooglePresenceSection({
               <p className="eyebrow">Google reviews</p>
               <h3>{googleProfile.reviewCountLabel}</h3>
               <div className="google-rating-card__stars" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
               </div>
               <p>{googleProfile.summary}</p>
             </div>
