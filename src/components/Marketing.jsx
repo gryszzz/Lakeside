@@ -5,6 +5,9 @@ import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
 
 let googleMapsLoaderPromise;
+const FALLBACK_MAP_WIDTH = 1000;
+const FALLBACK_MAP_HEIGHT = 760;
+const FALLBACK_MAP_PADDING = 70;
 
 function extendBoundsFromCoordinates(bounds, coordinates) {
   if (!Array.isArray(coordinates)) {
@@ -17,6 +20,169 @@ function extendBoundsFromCoordinates(bounds, coordinates) {
   }
 
   coordinates.forEach((value) => extendBoundsFromCoordinates(bounds, value));
+}
+
+function collectGeoJsonBounds(features = [], extraPoints = []) {
+  let minLng = Infinity;
+  let maxLng = -Infinity;
+  let minLat = Infinity;
+  let maxLat = -Infinity;
+
+  const extend = (coordinates) => {
+    if (!Array.isArray(coordinates)) {
+      return;
+    }
+
+    if (typeof coordinates[0] === 'number' && typeof coordinates[1] === 'number') {
+      minLng = Math.min(minLng, coordinates[0]);
+      maxLng = Math.max(maxLng, coordinates[0]);
+      minLat = Math.min(minLat, coordinates[1]);
+      maxLat = Math.max(maxLat, coordinates[1]);
+      return;
+    }
+
+    coordinates.forEach(extend);
+  };
+
+  features.forEach((feature) => extend(feature.geometry?.coordinates));
+  extraPoints.forEach((point) => {
+    if (typeof point?.lng === 'number' && typeof point?.lat === 'number') {
+      minLng = Math.min(minLng, point.lng);
+      maxLng = Math.max(maxLng, point.lng);
+      minLat = Math.min(minLat, point.lat);
+      maxLat = Math.max(maxLat, point.lat);
+    }
+  });
+
+  if (!Number.isFinite(minLng) || !Number.isFinite(maxLng) || !Number.isFinite(minLat) || !Number.isFinite(maxLat)) {
+    return null;
+  }
+
+  return { minLng, maxLng, minLat, maxLat };
+}
+
+function createGeoProjector(bounds, width, height, padding) {
+  const innerWidth = width - padding * 2;
+  const innerHeight = height - padding * 2;
+  const lngSpan = Math.max(bounds.maxLng - bounds.minLng, 0.0001);
+  const latSpan = Math.max(bounds.maxLat - bounds.minLat, 0.0001);
+  const scale = Math.min(innerWidth / lngSpan, innerHeight / latSpan);
+  const offsetX = padding + (innerWidth - lngSpan * scale) / 2;
+  const offsetY = padding + (innerHeight - latSpan * scale) / 2;
+
+  return (lng, lat) => ({
+    x: offsetX + (lng - bounds.minLng) * scale,
+    y: offsetY + (bounds.maxLat - lat) * scale
+  });
+}
+
+function geometryToSvgPath(geometry, project) {
+  if (!geometry) {
+    return '';
+  }
+
+  const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+
+  return polygons
+    .map((polygon) =>
+      polygon
+        .map((ring) =>
+          ring
+            .map(([lng, lat], index) => {
+              const point = project(lng, lat);
+              return `${index === 0 ? 'M' : 'L'}${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
+            })
+            .concat('Z')
+            .join(' ')
+        )
+        .join(' ')
+    )
+    .join(' ');
+}
+
+function CoverageFallbackMap({ googleProfile }) {
+  const coverageTowns = googleProfile.coverageTowns ?? [];
+  const bounds = collectGeoJsonBounds(serviceCounties.features, coverageTowns);
+
+  if (!bounds) {
+    return null;
+  }
+
+  const project = createGeoProjector(bounds, FALLBACK_MAP_WIDTH, FALLBACK_MAP_HEIGHT, FALLBACK_MAP_PADDING);
+  const countyPaths = serviceCounties.features.map((feature) => ({
+    id: feature.id,
+    name: feature.properties?.NAME,
+    path: geometryToSvgPath(feature.geometry, project)
+  }));
+  const townPoints = coverageTowns.map((town) => ({
+    ...town,
+    ...project(town.lng, town.lat)
+  }));
+
+  return (
+    <div className="google-map-card__frame google-map-card__frame--coverage google-map-card__frame--fallback">
+      <svg
+        className="coverage-fallback-map"
+        viewBox={`0 0 ${FALLBACK_MAP_WIDTH} ${FALLBACK_MAP_HEIGHT}`}
+        role="img"
+        aria-label="Service area map highlighting the North Jersey coverage footprint around Sparta and Franklin"
+      >
+        <defs>
+          <linearGradient id="coverage-sheen" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(132, 177, 255, 0.24)" />
+            <stop offset="100%" stopColor="rgba(132, 177, 255, 0.02)" />
+          </linearGradient>
+          <radialGradient id="coverage-glow" cx="50%" cy="48%" r="68%">
+            <stop offset="0%" stopColor="rgba(132, 177, 255, 0.18)" />
+            <stop offset="100%" stopColor="rgba(132, 177, 255, 0)" />
+          </radialGradient>
+          <filter id="coverage-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="20" stdDeviation="16" floodColor="rgba(1, 6, 13, 0.5)" />
+          </filter>
+          <pattern id="coverage-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(148, 179, 255, 0.08)" strokeWidth="1" />
+          </pattern>
+        </defs>
+
+        <rect width={FALLBACK_MAP_WIDTH} height={FALLBACK_MAP_HEIGHT} fill="url(#coverage-grid)" />
+        <rect width={FALLBACK_MAP_WIDTH} height={FALLBACK_MAP_HEIGHT} fill="url(#coverage-glow)" />
+
+        <g className="coverage-fallback-map__counties" filter="url(#coverage-shadow)">
+          {countyPaths.map((county) => (
+            <path key={`${county.id}-fill`} d={county.path} className="coverage-fallback-map__county-fill" />
+          ))}
+          {countyPaths.map((county) => (
+            <path key={`${county.id}-line`} d={county.path} className="coverage-fallback-map__county-line" />
+          ))}
+        </g>
+
+        <g className="coverage-fallback-map__route" aria-hidden="true">
+          {townPoints.length > 1 ? (
+            <path
+              d={townPoints.map((point, index) => `${index === 0 ? 'M' : 'L'}${point.x.toFixed(2)} ${point.y.toFixed(2)}`).join(' ')}
+              className="coverage-fallback-map__route-line"
+            />
+          ) : null}
+        </g>
+
+        <g className="coverage-fallback-map__towns">
+          {townPoints.map((town) => (
+            <g
+              key={town.label}
+              className={`coverage-fallback-map__town ${town.primary ? 'coverage-fallback-map__town--primary' : ''}`}
+              transform={`translate(${town.x.toFixed(2)} ${town.y.toFixed(2)})`}
+            >
+              <circle className="coverage-fallback-map__town-halo" r={town.primary ? 22 : 16} />
+              <circle className="coverage-fallback-map__town-core" r={town.primary ? 5.5 : 4.5} />
+              <text x={town.primary ? 20 : 16} y={town.primary ? -12 : -10}>
+                {town.label}
+              </text>
+            </g>
+          ))}
+        </g>
+      </svg>
+    </div>
+  );
 }
 
 function loadGoogleMapsApi(apiKey) {
@@ -85,6 +251,7 @@ function GoogleCoverageMap({ googleProfile }) {
         }
 
         const { coverageCenter } = googleProfile;
+        const coverageTowns = googleProfile.coverageTowns ?? [];
         const map = new maps.Map(mapRef.current, {
           center: coverageCenter,
           zoom: 8,
@@ -95,18 +262,26 @@ function GoogleCoverageMap({ googleProfile }) {
           gestureHandling: 'cooperative'
         });
 
-        new maps.Marker({
-          map,
-          position: coverageCenter,
-          title: googleProfile.coverageCenter.label,
-          icon: {
-            path: maps.SymbolPath.CIRCLE,
-            scale: 5.5,
-            fillColor: '#d9e7ff',
-            fillOpacity: 1,
-            strokeColor: '#0c182b',
-            strokeWeight: 2
-          }
+        coverageTowns.forEach((town) => {
+          new maps.Marker({
+            map,
+            position: { lat: town.lat, lng: town.lng },
+            title: town.label,
+            label: {
+              text: town.label,
+              color: '#d9e7ff',
+              fontSize: '11px',
+              fontWeight: '700'
+            },
+            icon: {
+              path: maps.SymbolPath.CIRCLE,
+              scale: town.primary ? 5.5 : 4.5,
+              fillColor: '#d9e7ff',
+              fillOpacity: 1,
+              strokeColor: '#0c182b',
+              strokeWeight: 2
+            }
+          });
         });
 
         map.data.addGeoJson(serviceCounties);
@@ -122,12 +297,13 @@ function GoogleCoverageMap({ googleProfile }) {
         serviceCounties.features.forEach((feature) => {
           extendBoundsFromCoordinates(bounds, feature.geometry?.coordinates);
         });
+        coverageTowns.forEach((town) => bounds.extend({ lat: town.lat, lng: town.lng }));
         bounds.extend(coverageCenter);
         if (!bounds.isEmpty()) {
-          map.fitBounds(bounds, 16);
+          map.fitBounds(bounds, 44);
           maps.event.addListenerOnce(map, 'bounds_changed', () => {
-            if (map.getZoom() > 9) {
-              map.setZoom(9);
+            if (map.getZoom() > 8) {
+              map.setZoom(8);
             }
           });
         }
@@ -143,18 +319,13 @@ function GoogleCoverageMap({ googleProfile }) {
   }, [apiKey, googleProfile]);
 
   return (
-    <div className="google-map-card__frame google-map-card__frame--coverage">
-      {apiKey && !loadFailed ? (
+    apiKey && !loadFailed ? (
+      <div className="google-map-card__frame google-map-card__frame--coverage">
         <div ref={mapRef} className="google-map-card__canvas" />
-      ) : (
-        <iframe
-          title={`${business.name} Google map`}
-          src={withBase(googleProfile.mapEmbedUrl)}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      )}
-    </div>
+      </div>
+    ) : (
+      <CoverageFallbackMap googleProfile={googleProfile} />
+    )
   );
 }
 

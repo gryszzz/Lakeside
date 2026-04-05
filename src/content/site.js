@@ -44,7 +44,20 @@ export const business = {
       lng: -74.63849,
       label: 'Sparta, NJ'
     },
-    coverageAreas: ['Sussex County', 'Passaic County', 'Morris County'],
+    coverageAreas: ['Sussex County', 'Passaic County', 'Morris County', 'Warren County'],
+    coverageTowns: [
+      {
+        label: 'Sparta',
+        lat: 41.03343,
+        lng: -74.63849,
+        primary: true
+      },
+      {
+        label: 'Franklin',
+        lat: 41.10704,
+        lng: -74.5857
+      }
+    ],
     coverageSummary: 'Serving Sussex, Passaic, and nearby North Jersey communities.',
     liveReviewsLabel: 'Review highlights',
     // Replace these sample cards with live synced Google reviews later if desired.
