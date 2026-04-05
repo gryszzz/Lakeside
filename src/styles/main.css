@@ -2122,21 +2122,17 @@ label {
 .hero-trust-card__action {
   display: inline-flex;
   align-items: center;
-  gap: 0.34rem;
   margin-top: auto;
-  padding-top: 0.28rem;
-  color: rgba(222, 233, 255, 0.86);
-  font-size: 0.54rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  line-height: 1;
-  text-transform: uppercase;
+  width: 0.9rem;
+  height: 0.9rem;
+  padding-top: 0.16rem;
+  color: rgba(222, 233, 255, 0.82);
 }
 
 .hero-trust-card__action::after {
   content: '';
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 0.42rem;
+  height: 0.42rem;
   border-top: 1px solid rgba(165, 200, 255, 0.64);
   border-right: 1px solid rgba(165, 200, 255, 0.64);
   transform: rotate(45deg) translateY(-0.02rem);

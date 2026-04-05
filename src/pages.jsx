@@ -91,7 +91,7 @@ function HomeHero() {
                   href={withBase(item.href)}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${item.actionLabel || item.title} on Google`}
+                  aria-label={item.ariaLabel || item.title}
                 >
                   <div className="hero-trust-card__body">
                     <div className="hero-trust-card__line hero-trust-card__line--detail">
@@ -101,7 +101,7 @@ function HomeHero() {
                     <div className="hero-trust-card__line hero-trust-card__line--title">
                       <strong>{item.title}</strong>
                     </div>
-                    {item.actionLabel ? <span className="hero-trust-card__action">{item.actionLabel}</span> : null}
+                    <span className="hero-trust-card__action" aria-hidden="true" />
                   </div>
                 </a>
               ) : (

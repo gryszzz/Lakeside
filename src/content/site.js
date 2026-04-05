@@ -87,7 +87,7 @@ export const heroTrustItems = [
     title: '4.9 rating',
     detail: 'Verified reviews',
     href: business.googleProfile.readReviewsUrl,
-    actionLabel: 'Read on Google'
+    ariaLabel: 'Open Google reviews'
   },
   {
     title: 'Licensed + insured',
