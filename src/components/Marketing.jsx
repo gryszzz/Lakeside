@@ -70,8 +70,7 @@ function GoogleCoverageMap({ googleProfile }) {
           return;
         }
 
-        const { coverageCenter, coverageRadiusMiles } = googleProfile;
-        const circleRadiusMeters = coverageRadiusMiles * 1609.344;
+        const { coverageCenter } = googleProfile;
         const map = new maps.Map(mapRef.current, {
           center: coverageCenter,
           zoom: 9,
@@ -80,17 +79,6 @@ function GoogleCoverageMap({ googleProfile }) {
           zoomControl: true,
           clickableIcons: false,
           gestureHandling: 'cooperative'
-        });
-
-        const circle = new maps.Circle({
-          map,
-          center: coverageCenter,
-          radius: circleRadiusMeters,
-          strokeColor: '#8bb2ff',
-          strokeOpacity: 0.86,
-          strokeWeight: 2,
-          fillColor: '#6f9dff',
-          fillOpacity: 0.13
         });
 
         new maps.Marker({
@@ -107,15 +95,6 @@ function GoogleCoverageMap({ googleProfile }) {
           }
         });
 
-        const bounds = circle.getBounds();
-        if (bounds) {
-          map.fitBounds(bounds);
-          maps.event.addListenerOnce(map, 'bounds_changed', () => {
-            if (map.getZoom() > 9) {
-              map.setZoom(9);
-            }
-          });
-        }
       })
       .catch(() => {
         setLoadFailed(true);
@@ -139,8 +118,8 @@ function GoogleCoverageMap({ googleProfile }) {
         />
       )}
       <div className="google-map-card__badge" aria-hidden="true">
-        <span>{`${googleProfile.coverageRadiusMiles}-mile radius`}</span>
-        <strong>{googleProfile.coverageCenter.label}</strong>
+        <span>Primary area</span>
+        <strong>{googleProfile.coverageAreas.slice(0, 2).join(' + ')}</strong>
       </div>
     </div>
   );
@@ -445,8 +424,12 @@ export function GooglePresenceSection({
         <div className="map-card google-map-card" data-reveal>
           <div className="google-map-card__copy">
             <p className="eyebrow">Map & Service Area</p>
-            <h3>{`${googleProfile.coverageRadiusMiles}-mile service radius centered on ${googleProfile.coverageCenter.label}.`}</h3>
-            <p>{business.serviceAreaLabel}</p>
+            <h3>{googleProfile.coverageSummary}</h3>
+            <div className="google-map-card__areas" aria-label="Primary service areas">
+              {googleProfile.coverageAreas.map((area) => (
+                <span key={area}>{area}</span>
+              ))}
+            </div>
             <a
               className="text-link"
               href={withBase(googleProfile.profileUrl)}

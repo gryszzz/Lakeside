@@ -3900,6 +3900,28 @@ body[data-page='quote'] .form-actions {
   max-width: 22ch;
 }
 
+.google-map-card__areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.google-map-card__areas span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(148, 179, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(140, 181, 255, 0.08);
+  color: rgba(224, 236, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 .google-map-card__frame {
   position: relative;
   overflow: hidden;
@@ -5009,6 +5031,14 @@ body[data-page='projects'] .testimonial-grid--compact {
   .google-review-stage,
   .google-map-card {
     padding: 0.88rem 0.9rem;
+  }
+
+  .google-map-card__areas {
+    gap: 0.42rem;
+  }
+
+  .google-map-card__areas span {
+    flex: 1 1 calc(50% - 0.42rem);
   }
 
   .google-rating-card__score {
