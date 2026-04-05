@@ -443,7 +443,7 @@ export function GooglePresenceSection({
           <div className="google-map-card__copy">
             <div className="google-map-card__copy-top">
               <p className="eyebrow">Map & Service Area</p>
-              <span className="google-map-card__tag">{googleProfile.coverageCenter.label}</span>
+              <span className="google-map-card__tag">{googleProfile.mapTagLabel || googleProfile.coverageCenter.label}</span>
             </div>
             <a
               className="google-map-card__link"

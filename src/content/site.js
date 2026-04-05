@@ -44,6 +44,7 @@ export const business = {
       lng: -74.63849,
       label: 'Sparta, NJ'
     },
+    mapTagLabel: 'North Jersey',
     mapView: {
       lat: 41.02,
       lng: -74.73,
