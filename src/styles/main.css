@@ -4403,6 +4403,32 @@ body[data-page='projects'] .testimonial-grid--compact {
   .site-footer__bottom {
     display: grid;
   }
+
+  .google-presence {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+  }
+
+  .google-presence__info {
+    gap: 0.72rem;
+  }
+
+  .google-presence__info .section-intro h2,
+  .google-presence__info .section-intro__body,
+  .google-map-card__copy h3 {
+    max-width: none;
+  }
+
+  .google-presence__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .google-presence__actions .button {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 720px) {
@@ -4972,6 +4998,22 @@ body[data-page='projects'] .testimonial-grid--compact {
 
   .google-review-grid {
     grid-template-columns: 1fr;
+  }
+
+  .google-presence__actions {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .google-rating-card,
+  .google-review-stage,
+  .google-map-card {
+    padding: 0.88rem 0.9rem;
+  }
+
+  .google-rating-card__score {
+    width: 100%;
+    justify-self: stretch;
   }
 
   .google-map-card__frame {
