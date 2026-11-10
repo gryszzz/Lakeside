@@ -407,6 +407,123 @@ export function ProjectPreview() {
   );
 }
 
+const homepageProjectPhotos = [
+  {
+    title: 'Custom Kitchen & Island',
+    category: 'Kitchen',
+    image: 'images/projects/portfolio/lakeside-kitchen-island.jpg',
+    alt: 'Traditional white kitchen with a dark wood island and three counter stools',
+    summary: 'A traditional kitchen featuring detailed cabinetry, stone counters, and an island with seating.',
+    tags: ['Kitchen', 'Island', 'Cabinetry']
+  },
+  {
+    title: 'Kitchen Cabinetry & Island',
+    category: 'Kitchen',
+    image: 'images/projects/portfolio/lakeside-kitchen-cabinetry.jpg',
+    alt: 'Warm wood kitchen cabinetry surrounding a large central island',
+    summary: 'Warm wood cabinets frame a generous central island with stone countertops.',
+    tags: ['Kitchen', 'Cabinetry', 'Countertops']
+  },
+  {
+    title: 'Custom Cabinetry & Storage',
+    category: 'Cabinetry',
+    image: 'images/projects/portfolio/lakeside-custom-builtins.jpg',
+    alt: 'Custom light wood cabinetry with glass-front storage and built-in shelves',
+    summary: 'A custom cabinetry installation with glass-front storage and built-in shelving.',
+    tags: ['Cabinetry', 'Built-ins', 'Storage']
+  },
+  {
+    title: 'Tile Shower & Bathroom',
+    category: 'Bathroom',
+    image: 'images/projects/portfolio/lakeside-bathroom-shower.jpg',
+    alt: 'White subway tile shower with glass doors and gray bathroom cabinetry',
+    summary: 'A tiled walk-in shower with glass doors, grab bars, and coordinating finishes.',
+    tags: ['Bathroom', 'Tile', 'Shower']
+  },
+  {
+    title: 'Kitchen with Herringbone Tile',
+    category: 'Kitchen',
+    image: 'images/projects/portfolio/lakeside-kitchen-tile.jpg',
+    alt: 'Light gray kitchen with a herringbone tile backsplash and stainless appliances',
+    summary: 'A light gray kitchen with a detailed tile backsplash and stainless appliances.',
+    tags: ['Kitchen', 'Tile', 'Appliances']
+  },
+  {
+    title: 'Bright White Kitchen',
+    category: 'Kitchen',
+    image: 'images/projects/portfolio/lakeside-white-kitchen.jpg',
+    alt: 'White kitchen cabinetry with marble-look counters and a professional range',
+    summary: 'White cabinetry and marble-look counters create a bright, clean kitchen.',
+    tags: ['Kitchen', 'Cabinetry', 'Countertops']
+  },
+  {
+    title: 'Kitchen Installation in Progress',
+    category: 'In Progress',
+    image: 'images/projects/portfolio/lakeside-kitchen-installation.jpg',
+    alt: 'White kitchen cabinetry and island during installation, with tools still in the room',
+    summary: 'A kitchen installation in progress, showing cabinetry and island work before the finishing details.',
+    tags: ['Kitchen', 'Installation', 'In Progress']
+  }
+];
+
+export function HomeProjectGallery() {
+  const trackRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const scrollProjects = (direction) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollBy({ left: direction * track.clientWidth * 0.78, behavior: 'smooth' });
+  };
+
+  return (
+    <section className="section home-gallery">
+      <div className="container">
+        <div className="home-gallery__heading">
+          <SectionIntro
+            eyebrow="Project Gallery"
+            title="A Look at Our Work"
+            body="Browse kitchen and bathroom project photos. Select any photo to view it larger."
+          />
+          <div className="home-gallery__controls" aria-label="Project gallery controls">
+            <button type="button" onClick={() => scrollProjects(-1)} aria-label="Scroll to previous projects">←</button>
+            <button type="button" onClick={() => scrollProjects(1)} aria-label="Scroll to next projects">→</button>
+          </div>
+        </div>
+        <div className="home-gallery__track" id="home-project-gallery" ref={trackRef} aria-label="Kitchen and bathroom project photos" tabIndex="0">
+          {homepageProjectPhotos.map((project, index) => (
+            <button
+              className="home-gallery__card"
+              key={project.image}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Open photo: ${project.title}`}
+            >
+              <span className="home-gallery__photo">
+                <img src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
+                <span className="home-gallery__zoom" aria-hidden="true">↗</span>
+              </span>
+              <span className="home-gallery__caption">
+                <span className="home-gallery__category">{project.category}</span>
+                <strong>{project.title}</strong>
+              </span>
+            </button>
+          ))}
+        </div>
+        <p className="home-gallery__hint">Swipe or scroll to explore all project photos</p>
+      </div>
+      {activeIndex !== null ? (
+        <ProjectLightbox
+          projects={homepageProjectPhotos}
+          activeIndex={activeIndex}
+          onClose={() => setActiveIndex(null)}
+          onNavigate={setActiveIndex}
+        />
+      ) : null}
+    </section>
+  );
+}
+
 export function ProjectGallery() {
   const [filter, setFilter] = useState('All');
   const [activeIndex, setActiveIndex] = useState(null);

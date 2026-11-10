@@ -1,4 +1,5 @@
 import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
+import { HomeProjectGallery } from './components/Projects';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
@@ -94,6 +95,7 @@ export function HomePage() {
     >
       <HomeHero />
       <HomeServices />
+      <HomeProjectGallery />
       <HomeProcess /><WhyChooseUs compact />
       <BrandConnections />
       <ServiceAreaMap />
