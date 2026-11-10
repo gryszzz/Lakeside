@@ -347,3 +347,6 @@ p { line-height:1.8; }
 .site-header__phone:hover { background:#edf5f9; color:var(--blue-dark); border-color:var(--blue); }
 .header-call-icon { display:block; width:20px; height:20px; flex-shrink:0; background:currentColor; mask:url('/images/icons/phone-call.svg') center / contain no-repeat; -webkit-mask:url('/images/icons/phone-call.svg') center / contain no-repeat; }
 @media(max-width:700px) { .header-call-icon { width:17px; height:17px; } }
+/* Keep the header actions filled in Lakeside blue on phone and desktop. */
+.site-header__phone, .menu-toggle { background:var(--blue); color:#fff; border-color:var(--blue); }
+.site-header__phone:hover, .menu-toggle:hover { background:var(--blue-dark); color:#fff; border-color:var(--blue-dark); }
