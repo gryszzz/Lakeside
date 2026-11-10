@@ -67,7 +67,22 @@ function HomeProcess() {
 }
 
 function DirectEstimatePanel({ inHero = false }) {
- return <div className={inHero ? 'estimate-panel estimate-panel--hero' : 'lead-form estimate-panel'}><p className="eyebrow">Contact Information</p><h2>Lakeside Kitchen & Bath LLC</h2><div className="estimate-method-grid"><article className="estimate-contact-row"><p className="eyebrow">Call</p><h3><a href={business.phoneHref}>{business.phone}</a></h3></article><article className="estimate-contact-row"><p className="eyebrow">Email</p><h3><a href={business.emailHref}>{business.email}</a></h3></article></div><p>Sparta, NJ</p><p>{business.serviceAreaLabel}</p></div>;
+ return <div className={`${inHero ? 'estimate-panel estimate-panel--hero' : 'lead-form estimate-panel'} estimate-panel--contact`}>
+   <div className="estimate-panel__heading"><p className="eyebrow">Contact Information</p><h2>Lakeside Kitchen & Bath LLC</h2></div>
+   <div className="estimate-method-grid">
+     <a className="estimate-contact-row" href={business.phoneHref}>
+       <span className="estimate-contact-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.6a15 15 0 0 0 4.9 4.9L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4Z"/><path d="M14 5a5 5 0 0 1 5 5M14 2a8 8 0 0 1 8 8"/></svg></span>
+       <span className="estimate-contact-row__copy"><span className="eyebrow">Call</span><strong>{business.phone}</strong></span>
+       <span className="estimate-contact-row__arrow" aria-hidden="true">↗</span>
+     </a>
+     <a className="estimate-contact-row" href={business.emailHref}>
+       <span className="estimate-contact-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
+       <span className="estimate-contact-row__copy"><span className="eyebrow">Email</span><strong>{business.email}</strong></span>
+       <span className="estimate-contact-row__arrow" aria-hidden="true">↗</span>
+     </a>
+   </div>
+   <div className="estimate-panel__area"><span className="estimate-panel__area-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.3"/></svg></span><div><strong>Sparta, NJ</strong><p>{business.serviceAreaLabel}</p></div></div>
+ </div>;
 }
 
 export function HomePage() {
@@ -135,7 +150,7 @@ function ProcessPage() { return <SiteShell><PageHero eyebrow="Our Process" title
 function ServiceAreaPage() { return <SiteShell><PageHero eyebrow="Service Area" title="Proudly Serving Northern New Jersey" body={business.serviceAreaLabel} actions={<ConsultationLink />} /><ServiceAreaMap full /></SiteShell>; }
 
 function FaqPage() { return <SiteShell><PageHero eyebrow="FAQ" title="FAQ" actions={<ConsultationLink />} /><FAQSection items={faqs} /></SiteShell>; }
-function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero showActions={false}  />} /><section className="section"><div className="container story-grid"><div><h2>Service Area</h2><p>{business.serviceAreaLabel}</p><p>Ronald Augustine, Owner</p><p>Mailing address: {business.address}</p><p>{business.license} · {business.licenseNumber}</p></div><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></div></section></SiteShell>; }
+function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero />} /><section className="section"><div className="container story-grid"><div><h2>Service Area</h2><p>{business.serviceAreaLabel}</p><p>Ronald Augustine, Owner</p><p>{business.license} · {business.licenseNumber}</p></div><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></div></section></SiteShell>; }
 
 function ReviewsPage() {
  return <SiteShell><PageHero title="Reviews" body="Google reviews coming soon." /><section className="section"><div className="container reviews-page-content"><GoogleReviewPreview /></div></section></SiteShell>;
