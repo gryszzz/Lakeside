@@ -13,7 +13,10 @@ const navItems = [
 function Logo() {
   return (
     <a className="brand" href={withBase('')} aria-label={`${business.name} home page`}>
-      <img className="brand__logo" src={withBase('images/branding/lakeside-logo.png')} alt={business.name} width="240" height="130" />
+      <span className="brand__logo-stack">
+        <img className="brand__logo" src={withBase('images/branding/lakeside-logo.png')} alt={business.name} width="1536" height="1024" />
+        <img className="brand__logo-color" src={withBase('images/branding/lakeside-logo.png')} alt="" aria-hidden="true" width="1536" height="1024" />
+      </span>
     </a>
   );
 }
