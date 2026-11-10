@@ -241,19 +241,6 @@ export function Footer() {
   );
 }
 
-export function MobileStickyCTA() {
-  return (
-    <div className="mobile-sticky-cta">
-      <a className="mobile-sticky-cta__link mobile-sticky-cta__link--ghost" href={business.phoneHref}>
-        Call
-      </a>
-      <a className="mobile-sticky-cta__link mobile-sticky-cta__link--primary" href={withBase('quote/')}>
-        Estimate
-      </a>
-    </div>
-  );
-}
-
 export function PageHero({ eyebrow, title, body, actions, aside }) {
   return (
     <section className="page-hero">
@@ -387,7 +374,6 @@ export function SiteShell({ children, showFinalCta = true, finalCtaProps }) {
         <main id="main-content">{children}</main>
         {showFinalCta ? <FinalCta {...finalCtaProps} /> : null}
         <Footer />
-        <MobileStickyCTA />
       </div>
     </div>
   );
