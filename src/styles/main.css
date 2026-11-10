@@ -376,8 +376,8 @@ p { line-height:1.8; }
 /* A complete mobile navigation panel with clear, comfortable link targets. */
 @media(max-width:900px) {
  .mobile-nav.is-open { background:#08273b50; backdrop-filter:blur(4px); }
- .mobile-nav__panel { position:absolute; top:84px; right:16px; bottom:auto; width:min(340px,calc(100vw - 32px)); max-height:min(72vh,620px); max-height:min(72dvh,620px); overflow:auto; padding:0 1.1rem 1rem; border:1px solid #d8e5ed; border-radius:16px; background:#f7fafc; box-shadow:0 18px 55px #082a3c30; overscroll-behavior:contain; }
- .mobile-nav__header { min-height:68px; margin-bottom:.65rem; border-bottom:1px solid #d8e5ed; }
+ .mobile-nav__panel { position:absolute; top:72px; right:12px; bottom:auto; width:min(390px,calc(100vw - 24px)); max-height:calc(100vh - 88px); max-height:calc(100dvh - 88px); overflow:auto; padding:0 1rem .8rem; border:1px solid #d8e5ed; border-radius:16px; background:#f7fafc; box-shadow:0 18px 55px #082a3c30; overscroll-behavior:contain; }
+ .mobile-nav__header { min-height:60px; margin-bottom:.45rem; border-bottom:1px solid #d8e5ed; }
  .mobile-nav__header .brand { width:128px; height:64px; }
  .mobile-nav__header .brand__logo { width:128px; height:85px; top:-8px; }
  .mobile-nav__close { display:grid; place-items:center; width:44px; height:44px; padding:0; border:1px solid #cedee8; border-radius:11px; background:#fff; color:var(--blue); }
@@ -386,18 +386,18 @@ p { line-height:1.8; }
  .mobile-nav nav { margin:0 0 .65rem; }
  .mobile-nav__list { display:grid; grid-template-columns:1fr; list-style:none; padding:0; margin:0; border-top:1px solid #d9e5ed; }
  .mobile-nav__list li { border-bottom:1px solid #d9e5ed; }
- .mobile-nav nav .mobile-nav__list a { display:flex; align-items:center; min-height:48px; padding:.65rem .2rem; border:0; background:transparent; color:#264c65; font-size:.86rem; font-weight:700; line-height:1.35; transition:color .18s, padding .18s; }
+ .mobile-nav nav .mobile-nav__list a { display:flex; align-items:center; min-height:42px; padding:.45rem .2rem; border:0; background:transparent; color:#264c65; font-size:.86rem; font-weight:700; line-height:1.3; transition:color .18s, padding .18s; }
  .mobile-nav nav .mobile-nav__list a:hover { border:0; background:transparent; color:var(--blue); padding-left:.45rem; }
  .mobile-nav nav .mobile-nav__list a.is-active { border:0; background:transparent; color:var(--blue); }
- .mobile-nav__cta { display:grid; grid-template-columns:1fr 1fr; gap:.65rem; padding:1.1rem 0; margin:0; border-top:1px solid #d8e5ed; border-bottom:1px solid #d8e5ed; }
- .mobile-nav__cta .button { min-height:46px; padding:.7rem .5rem; font-size:.74rem; gap:.5rem; }
- .mobile-nav__meta { display:none; }
- .mobile-nav__meta p { font-size:.75rem; margin-bottom:.35rem; line-height:1.7; }
+ .mobile-nav__cta { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; padding:.7rem 0; margin:0; border-top:1px solid #d8e5ed; border-bottom:1px solid #d8e5ed; }
+ .mobile-nav__cta .button { min-height:42px; padding:.55rem .4rem; font-size:.72rem; gap:.4rem; }
+ .mobile-nav__meta { display:block; padding:.5rem 0 .1rem; }
+ .mobile-nav__meta p { font-size:.7rem; margin-bottom:.2rem; line-height:1.45; }
  .mobile-nav__owner { font-size:.83rem!important; font-weight:750; color:var(--ink); }
  .mobile-nav__owner span { margin-left:.4rem; font-size:.68rem; font-weight:500; color:var(--muted); }
  .mobile-nav__email { display:inline-block; color:var(--blue); font-size:.75rem; padding:.4rem 0; overflow-wrap:anywhere; }
- .mobile-nav__meta-label { text-transform:uppercase; letter-spacing:.1em; font-size:.6rem!important; font-weight:750; color:var(--blue); margin-top:.8rem; }
- .mobile-nav__license { font-size:.64rem!important; color:#6b8495; margin-top:.6rem; }
+ .mobile-nav__meta-label { text-transform:uppercase; letter-spacing:.1em; font-size:.58rem!important; font-weight:750; color:var(--blue); margin-top:.45rem; }
+ .mobile-nav__license { font-size:.62rem!important; color:#6b8495; margin-top:.35rem; }
 }
 @media(max-width:900px) { .mobile-nav__header { position:sticky; top:0; z-index:2; background:#f7fafc; } }
 .reviews-page-content { max-width:820px; }

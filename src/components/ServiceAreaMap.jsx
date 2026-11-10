@@ -55,7 +55,7 @@ export function ServiceAreaMap({ full = false }) {
             <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a>{!full && <a className="text-link" href={withBase('service-area/')}>View all service areas</a>}</div>
           </div>
         </div>
-        {full && <div className="coverage-all-towns">{Object.entries(serviceCounties).map(([county, towns]) => <details key={county}><summary>{county} <span>{towns.length} towns</span></summary><ul>{towns.map(town => <li key={town}>{town}</li>)}</ul></details>)}</div>}
+        {full && <div className="coverage-all-towns">{Object.entries(serviceCounties).map(([county, towns]) => <details key={county} open><summary>{county} <span>{towns.length} towns</span></summary><ul>{towns.map(town => <li key={town}>{town}</li>)}</ul></details>)}</div>}
       </div>
     </section>
   );
