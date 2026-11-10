@@ -7,35 +7,29 @@
 // - home hero placeholder images and trust cards
 // - image paths in featuredProjects and beforeAfterProjects
 export const business = {
-  name: 'Lakeside Design + Build',
+  name: 'Lakeside Kitchen & Bath LLC',
   tagline: 'Kitchen & Bath Specialists',
-  legalName: 'Lakeside Design + Build LLC',
-  phone: '(555) 214-8902',
-  phoneHref: 'tel:+15552148902',
-  email: 'hello@lakesidedesignbuild.com',
-  emailHref: 'mailto:hello@lakesidedesignbuild.com',
-  address: '123 Harbor Ridge Drive, Your City, ST 00000',
-  hours: 'Mon - Fri: 8:00 AM - 6:00 PM',
-  serviceAreaLabel: 'Serving Sparta, West Milford, Franklin, Hamburg, and nearby North Jersey communities.',
-  serviceAreas: [
-    'Sparta',
-    'West Milford',
-    'Franklin',
-    'Hamburg',
-    'Hardyston',
-    'Vernon'
-  ],
-  license: 'Licensed & Insured',
-  years: '15+ years',
-  reviewsLabel: '4.9 Google rating',
+  legalName: 'Lakeside Kitchen & Bath LLC',
+  phone: '862-344-2660',
+  phoneHref: 'tel:+18623442660',
+  email: 'ron@lakesidekitchenbaths.com',
+  emailHref: 'mailto:ron@lakesidekitchenbaths.com',
+  address: '270 Sparta Ave, Box 328, Sparta, NJ 07871',
+  hours: '',
+  serviceAreaLabel: 'Serving Sussex, Morris, Passaic & Warren Counties.',
+  serviceAreas: ['Sussex County', 'Morris County', 'Passaic County', 'Warren County'],
+  license: 'Licensed, Insured & Bonded',
+  years: 'Over 40 years',
+  licenseNumber: 'NJ HIC #13VH13915600',
+  reviewsLabel: '2-year workmanship warranty',
   mapUrl: 'https://maps.google.com/?q=Sparta+NJ',
   // Replace the Google URLs below with your real Business Profile links.
   googleProfile: {
-    rating: '4.9',
-    reviewCountLabel: '37+ Google reviews',
+    rating: null,
+    reviewCountLabel: '',
     summary: 'Read the rating, review history, and map in one place before you reach out.',
-    profileUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
-    readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Design+Build',
+    profileUrl: 'https://maps.google.com/?q=Lakeside+Kitchen+Bath+Sparta+NJ',
+    readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Kitchen+Bath+Sparta+NJ',
     writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
     mapEmbedUrl: 'https://maps.google.com/maps?hl=en&q=41.02,-74.73&z=10&output=embed',
     // Replace these with the exact physical service-center coordinates if needed.
@@ -74,32 +68,12 @@ export const business = {
         lng: -74.5769
       }
     ],
-    coverageSummary: 'Serving Sparta, West Milford, Franklin, Hamburg, and nearby North Jersey communities.',
+    coverageSummary: 'Serving Sussex, Morris, Passaic & Warren Counties.',
     liveReviewsLabel: 'Review highlights',
     // Replace these sample cards with live synced Google reviews later if desired.
-    featuredReviews: [
-      {
-        quote: 'Professional from planning through the final finish details.',
-        author: 'Kitchen client',
-        location: 'North Ridge'
-      },
-      {
-        quote: 'The bathroom turned out beautifully, and the communication stayed steady.',
-        author: 'Bathroom client',
-        location: 'Harbor Point'
-      }
-    ]
+    featuredReviews: []
   },
-  socialLinks: [
-    {
-      label: 'Instagram',
-      href: 'https://instagram.com/yourcompany'
-    },
-    {
-      label: 'Facebook',
-      href: 'https://facebook.com/yourcompany'
-    }
-  ],
+  socialLinks: [],
   socialImage: 'images/branding/og-cover.svg',
   footerNote:
     'Premium kitchen and bathroom remodeling with thoughtful planning, clean execution, and finish work that feels considered in every detail.'
@@ -113,30 +87,40 @@ export const forms = {
 };
 
 export const stats = [
-  { value: '300+', label: 'Kitchen & bath projects' },
-  { value: '15+', label: 'Years in remodeling' },
-  { value: '4.9', label: 'Average homeowner rating' },
-  { value: '1', label: 'Single point of contact' }
+  {
+    "value": "40+",
+    "label": "Years of experience"
+  },
+  {
+    "value": "2 years",
+    "label": "Workmanship warranty"
+  },
+  {
+    "value": "4",
+    "label": "Counties served"
+  },
+  {
+    "value": "1",
+    "label": "Single point of contact"
+  }
 ];
 
 export const heroTrustItems = [
   {
-    title: '4.9 rating',
-    detail: 'Verified reviews',
-    href: business.googleProfile.readReviewsUrl,
-    ariaLabel: 'Open Google reviews'
+    "title": "40+ years",
+    "detail": "Hands-on experience"
   },
   {
-    title: 'Licensed + insured',
-    detail: 'Full coverage'
+    "title": "Licensed, insured & bonded",
+    "detail": "NJ HIC #13VH13915600"
   },
   {
-    title: 'Clear scopes',
-    detail: 'Planning first'
+    "title": "Daily cleanup",
+    "detail": "Respect for your home"
   },
   {
-    title: 'Kitchen + bath',
-    detail: 'Focused remodels'
+    "title": "2-year warranty",
+    "detail": "Workmanship backed"
   }
 ];
 
@@ -197,80 +181,156 @@ export const homeConversionCards = [
 ];
 
 export const trustBadges = [
-  'Licensed & insured remodeling specialists',
-  'Detailed proposals and finish planning',
-  'Respectful crews and clean jobsites',
-  'Tile, cabinetry, and waterproofing done right'
+  "Over 40 years of experience",
+  "Licensed, Insured & Bonded",
+  "NJ HIC #13VH13915600",
+  "2-year workmanship warranty"
 ];
 
 export const services = [
   {
-    slug: 'bathroom-remodeling',
-    title: 'Bathroom Remodeling',
-    short: 'Full bathroom renovations built around cleaner layouts, better shower systems, and a more finished daily feel.',
-    homeownerBenefits: [
-      'Improve comfort, storage, and everyday function',
-      'Replace dated layouts, worn finishes, and weak shower setups',
-      'Create a bathroom that feels cleaner, brighter, and easier to live with'
+    "slug": "kitchen-remodeling",
+    "title": "Kitchen Remodeling",
+    "short": "Custom kitchens designed around your lifestyle, budget, and goals.",
+    "value": "Custom kitchens designed around your lifestyle, budget, and goals.",
+    "examples": [
+      "Design",
+      "Material Selection Guidance",
+      "Cabinet Installation",
+      "Countertops & Backsplash",
+      "Tile Installation",
+      "Flooring Installation",
+      "Lighting Upgrades",
+      "Appliance Installation",
+      "Plumbing & Electrical Updates",
+      "Jobsite Protection & Cleanup",
+      "Project Management",
+      "2-Year Warranty-Backed Workmanship"
     ],
-    examples: ['Primary bathroom renovations', 'Guest bathroom renovations', 'Full bath updates'],
-    value:
-      'From full gut renovations to more focused updates, the work centers on layout, shower and tile planning, vanities, fixtures, and the finished feel of the room.'
+    "homeownerBenefits": []
   },
   {
-    slug: 'kitchen-remodeling',
-    title: 'Kitchen Remodeling',
-    short: 'Full kitchen renovations built for better flow, stronger storage, and a cleaner finished look.',
-    homeownerBenefits: [
-      'Improve flow for cooking, gathering, and daily routines',
-      'Add better storage, prep space, and lighting',
-      'Create a kitchen that lifts the whole home'
+    "slug": "bathroom-remodeling",
+    "title": "Bathroom Remodeling",
+    "short": "Beautiful, functional bathrooms built with quality materials and professional installation.",
+    "value": "Beautiful, functional bathrooms built with quality materials and professional installation.",
+    "examples": [
+      "Design",
+      "Material Selection Guidance",
+      "Tile Installation",
+      "Vanities & Countertops",
+      "Shower Systems",
+      "Waterproofing",
+      "Plumbing Fixtures",
+      "Lighting Upgrades",
+      "Flooring Installation",
+      "Jobsite Protection & Cleanup",
+      "Project Management",
+      "2-Year Warranty-Backed Workmanship"
     ],
-    examples: ['Full kitchen renovations', 'Layout reconfiguration', 'Cabinet, countertop, and lighting upgrades'],
-    value:
-      'The focus stays on full kitchen renovations that improve layout, cabinetry, counters, lighting, and the overall finished feel of the space.'
+    "homeownerBenefits": []
+  },
+  {
+    "slug": "design-material-selection",
+    "title": "Design & Material Selection",
+    "short": "Expert guidance on cabinets, tile, countertops, fixtures, flooring, and finishes.",
+    "value": "Expert guidance on cabinets, tile, countertops, fixtures, flooring, and finishes.",
+    "examples": [
+      "Design",
+      "Material Selection Guidance",
+      "Cabinets",
+      "Tile",
+      "Countertops",
+      "Fixtures",
+      "Flooring",
+      "Finishes"
+    ],
+    "homeownerBenefits": []
+  },
+  {
+    "slug": "tile-installation",
+    "title": "Tile Installation",
+    "short": "Professional floor tile, wall tile, backsplashes, niches, and shower systems.",
+    "value": "Professional floor tile, wall tile, backsplashes, niches, and shower systems.",
+    "examples": [
+      "Design",
+      "Material Selection Guidance",
+      "Floor Tile",
+      "Wall Tile",
+      "Shower Tile",
+      "Backsplashes",
+      "Decorative Tile Work",
+      "Niche Installation",
+      "Grout Color Matching"
+    ],
+    "homeownerBenefits": []
+  },
+  {
+    "slug": "countertops",
+    "title": "Cabinet & Countertop Installation",
+    "short": "High-quality installation for kitchens, bathrooms, laundry rooms, and more.",
+    "value": "Professional installation designed to complete your space beautifully.",
+    "examples": [
+      "Design",
+      "Material Selection Guidance",
+      "Cabinet Installation",
+      "Quartz",
+      "Granite",
+      "Custom Edge Profiles",
+      "Sink Cutouts",
+      "Backsplash Integration"
+    ],
+    "homeownerBenefits": []
   }
 ];
 
 export const reasons = [
   {
-    title: 'Remodel precision',
-    text: 'Waterproofing, alignment, fit, and finish handled the right way.'
+    "title": "Experience You Can Trust",
+    "text": "With over 40 years of hands-on remodeling experience, we bring knowledge, craftsmanship, and attention to detail to every project."
   },
   {
-    title: 'Clear planning up front',
-    text: 'Scope, selections, and scheduling are discussed early so the project feels organized.'
+    "title": "Clean & Professional",
+    "text": "We protect your home, maintain organized job sites, and perform daily cleanup."
   },
   {
-    title: 'Premium without the theater',
-    text: 'Polished, professional, and steady without the sales-heavy feel.'
+    "title": "Clear Communication",
+    "text": "You’ll always know what’s happening, what’s coming next, and who to contact."
   },
   {
-    title: 'Respect for lived-in homes',
-    text: 'Clean jobsites, careful protection, and respectful communication throughout.'
+    "title": "Quality Workmanship",
+    "text": "Every project is backed by our 2-year workmanship warranty."
   }
 ];
 
 export const processSteps = [
   {
-    title: 'Walkthrough & priorities',
-    text: 'We learn how you use the kitchen or bathroom now, what is not working, and what the finished space needs to do better.'
+    "title": "Consultation",
+    "text": "Meet to discuss goals, budget, timeline, and vision."
   },
   {
-    title: 'Scope & direction',
-    text: 'You get a clear outline of the remodel, the right level of pricing detail, and practical guidance on layout and finish decisions.'
+    "title": "Design & Selections",
+    "text": "Review layouts, materials, finishes, and fixtures."
   },
   {
-    title: 'Selections & scheduling',
-    text: 'Tile, cabinetry, fixtures, flooring, and scheduling are aligned before work begins so the build moves with fewer surprises.'
+    "title": "Detailed Proposal",
+    "text": "Receive a clear scope of work and project pricing."
   },
   {
-    title: 'Build with precision',
-    text: 'We manage demolition, prep, installation, and finish work with clean execution, dependable site standards, and steady communication.'
+    "title": "Scheduling",
+    "text": "Project scheduling and material procurement."
   },
   {
-    title: 'Final detail review',
-    text: 'We walk the space with you, tighten final details, and make sure the remodel feels complete, considered, and ready to live in.'
+    "title": "Construction",
+    "text": "Professional installation, communication, and daily cleanup."
+  },
+  {
+    "title": "Final Walkthrough",
+    "text": "Detailed inspection and project completion review."
+  },
+  {
+    "title": "Warranty Support",
+    "text": "All workmanship backed by our 2-year workmanship warranty."
   }
 ];
 
@@ -427,74 +487,51 @@ export const featuredProjects = [
   }
 ];
 
-export const testimonials = [
-  {
-    quote:
-      'The bathroom looks exceptional, but what stood out most was how organized the whole process felt.',
-    name: 'Emily R.',
-    location: 'Harbor Point',
-    project: 'Primary bathroom remodel'
-  },
-  {
-    quote:
-      'The kitchen is beautiful, and the communication stayed strong the whole time.',
-    name: 'Daniel and Marisa T.',
-    location: 'Maple Glen',
-    project: 'Kitchen renovation'
-  },
-  {
-    quote:
-      'It looks high-end, but more importantly it feels like it was done correctly.',
-    name: 'Jonathan P.',
-    location: 'Cedar Heights',
-    project: 'Hall bathroom renovation'
-  }
-];
+export const testimonials = [];
 
 export const faqs = [
   {
-    question: 'What types of projects are the best fit?',
-    answer:
-      'The best fit is kitchen remodeling and bathroom renovations where layout, craftsmanship, and clean execution matter.'
+    "question": "How long does a renovation take?",
+    "answer": "Most projects take between 2 and 8 weeks depending on size and complexity."
   },
   {
-    question: 'Can you help shape the scope if we are still figuring things out?',
-    answer:
-      'Yes. Many projects start with goals rather than fully finished plans. We help define priorities, sequencing, and scope so the project starts on solid footing.'
+    "question": "Do you help with material selections?",
+    "answer": "Yes. We provide guidance with tile, cabinetry, countertops, lighting, fixtures, and finishes."
   },
   {
-    question: 'Do you provide free estimates?',
-    answer:
-      'Yes. We use the first conversation and site walkthrough to understand the work, answer early questions, and determine whether the project is a strong fit.'
+    "question": "Are you licensed and insured?",
+    "answer": "Yes. Lakeside Kitchen & Bath LLC is licensed, insured, and bonded. NJ HIC #13VH13915600."
   },
   {
-    question: 'How long do remodels typically take?',
-    answer:
-      'Timelines vary by scope, selections, and complexity. A focused bathroom update can move faster, while a full kitchen or primary bath remodel usually needs more planning and coordination. We set expectations clearly up front.'
+    "question": "Do you offer a warranty?",
+    "answer": "Yes. We provide a 2-year workmanship warranty."
   },
   {
-    question: 'How should we prepare before contacting you?',
-    answer:
-      'Helpful details include your county or township, which room you want to renovate, your preferred timing, inspiration photos if you have them, and any budget range you want us to consider.'
+    "question": "Do you provide written proposals?",
+    "answer": "Yes. Every project receives a detailed written proposal."
+  },
+  {
+    "question": "What counties do you serve?",
+    "answer": "Sussex, Morris, Passaic, and Warren Counties."
   }
 ];
 
 export const values = [
   {
-    title: 'Precision in the details',
-    text: 'No shortcuts hidden behind surface polish. The visible work and the behind-the-walls work both need to hold up.'
+    "title": "Integrity",
+    "text": "Honest recommendations and transparent communication."
   },
   {
-    title: 'Professional communication',
-    text: 'Homeowners should not have to chase updates, guess at next steps, or wonder where the project stands.'
+    "title": "Craftsmanship",
+    "text": "Work completed with pride, precision, and attention to detail."
   },
   {
-    title: 'Design-aware execution',
-    text: 'The work needs to function beautifully, but it also needs to look refined, balanced, and well considered.'
+    "title": "Respect",
+    "text": "Respect for your home, your family, and your investment."
   },
   {
-    title: 'Respect for the home',
-    text: 'Cleanliness, punctuality, and jobsite discipline are part of the service, not add-ons.'
+    "title": "Professionalism",
+    "text": "Clean job sites, organized processes, and dependable service."
   }
 ];
 

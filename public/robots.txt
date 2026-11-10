@@ -1,5 +1,3 @@
-# Update this domain when a custom production domain is connected.
 User-agent: *
 Allow: /
-
-Sitemap: https://gryszzz.github.io/Lakeside/sitemap.xml
+Sitemap: https://lakesidekitchenbaths.com/sitemap.xml

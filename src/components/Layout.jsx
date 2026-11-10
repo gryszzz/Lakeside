@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { business, trustBadges } from '../content/site';
+import { business } from '../content/site';
 import { isActivePath, useRevealAnimations, withBase } from '../utils';
 
 const navItems = [
@@ -7,7 +7,7 @@ const navItems = [
   { label: 'Services', href: 'services/' },
   { label: 'Portfolio', href: 'projects/' },
   { label: 'About', href: 'about/' },
-  { label: 'Estimate', href: 'quote/' }
+  { label: 'Contact', href: 'contact/' }
 ];
 
 function Logo() {
@@ -205,17 +205,13 @@ export function Footer() {
       <div className="container site-footer__grid">
         <div>
           <Logo />
-          <p>{business.footerNote}</p>
-          <ul className="footer-list footer-list--inline">
-            {trustBadges.slice(0, 3).map((badge) => (
-              <li key={badge}>{badge}</li>
-            ))}
-          </ul>
+          <p>Kitchen & Bathroom Remodeling Specialists</p><p>Over 40 Years of Experience</p><p>{business.license}</p><p>{business.licenseNumber}</p><p>{business.serviceAreaLabel}</p>
+
         </div>
         <div>
           <h3>Quick Links</h3>
           <ul className="footer-list">
-            {navItems.map((item) => (
+            {[...navItems, {label: 'Our Process', href: 'process/'}, {label: 'Service Area', href: 'service-area/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
               <li key={item.href || 'footer-home'}>
                 <a href={withBase(item.href)}>{item.label}</a>
               </li>
@@ -225,8 +221,8 @@ export function Footer() {
         <div>
           <h3>Services</h3>
           <ul className="footer-list">
-            <li>Bathroom Remodeling</li>
-            <li>Kitchen Remodeling</li>
+            <li><a href={withBase('bathroom-remodeling/')}>Bathroom Remodeling</a></li>
+            <li><a href={withBase('kitchen-remodeling/')}>Kitchen Remodeling</a></li>
           </ul>
         </div>
         <div>
@@ -239,22 +235,13 @@ export function Footer() {
             <li>
               <a href={business.emailHref}>{business.email}</a>
             </li>
-            <li>{business.hours}</li>
+
           </ul>
-          <div className="footer-social">
-            <p className="eyebrow">Social</p>
-            <div className="social-links">
-              {business.socialLinks.map((link) => (
-                <a key={link.label} href={withBase(link.href)}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
+
         </div>
       </div>
       <div className="container site-footer__bottom">
-        <p>Premium kitchen and bathroom remodeling with clean communication and finish-driven execution.</p>
+        <p>Quality craftsmanship. Clear communication. 2-year workmanship warranty.</p>
         <p>{business.legalName}</p>
       </div>
     </footer>
@@ -293,8 +280,8 @@ export function PageHero({ eyebrow, title, body, actions, aside }) {
 }
 
 export function FinalCta({
-  title = 'Start the conversation with a team that treats kitchen and bathroom work seriously.',
-  body = 'Tell us about the room you want to improve and we will help you understand fit, scope, and next steps.',
+  title = 'Ready to Transform Your Home?',
+  body = 'Let’s discuss your project and create a renovation plan that works for your home and budget.',
   primaryLabel = 'Request Estimate',
   primaryHref = 'quote/',
   secondaryLabel,

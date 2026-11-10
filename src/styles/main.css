@@ -5237,3 +5237,9 @@ body[data-page='projects'] .testimonial-grid--compact {
     animation: none !important;
   }
 }
+
+/* Business package additions */
+.package-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem 2rem; padding-left:1.25rem; margin-bottom:3rem; }
+.brand strong { overflow-wrap:anywhere; }
+.estimate-contact-row h3 a { overflow-wrap:anywhere; }
+@media(max-width:640px) { .package-list { grid-template-columns:1fr; } .hero h1 { font-size:clamp(2rem,8vw,3.5rem); } }

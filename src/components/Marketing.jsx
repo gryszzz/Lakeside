@@ -180,7 +180,7 @@ export function ServiceCards({ detailed = false, intro, compact = false }) {
           title={detailed ? 'Full kitchen and bathroom renovations' : 'Full kitchen and bathroom renovations'}
           body={
             intro ||
-            'Two core services, handled with cleaner planning, steadier communication, and a more finished result.'
+            'Quality craftsmanship and professional installation for your home.'
           }
         />
         <div className={`service-grid ${detailed ? 'service-grid--detailed' : ''}`}>
@@ -188,7 +188,7 @@ export function ServiceCards({ detailed = false, intro, compact = false }) {
             <article key={service.slug} className={`service-card ${compact ? 'service-card--compact' : ''}`} data-reveal>
               <div className="service-card__header">
                 <p className="eyebrow">{service.title}</p>
-                <h3>{service.short}</h3>
+                <h3>{service.short}</h3>{["kitchen-remodeling", "bathroom-remodeling"].includes(service.slug) && <a href={withBase(`${service.slug}/`)}>Explore {service.title} →</a>}
               </div>
               {compact ? (
                 <div className="service-chip-list">
@@ -239,14 +239,14 @@ export function ServiceQuoteSection() {
 }
 
 export function WhyChooseUs({ compact = false }) {
-  const visibleReasons = compact ? reasons.slice(0, 3) : reasons;
+  const visibleReasons = reasons;
 
   return (
     <section className="section section--contrast">
       <div className="container">
         <SectionIntro
           eyebrow="Why Homeowners Choose Us"
-          title={compact ? 'Why the brand feels easy to trust' : 'The kind of specialist team homeowners feel comfortable trusting with expensive rooms'}
+          title="Why Choose Lakeside Kitchen & Bath?"
           body={
             compact
               ? 'Clear planning, cleaner execution, and a more polished homeowner experience.'
@@ -350,7 +350,7 @@ export function ServiceAreaSection() {
       <div className="container service-area">
         <div data-reveal>
           <p className="eyebrow">Service Area</p>
-          <h2>Local homeowners want a remodeling specialist who is close, responsive, and established.</h2>
+          <h2>Proudly Serving Northern New Jersey</h2>
           <p>{business.serviceAreaLabel}</p>
         </div>
         <div className="service-area__list" data-reveal>

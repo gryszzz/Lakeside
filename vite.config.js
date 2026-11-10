@@ -18,7 +18,13 @@ export default defineConfig({
         services: resolve(__dirname, 'services/index.html'),
         projects: resolve(__dirname, 'projects/index.html'),
         about: resolve(__dirname, 'about/index.html'),
-        quote: resolve(__dirname, 'quote/index.html')
+        quote: resolve(__dirname, 'quote/index.html'),
+        contact: resolve(__dirname, 'contact/index.html'),
+        kitchen: resolve(__dirname, 'kitchen-remodeling/index.html'),
+        bathroom: resolve(__dirname, 'bathroom-remodeling/index.html'),
+        process: resolve(__dirname, 'process/index.html'),
+        areas: resolve(__dirname, 'service-area/index.html'),
+        faq: resolve(__dirname, 'faq/index.html')
       }
     }
   }

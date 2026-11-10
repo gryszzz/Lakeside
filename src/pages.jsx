@@ -4,20 +4,18 @@ import {
   homeConversionCards,
   homeHeroSlides,
   heroTrustItems,
+  faqs, services,
   homeSpotlights
 } from './content/site';
-import { PageHero, SectionIntro, SiteShell } from './components/Layout';
+import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
-  GooglePresenceSection,
+  ProcessSteps,
   ServiceAreaSection,
   ServiceCards,
   StatGrid,
-  TestimonialCards,
   ValuesGrid,
   WhyChooseUs
 } from './components/Marketing';
-import { BeforeAfterShowcase, BeforeAfterSlider, ProjectGallery } from './components/Projects';
-import { beforeAfterProjects } from './content/site';
 import { withBase } from './utils';
 
 function SocialIcon({ label }) {
@@ -55,11 +53,11 @@ function HomeHero() {
       <div className="container hero__grid">
         <div className="hero__content" data-reveal>
           <p className="eyebrow">Kitchen & Bathroom Remodeling</p>
-          <h1>Refined kitchens and bathrooms. Built right.</h1>
-          <p className="hero__body">Custom remodels with cleaner execution, steadier communication, and finish work that holds up.</p>
+          <h1>Transforming Kitchens & Bathrooms With Over 40 Years of Experience</h1>
+          <p className="hero__body">Beautiful renovations begin with quality craftsmanship, clear communication, and a contractor you can trust. At Lakeside Kitchen & Bath LLC, we specialize in kitchen and bathroom remodeling throughout Sussex, Morris, Passaic, and Warren Counties, delivering professional results designed to last.</p>
           <div className="hero-actions hero-actions--tech">
             <a className="button button--hero-tech" href={withBase('quote/')}>
-              Request Estimate
+              Schedule Your Consultation Today
             </a>
             <a className="button button--ghost button--hero-tech button--hero-tech--ghost" href={withBase('projects/')}>
               View Portfolio
@@ -183,39 +181,6 @@ function HomeDecisionSection() {
   );
 }
 
-function AboutStoryBlock() {
-  return (
-    <section className="section">
-      <div className="container story-grid">
-        <div data-reveal>
-          <p className="eyebrow">Our Story</p>
-          <h2>Kitchen and bathroom remodeling should feel organized, design-aware, and worth the investment.</h2>
-          <p>
-            Homeowners making bigger remodel decisions want a team that understands tile lines, shower assemblies,
-            vanity planning, cabinetry, lighting, flooring transitions, and how those details come together in real
-            life.
-          </p>
-          <p>
-            The brand is built to communicate calm professionalism, clean execution, and the kind of craftsmanship
-            that justifies a meaningful kitchen or bathroom investment.
-          </p>
-        </div>
-        <div className="story-card" data-reveal>
-          <img src={withBase('images/projects/home-renovation.svg')} alt="Kitchen and bathroom remodeling craftsmanship story section" />
-          <div>
-            <p className="eyebrow">Specialist Focus</p>
-            <h3>Fewer claims. Stronger execution.</h3>
-            <p>
-              The strongest positioning comes from doing fewer things better: kitchens and bathrooms handled with
-              thoughtful planning, disciplined installation, and finish work that feels deliberate.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function DirectEstimatePanel({
   eyebrow = 'Direct Contact',
   title = 'Direct estimate contact',
@@ -276,14 +241,10 @@ export function HomePage() {
     >
       <HomeHero />
       <HomeDecisionSection />
-      <BeforeAfterShowcase />
+      <HomeServiceOverview />
       <ServiceCards compact intro="Full kitchen and bathroom renovations with cleaner scopes and a more polished result." />
-      <WhyChooseUs compact />
-      <GooglePresenceSection
-        eyebrow="Reviews"
-        title="Google reviews, rating, and map"
-        body="Read the Google feedback, check the rating, and open the map before you reach out."
-      />
+      <WhyChooseUs />
+      <ServiceAreaSection />
     </SiteShell>
   );
 }
@@ -294,7 +255,7 @@ export function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Full kitchen and bathroom renovations"
-        body="Two core services. Cleaner planning, steadier execution, and finished spaces that feel worth the investment."
+        body="Kitchen and bathroom remodeling, design and material selection guidance, tile installation, cabinets, and countertops."
         actions={
           <>
             <a className="button" href={withBase('quote/')}>
@@ -321,13 +282,8 @@ export function ProjectsPage() {
         primaryLabel: 'Ask About a Similar Remodel'
       }}
     >
-      <ProjectGallery />
-      <section id="featured-transformation" className="section">
-        <div className="container">
-          <BeforeAfterSlider project={beforeAfterProjects[1]} />
-        </div>
-      </section>
-      <TestimonialCards compact limit={2} />
+      <PageHero eyebrow="Portfolio" title="Kitchen & Bathroom Inspiration" body="Project photography is coming soon. The illustrations below show remodeling possibilities and are not photographs of completed Lakeside projects." aside={<StatGrid />} />
+      <section className="section"><div className="container reason-grid">{homeHeroSlides.slice(0,2).map(item=><article className="story-card" key={item.title}><img src={withBase(item.image)} alt={`Illustration: ${item.alt}`} /><div><p className="eyebrow">Illustrative concept</p><h2>{item.title}</h2></div></article>)}</div></section>
     </SiteShell>
   );
 }
@@ -337,8 +293,8 @@ export function AboutPage() {
     <SiteShell>
       <PageHero
         eyebrow="About"
-        title="A specialist remodeling company should feel steady, skilled, and easy to trust"
-        body="Homeowners investing in kitchens and bathrooms want clear guidance, strong craftsmanship, and a team that respects both the design and the construction details."
+        title="A Local Remodeling Company Built on Experience"
+        body="At Lakeside Kitchen & Bath LLC, we believe every homeowner deserves a remodeling experience that is professional, organized, and stress-free."
         aside={
           <div className="about-metric-card">
             <p className="eyebrow">Our Approach</p>
@@ -347,7 +303,7 @@ export function AboutPage() {
           </div>
         }
       />
-      <AboutStoryBlock />
+      <section className="section"><div className="container story-grid"><div><h2>Over 40 years of hands-on experience</h2><p>With over 40 years of hands-on construction and remodeling experience, we've built our reputation on quality craftsmanship, honest communication, and respect for our clients' homes.</p><h3>Our approach is simple</h3><ul><li>Listen carefully</li><li>Plan thoroughly</li><li>Execute professionally</li><li>Deliver exceptional results</li></ul><p>Whether you're updating a bathroom, creating your dream kitchen, or completely transforming your living space, our goal is to provide a finished product you'll enjoy for years to come.</p></div><div className="story-card"><div><p className="eyebrow">Our Mission</p><h2>Craftsmanship. Communication. Service.</h2><p>To deliver high-quality kitchen and bathroom renovations through professional craftsmanship, clear communication, and exceptional service.</p></div></div></div></section>
       <ValuesGrid />
       <WhyChooseUs />
       <ServiceAreaSection />
@@ -360,8 +316,8 @@ export function QuotePage() {
     <SiteShell showFinalCta={false}>
       <PageHero
         eyebrow="Estimate"
-        title="Start with a quick estimate conversation."
-        body="For kitchen and bathroom remodels, the first step is simple. Reach out directly and we will let you know the right next step."
+        title="Schedule Your Consultation Today"
+        body="Let’s discuss your project and create a renovation plan that works for your home and budget."
         aside={
           <DirectEstimatePanel
             inHero
@@ -377,7 +333,31 @@ export function QuotePage() {
   );
 }
 
+
+function HomeServiceOverview() {
+  return <section className="section"><div className="container"><SectionIntro eyebrow="What We Do" title="Kitchen & Bathroom Remodeling Specialists" /><ul className="package-list">{['Kitchen Remodeling', 'Bathroom Remodeling', 'Design & Material Selection Guidance', 'Tile Installation', 'Cabinet Installation', 'Countertops', 'Flooring & Lighting Upgrades'].map(item => <li key={item}>{item}</li>)}</ul></div></section>;
+}
+function ConsultationLink() { return <a className="button" href={withBase('contact/')}>Schedule Your Consultation Today</a>; }
+function RemodelingPage({ kitchen = false }) {
+ const service = services.find(item => item.slug === (kitchen ? 'kitchen-remodeling' : 'bathroom-remodeling'));
+ const items = kitchen ? ['Design','Material Selection Guidance','Cabinet Installation','Quartz Countertops','Granite Countertops','Tile Backsplashes','Flooring','Lighting','Plumbing Fixtures','Appliance Installation','Trim Work','Painting'] : ['Design','Material Selection Guidance','Custom Tile Showers','Waterproofing Systems','Vanities','Countertops','Flooring','Lighting','Plumbing Fixtures','Shower Doors','Trim Work','Painting'];
+ return <SiteShell><PageHero eyebrow={service.title} title={kitchen ? 'Kitchen Remodeling in Northern New Jersey' : 'Bathroom Remodeling Experts'} body={kitchen ? 'The kitchen is the heart of the home. Whether you’re planning a complete renovation or updating key features, Lakeside Kitchen & Bath LLC delivers kitchens that combine functionality, beauty, and long-term value.' : 'Your bathroom should be comfortable, functional, and built to withstand daily use. We specialize in complete bathroom renovations that improve appearance, functionality, and value.'} actions={<ConsultationLink />} aside={<StatGrid />} /><section className="section"><div className="container"><SectionIntro eyebrow="Services" title={`${service.title} Services`} /><ul className="package-list">{items.map(item=><li key={item}>{item}</li>)}</ul>{!kitchen && <><h2>Built for Long-Term Performance</h2><p>Every bathroom renovation is completed using professional installation practices designed to provide years of dependable performance.</p></>}</div></section><WhyChooseUs /></SiteShell>;
+}
+function KitchenPage() { return <RemodelingPage kitchen />; }
+function BathroomPage() { return <RemodelingPage />; }
+function ProcessPage() { return <SiteShell><PageHero eyebrow="Our Process" title="Our Remodeling Process" body="From your first consultation to warranty support, we keep your renovation organized and clearly communicated." actions={<ConsultationLink />} aside={<StatGrid />} /><ProcessSteps /></SiteShell>; }
+const counties = {
+ 'Sussex County': ['Sparta','Newton','Vernon','Hamburg','Franklin','Lafayette','Andover','Byram','Stanhope','Hopatcong'],
+ 'Morris County': ['Denville','Parsippany','Rockaway','Roxbury','Randolph','Boonton','Mountain Lakes','Morristown'],
+ 'Passaic County': ['Wayne','West Milford','Ringwood','Pompton Lakes','Totowa','Little Falls'],
+ 'Warren County': ['Hackettstown','Washington','Blairstown','Hope','Oxford','Belvidere','Allamuchy']
+};
+function ServiceAreaPage() { return <SiteShell><PageHero eyebrow="Service Area" title="Proudly Serving Northern New Jersey" body={business.serviceAreaLabel} actions={<ConsultationLink />} aside={<StatGrid />} /><section className="section"><div className="container reason-grid">{Object.entries(counties).map(([county,towns])=><article className="reason-card" key={county}><h2>{county}</h2><ul>{towns.map(town=><li key={town}>{town}</li>)}</ul></article>)}</div></section></SiteShell>; }
+function FaqPage() { return <SiteShell><PageHero eyebrow="FAQ" title="Your Remodeling Questions, Answered" body="Planning, materials, licensing, and warranty support." actions={<ConsultationLink />} aside={<StatGrid />} /><FAQSection items={faqs} /></SiteShell>; }
+function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let’s Discuss Your Project" body="Whether you’re planning a kitchen renovation, bathroom remodel, or tile installation project, we’d love to hear from you." aside={<DirectEstimatePanel inHero showActions={false} title="Lakeside Kitchen & Bath LLC" />} /><section className="section"><div className="container story-grid"><div><h2>Based in Sparta, NJ</h2><p>{business.serviceAreaLabel}</p><p>Ronald Augustine, Owner</p><p>Mailing address: {business.address}</p><p>{business.license} · {business.licenseNumber}</p></div><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></div></section></SiteShell>; }
+
 export const pages = {
+  kitchen: KitchenPage, bathroom: BathroomPage, process: ProcessPage, areas: ServiceAreaPage, faq: FaqPage, contact: ContactPage,
   home: HomePage,
   services: ServicesPage,
   projects: ProjectsPage,

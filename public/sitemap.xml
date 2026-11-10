@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Update this domain when a custom production domain is connected. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://gryszzz.github.io/Lakeside/</loc>
-  </url>
-  <url>
-    <loc>https://gryszzz.github.io/Lakeside/services/</loc>
-  </url>
-  <url>
-    <loc>https://gryszzz.github.io/Lakeside/projects/</loc>
-  </url>
-  <url>
-    <loc>https://gryszzz.github.io/Lakeside/about/</loc>
-  </url>
-  <url>
-    <loc>https://gryszzz.github.io/Lakeside/quote/</loc>
-  </url>
+<url><loc>https://lakesidekitchenbaths.com/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/services/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/projects/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/about/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/quote/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/contact/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/kitchen-remodeling/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/bathroom-remodeling/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/process/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/service-area/</loc></url>
+<url><loc>https://lakesidekitchenbaths.com/faq/</loc></url>
 </urlset>
