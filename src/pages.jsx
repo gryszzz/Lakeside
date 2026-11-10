@@ -1,3 +1,4 @@
+import { BrandConnections } from './components/BrandConnections';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
@@ -95,6 +96,7 @@ export function HomePage() {
       <HomeHero />
       <HomeServices />
       <HomeProcess /><WhyChooseUs compact />
+      <BrandConnections />
       <ServiceAreaMap />
       <FAQSection items={faqs.slice(0, 4)} />
     </SiteShell>

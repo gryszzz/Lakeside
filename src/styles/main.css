@@ -235,3 +235,104 @@ p { line-height:1.7; color:var(--muted); margin-bottom:1rem; }
 .contact-band-links a { color:#fff; font-size:1.05rem; font-weight:750; overflow-wrap:anywhere; }
 .contact-band-links a:first-child { font-size:1.5rem; }
 @media(max-width:700px) { .hero-trust-band::before,.final-cta::before { mask-size:100% 160px; -webkit-mask-size:100% 160px; mask-position:center -82px; -webkit-mask-position:center -82px; } .contact-band-links { gap:.6rem; } .contact-band-links a { font-size:.9rem; } }
+
+/* Current brand, with sharper typography and room for future social proof. */
+@font-face { font-family:Manrope; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/manrope-400.ttf') format('truetype'); }
+@font-face { font-family:Manrope; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/manrope-500.ttf') format('truetype'); }
+@font-face { font-family:Manrope; font-style:normal; font-weight:600; font-display:swap; src:url('/fonts/manrope-600.ttf') format('truetype'); }
+@font-face { font-family:Manrope; font-style:normal; font-weight:700; font-display:swap; src:url('/fonts/manrope-700.ttf') format('truetype'); }
+@font-face { font-family:Manrope; font-style:normal; font-weight:800; font-display:swap; src:url('/fonts/manrope-800.ttf') format('truetype'); }
+:root { font-family:Manrope,Arial,Helvetica,sans-serif; --ink:#102a39; --muted:#526774; --surface:#f1f6f8; }
+h1,h2,h3 { font-weight:800; }
+h1 { letter-spacing:-.05em; }
+p { line-height:1.8; }
+.site-header { background:#fffffffa; box-shadow:0 3px 22px #14364c07; }
+.site-header__inner { width:calc(100% - 48px); max-width:none; gap:clamp(1.5rem,3vw,4rem); height:92px; }
+.site-header .brand { margin-right:auto; width:180px; height:84px; }
+.site-header .brand__logo { width:180px; height:120px; top:-12px; }
+.site-nav { margin-left:0; gap:clamp(1.2rem,2.4vw,2.4rem); }
+.site-nav a { font-size:.78rem; letter-spacing:-.015em; }
+.site-header__phone { padding:.75rem 1rem; font-size:.85rem; border-radius:8px; }
+.button { border-radius:8px; box-shadow:0 4px 12px #15557812; transition:transform .18s,background .18s,box-shadow .18s; }
+.button:hover { transform:translateY(-2px); box-shadow:0 8px 20px #15557820; }
+.button--ghost { box-shadow:none; }
+.hero { padding-top:2rem; }
+.hero h1 { font-size:clamp(1.9rem,3vw,2.85rem); line-height:1.13; }
+.hero__body { font-size:.88rem; line-height:1.85; }
+.hero-signature { letter-spacing:.015em; font-size:.75rem; }
+.photo-placeholder { border:1px solid #c9d9e3; border-radius:16px; background:#edf3f6; color:#42687e; box-shadow:inset 0 0 0 7px #ffffffa8; }
+.hero-photo { border-radius:22px 22px 22px 4px; }
+.photo-placeholder span { letter-spacing:-.015em; }
+.photo-placeholder small { color:#607c8c; }
+.hero-trust-band { padding:1.35rem 0; }
+.hero-trust-band span { font-size:.8rem; font-weight:600; }
+.hero-trust-band strong { font-size:1.2rem; }
+.section-intro h2 { font-size:clamp(1.6rem,2.4vw,2.25rem); letter-spacing:-.045em; }
+.home-service-feature .text-link { margin-top:.3rem; }
+.home-service-feature h3 { font-size:1.35rem; }
+.home-service-feature:nth-child(n+3) { padding-top:1.4rem; }
+.home-service-feature:nth-child(n+3) h3 { font-size:1rem; }
+.home-process { background:#f1f6f8; border-block:1px solid #e5edf1; }
+.home-process__steps li > span { font-size:1.8rem; letter-spacing:-.07em; }
+.reason-card { border-top:1px solid #b3cad9; padding-top:1.25rem; }
+.reason-card h3 { font-size:1rem; }
+.reason-card p { font-size:.82rem; }
+.coverage-layout { border-radius:18px; overflow:hidden; box-shadow:0 12px 35px #163d5910; }
+.coverage-tabs button { border-radius:7px; }
+.faq-item summary { padding:1.15rem 0; }
+.final-cta { padding:2rem 0; }
+.final-cta h2 { letter-spacing:-.04em; }
+.brand-connections { background:#f2f6f8; border-block:1px solid #e3ecf1; }
+.connection-heading { display:flex; align-items:end; justify-content:space-between; gap:2rem; margin-bottom:1.5rem; }
+.connection-heading h2 { margin:0; font-size:clamp(1.6rem,2.5vw,2.3rem); letter-spacing:-.05em; }
+.connection-heading > p { max-width:38ch; font-size:.86rem; margin:0; }
+.connection-grid { display:grid; grid-template-columns:1.15fr 1fr; gap:1.3rem; }
+.google-review-preview { padding:1.6rem; background:#fff; border:1px solid #dce6ec; border-radius:18px; box-shadow:0 8px 24px #1e4d6a05; }
+.google-review-preview__header { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.7rem; }
+.google-review-brand { display:flex; align-items:center; gap:.7rem; }
+.google-review-brand img { width:82px; height:auto; }
+.google-review-brand > span { font-size:.95rem; font-weight:600; color:#53636c; }
+.connection-status { display:inline-flex; font-size:.6rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#587082; background:#edf3f7; border:1px solid #d7e4ec; padding:.4rem .6rem; border-radius:20px; white-space:nowrap; }
+.google-review-preview h3 { font-size:clamp(1.5rem,2vw,1.9rem); line-height:1.2; letter-spacing:-.04em; }
+.google-review-preview > p { font-size:.83rem; margin-bottom:1.3rem; }
+.review-placeholder-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+.review-placeholder { display:flex; flex-direction:column; gap:.4rem; border:1px dashed #c7d7e1; border-radius:9px; padding:1.1rem; background:#fbfcfd; }
+.review-placeholder span { color:#526f81; font-size:.75rem; font-weight:650; }
+.review-placeholder small { color:#6c8290; font-size:.68rem; }
+.social-preview { padding:1.6rem; background:#0d3048; border:1px solid #153e57; border-radius:18px; color:#fff; }
+.social-preview h3 { color:#fff; font-size:1.65rem; letter-spacing:-.045em; margin:.4rem 0 .6rem; }
+.social-preview .eyebrow { color:#a8d2ee; }
+.social-preview > p:not(.eyebrow) { color:#c1d2df; font-size:.83rem; }
+.social-preview__profiles { display:grid; gap:.7rem; margin-top:1.5rem; }
+.social-profile { display:flex; align-items:center; gap:.8rem; padding:.9rem; border:1px solid #ffffff24; background:#ffffff08; border-radius:11px; }
+.social-profile__icon { display:grid; place-items:center; flex-shrink:0; width:39px; height:39px; border-radius:10px; background:#ffffff10; }
+.social-profile__icon img { width:22px; height:22px; filter:invert(1); }
+.social-profile__copy { display:flex; flex-direction:column; gap:.25rem; min-width:0; }
+.social-profile__copy strong { font-size:.82rem; }
+.social-profile__copy small { font-size:.65rem; color:#bfd0df; }
+.social-profile .connection-status { margin-left:auto; background:#ffffff0d; border-color:#ffffff22; color:#c4d8e8; font-size:.5rem; }
+.social-preview__note { margin-top:1rem; margin-bottom:0; font-size:.7rem!important; }
+@media(max-width:1200px) and (min-width:901px) { .site-header__inner { gap:1rem; width:calc(100% - 32px); } .site-header .brand { width:150px; height:78px; } .site-header .brand__logo { width:150px; height:100px; top:-8px; } .site-nav { gap:1rem; } .site-nav a { font-size:.72rem; } .site-header__phone { font-size:.75rem; padding:.65rem .8rem; } }
+@media(max-width:700px) {
+ .site-header__inner { width:calc(100% - 24px); height:76px; gap:.6rem; }
+ .site-header .brand { width:135px; height:70px; }
+ .site-header .brand__logo { width:135px; height:90px; top:-8px; }
+ .site-header__phone { padding:.55rem .6rem; font-size:.65rem; }
+ .hero { padding-top:1.2rem; }
+ .hero h1 { font-size:1.8rem; line-height:1.17; }
+ .hero__body { font-size:.85rem; line-height:1.8; }
+ .hero-trust-band span { font-size:.6rem; }
+ .hero-trust-band strong { font-size:.85rem; }
+ .home-service-feature h3 { font-size:1rem; }
+ .connection-heading { display:block; }
+ .connection-heading > p { margin-top:.8rem; max-width:45ch; }
+ .connection-grid { grid-template-columns:1fr; gap:1rem; }
+ .google-review-preview,.social-preview { padding:1.25rem; border-radius:14px; }
+ .google-review-brand img { width:74px; }
+ .google-review-brand > span { font-size:.85rem; }
+ .google-review-preview__header { margin-bottom:1.2rem; }
+ .review-placeholder { padding:.8rem; }
+ .connection-status { font-size:.53rem; }
+ .social-profile { padding:.75rem; }
+ .social-profile .connection-status { font-size:.46rem; padding:.4rem; }
+}

@@ -38,3 +38,24 @@ Comparison method: source and implementation images were displayed in the same c
 Replace the labeled placeholders with Ron's real project images when supplied. The photographic impact of the mockup intentionally remains unavailable until then.
 
 final result: passed
+
+## Scoped refinement: modern typography, reviews/social placeholders, desktop header
+
+User follow-up requested more contemporary styling, branded Google review placeholders, Instagram/Facebook profile slots with actual logos, and more room in the desktop header with the Lakeside logo in the far-left corner.
+
+Evidence reviewed together:
+- /workspace/scratch/lakeside-check/modern-header.png, 1440 × 1000, density 1.
+- /workspace/scratch/lakeside-check/modern-connections.png, 1440 × 1000, density 1.
+- /workspace/scratch/lakeside-check/modern-mobile-connections.png, 390 × 844, density 1.
+
+Fidelity surface checks:
+- Typography: self-hosted Manrope 400–800 replaces Arial; exact Ron hero and business copy retained. Font license is stored alongside the fonts.
+- Spacing: desktop header uses the viewport width rather than the 1160px content container. Logo is 24px from the left at 1440px; navigation has separated targets. Checked 1440, 1280, 1024, 946, 901, 768, 390, and 320px for overflow and collisions.
+- Color: existing unfiltered Lakeside logo and lake-blue token retained. Dark navy social block adds contrast within the selected white/blue site.
+- Assets: Google logo comes from Google's gstatic branding asset; Instagram and Facebook glyphs are the Simple Icons brand vectors, stored locally. No handcrafted brand marks. Actual project photography remains absent; all three reserved photo positions remain labeled placeholders.
+- Copy/states: Google review spaces explicitly say Coming soon; no fabricated names, quotes, stars or scores. Social slots explicitly say Profile link coming soon and render noninteractive blocks until real URLs are supplied. No unknown accounts linked.
+- Interaction: mobile menu and county selector continue to work; local font and image loads verified, no browser runtime errors. All placeholder/profile/header checks passed at eight widths.
+
+No actionable P0/P1/P2 findings remain in this scoped revision. Placeholder links intentionally await Ron's real profile URLs.
+
+final result: passed
