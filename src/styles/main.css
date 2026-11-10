@@ -250,7 +250,7 @@ p { line-height:1.8; }
 .site-header { background:#fffffffa; box-shadow:0 3px 22px #14364c07; }
 .site-header__inner { width:calc(100% - 48px); max-width:none; gap:clamp(1.5rem,3vw,4rem); height:92px; }
 .site-header .brand { margin-right:auto; width:180px; height:84px; }
-.site-header .brand__logo { width:180px; height:120px; top:-12px; }
+.site-header .brand__logo { width:164px; height:109px; top:-10px; margin-inline:auto; }
 .site-nav { margin-left:0; gap:clamp(1.2rem,2.4vw,2.4rem); }
 .site-nav a { font-size:.78rem; letter-spacing:-.015em; }
 .site-header__phone { padding:.75rem 1rem; font-size:.85rem; border-radius:8px; }
@@ -313,11 +313,11 @@ p { line-height:1.8; }
 .social-profile__copy small { font-size:.65rem; color:#bfd0df; }
 .social-profile .connection-status { margin-left:auto; background:#ffffff0d; border-color:#ffffff22; color:#c4d8e8; font-size:.5rem; }
 .social-preview__note { margin-top:1rem; margin-bottom:0; font-size:.7rem!important; }
-@media(max-width:1200px) and (min-width:901px) { .site-header__inner { gap:1rem; width:calc(100% - 32px); } .site-header .brand { width:150px; height:78px; } .site-header .brand__logo { width:150px; height:100px; top:-8px; } .site-nav { gap:1rem; } .site-nav a { font-size:.72rem; } .site-header__phone { font-size:.75rem; padding:.65rem .8rem; } }
+@media(max-width:1200px) and (min-width:901px) { .site-header__inner { gap:1rem; width:calc(100% - 32px); } .site-header .brand { width:150px; height:78px; } .site-header .brand__logo { width:138px; height:92px; top:-7px; } .site-nav { gap:1rem; } .site-nav a { font-size:.72rem; } .site-header__phone { font-size:.75rem; padding:.65rem .8rem; } }
 @media(max-width:700px) {
  .site-header__inner { width:calc(100% - 24px); height:76px; gap:.6rem; }
  .site-header .brand { width:135px; height:70px; }
- .site-header .brand__logo { width:135px; height:90px; top:-8px; }
+ .site-header .brand__logo { width:124px; height:83px; top:-7px; }
  .site-header__phone { padding:.55rem .6rem; font-size:.65rem; }
  .hero { padding-top:1.2rem; }
  .hero h1 { font-size:1.8rem; line-height:1.17; }
@@ -368,7 +368,7 @@ p { line-height:1.8; }
 .service-scope-list { margin:0; padding-left:1.2rem; font-size:.88rem; line-height:1.9; }
 @media(max-width:370px) {
  .site-header .brand { width:112px; }
- .site-header .brand__logo { width:112px; height:75px; top:-7px; }
+ .site-header .brand__logo { width:103px; height:69px; top:-6px; }
  .site-header__inner { gap:.45rem; }
  .site-header__actions { gap:.4rem; }
 }
