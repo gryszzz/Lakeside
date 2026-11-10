@@ -834,6 +834,7 @@ p { line-height:1.8; }
 .hero-trust-band span { font-size:.73rem; line-height:1.3; padding:0 .8rem; }
 .hero-trust-band { margin-top:2.4rem; }
 .hero-trust-band::before { background:linear-gradient(180deg,rgba(169,193,203,.72),rgba(169,193,203,0) 92%),linear-gradient(108deg,#103f5a 0%,#155578 56%,#20728a 100%); }
+.site-header::after { display:none; }
 @media(max-width:700px) {
  .hero-trust-band { margin-top:1.65rem; padding:.55rem 0; }
  .hero-trust-band span { font-size:.62rem; line-height:1.25; padding:0 .4rem; }
