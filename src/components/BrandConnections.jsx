@@ -10,15 +10,15 @@ function SocialProfile({ name, asset, profile }) {
 
 export function BrandConnections() {
   return <section className="section brand-connections" id="reviews" aria-labelledby="connections-title"><div className="container">
-    <div className="connection-heading"><div><p className="eyebrow">Lakeside, beyond the remodel</p><h2 id="connections-title">Good work. Worth sharing.</h2></div><p>Reviews, project updates, and a closer look at Lakeside Kitchen & Bath.</p></div>
+    <div className="connection-heading"><div><p className="eyebrow">Lakeside Kitchen & Bath LLC</p><h2 id="connections-title">Google Reviews & Social</h2></div><p>Reviews and social profile links coming soon.</p></div>
     <div className="connection-grid">
       <div className="google-review-preview">
         <div className="google-review-preview__header"><div className="google-review-brand"><img src={withBase('images/brands/google.svg')} alt="Google" width="92" height="30" /><span>Reviews</span></div><span className="connection-status">Coming soon</span></div>
-        <h3>Real feedback.<br />From real homeowners.</h3><p>Customer reviews will be added here.</p>
+        <h3>Google Reviews</h3><p>Customer reviews will be added here.</p>
         <div className="review-placeholder-grid" aria-label="Customer review placeholders"><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div></div>
         {brandProfiles.google && <a className="text-link" href={brandProfiles.google} target="_blank" rel="noreferrer">Read reviews on Google</a>}
       </div>
-      <div className="social-preview"><p className="eyebrow">Stay connected</p><h3>Follow the details.</h3><p>See the craftsmanship, material choices, and finished spaces behind the work.</p><div className="social-preview__profiles"><SocialProfile name="Instagram" asset="instagram" profile={brandProfiles.instagram} /><SocialProfile name="Facebook" asset="facebook" profile={brandProfiles.facebook} /></div><p className="social-preview__note">Lakeside’s social profiles will be linked here soon.</p></div>
+      <div className="social-preview"><p className="eyebrow">Stay connected</p><h3>Instagram & Facebook</h3><p>Profile links coming soon.</p><div className="social-preview__profiles"><SocialProfile name="Instagram" asset="instagram" profile={brandProfiles.instagram} /><SocialProfile name="Facebook" asset="facebook" profile={brandProfiles.facebook} /></div><p className="social-preview__note">Lakeside’s social profiles will be linked here soon.</p></div>
     </div>
   </div></section>;
 }

@@ -350,3 +350,13 @@ p { line-height:1.8; }
 /* Keep the header actions filled in Lakeside blue on phone and desktop. */
 .site-header__phone, .menu-toggle { background:var(--blue); color:#fff; border-color:var(--blue); }
 .site-header__phone:hover, .menu-toggle:hover { background:var(--blue-dark); color:#fff; border-color:var(--blue-dark); }
+/* A balanced, touch-friendly mobile Menu control beside Call now. */
+@media(max-width:900px) {
+ .menu-toggle { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:44px; padding:.65rem .8rem; border-radius:8px; font-size:.72rem; font-weight:700; line-height:1; }
+ .menu-toggle__icon { display:block; width:19px; height:19px; flex-shrink:0; background:currentColor; mask:url('/images/icons/list.svg') center / contain no-repeat; -webkit-mask:url('/images/icons/list.svg') center / contain no-repeat; }
+ .menu-toggle[aria-expanded="true"] .menu-toggle__icon { mask-image:url('/images/icons/x.svg'); -webkit-mask-image:url('/images/icons/x.svg'); }
+ .menu-toggle__label { order:1; }
+ .menu-toggle__icon { order:0; }
+}
+.service-scope-list { margin:0; padding-left:1.2rem; font-size:.88rem; line-height:1.9; }
+@media(max-width:370px) { .menu-toggle { min-width:82px; } }

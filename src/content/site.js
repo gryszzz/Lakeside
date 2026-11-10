@@ -295,7 +295,7 @@ export const reasons = [
   },
   {
     "title": "Clear Communication",
-    "text": "You’ll always know what’s happening, what’s coming next, and who to contact."
+    "text": "You'll always know what's happening, what's coming next, and who to contact."
   },
   {
     "title": "Quality Workmanship",
@@ -500,7 +500,7 @@ export const faqs = [
   },
   {
     "question": "Are you licensed and insured?",
-    "answer": "Yes. Lakeside Kitchen & Bath LLC is licensed, insured, and bonded. NJ HIC #13VH13915600."
+    "answer": "Yes. Lakeside Kitchen & Bath LLC is licensed, insured, and bonded."
   },
   {
     "question": "Do you offer a warranty?",
@@ -541,3 +541,10 @@ export const quoteSidebarPoints = [
   'Clear next steps after first contact',
   'Professional homeowner communication from day one'
 ];
+
+export const serviceDetails = {
+ 'kitchen-remodeling': { title: 'Kitchen Remodeling', description: 'Transform your kitchen into a beautiful, functional space designed around your lifestyle.' },
+ 'bathroom-remodeling': { title: 'Bathroom Remodeling', description: 'Create a bathroom that combines style, comfort, and functionality.' },
+ 'tile-installation': { title: 'Tile Installation', description: 'Professional tile installation throughout your home.' },
+ 'countertops': { title: 'Countertops', description: 'Professional countertop installation designed to complete your space beautifully.' }
+};

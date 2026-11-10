@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { business, processSteps, reasons, services, stats, testimonials, trustBadges, values } from '../content/site';
+import { business, serviceDetails, processSteps, reasons, services, stats, testimonials, trustBadges, values } from '../content/site';
 import serviceCounties from '../content/service-counties.json';
 import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
@@ -171,47 +171,8 @@ export function StatGrid() {
   );
 }
 
-export function ServiceCards({ detailed = false, intro, compact = false }) {
-  return (
-    <section className="section">
-      <div className="container">
-        <SectionIntro
-          eyebrow="Services"
-          title="Services"
-          body={
-            intro ||
-            'Quality craftsmanship and professional installation for your home.'
-          }
-        />
-        <div className={`service-grid ${detailed ? 'service-grid--detailed' : ''}`}>
-          {services.map((service) => (
-            <article id={service.slug} key={service.slug} className={`service-card ${compact ? 'service-card--compact' : ''}`} data-reveal>
-              <div className="service-card__header">
-                <p className="eyebrow">{service.title}</p>
-                <h3>{service.short}</h3>{["kitchen-remodeling", "bathroom-remodeling"].includes(service.slug) && <a href={withBase(`${service.slug}/`)}>Explore {service.title} →</a>}
-              </div>
-              {compact ? (
-                <div className="service-chip-list">
-                  {service.examples.slice(0, 2).map((example) => (
-                    <span key={example}>{example}</span>
-                  ))}
-                </div>
-              ) : (
-                <>
-                  <p>{service.value}</p>
-                  <div className="service-chip-list service-chip-list--detailed">
-                    {service.examples.map((example) => (
-                      <span key={example}>{example}</span>
-                    ))}
-                  </div>
-                </>
-              )}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+export function ServiceCards() {
+ return <section className="section"><div className="container service-grid">{services.filter(service=>serviceDetails[service.slug]).map(service=><article id={service.slug} key={service.slug} className="service-card"><h2>{serviceDetails[service.slug].title}</h2><p>{serviceDetails[service.slug].description}</p><h3>Services Include:</h3><ul className="service-scope-list">{service.examples.filter(item=>service.slug!=='countertops'||item!=='Cabinet Installation').map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>;
 }
 
 export function ServiceQuoteSection() {
@@ -245,7 +206,7 @@ export function WhyChooseUs({ compact = false }) {
     <section className="section section--contrast">
       <div className="container">
         <SectionIntro
-          eyebrow="Why Homeowners Choose Us"
+
           title="Why Choose Lakeside Kitchen & Bath?"
 
         />

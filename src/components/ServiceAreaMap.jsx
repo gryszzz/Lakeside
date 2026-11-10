@@ -25,7 +25,7 @@ export function ServiceAreaMap({ full = false }) {
       <div className="container">
         <div className="coverage-heading">
           <div><p className="eyebrow">Areas We Serve</p><h2>Proudly Serving Northern New Jersey</h2></div>
-          <p>Proudly serving homeowners throughout Sussex County, Morris County, Passaic County, and Warren County. Select a county to view its towns.</p>
+          <p>Proudly serving homeowners throughout:</p>
         </div>
         <div className="coverage-layout">
           <div className="coverage-map">
@@ -53,7 +53,7 @@ export function ServiceAreaMap({ full = false }) {
               <p className="eyebrow">Kitchen & bath remodeling</p><h3>{selected}</h3>
               <ul>{serviceCounties[selected].map(town => <li key={town}>{town}</li>)}</ul>
             </div>
-            <p className="coverage-note">Have a project nearby? Share your town and renovation plans with Ron.</p>
+
             <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a>{!full && <a className="text-link" href={withBase('service-area/')}>View all service areas</a>}</div>
           </div>
         </div>

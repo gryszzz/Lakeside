@@ -141,11 +141,7 @@ export function Header() {
               onClick={() => setOpen((value) => !value)}
             >
               <span className="menu-toggle__label">{open ? 'Close' : 'Menu'}</span>
-              <span className="menu-toggle__icon" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </span>
+              <span className="menu-toggle__icon" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -172,7 +168,7 @@ export function Header() {
           </nav>
           <div className="mobile-nav__cta">
             <a className="button button--mobile-tech button--mobile-tech--ghost" href={business.phoneHref} onClick={() => setOpen(false)}>
-              Call / Text
+              Call
             </a>
             <a className="button button--mobile-tech" href={withBase('quote/')} onClick={() => setOpen(false)}>
               Request Estimate
@@ -238,7 +234,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container site-footer__bottom">
-        <p>Quality craftsmanship. Clear communication. 2-year workmanship warranty.</p>
+        <p>Kitchen & Bathroom Remodeling Specialists</p>
         <p>{business.legalName}</p>
       </div>
     </footer>
@@ -265,7 +261,7 @@ export function PageHero({ eyebrow, title, body, actions, aside }) {
         <div className="page-hero__content" data-reveal>
           <p className="eyebrow page-hero__eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
-          <p className="page-hero__body">{body}</p>
+          {body ? <p className="page-hero__body">{body}</p> : null}
           {actions ? <div className="hero-actions hero-actions--tech page-hero__actions">{actions}</div> : null}
         </div>
         {aside ? <div className="page-hero__aside" data-reveal>{aside}</div> : null}
@@ -276,7 +272,7 @@ export function PageHero({ eyebrow, title, body, actions, aside }) {
 
 export function FinalCta({
   title = 'Ready to Transform Your Home?',
-  body = 'Let’s discuss your project and create a renovation plan that works for your home and budget.',
+  body = "Let's discuss your project and create a renovation plan that works for your home and budget.",
   primaryLabel = 'Request Estimate',
   primaryHref = 'quote/',
   secondaryLabel,
@@ -314,11 +310,11 @@ export function FinalCta({
   );
 }
 
-export function FAQSection({ items, intro = 'Answers to the questions homeowners ask before moving forward.' }) {
+export function FAQSection({ items, intro = '' }) {
   return (
     <section className="section">
       <div className="container">
-        <SectionIntro eyebrow="FAQ" title="Helpful answers before you commit" body={intro} />
+        <SectionIntro eyebrow="FAQ" title="FAQ" body={intro} />
         <div className="faq-list">
           {items.map((item) => (
             <details key={item.question} className="faq-item" data-reveal>
