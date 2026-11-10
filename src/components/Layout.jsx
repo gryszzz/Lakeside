@@ -3,8 +3,10 @@ import { business } from '../content/site';
 import { isActivePath, useRevealAnimations, withBase } from '../utils';
 
 const navItems = [
-  { label: 'Home', href: '' },
-  { label: 'Services', href: 'services/' },
+  { label: 'Kitchens', href: 'kitchen-remodeling/' },
+  { label: 'Bathrooms', href: 'bathroom-remodeling/' },
+  { label: 'Our Process', href: 'process/' },
+
   { label: 'Service Area', href: 'service-area/' },
   { label: 'About', href: 'about/' },
   { label: 'Contact', href: 'contact/' }
@@ -13,10 +15,7 @@ const navItems = [
 function Logo() {
   return (
     <a className="brand" href={withBase('')} aria-label={`${business.name} home page`}>
-      <span className="brand__logo-stack">
-        <img className="brand__logo" src={withBase('images/branding/lakeside-logo.png')} alt={business.name} width="1536" height="1024" />
-        <img className="brand__logo-color" src={withBase('images/branding/lakeside-logo.png')} alt="" aria-hidden="true" width="1536" height="1024" />
-      </span>
+      <img className="brand__logo" src={withBase('images/branding/lakeside-logo.png')} alt={business.name} width="1536" height="1024" />
     </a>
   );
 }
@@ -132,9 +131,7 @@ export function Header() {
             <a className="button button--ghost button--header-tech button--header-tech--ghost site-header__phone" href={business.phoneHref}>
               {business.phone}
             </a>
-            <a className="button button--header-tech" href={withBase('quote/')}>
-              Request Estimate
-            </a>
+
             <button
               className="menu-toggle"
               type="button"
@@ -210,7 +207,7 @@ export function Footer() {
         <div>
           <h3>Quick Links</h3>
           <ul className="footer-list">
-            {[...navItems, {label: 'Our Process', href: 'process/'}, {label: 'Our Work', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
+            {[...navItems, {label: 'Services', href: 'services/'}, {label: 'Our Work', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
               <li key={item.href || 'footer-home'}>
                 <a href={withBase(item.href)}>{item.label}</a>
               </li>
@@ -299,6 +296,7 @@ export function FinalCta({
           <p className="eyebrow">Ready When You Are</p>
           <h2>{title}</h2>
           <p>{body}</p>
+          <div className="contact-band-links"><a href={business.phoneHref}>{business.phone}</a><a href={business.emailHref}>{business.email}</a></div>
         </div>
         <div className="hero-actions">
           <a className={primaryClassName} href={withBase(primaryHref)}>

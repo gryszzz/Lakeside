@@ -1,7 +1,7 @@
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
-  faqs, services
+  faqs, services, processSteps
 } from './content/site';
 import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
@@ -20,17 +20,18 @@ function HomeHero() {
       <h1>Transforming Kitchens & Bathrooms With Over 40 Years of Experience</h1>
       <p className="hero__body">Beautiful renovations begin with quality craftsmanship, clear communication, and a contractor you can trust. At Lakeside Kitchen & Bath LLC, we specialize in kitchen and bathroom remodeling throughout Sussex, Morris, Passaic, and Warren Counties, delivering professional results designed to last.</p>
       <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}>Schedule Your Consultation Today</a><a className="button button--ghost" href={business.phoneHref}>Call: {business.phone}</a></div>
-      <p className="hero-license">Licensed, Insured & Bonded <span>NJ HIC #13VH13915600</span></p>
+      <p className="hero-signature">We do the complete job!</p><p className="hero-license">NJ HIC #13VH13915600</p>
     </div>
-    <aside className="hero-services" aria-label="Remodeling services">
-      <p className="eyebrow">We do the complete job!</p>
-      <ul>{['Kitchen Remodeling', 'Bathroom Remodeling', 'Design & Material Selection Guidance', 'Tile Installation', 'Cabinet Installation', 'Countertops', 'Flooring & Lighting Upgrades'].map(item => <li key={item}>{item}</li>)}</ul>
-      <div className="hero-services__contact"><strong>Ronald Augustine, Owner</strong><a href={business.phoneHref}>{business.phone}</a><a href={business.emailHref}>{business.email}</a></div>
-    </aside>
-  </div></section>;
+    <div className="photo-placeholder hero-photo" role="img" aria-label="Space reserved for a real Lakeside kitchen project photo"><span>Kitchen project photo</span><small>Ron’s project photography coming soon</small></div>
+  </div><div className="hero-trust-band"><div className="container"><span><strong>40+</strong> Years of Experience</span><span>Licensed, Insured & Bonded</span><span>2-Year Workmanship Warranty</span></div></div></section>;
 }
+
 function HomeServices() {
- return <section className="section home-services"><div className="container"><SectionIntro eyebrow="Services Overview" title="Kitchen & Bathroom Remodeling Specialists" /><div className="home-service-pair">{services.map(service=><article key={service.slug} className="home-service-feature"><h3>{service.title}</h3><p>{service.short}</p><a className="text-link" href={withBase(['kitchen-remodeling','bathroom-remodeling'].includes(service.slug) ? `${service.slug}/` : `services/#${service.slug}`)}>Learn more</a></article>)}</div></div></section>;
+ return <section className="section home-services"><div className="container"><SectionIntro eyebrow="Services Overview" title="Kitchen & Bathroom Remodeling Specialists" /><div className="home-service-pair">{services.map(service=><article key={service.slug} className="home-service-feature">{['kitchen-remodeling','bathroom-remodeling'].includes(service.slug) && <div className="photo-placeholder service-photo" role="img" aria-label={`Space reserved for a real Lakeside ${service.title.toLowerCase()} photo`}><span>{service.title.replace(' Remodeling', '')} project photo</span><small>Real project photo coming soon</small></div>}<h3>{service.title}</h3><p>{service.short}</p><a className="text-link" href={withBase(['kitchen-remodeling','bathroom-remodeling'].includes(service.slug) ? `${service.slug}/` : `services/#${service.slug}`)}>Learn more</a></article>)}</div></div></section>;
+}
+
+function HomeProcess() {
+ return <section className="section home-process"><div className="container"><SectionIntro eyebrow="Our Remodeling Process" title="The complete job. One clear process." /><ol className="home-process__steps">{processSteps.slice(0,3).map((step,index)=><li key={step.title}><span>0{index+1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol><a className="text-link" href={withBase('process/')}>View our complete seven-step process</a></div></section>;
 }
 
 function DirectEstimatePanel({
@@ -93,7 +94,7 @@ export function HomePage() {
     >
       <HomeHero />
       <HomeServices />
-      <WhyChooseUs compact />
+      <HomeProcess /><WhyChooseUs compact />
       <ServiceAreaMap />
       <FAQSection items={faqs.slice(0, 4)} />
     </SiteShell>
