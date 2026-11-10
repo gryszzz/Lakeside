@@ -839,3 +839,18 @@ p { line-height:1.8; }
  .hero-trust-band { margin-top:1.65rem; padding:.55rem 0; }
  .hero-trust-band span { font-size:.62rem; line-height:1.25; padding:0 .4rem; }
 }
+
+/* Keep the blueprint grid from tiling the full hero gradients on narrow screens. */
+.hero {
+ background-size:auto,auto,48px 48px,48px 48px,auto;
+ background-repeat:no-repeat,no-repeat,repeat,repeat,no-repeat;
+}
+@media(max-width:700px) {
+ .hero {
+  background-image:radial-gradient(ellipse at 82% 42%,rgba(16,63,90,.13),transparent 42%),radial-gradient(ellipse at 14% 4%,rgba(255,255,255,.72),transparent 42%),repeating-linear-gradient(0deg,transparent 0 51px,rgba(21,85,120,.022) 51px 52px),repeating-linear-gradient(90deg,transparent 0 51px,rgba(21,85,120,.022) 51px 52px),linear-gradient(145deg,#fafbf8 0%,#edf3f3 55%,#d9e5e9 100%);
+  background-size:auto,auto,52px 52px,52px 52px,auto;
+  background-repeat:no-repeat,no-repeat,repeat,repeat,no-repeat;
+ }
+ .hero-trust-band { margin-top:2rem; }
+ .hero-trust-band::before { height:28px; mask-size:100% 125px; -webkit-mask-size:100% 125px; mask-position:center -61px; -webkit-mask-position:center -61px; }
+}
