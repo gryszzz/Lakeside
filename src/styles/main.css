@@ -421,6 +421,58 @@ p { line-height:1.8; }
   linear-gradient(138deg,#edf4f6 0%,#dce9ed 56%,#f0f5f3 100%);
  box-shadow:inset 0 0 0 8px rgba(255,255,255,.44),0 16px 36px rgba(16,42,57,.08);
 }
+
+/* A purposeful, static plan illustration balances the home hero without implying project photography. */
+.hero-blueprint {
+ position:relative;
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ min-width:0;
+ min-height:390px;
+ overflow:hidden;
+ padding:1.1rem 1.2rem 1rem;
+ border:1px solid #d4e1e3;
+ border-radius:22px 22px 22px 5px;
+ background-color:#f0f4ef;
+ background-image:repeating-linear-gradient(0deg,transparent 0 31px,rgba(21,85,120,.045) 31px 32px),repeating-linear-gradient(90deg,transparent 0 31px,rgba(21,85,120,.045) 31px 32px);
+ box-shadow:0 20px 48px rgba(16,42,57,.08),inset 0 0 0 7px rgba(255,255,255,.62);
+}
+.hero-blueprint__topline { display:flex; justify-content:space-between; gap:1rem; color:#456779; font-size:.63rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.hero-blueprint__drawing { position:absolute; inset:2.5rem .6rem 2.3rem; width:calc(100% - 1.2rem); height:calc(100% - 4.8rem); overflow:visible; }
+.hero-blueprint__drawing path { stroke:#39718a; stroke-linecap:round; stroke-linejoin:round; stroke-width:2.5; }
+.hero-blueprint__drawing .blueprint-wall { fill:rgba(255,255,255,.52); stroke:#9ab7bf; stroke-width:2; }
+.hero-blueprint__drawing .blueprint-counter { fill:#dbe8e6; }
+.hero-blueprint__drawing .blueprint-cabinet { fill:#fffefa; }
+.hero-blueprint__drawing .blueprint-upper { fill:#e6efed; }
+.hero-blueprint__drawing .blueprint-window { fill:#d9e9ed; }
+.hero-blueprint__drawing .blueprint-island { fill:#fdfcf7; stroke:#155578; stroke-width:3; }
+.hero-blueprint__drawing .blueprint-detail { fill:none; stroke:#82a6b3; stroke-width:1.8; }
+.hero-blueprint__drawing .blueprint-dimension { fill:none; stroke:#7b9dab; stroke-width:1.4; stroke-dasharray:4 5; }
+.hero-blueprint__drawing .blueprint-point { fill:#70aeb6; stroke:#fff; stroke-width:3; }
+.hero-blueprint__caption { position:relative; z-index:1; display:flex; align-items:center; gap:.75rem; align-self:flex-start; padding:.55rem .8rem .55rem .55rem; border:1px solid #e0e9e6; border-radius:12px; background:rgba(255,255,255,.94); box-shadow:0 8px 20px rgba(16,42,57,.07); }
+.hero-blueprint__mark { display:grid; place-items:center; width:42px; height:42px; border-radius:10px; background:#155578; color:#fff; font-size:1rem; font-weight:800; letter-spacing:-.05em; }
+.hero-blueprint__caption strong,.hero-blueprint__caption small { display:block; }
+.hero-blueprint__caption strong { color:#183e51; font-size:.73rem; }
+.hero-blueprint__caption small { margin-top:.15rem; color:#607783; font-size:.62rem; }
+.hero-blueprint__stamp { position:absolute; right:1.2rem; bottom:1.4rem; color:#607f8c; font-size:.57rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+
+@media(min-width:701px) {
+ .hero { padding-top:1.25rem; }
+ .hero__grid { grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr); gap:clamp(1.5rem,3vw,3.25rem); }
+ .hero__content { max-width:590px; padding:.4rem 0; }
+ .hero h1 { max-width:19ch; font-size:clamp(2.35rem,3.2vw,3.45rem); line-height:1.07; }
+ .hero__body { max-width:58ch; font-size:.92rem; line-height:1.75; }
+ .hero-blueprint { min-height:clamp(370px,34vw,440px); }
+ .hero-trust-band { margin-top:2rem; }
+}
+@media(max-width:700px) {
+ .hero-blueprint { min-height:255px; }
+ .hero-blueprint__drawing { inset:2.2rem .25rem 2rem; width:calc(100% - .5rem); height:calc(100% - 4.2rem); }
+ .hero-blueprint__caption { padding:.45rem .65rem .45rem .45rem; }
+ .hero-blueprint__stamp { right:.9rem; bottom:1.25rem; font-size:.5rem; }
+}
+
 .photo-placeholder::before {
  content:'';
  position:absolute;

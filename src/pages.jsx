@@ -22,7 +22,23 @@ function HomeHero() {
       <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}>Schedule Your Consultation Today</a><a className="button button--ghost hero-call" href={business.phoneHref} aria-label={`Call Ron at ${business.phone}`}><span className="header-call-icon" aria-hidden="true" /><span className="hero-call__copy"><span>Call Ron</span><strong>{business.phone}</strong></span></a></div>
       <p className="hero-signature"><span className="hero-signature__check" aria-hidden="true">✓</span>We do the complete job!</p><p className="hero-license">NJ HIC #13VH13915600</p>
     </div>
-    <div className="photo-placeholder hero-photo" role="img" aria-label="Space reserved for a real Lakeside kitchen project photo"><span>Kitchen project photo</span><small>Ron’s project photography coming soon</small></div>
+    <div className="hero-blueprint" role="img" aria-label="Illustrated kitchen renovation plan showing cabinetry, counters, and an island">
+      <div className="hero-blueprint__topline"><span>Lakeside · Design / Build</span><span>Plan 01</span></div>
+      <svg className="hero-blueprint__drawing" viewBox="0 0 640 440" aria-hidden="true">
+        <path className="blueprint-wall" d="M92 68h456v276H92z" />
+        <path className="blueprint-counter" d="M128 279h382v24H128z" />
+        <path className="blueprint-cabinet" d="M132 303h112v105H132zM252 303h112v105H252zM372 303h136v105H372z" />
+        <path className="blueprint-detail" d="M188 324v62M308 324v62M440 324v62M170 279v-18h120v18M328 279v-18h120v18" />
+        <path className="blueprint-window" d="M294 104h132v108H294zM360 104v108M294 158h132" />
+        <path className="blueprint-upper" d="M128 104h138v108H128zM454 104h56v108h-56zM174 104v108M220 104v108M482 104v108" />
+        <path className="blueprint-island" d="M176 318h276v22H176zM194 340h240v76H194z" />
+        <path className="blueprint-detail" d="M245 357v43M383 357v43M232 318v-7h48v7M356 318v-7h48v7" />
+        <path className="blueprint-dimension" d="M128 78h382M128 72v12M510 72v12M112 104v304M106 104h12M106 408h12" />
+        <circle className="blueprint-point" cx="320" cy="225" r="5" />
+      </svg>
+      <div className="hero-blueprint__caption"><span className="hero-blueprint__mark">40+</span><span><strong>Years of hands-on experience</strong><small>One team from planning through finish</small></span></div>
+      <span className="hero-blueprint__stamp">Illustrative plan</span>
+    </div>
   </div><div className="hero-trust-band"><div className="container"><span>Over 40 Years of Experience</span><span>Licensed, Insured & Bonded</span><span>2-Year Workmanship Warranty</span></div></div></section>;
 }
 
