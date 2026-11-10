@@ -380,7 +380,7 @@ export function ProjectPreview() {
           {previews.map((project) => (
             <article key={project.title} className="project-card" data-reveal>
               <div className="project-card__media">
-                <img src={withBase(project.image)} alt={project.alt} />
+                <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} />
                 <span>{project.category}</span>
               </div>
               <div className="project-card__body">
@@ -429,6 +429,7 @@ const homepageProjectPhotos = [
     title: 'Custom Cabinetry & Storage',
     category: 'Cabinetry',
     image: 'images/projects/portfolio/lakeside-custom-builtins.jpg',
+    focalPoint: '50% 80%',
     alt: 'Custom light wood cabinetry with glass-front storage and built-in shelves',
     summary: 'A custom cabinetry installation with glass-front storage and built-in shelving.',
     tags: ['Cabinetry', 'Built-ins', 'Storage']
@@ -438,6 +439,7 @@ const homepageProjectPhotos = [
     title: 'Tile Shower & Bathroom',
     category: 'Bathroom',
     image: 'images/projects/portfolio/lakeside-bathroom-shower.jpg',
+    focalPoint: '50% 60%',
     alt: 'White subway tile shower with glass doors and gray bathroom cabinetry',
     summary: 'A tiled walk-in shower with glass doors, grab bars, and coordinating finishes.',
     tags: ['Bathroom', 'Tile', 'Shower']
@@ -512,14 +514,10 @@ export function HeroProjectCarousel() {
             href={withBase(`projects/?project=${project.id}`)}
             aria-label={`Open the gallery at ${project.title}`}
           >
-            <img src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
+            <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
           </a>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
-        </div>
-        <div className="hero-blueprint__caption">
-          <span className="hero-blueprint__mark">40+</span>
-          <span><strong>Years of hands-on experience</strong><small>One team from planning through finish</small></span>
         </div>
         <span className="hero-blueprint__stamp">{project.category} · {currentIndex + 1} of {heroProjectPhotos.length}</span>
         <div className="hero-photo-carousel__dots" aria-label="Choose a project photo">
@@ -613,7 +611,7 @@ export function HomeProjectGallery() {
               aria-label={`Open photo: ${project.title}`}
             >
               <span className="home-gallery__photo">
-                <img src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
+                <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
                 <span className="home-gallery__zoom" aria-hidden="true">↗</span>
               </span>
               <span className="home-gallery__caption">
@@ -752,7 +750,7 @@ export function ProjectGallery() {
               aria-label={`Open details for ${project.title}`}
             >
               <div className="project-card__media">
-                <img src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
+                <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
                 <span>{project.category}</span>
                 <span className="project-card__open" aria-hidden="true">↗</span>
               </div>
