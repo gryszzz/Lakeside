@@ -720,3 +720,16 @@ p { line-height:1.8; }
 @media(max-width:700px) {
  .hero-blueprint { margin-top:.9rem; }
 }
+@media(min-width:701px) {
+ .hero__grid { grid-template-areas:"copy visual" "proof visual"; grid-template-rows:auto auto; row-gap:.15rem; }
+ .hero__content { grid-area:copy; }
+ .hero-blueprint { grid-area:visual; }
+ .hero-proof { grid-area:proof; align-self:start; }
+}
+@media(max-width:700px) {
+ .hero__grid { grid-template-columns:minmax(0,1fr); grid-template-areas:none; grid-template-rows:auto; align-items:stretch; gap:.7rem; }
+ .hero-actions { align-items:center; }
+ .hero-actions .hero-call { width:100%; justify-content:center; }
+ .hero-proof { margin-top:.1rem; text-align:center; }
+ .hero-signature { margin:.2rem auto .12rem; }
+}

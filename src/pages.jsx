@@ -20,7 +20,6 @@ function HomeHero() {
       <h1>Transforming Kitchens &amp; Bathrooms With Over 40 Years of Experience</h1>
       <p className="hero__body">Complete kitchen and bathroom renovations, from planning through the finishing details. Serving homeowners across Sussex, Morris, Passaic, and Warren Counties.</p>
       <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}><svg className="hero-cta__calendar" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01" /></svg><span>Schedule a Consultation</span><span className="hero-cta__arrow" aria-hidden="true">→</span></a><a className="hero-call" href={business.phoneHref} aria-label={`Call Ron at ${business.phone}`}><span className="header-call-icon" aria-hidden="true" /><span className="hero-call__copy"><span>Call Ron</span><strong>{business.phone}</strong></span></a></div>
-      <p className="hero-signature"><span className="hero-signature__check" aria-hidden="true">✓</span>We do the complete job!</p><p className="hero-license">NJ HIC #13VH13915600</p>
     </div>
     <div className="hero-blueprint" role="img" aria-label="Illustrated kitchen renovation plan showing cabinetry, counters, and an island">
       <div className="hero-blueprint__topline"><span>Lakeside · Design / Build</span><span>Plan 01</span></div>
@@ -39,6 +38,7 @@ function HomeHero() {
       <div className="hero-blueprint__caption"><span className="hero-blueprint__mark">40+</span><span><strong>Years of hands-on experience</strong><small>One team from planning through finish</small></span></div>
       <span className="hero-blueprint__stamp">Illustrative plan</span>
     </div>
+    <div className="hero-proof"><p className="hero-signature"><span className="hero-signature__check" aria-hidden="true">✓</span>We do the complete job!</p><p className="hero-license">NJ HIC #13VH13915600</p></div>
   </div><div className="hero-trust-band"><div className="container"><span>Over 40 Years of Experience</span><span>Licensed, Insured & Bonded</span><span>2-Year Workmanship Warranty</span></div></div></section>;
 }
 
