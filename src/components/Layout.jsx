@@ -129,7 +129,8 @@ export function Header() {
           </nav>
           <div className="site-header__actions">
             <a className="button button--ghost button--header-tech button--header-tech--ghost site-header__phone" href={business.phoneHref}>
-              {business.phone}
+              <span className="header-call-icon" aria-hidden="true" />
+              <span>Call now</span>
             </a>
 
             <button

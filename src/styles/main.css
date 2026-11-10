@@ -336,3 +336,14 @@ p { line-height:1.8; }
  .social-profile { padding:.75rem; }
  .social-profile .connection-status { font-size:.46rem; padding:.4rem; }
 }
+/* Center desktop navigation independently of the logo and call control widths. */
+@media(min-width:901px) {
+ .site-header__inner { display:grid; grid-template-columns:minmax(150px,1fr) auto minmax(150px,1fr); gap:1rem; }
+ .site-header .brand { margin:0; justify-self:start; }
+ .site-nav { justify-self:center; margin:0; }
+ .site-header__actions { justify-self:end; }
+}
+.site-header__phone { gap:.55rem; background:#fff; color:var(--blue); border:1px solid #c6d9e4; box-shadow:none; }
+.site-header__phone:hover { background:#edf5f9; color:var(--blue-dark); border-color:var(--blue); }
+.header-call-icon { display:block; width:20px; height:20px; flex-shrink:0; background:currentColor; mask:url('/images/icons/phone-call.svg') center / contain no-repeat; -webkit-mask:url('/images/icons/phone-call.svg') center / contain no-repeat; }
+@media(max-width:700px) { .header-call-icon { width:17px; height:17px; } }
