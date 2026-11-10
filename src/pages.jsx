@@ -18,7 +18,7 @@ function HomeHero() {
     <div className="hero__content" data-reveal>
       <p className="eyebrow">Lakeside Kitchen & Bath LLC</p>
       <h1>Transforming Kitchens &amp; Bathrooms With Over 40 Years of Experience</h1>
-      <p className="hero__body">Complete kitchen and bathroom renovations, from planning through the finishing details. Serving homeowners across Sussex, Morris, Passaic, and Warren Counties.</p>
+      <p className="hero__body">Beautiful renovations begin with quality craftsmanship, clear communication, and a contractor you can trust. At Lakeside Kitchen &amp; Bath LLC, we specialize in kitchen and bathroom remodeling throughout Sussex, Morris, Passaic, and Warren Counties, delivering professional results designed to last.</p>
       <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}><svg className="hero-cta__calendar" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01" /></svg><span>Schedule a Consultation</span><span className="hero-cta__arrow" aria-hidden="true">→</span></a><a className="hero-call" href={business.phoneHref} aria-label={`Call Ron at ${business.phone}`}><span className="header-call-icon" aria-hidden="true" /><span className="hero-call__copy"><span>Call Ron</span><strong>{business.phone}</strong></span></a></div>
     </div>
     <div className="hero-blueprint" role="img" aria-label="Illustrated kitchen renovation plan showing cabinetry, counters, and an island">
