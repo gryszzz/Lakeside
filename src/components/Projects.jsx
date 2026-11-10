@@ -480,6 +480,67 @@ const homepageProjectPhotos = [
   }
 ];
 
+export function HeroProjectCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const project = homepageProjectPhotos[currentIndex];
+  const showProject = (direction) => {
+    setCurrentIndex((index) => (index + direction + homepageProjectPhotos.length) % homepageProjectPhotos.length);
+  };
+
+  return (
+    <>
+      <div className="hero-blueprint hero-photo-carousel" aria-label="Project photo carousel">
+        <div className="hero-blueprint__topline">
+          <span>Lakeside · Project Gallery</span>
+          <span>{String(currentIndex + 1).padStart(2, '0')} / {String(homepageProjectPhotos.length).padStart(2, '0')}</span>
+        </div>
+        <div className="hero-photo-carousel__viewport">
+          <img className="hero-photo-carousel__ambient" src={withBase(project.image)} alt="" aria-hidden="true" />
+          <button
+            className="hero-photo-carousel__photo"
+            type="button"
+            onClick={() => setLightboxIndex(currentIndex)}
+            aria-label={`View larger photo: ${project.title}`}
+          >
+            <img src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
+          </button>
+          <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
+          <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
+        </div>
+        <div className="hero-blueprint__caption">
+          <span className="hero-blueprint__mark">40+</span>
+          <span><strong>Years of hands-on experience</strong><small>One team from planning through finish</small></span>
+        </div>
+        <span className="hero-blueprint__stamp">{project.category} · {currentIndex + 1} of {homepageProjectPhotos.length}</span>
+        <div className="hero-photo-carousel__dots" aria-label="Choose a project photo">
+          {homepageProjectPhotos.map((photo, index) => (
+            <button
+              key={photo.image}
+              type="button"
+              className={index === currentIndex ? 'is-active' : ''}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Show photo ${index + 1}: ${photo.title}`}
+              aria-current={index === currentIndex ? 'true' : undefined}
+            />
+          ))}
+        </div>
+      </div>
+      {lightboxIndex !== null ? (
+        <ProjectLightbox
+          projects={homepageProjectPhotos}
+          activeIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(index) => {
+            setLightboxIndex(index);
+            setCurrentIndex(index);
+          }}
+        />
+      ) : null}
+    </>
+  );
+}
+
 const homepageBeforeAfterProjects = [
   {
     title: 'Laundry Room Renovation',
