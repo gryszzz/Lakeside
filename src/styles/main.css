@@ -348,7 +348,7 @@ p { line-height:1.8; }
 .site-header__phone:hover { background:#edf5f9; color:var(--blue-dark); border-color:var(--blue); }
 .site-header__book { display:none; }
 @media(min-width:901px) {
- .site-header__book { display:inline-block; padding:12px 0; color:var(--blue); font-size:.78rem; font-weight:700; line-height:1.35; white-space:nowrap; }
+ .site-header__book { display:inline-block; padding:12px 0; color:var(--blue); font-size:.88rem; font-weight:800; line-height:1.35; white-space:nowrap; }
  .site-header__book:hover { color:var(--blue-dark); text-decoration:underline; text-underline-offset:4px; }
 }
 .header-call-icon { display:block; width:20px; height:20px; flex-shrink:0; background:currentColor; mask:url('/images/icons/phone-call.svg') center / contain no-repeat; -webkit-mask:url('/images/icons/phone-call.svg') center / contain no-repeat; }
