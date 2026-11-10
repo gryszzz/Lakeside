@@ -406,9 +406,8 @@ p { line-height:1.8; }
 
 /* Give the white layout more depth with a restrained architectural palette. */
 .hero,.page-hero {
- background-color:#f4f8fa;
+ background-color:#f8f8f4;
  background-image:
-  radial-gradient(ellipse at 82% 34%,rgba(138,217,231,.24),transparent 38%),
   repeating-linear-gradient(0deg,transparent 0 47px,rgba(21,85,120,.035) 47px 48px),
   repeating-linear-gradient(90deg,transparent 0 47px,rgba(21,85,120,.035) 47px 48px);
 }
@@ -480,7 +479,7 @@ p { line-height:1.8; }
 .hero-signature { display:inline-flex; align-items:center; gap:.55rem; padding:.48rem .75rem; border:1px solid #d8e7eb; border-left:3px solid #69b9cc; border-radius:5px 12px 12px 5px; background:rgba(255,255,255,.78); color:#315464; font-size:.82rem; font-style:normal; font-weight:750; letter-spacing:0; text-transform:none; }
 .hero-signature__check { display:grid; place-items:center; width:21px; height:21px; border-radius:50%; background:#e2f1f4; color:var(--blue); font-size:.75rem; }
 @media(max-width:700px) {
- .hero,.page-hero { background-size:auto,36px 36px,36px 36px; }
+ .hero,.page-hero { background-size:36px 36px,36px 36px; }
  .home-service-feature,.home-service-feature:nth-child(n+3) { padding:1rem; }
  .home-process__steps li { padding:1rem; }
  .hero-actions { display:grid; grid-template-columns:1fr; gap:.65rem; }
