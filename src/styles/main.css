@@ -772,3 +772,9 @@ p { line-height:1.8; }
  .final-cta .hero-actions { width:100%; }
  .final-cta .hero-actions .button--hero-tech { width:min(100%,320px); min-width:0; min-height:52px; }
 }
+
+/* Bring the brand blues into the header and opening section with a static color wash. */
+.site-header { position:sticky; background:linear-gradient(105deg,#fff 0%,#fbfcfa 40%,#eaf3f5 100%); border-bottom:1px solid #d8e5e7; box-shadow:0 5px 24px rgba(16,42,57,.075); }
+.site-header::after { position:absolute; right:0; bottom:-1px; left:0; height:2px; background:linear-gradient(90deg,#76b8c1 0%,#155578 48%,#a9d0c9 100%); opacity:.65; pointer-events:none; content:''; }
+.hero { background-color:#edf3f1; background-image:radial-gradient(ellipse at 84% 26%,rgba(111,174,181,.23),transparent 37%),radial-gradient(ellipse at 13% 4%,rgba(255,255,255,.9),transparent 39%),repeating-linear-gradient(0deg,transparent 0 47px,rgba(21,85,120,.027) 47px 48px),repeating-linear-gradient(90deg,transparent 0 47px,rgba(21,85,120,.027) 47px 48px),linear-gradient(128deg,#f8f8f3 0%,#eff4f1 53%,#e7f0f2 100%); }
+.hero-trust-band { background:linear-gradient(108deg,#103f5a 0%,#155578 56%,#20728a 100%); }
