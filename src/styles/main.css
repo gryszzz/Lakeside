@@ -350,10 +350,11 @@ p { line-height:1.8; }
 /* Keep the header actions filled in Lakeside blue on phone and desktop. */
 .site-header__phone, .menu-toggle { background:var(--blue); color:#fff; border-color:var(--blue); }
 .site-header__phone:hover, .menu-toggle:hover { background:var(--blue-dark); color:#fff; border-color:var(--blue-dark); }
-/* A balanced, touch-friendly mobile Menu control beside Call now. */
+/* A compact, touch-friendly mobile menu icon beside Call now. */
 @media(max-width:900px) {
- .menu-toggle { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:44px; padding:.65rem .8rem; border-radius:8px; font-size:.72rem; font-weight:700; line-height:1; }
- .menu-toggle__icon { display:block; width:19px; height:19px; flex-shrink:0; background:currentColor; mask:url('/images/icons/list.svg') center / contain no-repeat; -webkit-mask:url('/images/icons/list.svg') center / contain no-repeat; }
+ .menu-toggle { display:inline-flex; align-items:center; justify-content:center; width:44px; min-width:44px; height:44px; padding:0; border-radius:11px; }
+ .menu-toggle__label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+ .menu-toggle__icon { display:block; width:20px; height:20px; flex-shrink:0; background:currentColor; mask:url('/images/icons/list.svg') center / contain no-repeat; -webkit-mask:url('/images/icons/list.svg') center / contain no-repeat; }
  .menu-toggle[aria-expanded="true"] .menu-toggle__icon { mask-image:url('/images/icons/x.svg'); -webkit-mask-image:url('/images/icons/x.svg'); }
  .menu-toggle__label { order:1; }
  .menu-toggle__icon { order:0; }
@@ -364,8 +365,6 @@ p { line-height:1.8; }
  .site-header .brand__logo { width:112px; height:75px; top:-7px; }
  .site-header__inner { gap:.45rem; }
  .site-header__actions { gap:.4rem; }
- .menu-toggle { width:44px; min-width:44px; height:44px; padding:0; border-radius:11px; }
- .menu-toggle__label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 }
 /* A complete mobile navigation panel with clear, comfortable link targets. */
 @media(max-width:900px) {
