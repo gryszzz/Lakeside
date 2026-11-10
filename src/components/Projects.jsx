@@ -489,11 +489,13 @@ const homepageProjectPhotos = [
   }
 ];
 
+const heroProjectPhotos = homepageProjectPhotos.slice(0, 3);
+
 export function HeroProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const project = homepageProjectPhotos[currentIndex];
+  const project = heroProjectPhotos[currentIndex];
   const showProject = (direction) => {
-    setCurrentIndex((index) => (index + direction + homepageProjectPhotos.length) % homepageProjectPhotos.length);
+    setCurrentIndex((index) => (index + direction + heroProjectPhotos.length) % heroProjectPhotos.length);
   };
 
   return (
@@ -501,7 +503,7 @@ export function HeroProjectCarousel() {
       <div className="hero-blueprint hero-photo-carousel" aria-label="Project photo carousel">
         <div className="hero-blueprint__topline">
           <span>Lakeside · Project Gallery</span>
-          <span>{String(currentIndex + 1).padStart(2, '0')} / {String(homepageProjectPhotos.length).padStart(2, '0')}</span>
+          <span>{String(currentIndex + 1).padStart(2, '0')} / {String(heroProjectPhotos.length).padStart(2, '0')}</span>
         </div>
         <div className="hero-photo-carousel__viewport">
           <img className="hero-photo-carousel__ambient" src={withBase(project.image)} alt="" aria-hidden="true" />
@@ -519,9 +521,9 @@ export function HeroProjectCarousel() {
           <span className="hero-blueprint__mark">40+</span>
           <span><strong>Years of hands-on experience</strong><small>One team from planning through finish</small></span>
         </div>
-        <span className="hero-blueprint__stamp">{project.category} · {currentIndex + 1} of {homepageProjectPhotos.length}</span>
+        <span className="hero-blueprint__stamp">{project.category} · {currentIndex + 1} of {heroProjectPhotos.length}</span>
         <div className="hero-photo-carousel__dots" aria-label="Choose a project photo">
-          {homepageProjectPhotos.map((photo, index) => (
+          {heroProjectPhotos.map((photo, index) => (
             <button
               key={photo.image}
               type="button"
