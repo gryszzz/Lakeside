@@ -160,6 +160,7 @@ export function Header() {
               className="menu-toggle"
               ref={menuTriggerRef}
               type="button"
+              aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen((value) => !value)}
@@ -174,9 +175,13 @@ export function Header() {
         <div className="mobile-nav__panel" ref={menuPanelRef} role={open ? 'dialog' : undefined} aria-modal={open ? true : undefined} aria-label="Lakeside site menu">
           <div className="mobile-nav__header"><Logo /><button type="button" className="mobile-nav__close" aria-label="Close menu" onClick={() => setOpen(false)}><span className="mobile-nav__close-icon" aria-hidden="true" /></button></div>
           <nav aria-label="Mobile navigation">
-            {[...navItems.slice(0, 2), {label: 'Home', href: ''}, ...navItems.slice(2), {label: 'Services', href: 'services/'}, {label: 'Project Photos', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item,index) => (
-              <a key={item.href || 'mobile-home'} href={withBase(item.href)} className={`${isActivePath(item.href) ? 'is-active' : ''} ${index < 2 ? 'mobile-nav__featured' : ''}`} aria-current={isActivePath(item.href) ? 'page' : undefined} onClick={() => setOpen(false)}><span>{item.label}</span></a>
-            ))}
+            <ul className="mobile-nav__list">
+              {[{label: 'Home', href: ''}, ...navItems, {label: 'Services', href: 'services/'}, {label: 'Project Photos', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
+                <li key={item.href || 'mobile-home'}>
+                  <a href={withBase(item.href)} className={isActivePath(item.href) ? 'is-active' : ''} aria-current={isActivePath(item.href) ? 'page' : undefined} onClick={() => setOpen(false)}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
           </nav>
           <div className="mobile-nav__cta"><a className="button mobile-nav__call" href={business.phoneHref} onClick={() => setOpen(false)}><span className="header-call-icon" aria-hidden="true" />Call now</a><a className="button button--ghost" href={withBase('quote/')} onClick={() => setOpen(false)}>Request Estimate</a></div>
           <div className="mobile-nav__meta"><p className="mobile-nav__owner">Ronald Augustine <span>Owner</span></p><a className="mobile-nav__email" href={business.emailHref} onClick={() => setOpen(false)}>{business.email}</a><p className="mobile-nav__meta-label">Service Area</p><p>{business.serviceAreaLabel}</p><p className="mobile-nav__license">{business.licenseNumber}</p></div>
