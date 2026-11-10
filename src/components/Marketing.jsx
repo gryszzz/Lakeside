@@ -281,7 +281,7 @@ export function ProcessSteps() {
 
 export function ValuesGrid() {
   return (
-    <section className="section">
+    <section className="section about-values">
       <div className="container">
         <SectionIntro
           eyebrow="Values"
