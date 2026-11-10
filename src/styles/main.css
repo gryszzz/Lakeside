@@ -708,3 +708,15 @@ p { line-height:1.8; }
 @media(max-width:700px) {
  .hero-actions .button--hero-tech { width:min(100%,304px); min-height:52px; padding:.5rem .6rem .5rem .9rem; font-size:.78rem; }
 }
+
+/* Add quiet, static architectural texture through the homepage sections. */
+.hero-blueprint { margin-top:1rem; }
+.home-services { background-color:#f2f6f4; background-image:radial-gradient(ellipse at 88% 16%,rgba(111,174,181,.14),transparent 34%),repeating-linear-gradient(0deg,transparent 0 39px,rgba(21,85,120,.025) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(21,85,120,.025) 39px 40px),linear-gradient(140deg,#f6f8f5,#edf3f3); }
+.home-process { background-color:#eaf1f3; background-image:radial-gradient(ellipse at 8% 90%,rgba(122,177,186,.13),transparent 33%),repeating-linear-gradient(0deg,transparent 0 43px,rgba(21,85,120,.022) 43px 44px),repeating-linear-gradient(90deg,transparent 0 43px,rgba(21,85,120,.022) 43px 44px),linear-gradient(145deg,#edf4f6,#e8f0f2); }
+.section--contrast { background-color:#f5f5f0; background-image:radial-gradient(ellipse at 92% 12%,rgba(128,181,186,.13),transparent 35%),linear-gradient(135deg,#f8f7f1,#f1f5f3 72%,#edf3f3); }
+.brand-connections { background-color:#edf4f6; background-image:radial-gradient(ellipse at 12% 18%,rgba(116,174,188,.12),transparent 30%),repeating-linear-gradient(0deg,transparent 0 47px,rgba(21,85,120,.02) 47px 48px),repeating-linear-gradient(90deg,transparent 0 47px,rgba(21,85,120,.02) 47px 48px),linear-gradient(180deg,#eef5f7,#f4f7f7); }
+.coverage-section { background-color:#f1f5f3; background-image:radial-gradient(ellipse at 95% 10%,rgba(115,174,183,.12),transparent 32%),linear-gradient(180deg,#f6f8f6,#eef3f2); }
+.section--faq { background-color:#edf3f5; background-image:repeating-linear-gradient(0deg,transparent 0 45px,rgba(21,85,120,.02) 45px 46px),repeating-linear-gradient(90deg,transparent 0 45px,rgba(21,85,120,.02) 45px 46px),linear-gradient(180deg,#f2f6f7,#eaf1f3); }
+@media(max-width:700px) {
+ .hero-blueprint { margin-top:.9rem; }
+}
