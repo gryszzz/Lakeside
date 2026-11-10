@@ -24,7 +24,8 @@ export default defineConfig({
         bathroom: resolve(__dirname, 'bathroom-remodeling/index.html'),
         process: resolve(__dirname, 'process/index.html'),
         areas: resolve(__dirname, 'service-area/index.html'),
-        faq: resolve(__dirname, 'faq/index.html')
+        faq: resolve(__dirname, 'faq/index.html'),
+        reviews: resolve(__dirname, 'reviews/index.html')
       }
     }
   }

@@ -1,4 +1,4 @@
-import { BrandConnections } from './components/BrandConnections';
+import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
@@ -105,7 +105,12 @@ function ServiceAreaPage() { return <SiteShell><PageHero eyebrow="Service Area" 
 function FaqPage() { return <SiteShell><PageHero eyebrow="FAQ" title="FAQ" actions={<ConsultationLink />} /><FAQSection items={faqs} /></SiteShell>; }
 function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero showActions={false}  />} /><section className="section"><div className="container story-grid"><div><h2>Service Area</h2><p>{business.serviceAreaLabel}</p><p>Ronald Augustine, Owner</p><p>Mailing address: {business.address}</p><p>{business.license} · {business.licenseNumber}</p></div><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></div></section></SiteShell>; }
 
+function ReviewsPage() {
+ return <SiteShell><PageHero title="Reviews" body="Google reviews coming soon." /><section className="section"><div className="container reviews-page-content"><GoogleReviewPreview /></div></section></SiteShell>;
+}
+
 export const pages = {
+  reviews: ReviewsPage,
   kitchen: KitchenPage, bathroom: BathroomPage, process: ProcessPage, areas: ServiceAreaPage, faq: FaqPage, contact: ContactPage,
   home: HomePage,
   services: ServicesPage,

@@ -387,3 +387,7 @@ p { line-height:1.8; }
  .mobile-nav__license { font-size:.64rem!important; color:#6b8495; margin-top:.6rem; }
 }
 @media(max-width:900px) { .mobile-nav__header { position:sticky; top:0; z-index:2; background:#f7fafc; } }
+.reviews-page-content { max-width:820px; }
+.google-review-preview > .text-link { margin-top:1rem; }
+@media(min-width:901px) and (max-width:1100px) { .site-nav { gap:.75rem; } .site-nav a { font-size:.68rem; } }
+@media(max-width:900px) { .mobile-nav nav a:last-child:nth-child(odd) { grid-column:1/-1; } }
