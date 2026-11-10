@@ -778,3 +778,7 @@ p { line-height:1.8; }
 .site-header::after { position:absolute; right:0; bottom:-1px; left:0; height:2px; background:linear-gradient(90deg,#76b8c1 0%,#155578 48%,#a9d0c9 100%); opacity:.65; pointer-events:none; content:''; }
 .hero { background-color:#edf3f1; background-image:radial-gradient(ellipse at 84% 26%,rgba(111,174,181,.23),transparent 37%),radial-gradient(ellipse at 13% 4%,rgba(255,255,255,.9),transparent 39%),repeating-linear-gradient(0deg,transparent 0 47px,rgba(21,85,120,.027) 47px 48px),repeating-linear-gradient(90deg,transparent 0 47px,rgba(21,85,120,.027) 47px 48px),linear-gradient(128deg,#f8f8f3 0%,#eff4f1 53%,#e7f0f2 100%); }
 .hero-trust-band { background:linear-gradient(108deg,#103f5a 0%,#155578 56%,#20728a 100%); }
+.home-services { padding-top:clamp(2.4rem,4vw,3.4rem); }
+@media(max-width:700px) {
+ .home-services { padding-top:1.6rem; }
+}
