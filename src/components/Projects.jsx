@@ -317,9 +317,9 @@ export function BeforeAfterSlider({ project, compact = false }) {
   return (
     <article className={`before-after ${compact ? 'before-after--compact' : ''}`} data-reveal>
       <div className="before-after__frame">
-        <img src={withBase(project.afterImage)} alt={project.altAfter} className="before-after__image" />
-        <div className="before-after__overlay" style={{ width: `${value}%` }}>
-          <img src={withBase(project.beforeImage)} alt={project.altBefore} className="before-after__image" />
+        <img src={withBase(project.afterImage)} alt={project.altAfter} className="before-after__image" loading="lazy" decoding="async" />
+        <div className="before-after__overlay" style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}>
+          <img src={withBase(project.beforeImage)} alt={project.altBefore} className="before-after__image" loading="lazy" decoding="async" />
         </div>
         <div className="before-after__labels">
           <span>Before</span>
@@ -337,12 +337,10 @@ export function BeforeAfterSlider({ project, compact = false }) {
         />
       </div>
       <div className="before-after__content">
-        <p className="eyebrow">
-          {project.title} • {project.location}
-        </p>
+        <p className="eyebrow">{project.title}{project.location ? ` • ${project.location}` : ''}</p>
         <h3>{project.scope}</h3>
         <p>{project.summary}</p>
-        <p className="before-after__value">{project.value}</p>
+        {project.value ? <p className="before-after__value">{project.value}</p> : null}
       </div>
     </article>
   );
@@ -463,6 +461,43 @@ const homepageProjectPhotos = [
     alt: 'White kitchen cabinetry and island during installation, with tools still in the room',
     summary: 'A kitchen installation in progress, showing cabinetry and island work before the finishing details.',
     tags: ['Kitchen', 'Installation', 'In Progress']
+  },
+  {
+    title: 'Laundry Room with Custom Cabinetry',
+    category: 'Laundry Room',
+    image: 'images/projects/portfolio/lakeside-laundry-after.jpg',
+    alt: 'Updated laundry room with gray custom cabinets, marble-look tile floor, and washer and dryer',
+    summary: 'A refreshed laundry room with custom cabinetry and marble-look tile flooring.',
+    tags: ['Laundry Room', 'Cabinetry', 'Tile']
+  },
+  {
+    title: 'Rebuilt Deck & Stairs',
+    category: 'Outdoor',
+    image: 'images/projects/portfolio/lakeside-deck-after.jpg',
+    alt: 'New wood deck with rebuilt stairs and railing leading to the backyard',
+    summary: 'A rebuilt outdoor stairway and deck with new wood decking and railing.',
+    tags: ['Deck', 'Stairs', 'Railing']
+  }
+];
+
+const homepageBeforeAfterProjects = [
+  {
+    title: 'Laundry Room Renovation',
+    summary: 'Compare the crowded utility space with the refreshed laundry room.',
+    beforeImage: 'images/projects/portfolio/lakeside-laundry-before.jpg',
+    afterImage: 'images/projects/portfolio/lakeside-laundry-after.jpg',
+    altBefore: 'Laundry room before renovation, crowded with hanging clothes, shelves, and stored items',
+    altAfter: 'Laundry room after renovation with gray custom cabinetry and marble-look tile flooring',
+    scope: 'Laundry room update'
+  },
+  {
+    title: 'Deck & Stair Renovation',
+    summary: 'Compare the weathered deck with its rebuilt wood stairs and railing.',
+    beforeImage: 'images/projects/portfolio/lakeside-deck-before.jpg',
+    afterImage: 'images/projects/portfolio/lakeside-deck-after.jpg',
+    altBefore: 'Weathered wood deck and stairs before renovation',
+    altAfter: 'Rebuilt wood deck, stairs, and railing after renovation',
+    scope: 'Decking, stairs, and railing'
   }
 ];
 
@@ -520,6 +555,25 @@ export function HomeProjectGallery() {
           onNavigate={setActiveIndex}
         />
       ) : null}
+    </section>
+  );
+}
+
+export function HomeBeforeAfterShowcase() {
+  return (
+    <section className="section home-before-after">
+      <div className="container">
+        <SectionIntro
+          eyebrow="Before & After"
+          title="Two Projects, Before and After"
+          body="Drag each divider to compare the original project with the finished work."
+        />
+        <div className="before-after-showcase home-before-after__comparison">
+          {homepageBeforeAfterProjects.map((project) => (
+            <BeforeAfterSlider key={project.title} compact project={project} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

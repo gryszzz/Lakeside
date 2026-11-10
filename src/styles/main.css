@@ -885,3 +885,28 @@ p { line-height:1.8; }
  .home-gallery__caption { min-height:70px; padding:.7rem .85rem .8rem; }
  .home-gallery__hint { text-align:left; }
 }
+.home-before-after { background:linear-gradient(145deg,#f8faf8 0%,#e5eef0 60%,#d5e3e7 100%); border-top:1px solid #d8e4e7; }
+.home-before-after .section-intro { margin-bottom:1.3rem; }
+.home-before-after .section-intro__body { max-width:54ch; margin-bottom:0; font-size:.88rem; }
+.home-before-after__comparison { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:1.2rem; }
+.before-after { min-width:0; overflow:hidden; border:1px solid #d4e1e4; border-radius:16px; background:#fff; box-shadow:0 12px 30px rgba(20,53,68,.09); }
+.before-after__frame { position:relative; aspect-ratio:4 / 3; overflow:hidden; background:linear-gradient(135deg,#e7eff0,#d5e2e5); isolation:isolate; }
+.before-after__image { position:absolute; inset:0; display:block; width:100%; height:100%; max-width:none; object-fit:contain; }
+.before-after__overlay { position:absolute; z-index:1; inset:0; overflow:hidden; }
+.before-after__labels { position:absolute; z-index:3; right:.8rem; bottom:.8rem; left:.8rem; display:flex; justify-content:space-between; pointer-events:none; }
+.before-after__labels span { padding:.35rem .55rem; border:1px solid #ffffffc9; border-radius:30px; background:rgba(16,63,90,.87); color:#fff; font-size:.62rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; box-shadow:0 3px 10px #102a391c; }
+.before-after__handle { position:absolute; z-index:2; top:0; bottom:0; width:0; border-left:2px solid #fff; pointer-events:none; filter:drop-shadow(0 0 3px #103f5a99); transform:translateX(-1px); }
+.before-after__handle::after { content:'↔'; position:absolute; top:50%; left:0; display:grid; place-items:center; width:42px; height:42px; border:2px solid #fff; border-radius:50%; background:#155578; color:#fff; font-size:1.1rem; font-weight:700; transform:translate(-50%,-50%); box-shadow:0 4px 12px #102a3940; }
+.before-after__range { position:absolute; z-index:4; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:ew-resize; touch-action:pan-y; }
+.before-after__range:focus-visible { outline:3px solid #58a9cb; outline-offset:-4px; opacity:.06; }
+.before-after__content { padding:1rem 1.1rem 1.1rem; }
+.before-after__content .eyebrow { margin:0 0 .45rem; color:#4d7181; font-size:.63rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+.before-after__content h3 { margin-bottom:.45rem; color:#17384a; font-size:1.05rem; }
+.before-after__content p:not(.eyebrow) { margin-bottom:.5rem; color:#586a72; font-size:.78rem; line-height:1.55; }
+.before-after__content .before-after__value { margin:0; color:#155578; font-weight:750; }
+@media(max-width:700px) {
+ .home-before-after__comparison { grid-template-columns:1fr; gap:.9rem; }
+ .before-after { border-radius:14px; }
+ .before-after__content { padding:.85rem .9rem .95rem; }
+ .before-after__frame { aspect-ratio:1 / .82; }
+}
