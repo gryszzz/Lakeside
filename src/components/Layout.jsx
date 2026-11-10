@@ -155,6 +155,7 @@ export function Header() {
               <span className="header-call-icon" aria-hidden="true" />
               <span>Call now</span>
             </a>
+            <a className="button site-header__book" href={business.emailHref}>Book Online</a>
 
             <button
               className="menu-toggle"
