@@ -703,8 +703,8 @@ p { line-height:1.8; }
 .hero-actions .button--hero-tech { display:grid; grid-template-columns:20px minmax(0,1fr) 32px; align-items:center; justify-content:initial; gap:.7rem; width:min(100%,304px); min-height:54px; padding:.55rem .65rem .55rem 1rem; border:1px solid #155578; border-radius:10px; text-align:left; font-size:.82rem; }
 .hero-actions .button--hero-tech::after { content:none; }
 .hero-cta__calendar { display:block; width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
-.hero-cta__arrow { display:grid; place-items:center; width:32px; height:32px; border:1px solid rgba(255,255,255,.28); border-radius:50%; background:rgba(255,255,255,.12); color:#fff; font-size:1.05rem; line-height:1; transition:transform .18s,background .18s; }
-.hero-actions .button--hero-tech:hover .hero-cta__arrow { transform:translateX(2px); background:rgba(255,255,255,.2); }
+.hero-cta__arrow { display:grid; place-items:center; width:32px; height:32px; border:0; border-radius:0; background:transparent; color:#fff; font-size:1.15rem; line-height:1; transition:transform .18s; }
+.hero-actions .button--hero-tech:hover .hero-cta__arrow { transform:translateX(2px); }
 @media(max-width:700px) {
  .hero-actions .button--hero-tech { width:min(100%,304px); min-height:52px; padding:.5rem .6rem .5rem .9rem; font-size:.78rem; }
 }
