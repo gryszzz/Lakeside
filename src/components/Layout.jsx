@@ -95,6 +95,8 @@ export function SectionIntro({ eyebrow, title, body, align = 'left' }) {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuTriggerRef = useRef(null);
+  const menuPanelRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -106,6 +108,26 @@ export function Header() {
   useEffect(() => {
     document.body.classList.toggle('menu-open', open);
     return () => document.body.classList.remove('menu-open');
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const panel = menuPanelRef.current;
+    panel?.querySelector('button')?.focus();
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
+      if (event.key !== 'Tab' || !panel) return;
+      const controls = Array.from(panel.querySelectorAll('a[href], button:not([disabled])'));
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    };
+    const desktop = window.matchMedia('(min-width: 901px)');
+    const onDesktop = (event) => { if (event.matches) setOpen(false); };
+    desktop.addEventListener('change', onDesktop);
+    document.addEventListener('keydown', onKeyDown);
+    return () => { desktop.removeEventListener('change', onDesktop); document.removeEventListener('keydown', onKeyDown); menuTriggerRef.current?.focus(); };
   }, [open]);
 
   return (
@@ -135,6 +157,7 @@ export function Header() {
 
             <button
               className="menu-toggle"
+              ref={menuTriggerRef}
               type="button"
               aria-expanded={open}
               aria-controls="mobile-menu"
@@ -146,46 +169,16 @@ export function Header() {
           </div>
         </div>
       </header>
-      <div id="mobile-menu" className={`mobile-nav ${open ? 'is-open' : ''}`}>
-        <div className="mobile-nav__panel">
-          <div className="mobile-nav__header">
-            <Logo />
-            <button type="button" className="mobile-nav__close" onClick={() => setOpen(false)}>
-              Close
-            </button>
-          </div>
+      <div id="mobile-menu" className={`mobile-nav ${open ? 'is-open' : ''}`} aria-hidden={!open} onClick={event => { if (event.target === event.currentTarget) setOpen(false); }}>
+        <div className="mobile-nav__panel" ref={menuPanelRef} role={open ? 'dialog' : undefined} aria-modal={open ? true : undefined} aria-label="Lakeside site menu">
+          <div className="mobile-nav__header"><Logo /><button type="button" className="mobile-nav__close" aria-label="Close menu" onClick={() => setOpen(false)}><span className="mobile-nav__close-icon" aria-hidden="true" /></button></div>
           <nav aria-label="Mobile navigation">
-            {navItems.map((item) => (
-              <a
-                key={item.href || 'mobile-home'}
-                href={withBase(item.href)}
-                className={isActivePath(item.href) ? 'is-active' : ''}
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </a>
+            {[...navItems.slice(0, 2), {label: 'Home', href: ''}, ...navItems.slice(2), {label: 'Services', href: 'services/'}, {label: 'Project Photos', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item,index) => (
+              <a key={item.href || 'mobile-home'} href={withBase(item.href)} className={`${isActivePath(item.href) ? 'is-active' : ''} ${index < 2 ? 'mobile-nav__featured' : ''}`} aria-current={isActivePath(item.href) ? 'page' : undefined} onClick={() => setOpen(false)}><span>{item.label}</span></a>
             ))}
           </nav>
-          <div className="mobile-nav__cta">
-            <a className="button button--mobile-tech button--mobile-tech--ghost" href={business.phoneHref} onClick={() => setOpen(false)}>
-              Call
-            </a>
-            <a className="button button--mobile-tech" href={withBase('quote/')} onClick={() => setOpen(false)}>
-              Request Estimate
-            </a>
-          </div>
-          <div className="mobile-nav__meta">
-            <p className="mobile-nav__meta-number">{business.phone}</p>
-            <p className="mobile-nav__meta-label">Service Area</p>
-            <p>{business.serviceAreaLabel}</p>
-            <div className="social-links social-links--mobile">
-              {business.socialLinks.map((link) => (
-                <a key={link.label} href={withBase(link.href)} onClick={() => setOpen(false)}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
+          <div className="mobile-nav__cta"><a className="button mobile-nav__call" href={business.phoneHref} onClick={() => setOpen(false)}><span className="header-call-icon" aria-hidden="true" />Call now</a><a className="button button--ghost" href={withBase('quote/')} onClick={() => setOpen(false)}>Request Estimate</a></div>
+          <div className="mobile-nav__meta"><p className="mobile-nav__owner">Ronald Augustine <span>Owner</span></p><a className="mobile-nav__email" href={business.emailHref} onClick={() => setOpen(false)}>{business.email}</a><p className="mobile-nav__meta-label">Service Area</p><p>{business.serviceAreaLabel}</p><p className="mobile-nav__license">{business.licenseNumber}</p></div>
         </div>
       </div>
     </>
