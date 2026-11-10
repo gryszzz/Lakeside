@@ -3,234 +3,26 @@ import { beforeAfterProjects, featuredProjects } from '../content/site';
 import { withBase } from '../utils';
 import { SectionIntro } from './Layout';
 
-const MIN_LIGHTBOX_ZOOM = 1;
-const LIGHTBOX_FOCUS_ZOOM = 2;
-const MAX_LIGHTBOX_ZOOM = 3.4;
-const LIGHTBOX_ZOOM_STEP = 0.4;
-const LIGHTBOX_WHEEL_STEP = 0.24;
-
-function clampValue(value, min, max) {
-  return Math.min(max, Math.max(min, value));
-}
-
 function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
   const project = projects[activeIndex];
-  const viewportRef = useRef(null);
-  const dragRef = useRef(null);
-  const suppressToggleRef = useRef(false);
-  const [zoom, setZoom] = useState(1);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const zoomRef = useRef(zoom);
-  const offsetRef = useRef(offset);
-  const isZoomed = zoom > 1.01;
   const hasPrev = activeIndex > 0;
   const hasNext = activeIndex < projects.length - 1;
 
   useEffect(() => {
-    zoomRef.current = zoom;
-  }, [zoom]);
-
-  useEffect(() => {
-    offsetRef.current = offset;
-  }, [offset]);
-
-  const limitOffset = (nextOffset, nextZoom = zoomRef.current) => {
-    const viewport = viewportRef.current;
-
-    if (!viewport || nextZoom <= 1) {
-      return { x: 0, y: 0 };
-    }
-
-    const rect = viewport.getBoundingClientRect();
-    const maxX = ((nextZoom - 1) * rect.width) / 2;
-    const maxY = ((nextZoom - 1) * rect.height) / 2;
-
-    return {
-      x: clampValue(nextOffset.x, -maxX, maxX),
-      y: clampValue(nextOffset.y, -maxY, maxY)
-    };
-  };
-
-  const applyZoom = (nextZoom, anchor) => {
-    const viewport = viewportRef.current;
-    const clampedZoom = clampValue(nextZoom, MIN_LIGHTBOX_ZOOM, MAX_LIGHTBOX_ZOOM);
-    const currentZoom = zoomRef.current;
-    const currentOffset = offsetRef.current;
-
-    if (!viewport) {
-      setZoom(clampedZoom);
-      if (clampedZoom <= MIN_LIGHTBOX_ZOOM) {
-        setOffset({ x: 0, y: 0 });
-      }
-      return;
-    }
-
-    const rect = viewport.getBoundingClientRect();
-    const focusPoint = anchor ?? { x: rect.width / 2, y: rect.height / 2 };
-
-    if (clampedZoom <= MIN_LIGHTBOX_ZOOM) {
-      setZoom(MIN_LIGHTBOX_ZOOM);
-      setOffset({ x: 0, y: 0 });
-      return;
-    }
-
-    const originX = focusPoint.x - rect.width / 2;
-    const originY = focusPoint.y - rect.height / 2;
-    const scaleRatio = clampedZoom / currentZoom;
-
-    setZoom(clampedZoom);
-    setOffset(
-      limitOffset(
-        {
-          x: originX - (originX - currentOffset.x) * scaleRatio,
-          y: originY - (originY - currentOffset.y) * scaleRatio
-        },
-        clampedZoom
-      )
-    );
-  };
-
-  const getAnchorFromEvent = (event) => {
-    const viewport = viewportRef.current;
-
-    if (!viewport) return undefined;
-
-    const rect = viewport.getBoundingClientRect();
-
-    return {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top
-    };
-  };
-
-  const zoomInView = () => {
-    applyZoom(LIGHTBOX_FOCUS_ZOOM);
-  };
-
-  const resetView = () => {
-    setZoom(MIN_LIGHTBOX_ZOOM);
-    setOffset({ x: 0, y: 0 });
-    setIsDragging(false);
-    suppressToggleRef.current = false;
-    dragRef.current = null;
-  };
-
-  useEffect(() => {
-    resetView();
-  }, [project]);
-
-  useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-
+      if (event.key === 'Escape') onClose();
       if (event.key === 'ArrowLeft' && hasPrev) {
         event.preventDefault();
         onNavigate(activeIndex - 1);
       }
-
       if (event.key === 'ArrowRight' && hasNext) {
         event.preventDefault();
         onNavigate(activeIndex + 1);
       }
-
-      if (event.key === '+' || event.key === '=') {
-        event.preventDefault();
-        applyZoom(zoom + LIGHTBOX_ZOOM_STEP);
-      }
-
-      if (event.key === '-' || event.key === '_') {
-        event.preventDefault();
-        applyZoom(zoom - LIGHTBOX_ZOOM_STEP);
-      }
-
-      if (event.key === '0') {
-        event.preventDefault();
-        resetView();
-      }
     };
-
     window.addEventListener('keydown', handleKeyDown);
-
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activeIndex, hasNext, hasPrev, onClose, onNavigate]);
-
-  const handlePointerDown = (event) => {
-    if (!isZoomed) return;
-
-    dragRef.current = {
-      pointerId: event.pointerId,
-      startX: event.clientX,
-      startY: event.clientY,
-      originX: offset.x,
-      originY: offset.y,
-      moved: false
-    };
-
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
-
-  const handlePointerMove = (event) => {
-    const dragState = dragRef.current;
-
-    if (!dragState || dragState.pointerId !== event.pointerId || !isZoomed) return;
-
-    const deltaX = event.clientX - dragState.startX;
-    const deltaY = event.clientY - dragState.startY;
-    const moved = Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4;
-
-    if (moved) {
-      dragState.moved = true;
-      setIsDragging(true);
-    }
-
-    setOffset(
-      limitOffset({
-        x: dragState.originX + deltaX,
-        y: dragState.originY + deltaY
-      })
-    );
-  };
-
-  const handlePointerRelease = (event) => {
-    const dragState = dragRef.current;
-
-    if (dragState?.pointerId !== event.pointerId) return;
-
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-
-    if (dragState.moved) {
-      suppressToggleRef.current = true;
-    }
-
-    dragRef.current = null;
-    setIsDragging(false);
-  };
-
-  const handleMediaClick = () => {
-    if (suppressToggleRef.current) {
-      suppressToggleRef.current = false;
-      return;
-    }
-
-    if (isZoomed) {
-      resetView();
-      return;
-    }
-
-    zoomInView();
-  };
-
-  const handleWheel = (event) => {
-    event.preventDefault();
-
-    const delta = event.deltaY < 0 ? LIGHTBOX_WHEEL_STEP : -LIGHTBOX_WHEEL_STEP;
-    applyZoom(zoomRef.current + delta, getAnchorFromEvent(event));
-  };
 
   return (
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={project.title}>
@@ -269,24 +61,11 @@ function ProjectLightbox({ projects, activeIndex, onClose, onNavigate }) {
             </button>
           ) : null}
 
-          <div
-            ref={viewportRef}
-            className={`lightbox__media ${isZoomed ? 'is-zoomed' : ''} ${isDragging ? 'is-dragging' : ''}`}
-            onClick={handleMediaClick}
-            onWheel={handleWheel}
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerRelease}
-            onPointerCancel={handlePointerRelease}
-            onPointerLeave={handlePointerRelease}
-          >
+          <div className="lightbox__media">
             <img
               className="lightbox__image"
               src={withBase(project.image)}
               alt={project.alt}
-              style={{
-                transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`
-              }}
             />
           </div>
         </div>
@@ -558,26 +337,25 @@ const homepageBeforeAfterProjects = [
   }
 ];
 
-const galleryComparisonPhotos = homepageBeforeAfterProjects.flatMap((project, index) => ([
-  {
-    id: `comparison-${index + 1}-before`,
-    title: `${project.title} · Before`,
-    category: 'Before & After',
-    image: project.beforeImage,
-    alt: project.altBefore,
-    summary: project.summary,
-    tags: ['Before', project.scope]
-  },
-  {
-    id: `comparison-${index + 1}-after`,
-    title: `${project.title} · After`,
-    category: 'Before & After',
-    image: project.afterImage,
-    alt: project.altAfter,
-    summary: project.summary,
-    tags: ['After', project.scope]
-  }
-]));
+// Add a before photo only when this project has a matching source photo.
+// Keep its existing after-photo ID so saved gallery links still work.
+const galleryProjectPhotos = homepageProjectPhotos.flatMap((project) => {
+  const comparison = homepageBeforeAfterProjects.find((pair) => pair.afterImage === project.image);
+  if (!comparison) return [project];
+  const comparisonIndex = homepageBeforeAfterProjects.indexOf(comparison);
+  return [
+    {
+      ...project,
+      id: `comparison-${comparisonIndex + 1}-before`,
+      title: `${comparison.title} · Before`,
+      image: comparison.beforeImage,
+      alt: comparison.altBefore,
+      summary: comparison.summary,
+      tags: ['Before', comparison.scope]
+    },
+    { ...project, title: `${comparison.title} · After`, tags: ['After', comparison.scope] }
+  ];
+});
 
 export function HomeProjectGallery() {
   const trackRef = useRef(null);
@@ -603,7 +381,7 @@ export function HomeProjectGallery() {
           </div>
         </div>
         <div className="home-gallery__track" id="home-project-gallery" ref={trackRef} aria-label="Kitchen and bathroom project photos" tabIndex="0">
-          {homepageProjectPhotos.map((project) => (
+          {galleryProjectPhotos.map((project) => (
             <a
               className="home-gallery__card"
               key={project.image}
@@ -650,26 +428,20 @@ export function ProjectGallery() {
   const [filter, setFilter] = useState('All');
   const [activeIndex, setActiveIndex] = useState(() => {
     const selectedId = new URLSearchParams(window.location.search).get('project');
-    const projectIndex = homepageProjectPhotos.findIndex((project) => project.id === selectedId);
+    const projectIndex = galleryProjectPhotos.findIndex((project) => project.id === selectedId);
     if (projectIndex >= 0) return projectIndex;
-    const comparisonIndex = galleryComparisonPhotos.findIndex((project) => project.id === selectedId);
-    return comparisonIndex >= 0 ? comparisonIndex : null;
+    return null;
   });
-  const [lightboxProjects, setLightboxProjects] = useState(() => {
-    const selectedId = new URLSearchParams(window.location.search).get('project');
-    return galleryComparisonPhotos.some((project) => project.id === selectedId)
-      ? galleryComparisonPhotos
-      : homepageProjectPhotos;
-  });
+  const [lightboxProjects, setLightboxProjects] = useState(galleryProjectPhotos);
 
   const filters = useMemo(
-    () => ['All', ...new Set(homepageProjectPhotos.map((project) => project.category))],
+    () => ['All', ...new Set(galleryProjectPhotos.map((project) => project.category))],
     []
   );
 
   const visibleProjects = useMemo(() => {
-    if (filter === 'All') return homepageProjectPhotos;
-    return homepageProjectPhotos.filter((project) => project.category === filter);
+    if (filter === 'All') return galleryProjectPhotos;
+    return galleryProjectPhotos.filter((project) => project.category === filter);
   }, [filter]);
 
   const updateProjectQuery = (projectId) => {
@@ -683,12 +455,6 @@ export function ProjectGallery() {
     setLightboxProjects(visibleProjects);
     setActiveIndex(index);
     updateProjectQuery(visibleProjects[index]?.id);
-  };
-
-  const openComparisonPhoto = (index) => {
-    setLightboxProjects(galleryComparisonPhotos);
-    setActiveIndex(index);
-    updateProjectQuery(galleryComparisonPhotos[index]?.id);
   };
 
   const closeProject = () => {
@@ -710,7 +476,7 @@ export function ProjectGallery() {
               <p className="eyebrow">Lakeside · Project Gallery</p>
               <h1>Our Work, Up Close</h1>
               <p className="project-gallery__body">
-                Browse our kitchen, bathroom, cabinetry, and outdoor projects. Open any photo to zoom in and see the details.
+                Browse our kitchen, bathroom, cabinetry, and outdoor projects. Open any photo to see the full image. Before and after photos appear back to back.
               </p>
             </div>
             <div className="project-gallery__count" aria-live="polite">
@@ -769,36 +535,7 @@ export function ProjectGallery() {
             </article>
           ))}
         </div>
-        <section className="project-gallery__comparisons" aria-labelledby="project-comparisons-heading">
-          <div className="project-gallery__comparisons-heading">
-            <div>
-              <p className="eyebrow">Before &amp; After</p>
-              <h2 id="project-comparisons-heading">See Both Sides of the Project</h2>
-            </div>
-            <p>Each comparison keeps the before and after photos together so you can see the change at a glance.</p>
-          </div>
-          <div className="project-comparison-grid">
-            {homepageBeforeAfterProjects.map((project, index) => (
-              <article className="project-comparison" key={project.title}>
-                <div className="project-comparison__title">
-                  <span>Comparison 0{index + 1}</span>
-                  <h3>{project.title}</h3>
-                </div>
-                <div className="project-comparison__pair">
-                  <button type="button" className="project-comparison__photo" onClick={() => openComparisonPhoto(index * 2)} aria-label={`Open before photo for ${project.title}`}>
-                    <span className="project-comparison__label">Before</span>
-                    <img src={withBase(project.beforeImage)} alt={project.altBefore} loading="lazy" decoding="async" />
-                  </button>
-                  <button type="button" className="project-comparison__photo" onClick={() => openComparisonPhoto(index * 2 + 1)} aria-label={`Open after photo for ${project.title}`}>
-                    <span className="project-comparison__label">After</span>
-                    <img src={withBase(project.afterImage)} alt={project.altAfter} loading="lazy" decoding="async" />
-                  </button>
-                </div>
-                <p className="project-comparison__scope">{project.scope}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+
       </div>
 
       {activeIndex !== null ? (
