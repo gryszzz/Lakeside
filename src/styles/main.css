@@ -812,3 +812,21 @@ p { line-height:1.8; }
 @media(max-width:700px) {
  .home-services { padding-top:1.6rem; }
 }
+
+/* Pull the overview closer to the hero and give the opening sections more blue depth. */
+.hero {
+ background-color:#e4edf0;
+ background-image:radial-gradient(ellipse at 86% 44%,rgba(16,63,90,.22),transparent 38%),radial-gradient(ellipse at 67% 9%,rgba(145,184,197,.24),transparent 37%),repeating-linear-gradient(0deg,transparent 0 47px,rgba(21,85,120,.035) 47px 48px),repeating-linear-gradient(90deg,transparent 0 47px,rgba(21,85,120,.035) 47px 48px),linear-gradient(112deg,#fff 0%,#f1f5f2 42%,#d4e1e5 69%,#a9c1cb 100%);
+}
+.hero-trust-band { margin-top:2.2rem; }
+.home-services {
+ padding-top:clamp(1.8rem,3vw,2.5rem);
+ background-color:#e2ebee;
+ background-image:radial-gradient(ellipse at 92% 83%,rgba(16,63,90,.19),transparent 40%),radial-gradient(ellipse at 8% 0%,rgba(255,255,255,.95),transparent 54%),repeating-linear-gradient(0deg,transparent 0 47px,rgba(21,85,120,.035) 47px 48px),repeating-linear-gradient(90deg,transparent 0 47px,rgba(21,85,120,.035) 47px 48px),linear-gradient(135deg,#f9faf7 0%,#e8eff0 47%,#c7d9df 100%);
+ border-block:1px solid #cfdee2;
+}
+.home-services .section-intro__eyebrow { color:#155578; }
+@media(max-width:700px) {
+ .hero-trust-band { margin-top:1.5rem; }
+ .home-services { padding-top:1.2rem; }
+}
