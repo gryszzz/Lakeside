@@ -348,8 +348,8 @@ p { line-height:1.8; }
 .site-header__phone:hover { background:#edf5f9; color:var(--blue-dark); border-color:var(--blue); }
 .site-header__book { display:none; }
 @media(min-width:901px) {
- .site-header__book { display:inline-flex; min-height:40px; padding:.6rem .8rem; background:#fff; border:0; color:var(--blue); font-size:.8rem; white-space:nowrap; }
- .site-header__book:hover { background:#edf5f9; border-color:var(--blue); color:var(--blue-dark); }
+ .site-header__book { display:inline-block; padding:12px 0; color:var(--blue); font-size:.78rem; font-weight:700; line-height:1.35; white-space:nowrap; }
+ .site-header__book:hover { color:var(--blue-dark); text-decoration:underline; text-underline-offset:4px; }
 }
 .header-call-icon { display:block; width:20px; height:20px; flex-shrink:0; background:currentColor; mask:url('/images/icons/phone-call.svg') center / contain no-repeat; -webkit-mask:url('/images/icons/phone-call.svg') center / contain no-repeat; }
 @media(max-width:700px) { .header-call-icon { width:17px; height:17px; } }
