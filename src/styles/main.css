@@ -676,3 +676,26 @@ p { line-height:1.8; }
  .home-service-feature__content p { margin-bottom:.4rem; font-size:.74rem; line-height:1.5; }
  .service-card__link { font-size:.75rem; }
 }
+
+/* Tighten the opening view and give the primary action a more natural footprint. */
+.hero h1 { max-width:18ch; margin-bottom:.75rem; }
+.hero__body { margin-bottom:.85rem; }
+.hero-actions .button--hero-tech { min-height:50px; padding:.8rem 1.05rem; }
+.hero-signature { margin:.75rem auto .2rem; }
+.hero-license { margin:0; }
+@media(max-width:700px) {
+ .hero { padding-top:.7rem; }
+ .hero__grid { gap:.7rem; }
+ .hero__content > .eyebrow { margin-bottom:.45rem; font-size:.59rem; letter-spacing:.11em; }
+ .hero h1 { max-width:22ch; margin-bottom:.65rem; font-size:clamp(1.65rem,6.2vw,1.82rem); line-height:1.12; }
+ .hero__body { max-width:48ch; margin-bottom:.75rem; font-size:.84rem; line-height:1.6; }
+ .hero-actions { display:flex; flex-direction:column; align-items:flex-start; gap:.2rem; margin-top:.15rem; }
+ .hero-actions .button--hero-tech { width:auto; min-height:48px; justify-content:center; padding:.7rem .95rem; border-radius:9px; font-size:.78rem; box-shadow:0 5px 13px rgba(21,85,120,.16); }
+ .hero-actions .hero-call { width:auto; min-height:38px; justify-content:flex-start; gap:.45rem; padding:0 .1rem; }
+ .hero-call__copy { flex-direction:row; align-items:center; gap:.35rem; }
+ .hero-call__copy > span { font-size:.56rem; }
+ .hero-call__copy strong { font-size:.79rem; }
+ .hero-signature { margin:.45rem auto .12rem; font-size:.8rem; }
+ .hero-license { font-size:.63rem; }
+ .hero-blueprint { min-height:210px; }
+}
