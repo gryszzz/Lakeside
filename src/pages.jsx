@@ -19,8 +19,8 @@ function HomeHero() {
       <p className="eyebrow">Lakeside Kitchen & Bath LLC</p>
       <h1>Transforming Kitchens & Bathrooms With Over 40 Years of Experience</h1>
       <p className="hero__body">Beautiful renovations begin with quality craftsmanship, clear communication, and a contractor you can trust. At Lakeside Kitchen & Bath LLC, we specialize in kitchen and bathroom remodeling throughout Sussex, Morris, Passaic, and Warren Counties, delivering professional results designed to last.</p>
-      <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}>Schedule Your Consultation Today</a><a className="button button--ghost" href={business.phoneHref}>Call: {business.phone}</a></div>
-      <p className="hero-signature">We do the complete job!</p><p className="hero-license">NJ HIC #13VH13915600</p>
+      <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}>Schedule Your Consultation Today</a><a className="button button--ghost hero-call" href={business.phoneHref} aria-label={`Call Ron at ${business.phone}`}><span className="header-call-icon" aria-hidden="true" /><span className="hero-call__copy"><span>Call Ron</span><strong>{business.phone}</strong></span></a></div>
+      <p className="hero-signature"><span className="hero-signature__check" aria-hidden="true">✓</span>We do the complete job!</p><p className="hero-license">NJ HIC #13VH13915600</p>
     </div>
     <div className="photo-placeholder hero-photo" role="img" aria-label="Space reserved for a real Lakeside kitchen project photo"><span>Kitchen project photo</span><small>Ron’s project photography coming soon</small></div>
   </div><div className="hero-trust-band"><div className="container"><span>Over 40 Years of Experience</span><span>Licensed, Insured & Bonded</span><span>2-Year Workmanship Warranty</span></div></div></section>;

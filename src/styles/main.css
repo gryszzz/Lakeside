@@ -468,8 +468,21 @@ p { line-height:1.8; }
 .brand-connections { background:linear-gradient(180deg,#eef5f7 0%,#f5f8f9 100%); border-block:1px solid #e3ecf1; }
 .coverage-section { background:linear-gradient(180deg,#fff 0%,#f7fafb 100%); }
 .section--faq { background:linear-gradient(180deg,#f7fafb 0%,#eef4f6 100%); border-block:1px solid #e7eef1; }
+.hero-actions { gap:.8rem; }
+.hero-actions .button--hero-tech { min-height:54px; padding:.9rem 1.2rem; border:0; border-radius:12px; background:linear-gradient(115deg,#155578,#1c6b8c); box-shadow:0 10px 24px rgba(21,85,120,.2); font-size:.86rem; }
+.hero-actions .button--hero-tech::after { content:'→'; margin-left:.5rem; font-size:1.15rem; line-height:1; }
+.hero-actions .button--hero-tech:hover { background:linear-gradient(115deg,#103f5a,#155578); }
+.hero-actions .hero-call { min-height:54px; gap:.65rem; padding:.45rem 1rem; border:1px solid #c9dbe3; border-radius:12px; background:#fff; color:var(--blue); box-shadow:0 6px 16px rgba(16,42,57,.06); }
+.hero-actions .hero-call:hover { background:#f0f7f9; border-color:#9fbfcd; color:var(--blue-dark); }
+.hero-call__copy { display:flex; flex-direction:column; align-items:flex-start; line-height:1.2; }
+.hero-call__copy > span { color:#597586; font-size:.58rem; font-weight:750; letter-spacing:.09em; text-transform:uppercase; }
+.hero-call__copy strong { font-size:.82rem; }
+.hero-signature { display:inline-flex; align-items:center; gap:.55rem; padding:.48rem .75rem; border:1px solid #d8e7eb; border-left:3px solid #69b9cc; border-radius:5px 12px 12px 5px; background:rgba(255,255,255,.78); color:#315464; font-size:.82rem; font-style:normal; font-weight:750; letter-spacing:0; text-transform:none; }
+.hero-signature__check { display:grid; place-items:center; width:21px; height:21px; border-radius:50%; background:#e2f1f4; color:var(--blue); font-size:.75rem; }
 @media(max-width:700px) {
  .hero,.page-hero { background-size:auto,36px 36px,36px 36px; }
  .home-service-feature,.home-service-feature:nth-child(n+3) { padding:1rem; }
  .home-process__steps li { padding:1rem; }
+ .hero-actions { display:grid; grid-template-columns:1fr; gap:.65rem; }
+ .hero-actions .button--hero-tech,.hero-actions .hero-call { width:100%; justify-content:center; }
 }
