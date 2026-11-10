@@ -560,6 +560,27 @@ const homepageBeforeAfterProjects = [
   }
 ];
 
+const galleryComparisonPhotos = homepageBeforeAfterProjects.flatMap((project, index) => ([
+  {
+    id: `comparison-${index + 1}-before`,
+    title: `${project.title} · Before`,
+    category: 'Before & After',
+    image: project.beforeImage,
+    alt: project.altBefore,
+    summary: project.summary,
+    tags: ['Before', project.scope]
+  },
+  {
+    id: `comparison-${index + 1}-after`,
+    title: `${project.title} · After`,
+    category: 'Before & After',
+    image: project.afterImage,
+    alt: project.altAfter,
+    summary: project.summary,
+    tags: ['After', project.scope]
+  }
+]));
+
 export function HomeProjectGallery() {
   const trackRef = useRef(null);
 
@@ -631,8 +652,16 @@ export function ProjectGallery() {
   const [filter, setFilter] = useState('All');
   const [activeIndex, setActiveIndex] = useState(() => {
     const selectedId = new URLSearchParams(window.location.search).get('project');
-    const index = homepageProjectPhotos.findIndex((project) => project.id === selectedId);
-    return index >= 0 ? index : null;
+    const projectIndex = homepageProjectPhotos.findIndex((project) => project.id === selectedId);
+    if (projectIndex >= 0) return projectIndex;
+    const comparisonIndex = galleryComparisonPhotos.findIndex((project) => project.id === selectedId);
+    return comparisonIndex >= 0 ? comparisonIndex : null;
+  });
+  const [lightboxProjects, setLightboxProjects] = useState(() => {
+    const selectedId = new URLSearchParams(window.location.search).get('project');
+    return galleryComparisonPhotos.some((project) => project.id === selectedId)
+      ? galleryComparisonPhotos
+      : homepageProjectPhotos;
   });
 
   const filters = useMemo(
@@ -653,8 +682,15 @@ export function ProjectGallery() {
   };
 
   const openProject = (index) => {
+    setLightboxProjects(visibleProjects);
     setActiveIndex(index);
     updateProjectQuery(visibleProjects[index]?.id);
+  };
+
+  const openComparisonPhoto = (index) => {
+    setLightboxProjects(galleryComparisonPhotos);
+    setActiveIndex(index);
+    updateProjectQuery(galleryComparisonPhotos[index]?.id);
   };
 
   const closeProject = () => {
@@ -664,29 +700,34 @@ export function ProjectGallery() {
 
   const navigateProject = (index) => {
     setActiveIndex(index);
-    updateProjectQuery(visibleProjects[index]?.id);
+    updateProjectQuery(lightboxProjects[index]?.id);
   };
 
   return (
-    <section className="section">
+    <section className="section project-gallery-page">
       <div className="container">
         <div className="project-gallery__shell" data-reveal>
           <div className="project-gallery__header">
             <div className="project-gallery__copy">
-              <p className="eyebrow">Portfolio</p>
-              <h1>Our Project Gallery</h1>
+              <p className="eyebrow">Lakeside · Project Gallery</p>
+              <h1>Our Work, Up Close</h1>
               <p className="project-gallery__body">
-                Browse our project photos, then open any image to view it full size.
+                Browse our kitchen, bathroom, cabinetry, and outdoor projects. Open any photo to zoom in and see the details.
               </p>
             </div>
+            <div className="project-gallery__count" aria-live="polite">
+              <strong>{visibleProjects.length}</strong>
+              <span>{visibleProjects.length === 1 ? 'project photo' : 'project photos'}</span>
+            </div>
           </div>
-          <div className="project-filter">
+          <div className="project-filter" role="group" aria-label="Filter project photos">
             {filters.map((item) => (
               <button
                 key={item}
                 type="button"
                 className={filter === item ? 'is-active' : ''}
                 onClick={() => setFilter(item)}
+                aria-pressed={filter === item}
               >
                 {item}
               </button>
@@ -711,8 +752,9 @@ export function ProjectGallery() {
               aria-label={`Open details for ${project.title}`}
             >
               <div className="project-card__media">
-                <img src={withBase(project.image)} alt={project.alt} />
+                <img src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
                 <span>{project.category}</span>
+                <span className="project-card__open" aria-hidden="true">↗</span>
               </div>
               <div className="project-card__body">
                 <div className="project-card__topline">
@@ -729,11 +771,41 @@ export function ProjectGallery() {
             </article>
           ))}
         </div>
+        <section className="project-gallery__comparisons" aria-labelledby="project-comparisons-heading">
+          <div className="project-gallery__comparisons-heading">
+            <div>
+              <p className="eyebrow">Before &amp; After</p>
+              <h2 id="project-comparisons-heading">See Both Sides of the Project</h2>
+            </div>
+            <p>Each comparison keeps the before and after photos together so you can see the change at a glance.</p>
+          </div>
+          <div className="project-comparison-grid">
+            {homepageBeforeAfterProjects.map((project, index) => (
+              <article className="project-comparison" key={project.title}>
+                <div className="project-comparison__title">
+                  <span>Comparison 0{index + 1}</span>
+                  <h3>{project.title}</h3>
+                </div>
+                <div className="project-comparison__pair">
+                  <button type="button" className="project-comparison__photo" onClick={() => openComparisonPhoto(index * 2)} aria-label={`Open before photo for ${project.title}`}>
+                    <span className="project-comparison__label">Before</span>
+                    <img src={withBase(project.beforeImage)} alt={project.altBefore} loading="lazy" decoding="async" />
+                  </button>
+                  <button type="button" className="project-comparison__photo" onClick={() => openComparisonPhoto(index * 2 + 1)} aria-label={`Open after photo for ${project.title}`}>
+                    <span className="project-comparison__label">After</span>
+                    <img src={withBase(project.afterImage)} alt={project.altAfter} loading="lazy" decoding="async" />
+                  </button>
+                </div>
+                <p className="project-comparison__scope">{project.scope}</p>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
 
       {activeIndex !== null ? (
         <ProjectLightbox
-          projects={visibleProjects}
+          projects={lightboxProjects}
           activeIndex={activeIndex}
           onClose={closeProject}
           onNavigate={navigateProject}
