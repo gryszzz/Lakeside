@@ -260,16 +260,14 @@ export function MobileStickyCTA() {
 export function PageHero({ eyebrow, title, body, actions, aside }) {
   return (
     <section className="page-hero">
-      <div className="container page-hero__grid">
+      <div className={`container page-hero__grid ${aside ? '' : 'page-hero__grid--single'}`}>
         <div className="page-hero__content" data-reveal>
           <p className="eyebrow page-hero__eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p className="page-hero__body">{body}</p>
           {actions ? <div className="hero-actions hero-actions--tech page-hero__actions">{actions}</div> : null}
         </div>
-        <div className="page-hero__aside" data-reveal>
-          {aside}
-        </div>
+        {aside ? <div className="page-hero__aside" data-reveal>{aside}</div> : null}
       </div>
     </section>
   );

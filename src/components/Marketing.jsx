@@ -177,7 +177,7 @@ export function ServiceCards({ detailed = false, intro, compact = false }) {
       <div className="container">
         <SectionIntro
           eyebrow="Services"
-          title={detailed ? 'Full kitchen and bathroom renovations' : 'Full kitchen and bathroom renovations'}
+          title="Services"
           body={
             intro ||
             'Quality craftsmanship and professional installation for your home.'
@@ -185,7 +185,7 @@ export function ServiceCards({ detailed = false, intro, compact = false }) {
         />
         <div className={`service-grid ${detailed ? 'service-grid--detailed' : ''}`}>
           {services.map((service) => (
-            <article key={service.slug} className={`service-card ${compact ? 'service-card--compact' : ''}`} data-reveal>
+            <article id={service.slug} key={service.slug} className={`service-card ${compact ? 'service-card--compact' : ''}`} data-reveal>
               <div className="service-card__header">
                 <p className="eyebrow">{service.title}</p>
                 <h3>{service.short}</h3>{["kitchen-remodeling", "bathroom-remodeling"].includes(service.slug) && <a href={withBase(`${service.slug}/`)}>Explore {service.title} →</a>}
@@ -247,11 +247,7 @@ export function WhyChooseUs({ compact = false }) {
         <SectionIntro
           eyebrow="Why Homeowners Choose Us"
           title="Why Choose Lakeside Kitchen & Bath?"
-          body={
-            compact
-              ? 'Clear planning, cleaner execution, and a more polished homeowner experience.'
-              : 'The goal is simple: deliver premium-looking kitchens and bathrooms through a process that feels calm, capable, and well managed.'
-          }
+
         />
         <div className="reason-grid">
           {visibleReasons.map((reason) => (
@@ -305,8 +301,8 @@ export function ProcessSteps() {
       <div className="container">
         <SectionIntro
           eyebrow="Process"
-          title="A remodeling experience that feels organized from the beginning"
-          body="Kitchen and bathroom projects go better when the process is clear. We keep each phase understandable, realistic, and steady."
+          title="Our Remodeling Process"
+
         />
         <div className="process-grid">
           {processSteps.map((step, index) => (
@@ -328,8 +324,8 @@ export function ValuesGrid() {
       <div className="container">
         <SectionIntro
           eyebrow="Values"
-          title="The standards behind the work"
-          body="The best kitchen and bathroom remodelers feel dependable because their standards show up in both craftsmanship and communication."
+          title="Our Core Values"
+
         />
         <div className="reason-grid">
           {values.map((value) => (

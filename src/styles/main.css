@@ -5375,3 +5375,81 @@ body[data-page='projects'] .testimonial-grid--compact {
 }
 .coverage-tabs button { min-height:44px; }
 @media(max-width:760px) { .coverage-map__label { font-size:20px; letter-spacing:.5px; } .coverage-map__home text { font-size:14px; } }
+
+/* Compact layout and Ron's supplied website copy. */
+.site-header { padding:6px 0; }
+.site-header__inner { min-height:64px; padding:0; }
+.brand__logo, .site-footer .brand__logo, .mobile-nav .brand__logo { width:156px; height:64px; object-fit:contain; background:transparent; border-radius:0; padding:0; }
+.hero--compact { padding:1.5rem 0 .75rem; }
+.hero--compact .hero__grid { grid-template-columns:1.55fr 1fr; gap:1.5rem; align-items:start; }
+.hero--compact .hero__content { padding:1.5rem; gap:.7rem; }
+.hero--compact h1 { font-size:clamp(1.75rem,2.6vw,2.45rem); line-height:1.16; letter-spacing:-.035em; max-width:26ch; text-wrap:balance; }
+.hero--compact .hero__body { max-width:65ch; font-size:.91rem; line-height:1.75; }
+.hero--compact .hero-actions { gap:.6rem; margin-top:.3rem; }
+.hero--compact .button { font-size:.74rem; padding:.8rem 1rem; min-height:44px; }
+.hero--compact .button--hero-tech { text-transform:none; letter-spacing:0; }
+.hero-license { font-size:.72rem; color:#dce9fb; margin:.25rem 0 0; }
+.hero-license span { color:#9eb9d9; margin-left:.75rem; white-space:nowrap; }
+.hero-services { border-left:1px solid #7caae044; padding:1rem 0 1rem 1.5rem; align-self:center; }
+.hero-services .eyebrow { font-size:.65rem; }
+.hero-services ul { padding:0; list-style:none; display:grid; gap:.6rem; margin:1rem 0; }
+.hero-services li { padding-left:1rem; position:relative; font-size:.86rem; color:#d2e0f3; }
+.hero-services li::before { content:''; width:4px; height:4px; background:#9bc8ff; position:absolute; left:0; top:.65em; border-radius:50%; }
+.hero-services__contact { display:flex; flex-wrap:wrap; gap:.4rem 1rem; border-top:1px solid #85aee52b; padding-top:.8rem; font-size:.77rem; }
+.hero-services__contact strong { flex-basis:100%; }
+.hero-services__contact a:last-child { color:#a9c8ed; overflow-wrap:anywhere; }
+.section { padding:2rem 0; }
+.section-intro { margin-bottom:1.2rem; }
+.section-intro h2, .home-services .section-intro h2 { font-size:clamp(1.45rem,2vw,1.9rem); max-width:36ch; line-height:1.2; }
+.home-service-pair { gap:.75rem; }
+.home-service-feature { padding:1rem 1.15rem; border-radius:10px; }
+.home-service-feature h3 { font-size:1.05rem; margin:0 0 .45rem; }
+.home-service-feature p { font-size:.86rem; line-height:1.65; margin:0 0 .7rem; max-width:none; }
+.home-service-feature:last-child { grid-column:1/-1; }
+.home-service-feature .text-link { font-size:.75rem; }
+.reason-grid { gap:.75rem; }
+.reason-card, .reason-card--compact { padding:1.1rem; }
+.reason-card h3 { font-size:1rem; }
+.reason-card p { font-size:.86rem; line-height:1.65; }
+.page-hero { padding:1.5rem 0 1rem; }
+.page-hero__content, .page-hero__aside { padding:1.5rem; }
+.page-hero__grid--single { display:block; }
+.page-hero__grid--single .page-hero__content { max-width:100%; }
+.page-hero h1 { font-size:clamp(1.7rem,2.5vw,2.35rem); line-height:1.15; max-width:30ch; }
+.page-hero__body { max-width:72ch; line-height:1.75; }
+.coverage-heading { margin-bottom:1.25rem; gap:1.5rem; }
+.coverage-heading h2 { font-size:clamp(1.5rem,2.2vw,2rem); max-width:25ch; }
+.coverage-details { padding:1.3rem; }
+.coverage-town-panel { min-height:190px; padding-top:1rem; }
+.coverage-town-panel h3 { font-size:1.35rem; }
+.coverage-note { margin:.75rem 0; }
+.final-cta { padding:1.5rem 0; }
+.final-cta__card { padding:1.5rem; }
+.final-cta h2 { font-size:clamp(1.45rem,2vw,1.9rem); }
+.site-footer { padding-top:2rem; }
+.site-footer p, .footer-list { font-size:.8rem; }
+@media(max-width:760px) {
+ .site-header { padding:4px 0; }
+ .site-header__inner { min-height:58px; }
+ .brand__logo, .mobile-nav .brand__logo { width:140px; height:58px; }
+ .hero--compact { padding-top:.85rem; }
+ .hero--compact .hero__grid { grid-template-columns:1fr; gap:1rem; }
+ .hero--compact .hero__content { padding:1.2rem; }
+ .hero--compact h1 { font-size:1.7rem; max-width:25ch; line-height:1.2; }
+ .hero--compact .hero__body { font-size:.86rem; }
+ .hero--compact .hero-services { border-left:0; border-top:1px solid #7caae044; padding:1rem .6rem 0; }
+ .hero-services ul { grid-template-columns:1fr 1fr; gap:.65rem; }
+ .hero-services li { font-size:.75rem; }
+ .hero-license { line-height:1.8; }
+ .hero-license span { display:block; margin-left:0; }
+ .section { padding:1.4rem 0; }
+ .home-service-feature { padding:1rem; }
+ .page-hero__content, .page-hero__aside { padding:1.2rem; }
+ .page-hero { padding:1rem 0; }
+ .coverage-map { padding:1rem; }
+ .coverage-heading > p { font-size:.85rem; }
+ .coverage-actions { gap:.75rem; }
+}
+.brand__logo, .site-footer .brand__logo, .mobile-nav .brand__logo { filter:invert(1) hue-rotate(180deg); }
+.brand__logo, .site-footer .brand__logo, .mobile-nav .brand__logo { width:150px; height:76px; object-fit:cover; }
+@media(max-width:760px) { .brand__logo, .mobile-nav .brand__logo { width:135px; height:68px; } }

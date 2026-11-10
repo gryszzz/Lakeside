@@ -24,8 +24,8 @@ export function ServiceAreaMap({ full = false }) {
     <section className={`section coverage-section ${full ? 'coverage-section--full' : ''}`} id="coverage">
       <div className="container">
         <div className="coverage-heading">
-          <div><p className="eyebrow">Local experience. Four counties.</p><h2>Built around your home.<br />Close to home.</h2></div>
-          <p>Based in Sparta, serving homeowners across Sussex, Morris, Passaic, and Warren Counties. Select a county to explore the towns we serve.</p>
+          <div><p className="eyebrow">Areas We Serve</p><h2>Proudly Serving Northern New Jersey</h2></div>
+          <p>Proudly serving homeowners throughout Sussex County, Morris County, Passaic County, and Warren County. Select a county to view its towns.</p>
         </div>
         <div className="coverage-layout">
           <div className="coverage-map">
