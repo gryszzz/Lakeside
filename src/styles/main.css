@@ -5243,3 +5243,135 @@ body[data-page='projects'] .testimonial-grid--compact {
 .brand strong { overflow-wrap:anywhere; }
 .estimate-contact-row h3 a { overflow-wrap:anywhere; }
 @media(max-width:640px) { .package-list { grid-template-columns:1fr; } .hero h1 { font-size:clamp(2rem,8vw,3.5rem); } }
+
+/* Original Lakeside atmosphere, with a clearer brand and content hierarchy. */
+.brand__logo { display:block; width:200px; height:94px; object-fit:contain; background:#fff; padding:9px 14px; border-radius:7px; }
+.site-header__inner { min-height:106px; }
+.site-header .brand { flex-shrink:0; }
+.site-footer .brand__logo { width:220px; height:112px; }
+.hero--refined { padding-top:3rem; }
+.hero--refined .hero__grid { grid-template-columns:1.05fr 1fr; gap:2rem; align-items:stretch; }
+.hero--refined .hero__content { padding:2.2rem; align-content:center; gap:1rem; }
+.hero--refined h1 { font-size:clamp(2.7rem,4.7vw,4.5rem); line-height:1.04; letter-spacing:-.055em; max-width:12ch; margin:0; }
+.hero--refined h1 span { color:#99c6ff; }
+.hero--refined .hero__body { max-width:40ch; line-height:1.75; margin:0; }
+.hero--refined .eyebrow { font-size:.68rem; letter-spacing:.14em; }
+.hero--refined .hero-actions { margin-top:.4rem; }
+.hero__coverage { font-size:.75rem; color:#a6b8d0; margin:0; }
+.hero-brand-panel { border:1px solid #739bd03d; background:#0d1b2d; border-radius:22px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 24px 60px #0004; }
+.hero-brand-panel__identity { background:#fff; padding:2.5rem 2rem 1.75rem; text-align:center; }
+.hero-brand-panel__identity img { display:block; width:100%; height:auto; max-height:250px; object-fit:contain; }
+.hero-brand-panel__identity p { font-size:.82rem; font-weight:750; text-transform:uppercase; letter-spacing:.16em; color:#16547c; margin:1.25rem 0 0; }
+.hero-brand-panel__contact { padding:1.5rem 2rem; display:grid; grid-template-columns:1fr auto; align-items:center; gap:.4rem 1rem; }
+.hero-brand-panel__contact span { text-transform:uppercase; letter-spacing:.13em; font-size:.58rem; color:#99b8e1; grid-column:1/-1; }
+.hero-brand-panel__contact strong { font-size:.9rem; }
+.hero-brand-panel__contact a { font-size:.85rem; }
+.hero-brand-panel__contact a:last-child { grid-column:1/-1; color:#a9bbd1; overflow-wrap:anywhere; }
+.home-proof-strip { display:grid; grid-template-columns:1fr 1.3fr 1fr; padding:1.5rem 0; margin-top:1.7rem; border-top:1px solid #a3c8ff2b; border-bottom:1px solid #a3c8ff2b; }
+.home-proof-strip > div { display:flex; flex-direction:column; gap:.25rem; padding:0 1.7rem; border-right:1px solid #a3c8ff2b; }
+.home-proof-strip > div:first-child { padding-left:0; }
+.home-proof-strip > div:last-child { border:0; }
+.home-proof-strip strong { font-size:1.05rem; }
+.home-proof-strip span { font-size:.75rem; color:#a9bad2; }
+.home-services .section-intro { max-width:44rem; }
+.home-service-pair { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.home-service-feature { position:relative; padding:2rem; border:1px solid #86b8ff3b; border-radius:16px; background:#102039bd; transition:border-color .2s,background .2s; }
+.home-service-feature:hover { border-color:#a2c7ff; background:#142944; }
+.home-service-feature__number { color:#8fb9ef; font-size:.75rem; letter-spacing:.15em; }
+.home-service-feature h3 { font-size:1.65rem; margin:.7rem 0; }
+.home-service-feature p { color:#b7c5d9; max-width:43ch; line-height:1.7; margin-bottom:1.4rem; }
+.text-link { color:#a4caff; font-weight:650; font-size:.85rem; text-decoration:underline; text-underline-offset:5px; }
+.home-supporting-services { display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; padding:1.7rem 0 0; color:#aebfd6; font-size:.78rem; }
+.home-section-heading { display:flex; justify-content:space-between; align-items:center; gap:1.5rem; }
+.home-section-heading .section-intro { max-width:40rem; }
+.home-process__steps { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+.home-process__steps li { padding-top:1.3rem; border-top:1px solid #789cc54d; }
+.home-process__steps li > span { color:#8ab5ee; font-size:.75rem; }
+.home-process__steps h3 { margin:.7rem 0; font-size:1.15rem; }
+.home-process__steps p { color:#acbfd5; font-size:.9rem; line-height:1.7; }
+.coverage-section { scroll-margin-top:120px; }
+.coverage-heading { display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:end; margin-bottom:2rem; }
+.coverage-heading h2 { font-size:clamp(1.9rem,3vw,2.8rem); line-height:1.15; margin:.5rem 0 0; }
+.coverage-heading > p { font-size:.92rem; line-height:1.8; color:#b4c5dc; max-width:48ch; margin:0; }
+.coverage-layout { display:grid; grid-template-columns:1.12fr 1fr; border:1px solid #92b9f038; background:#0b1727e8; border-radius:20px; overflow:hidden; }
+.coverage-map { padding:1.3rem 1.6rem; background:#0c1c30; }
+.coverage-map__meta { display:flex; justify-content:space-between; color:#aac4e8; text-transform:uppercase; letter-spacing:.13em; font-size:.62rem; }
+.coverage-map svg { width:100%; height:auto; display:block; overflow:visible; }
+.coverage-map__county { fill:#1c3e5e; stroke:#9abddd; stroke-width:1.4; stroke-linejoin:round; cursor:pointer; transition:fill .2s; }
+.coverage-map__county:hover { fill:#2e678e; }
+.coverage-map__county.is-selected { fill:#216c9b; stroke:#bfe5ff; stroke-width:2; }
+.coverage-map__county:focus-visible { outline:none; stroke:#fff; stroke-width:5; }
+.coverage-map__label { fill:#eef7ff; font-size:14px; font-weight:700; pointer-events:none; text-transform:uppercase; letter-spacing:1px; }
+.coverage-map__home { fill:#fff; pointer-events:none; }
+.coverage-map__home circle { stroke:#0c1c30; stroke-width:2; }
+.coverage-map__home text { font-size:11px; font-weight:600; }
+.coverage-map__hint { margin:0; font-size:.7rem; color:#9cb4d2; }
+.coverage-details { padding:1.7rem 2rem; display:flex; flex-direction:column; align-items:stretch; }
+.coverage-tabs { display:grid; grid-template-columns:repeat(4,1fr); gap:.35rem; padding-bottom:1.4rem; border-bottom:1px solid #8caacf30; }
+.coverage-tabs button { appearance:none; background:transparent; border:1px solid #84a8d637; color:#b9cbe0; padding:.7rem .25rem; border-radius:6px; cursor:pointer; font-size:.72rem; font-weight:650; }
+.coverage-tabs button.is-selected { background:#19567d; color:#fff; border-color:#87b5e2; }
+.coverage-tabs button:hover { color:#fff; border-color:#b1cdec; }
+.coverage-town-panel { padding-top:1.4rem; min-height:220px; }
+.coverage-town-panel .eyebrow { font-size:.61rem; }
+.coverage-town-panel h3 { font-size:1.6rem; margin:.4rem 0 1rem; }
+.coverage-town-panel ul, .coverage-all-towns ul { display:grid; grid-template-columns:1fr 1fr; list-style:none; padding:0; margin:0; gap:.5rem 1rem; color:#c4d1e3; font-size:.85rem; }
+.coverage-note { color:#9eb3ce; font-size:.78rem; line-height:1.6; margin:1.3rem 0; }
+.coverage-actions { display:flex; align-items:center; flex-wrap:wrap; gap:1rem; margin-top:auto; }
+.coverage-actions .button { font-size:.72rem; padding:.85rem 1rem; }
+.coverage-actions .text-link { font-size:.75rem; }
+.coverage-all-towns { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem; }
+.coverage-all-towns details { background:#102036a8; border:1px solid #9abde72e; border-radius:8px; padding:1rem 1.25rem; align-self:start; }
+.coverage-all-towns summary { cursor:pointer; font-size:.9rem; font-weight:650; }
+.coverage-all-towns summary span { font-size:.7rem; font-weight:400; color:#a1b7d1; margin-left:.5rem; }
+.coverage-all-towns ul { padding-top:1.25rem; }
+.site-background { opacity:.65; }
+.reason-card { box-shadow:none; }
+@media(max-width:1100px) {
+ .brand__logo { width:165px; height:82px; }
+ .site-header__phone { display:none; }
+ .hero--refined .hero__grid { gap:1rem; }
+ .hero--refined .hero__content { padding:1.7rem; }
+ .hero-brand-panel__contact { grid-template-columns:1fr; }
+ .coverage-details { padding:1.3rem; }
+}
+@media(max-width:760px) {
+ .site-header__inner { min-height:88px; }
+ .brand__logo { width:160px; height:72px; padding:6px 10px; }
+ .hero--refined { padding-top:1.25rem; }
+ .hero--refined .hero__grid { grid-template-columns:1fr; gap:1.2rem; }
+ .hero--refined .hero__content { padding:1.5rem; }
+ .hero--refined h1 { font-size:clamp(2.7rem,11vw,4rem); }
+ .hero-brand-panel__identity { padding:1.75rem; }
+ .hero-brand-panel__identity img { max-height:160px; }
+ .hero-brand-panel__contact { padding:1.2rem 1.5rem; grid-template-columns:1fr auto; }
+ .hero-brand-panel__contact strong { font-size:.82rem; }
+ .home-proof-strip { grid-template-columns:1fr; gap:1rem; padding:1.2rem; }
+ .home-proof-strip > div, .home-proof-strip > div:first-child { border:0; padding:0; flex-direction:row; align-items:baseline; justify-content:space-between; gap:1rem; }
+ .home-proof-strip strong { font-size:.82rem; }
+ .home-proof-strip span { font-size:.66rem; }
+ .home-service-pair, .coverage-heading, .coverage-layout, .coverage-all-towns { grid-template-columns:1fr; }
+ .home-service-feature { padding:1.5rem; }
+ .home-service-feature h3 { font-size:1.45rem; }
+ .home-supporting-services { display:grid; grid-template-columns:1fr 1fr; font-size:.7rem; }
+ .home-section-heading { display:block; margin-bottom:1.7rem; }
+ .home-process__steps { grid-template-columns:1fr; gap:1rem; }
+ .home-process__steps h3 { margin:.4rem 0; }
+ .coverage-heading { gap:1rem; }
+ .coverage-map { padding:1.2rem; }
+ .coverage-details { padding:1.4rem; }
+ .coverage-town-panel { min-height:210px; }
+ .mobile-nav .brand__logo { width:170px; height:82px; }
+}
+@media(prefers-reduced-motion:reduce) { .coverage-map__county, .home-service-feature { transition:none; } }
+/* Fit the supplied logo proportions into the header without shrinking the wordmark. */
+.brand__logo { width:180px; height:100px; padding:0; object-fit:cover; }
+.site-header__inner { padding-block:6px; min-height:100px; }
+.site-footer .brand__logo { width:200px; height:110px; padding:0; object-fit:cover; }
+.home-services .section-intro h2, .home-process .section-intro h2 { max-width:24ch; font-size:clamp(1.8rem,2.8vw,2.6rem); }
+@media(max-width:760px) {
+ .site-header__inner { min-height:82px; padding-block:4px; }
+ .brand__logo { width:145px; height:80px; padding:0; }
+ .mobile-nav .brand__logo { width:145px; height:80px; }
+}
+.coverage-tabs button { min-height:44px; }
+@media(max-width:760px) { .coverage-map__label { font-size:20px; letter-spacing:.5px; } .coverage-map__home text { font-size:14px; } }

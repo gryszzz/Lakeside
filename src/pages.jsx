@@ -1,16 +1,11 @@
-import { useState } from 'react';
+import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
-  homeConversionCards,
-  homeHeroSlides,
-  heroTrustItems,
-  faqs, services,
-  homeSpotlights
+  faqs, services
 } from './content/site';
 import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
   ProcessSteps,
-  ServiceAreaSection,
   ServiceCards,
   StatGrid,
   ValuesGrid,
@@ -18,167 +13,26 @@ import {
 } from './components/Marketing';
 import { withBase } from './utils';
 
-function SocialIcon({ label }) {
-  if (label === 'Instagram') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25" />
-        <circle cx="12" cy="12" r="4.05" />
-        <circle cx="17.2" cy="6.8" r="1.1" className="hero-social-link__dot" />
-      </svg>
-    );
-  }
-
-  if (label === 'Facebook') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M13.65 20V12.72H16.1L16.48 9.88H13.65V8.07C13.65 7.25 13.88 6.69 15.06 6.69H16.58V4.15C15.84 4.06 15.1 4.01 14.36 4C12.17 4 10.67 5.34 10.67 7.79V9.88H8.2V12.72H10.67V20H13.65Z" />
-      </svg>
-    );
-  }
-
-  return null;
-}
-
 function HomeHero() {
-  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
-  const currentHeroSlide = homeHeroSlides[activeHeroSlide];
-
-  const showNextHeroSlide = () => {
-    setActiveHeroSlide((current) => (current + 1) % homeHeroSlides.length);
-  };
-
-  return (
-    <section className="hero">
-      <div className="container hero__grid">
-        <div className="hero__content" data-reveal>
-          <p className="eyebrow">Kitchen & Bathroom Remodeling</p>
-          <h1>Transforming Kitchens & Bathrooms With Over 40 Years of Experience</h1>
-          <p className="hero__body">Beautiful renovations begin with quality craftsmanship, clear communication, and a contractor you can trust. At Lakeside Kitchen & Bath LLC, we specialize in kitchen and bathroom remodeling throughout Sussex, Morris, Passaic, and Warren Counties, delivering professional results designed to last.</p>
-          <div className="hero-actions hero-actions--tech">
-            <a className="button button--hero-tech" href={withBase('quote/')}>
-              Schedule Your Consultation Today
-            </a>
-            <a className="button button--ghost button--hero-tech button--hero-tech--ghost" href={withBase('projects/')}>
-              View Portfolio
-            </a>
-          </div>
-          <div className="hero-social-links" data-reveal>
-            {business.socialLinks.map((link) => (
-              <a
-                key={link.label}
-                className="hero-social-link"
-                href={withBase(link.href)}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Visit ${business.name} on ${link.label}`}
-              >
-                <span className="hero-social-link__icon">
-                  <SocialIcon label={link.label} />
-                </span>
-                <span>{link.label}</span>
-              </a>
-            ))}
-          </div>
-          <div className="hero-trust-grid">
-            {heroTrustItems.map((item) => (
-              item.href ? (
-                <a
-                  key={item.title}
-                  className="hero-trust-card hero-trust-card--link"
-                  href={withBase(item.href)}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={item.ariaLabel || item.title}
-                >
-                  <div className="hero-trust-card__body">
-                    <div className="hero-trust-card__line hero-trust-card__line--detail">
-                      <span className="hero-trust-card__bullet" aria-hidden="true" />
-                      <span className="hero-trust-card__eyebrow">{item.detail}</span>
-                    </div>
-                    <div className="hero-trust-card__line hero-trust-card__line--title">
-                      <strong>{item.title}</strong>
-                    </div>
-                    <span className="hero-trust-card__action" aria-hidden="true" />
-                  </div>
-                </a>
-              ) : (
-                <article key={item.title} className="hero-trust-card">
-                  <div className="hero-trust-card__body">
-                    <div className="hero-trust-card__line hero-trust-card__line--detail">
-                      <span className="hero-trust-card__bullet" aria-hidden="true" />
-                      <span className="hero-trust-card__eyebrow">{item.detail}</span>
-                    </div>
-                    <div className="hero-trust-card__line hero-trust-card__line--title">
-                      <strong>{item.title}</strong>
-                    </div>
-                  </div>
-                </article>
-              )
-            ))}
-          </div>
-        </div>
-        <div className="hero__visual" data-reveal>
-          <button
-            type="button"
-            className="hero__image-card hero__image-card--main hero__image-card-button"
-            onClick={showNextHeroSlide}
-            aria-label={`Show next featured image. Currently showing ${currentHeroSlide.title}.`}
-          >
-            <img src={withBase(currentHeroSlide.image)} alt={currentHeroSlide.alt} />
-            <div className="hero__image-progress" aria-hidden="true">
-              {homeHeroSlides.map((item, index) => (
-                <span key={item.title} className={index === activeHeroSlide ? 'is-active' : ''} />
-              ))}
-            </div>
-          </button>
-          <div className="hero__visual-grid">
-            {homeSpotlights.map((item) => (
-              <article key={item.title} className="hero__image-card hero__image-card--tile">
-                <img src={withBase(item.image)} alt={item.alt} />
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <section className="hero hero--refined"><div className="container hero__grid">
+    <div className="hero__content" data-reveal>
+      <p className="eyebrow">Sparta, NJ · Kitchen & bathroom remodeling</p>
+      <h1>Your home.<br />Beautifully <span>rebuilt.</span></h1>
+      <p className="hero__body">Thoughtful planning. Quality craftsmanship. Over 40 years of hands-on experience, brought to your kitchen or bathroom.</p>
+      <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}>Plan your remodel</a><a className="button button--ghost" href={business.phoneHref}>Call Ron</a></div>
+      <p className="hero__coverage">Sussex · Morris · Passaic · Warren Counties</p>
+    </div>
+    <div className="hero-brand-panel" data-reveal>
+      <div className="hero-brand-panel__identity"><img src={withBase('images/branding/lakeside-logo.png')} alt="Lakeside Kitchen & Bath LLC" width="720" height="400" /><p>We do the complete job!</p></div>
+      <div className="hero-brand-panel__contact"><span>Your local point of contact</span><strong>Ron Augustine, Owner</strong><a href={business.phoneHref}>{business.phone}</a><a href={business.emailHref}>{business.email}</a></div>
+    </div>
+  </div><div className="container"><div className="home-proof-strip"><div><strong>40+</strong><span>Years of experience</span></div><div><strong>Licensed, insured & bonded</strong><span>{business.licenseNumber}</span></div><div><strong>2-year warranty</strong><span>Workmanship backed</span></div></div></div></section>;
 }
-
-function HomeDecisionSection() {
-  return (
-    <section className="section section--home-overview">
-      <div className="container">
-        <div className="home-overview-grid">
-          <div className="home-overview-copy" data-reveal>
-            <p className="eyebrow">Specialist Focus</p>
-            <h2>Kitchen and bathroom specialists.</h2>
-            <p className="home-overview-copy__body">Full remodels with cleaner planning, steadier communication, and a more finished result.</p>
-            <div className="home-specialty-grid">
-              {homeConversionCards.map((card) => (
-                <article key={card.title} className="home-specialty-card">
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-          <div className="home-overview-panel">
-            <div className="home-overview-note" data-reveal>
-              <strong>{business.reviewsLabel}</strong>
-              <p>Clear scopes, strong finish standards, and a simpler estimate path.</p>
-            </div>
-            <StatGrid />
-            <div className="hero-actions home-overview-actions" data-reveal>
-              <a className="button button--hero-tech button--hero-tech--compact" href={withBase('quote/')}>
-                Request Estimate
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+function HomeServices() {
+ return <section className="section home-services"><div className="container"><SectionIntro eyebrow="The complete job" title="Two rooms. One trusted contractor." body="From the first layout to the finishing details, we help bring your renovation together." /><div className="home-service-pair">{services.slice(0,2).map((service,index)=><a key={service.slug} className="home-service-feature" href={withBase(`${service.slug}/`)}><span className="home-service-feature__number">0{index+1}</span><h3>{service.title}</h3><p>{service.short}</p><span className="text-link">Explore services</span></a>)}</div><div className="home-supporting-services"><span>Design & material selection</span><span>Tile & backsplashes</span><span>Cabinets & countertops</span><span>Flooring & lighting</span></div></div></section>;
+}
+function HomeProcess() {
+ return <section className="section home-process"><div className="container"><div className="home-section-heading"><SectionIntro eyebrow="Clear from the start" title="A better remodel starts with a plan." /><a className="text-link" href={withBase('process/')}>Our full process</a></div><ol className="home-process__steps"><li><span>01</span><h3>Talk & plan</h3><p>Share your goals, budget, and vision. We listen and prepare a detailed written proposal.</p></li><li><span>02</span><h3>Select & schedule</h3><p>Choose layouts, materials, and finishes with guidance. Align the schedule before work begins.</p></li><li><span>03</span><h3>Build & enjoy</h3><p>Professional installation, daily cleanup, a final walkthrough, and 2-year workmanship support.</p></li></ol></div></section>;
 }
 
 function DirectEstimatePanel({
@@ -240,11 +94,11 @@ export function HomePage() {
       }}
     >
       <HomeHero />
-      <HomeDecisionSection />
-      <HomeServiceOverview />
-      <ServiceCards compact intro="Full kitchen and bathroom renovations with cleaner scopes and a more polished result." />
-      <WhyChooseUs />
-      <ServiceAreaSection />
+      <HomeServices />
+      <WhyChooseUs compact />
+      <HomeProcess />
+      <ServiceAreaMap />
+      <FAQSection items={faqs.slice(0, 4)} />
     </SiteShell>
   );
 }
@@ -282,8 +136,8 @@ export function ProjectsPage() {
         primaryLabel: 'Ask About a Similar Remodel'
       }}
     >
-      <PageHero eyebrow="Portfolio" title="Kitchen & Bathroom Inspiration" body="Project photography is coming soon. The illustrations below show remodeling possibilities and are not photographs of completed Lakeside projects." aside={<StatGrid />} />
-      <section className="section"><div className="container reason-grid">{homeHeroSlides.slice(0,2).map(item=><article className="story-card" key={item.title}><img src={withBase(item.image)} alt={`Illustration: ${item.alt}`} /><div><p className="eyebrow">Illustrative concept</p><h2>{item.title}</h2></div></article>)}</div></section>
+      <PageHero eyebrow="Our Work" title="Craftsmanship worth seeing." body="We’re preparing a collection of Lakeside’s real kitchen and bathroom projects. In the meantime, talk with Ron about your ideas, materials, and scope." actions={<ConsultationLink />} aside={<StatGrid />} />
+      <section className="section"><div className="container"><SectionIntro eyebrow="Your project" title="Tell us what you have in mind." body="Send Ron your current room photos and the improvements you’d like to make. We’ll help you plan the next step." /><a className="button" href={business.emailHref}>Email Ron your project</a></div></section>
     </SiteShell>
   );
 }
@@ -306,7 +160,7 @@ export function AboutPage() {
       <section className="section"><div className="container story-grid"><div><h2>Over 40 years of hands-on experience</h2><p>With over 40 years of hands-on construction and remodeling experience, we've built our reputation on quality craftsmanship, honest communication, and respect for our clients' homes.</p><h3>Our approach is simple</h3><ul><li>Listen carefully</li><li>Plan thoroughly</li><li>Execute professionally</li><li>Deliver exceptional results</li></ul><p>Whether you're updating a bathroom, creating your dream kitchen, or completely transforming your living space, our goal is to provide a finished product you'll enjoy for years to come.</p></div><div className="story-card"><div><p className="eyebrow">Our Mission</p><h2>Craftsmanship. Communication. Service.</h2><p>To deliver high-quality kitchen and bathroom renovations through professional craftsmanship, clear communication, and exceptional service.</p></div></div></div></section>
       <ValuesGrid />
       <WhyChooseUs />
-      <ServiceAreaSection />
+      <ServiceAreaMap />
     </SiteShell>
   );
 }
@@ -334,9 +188,6 @@ export function QuotePage() {
 }
 
 
-function HomeServiceOverview() {
-  return <section className="section"><div className="container"><SectionIntro eyebrow="What We Do" title="Kitchen & Bathroom Remodeling Specialists" /><ul className="package-list">{['Kitchen Remodeling', 'Bathroom Remodeling', 'Design & Material Selection Guidance', 'Tile Installation', 'Cabinet Installation', 'Countertops', 'Flooring & Lighting Upgrades'].map(item => <li key={item}>{item}</li>)}</ul></div></section>;
-}
 function ConsultationLink() { return <a className="button" href={withBase('contact/')}>Schedule Your Consultation Today</a>; }
 function RemodelingPage({ kitchen = false }) {
  const service = services.find(item => item.slug === (kitchen ? 'kitchen-remodeling' : 'bathroom-remodeling'));
@@ -346,13 +197,8 @@ function RemodelingPage({ kitchen = false }) {
 function KitchenPage() { return <RemodelingPage kitchen />; }
 function BathroomPage() { return <RemodelingPage />; }
 function ProcessPage() { return <SiteShell><PageHero eyebrow="Our Process" title="Our Remodeling Process" body="From your first consultation to warranty support, we keep your renovation organized and clearly communicated." actions={<ConsultationLink />} aside={<StatGrid />} /><ProcessSteps /></SiteShell>; }
-const counties = {
- 'Sussex County': ['Sparta','Newton','Vernon','Hamburg','Franklin','Lafayette','Andover','Byram','Stanhope','Hopatcong'],
- 'Morris County': ['Denville','Parsippany','Rockaway','Roxbury','Randolph','Boonton','Mountain Lakes','Morristown'],
- 'Passaic County': ['Wayne','West Milford','Ringwood','Pompton Lakes','Totowa','Little Falls'],
- 'Warren County': ['Hackettstown','Washington','Blairstown','Hope','Oxford','Belvidere','Allamuchy']
-};
-function ServiceAreaPage() { return <SiteShell><PageHero eyebrow="Service Area" title="Proudly Serving Northern New Jersey" body={business.serviceAreaLabel} actions={<ConsultationLink />} aside={<StatGrid />} /><section className="section"><div className="container reason-grid">{Object.entries(counties).map(([county,towns])=><article className="reason-card" key={county}><h2>{county}</h2><ul>{towns.map(town=><li key={town}>{town}</li>)}</ul></article>)}</div></section></SiteShell>; }
+function ServiceAreaPage() { return <SiteShell><PageHero eyebrow="Service Area" title="Your local remodeling specialist." body="Based in Sparta, proudly serving homeowners throughout Northern New Jersey." actions={<ConsultationLink />} aside={<StatGrid />} /><ServiceAreaMap full /></SiteShell>; }
+
 function FaqPage() { return <SiteShell><PageHero eyebrow="FAQ" title="Your Remodeling Questions, Answered" body="Planning, materials, licensing, and warranty support." actions={<ConsultationLink />} aside={<StatGrid />} /><FAQSection items={faqs} /></SiteShell>; }
 function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let’s Discuss Your Project" body="Whether you’re planning a kitchen renovation, bathroom remodel, or tile installation project, we’d love to hear from you." aside={<DirectEstimatePanel inHero showActions={false} title="Lakeside Kitchen & Bath LLC" />} /><section className="section"><div className="container story-grid"><div><h2>Based in Sparta, NJ</h2><p>{business.serviceAreaLabel}</p><p>Ronald Augustine, Owner</p><p>Mailing address: {business.address}</p><p>{business.license} · {business.licenseNumber}</p></div><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></div></section></SiteShell>; }
 

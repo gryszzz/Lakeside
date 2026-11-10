@@ -5,7 +5,7 @@ import { isActivePath, useRevealAnimations, withBase } from '../utils';
 const navItems = [
   { label: 'Home', href: '' },
   { label: 'Services', href: 'services/' },
-  { label: 'Portfolio', href: 'projects/' },
+  { label: 'Service Area', href: 'service-area/' },
   { label: 'About', href: 'about/' },
   { label: 'Contact', href: 'contact/' }
 ];
@@ -13,11 +13,7 @@ const navItems = [
 function Logo() {
   return (
     <a className="brand" href={withBase('')} aria-label={`${business.name} home page`}>
-      <img className="brand__mark" src={withBase('images/branding/logo-mark.svg')} alt="" />
-      <span>
-        <strong>{business.name}</strong>
-        <small>{business.tagline}</small>
-      </span>
+      <img className="brand__logo" src={withBase('images/branding/lakeside-logo.png')} alt={business.name} width="240" height="130" />
     </a>
   );
 }
@@ -211,7 +207,7 @@ export function Footer() {
         <div>
           <h3>Quick Links</h3>
           <ul className="footer-list">
-            {[...navItems, {label: 'Our Process', href: 'process/'}, {label: 'Service Area', href: 'service-area/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
+            {[...navItems, {label: 'Our Process', href: 'process/'}, {label: 'Our Work', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
               <li key={item.href || 'footer-home'}>
                 <a href={withBase(item.href)}>{item.label}</a>
               </li>

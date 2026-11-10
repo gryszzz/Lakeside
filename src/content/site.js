@@ -74,7 +74,7 @@ export const business = {
     featuredReviews: []
   },
   socialLinks: [],
-  socialImage: 'images/branding/og-cover.svg',
+  socialImage: 'images/branding/lakeside-logo.png',
   footerNote:
     'Premium kitchen and bathroom remodeling with thoughtful planning, clean execution, and finish work that feels considered in every detail.'
 };
