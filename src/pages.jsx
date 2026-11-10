@@ -1,5 +1,5 @@
 import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
-import { HeroProjectCarousel, HomeBeforeAfterShowcase, HomeProjectGallery } from './components/Projects';
+import { HeroProjectCarousel, HomeBeforeAfterShowcase, HomeProjectGallery, ProjectGallery } from './components/Projects';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
@@ -114,7 +114,7 @@ export function ServicesPage() {
 }
 
 export function ProjectsPage() {
- return <SiteShell><PageHero eyebrow="Our Work" title="Project Photos" body="Real project photos coming soon." actions={<ConsultationLink />} /></SiteShell>;
+ return <SiteShell><ProjectGallery /></SiteShell>;
 }
 
 export function AboutPage() {

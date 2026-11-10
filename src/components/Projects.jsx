@@ -407,6 +407,7 @@ export function ProjectPreview() {
 
 const homepageProjectPhotos = [
   {
+    id: 'custom-kitchen-island',
     title: 'Custom Kitchen & Island',
     category: 'Kitchen',
     image: 'images/projects/portfolio/lakeside-kitchen-island.jpg',
@@ -415,6 +416,7 @@ const homepageProjectPhotos = [
     tags: ['Kitchen', 'Island', 'Cabinetry']
   },
   {
+    id: 'kitchen-cabinetry-island',
     title: 'Kitchen Cabinetry & Island',
     category: 'Kitchen',
     image: 'images/projects/portfolio/lakeside-kitchen-cabinetry.jpg',
@@ -423,6 +425,7 @@ const homepageProjectPhotos = [
     tags: ['Kitchen', 'Cabinetry', 'Countertops']
   },
   {
+    id: 'custom-cabinetry-storage',
     title: 'Custom Cabinetry & Storage',
     category: 'Cabinetry',
     image: 'images/projects/portfolio/lakeside-custom-builtins.jpg',
@@ -431,6 +434,7 @@ const homepageProjectPhotos = [
     tags: ['Cabinetry', 'Built-ins', 'Storage']
   },
   {
+    id: 'tile-shower-bathroom',
     title: 'Tile Shower & Bathroom',
     category: 'Bathroom',
     image: 'images/projects/portfolio/lakeside-bathroom-shower.jpg',
@@ -439,6 +443,7 @@ const homepageProjectPhotos = [
     tags: ['Bathroom', 'Tile', 'Shower']
   },
   {
+    id: 'kitchen-herringbone-tile',
     title: 'Kitchen with Herringbone Tile',
     category: 'Kitchen',
     image: 'images/projects/portfolio/lakeside-kitchen-tile.jpg',
@@ -447,6 +452,7 @@ const homepageProjectPhotos = [
     tags: ['Kitchen', 'Tile', 'Appliances']
   },
   {
+    id: 'bright-white-kitchen',
     title: 'Bright White Kitchen',
     category: 'Kitchen',
     image: 'images/projects/portfolio/lakeside-white-kitchen.jpg',
@@ -455,6 +461,7 @@ const homepageProjectPhotos = [
     tags: ['Kitchen', 'Cabinetry', 'Countertops']
   },
   {
+    id: 'kitchen-installation-progress',
     title: 'Kitchen Installation in Progress',
     category: 'In Progress',
     image: 'images/projects/portfolio/lakeside-kitchen-installation.jpg',
@@ -463,6 +470,7 @@ const homepageProjectPhotos = [
     tags: ['Kitchen', 'Installation', 'In Progress']
   },
   {
+    id: 'laundry-room-custom-cabinetry',
     title: 'Laundry Room with Custom Cabinetry',
     category: 'Laundry Room',
     image: 'images/projects/portfolio/lakeside-laundry-after.jpg',
@@ -471,6 +479,7 @@ const homepageProjectPhotos = [
     tags: ['Laundry Room', 'Cabinetry', 'Tile']
   },
   {
+    id: 'rebuilt-deck-stairs',
     title: 'Rebuilt Deck & Stairs',
     category: 'Outdoor',
     image: 'images/projects/portfolio/lakeside-deck-after.jpg',
@@ -482,7 +491,6 @@ const homepageProjectPhotos = [
 
 export function HeroProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [lightboxIndex, setLightboxIndex] = useState(null);
   const project = homepageProjectPhotos[currentIndex];
   const showProject = (direction) => {
     setCurrentIndex((index) => (index + direction + homepageProjectPhotos.length) % homepageProjectPhotos.length);
@@ -497,14 +505,13 @@ export function HeroProjectCarousel() {
         </div>
         <div className="hero-photo-carousel__viewport">
           <img className="hero-photo-carousel__ambient" src={withBase(project.image)} alt="" aria-hidden="true" />
-          <button
+          <a
             className="hero-photo-carousel__photo"
-            type="button"
-            onClick={() => setLightboxIndex(currentIndex)}
-            aria-label={`View larger photo: ${project.title}`}
+            href={withBase(`projects/?project=${project.id}`)}
+            aria-label={`Open the gallery at ${project.title}`}
           >
             <img src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
-          </button>
+          </a>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
         </div>
@@ -526,17 +533,6 @@ export function HeroProjectCarousel() {
           ))}
         </div>
       </div>
-      {lightboxIndex !== null ? (
-        <ProjectLightbox
-          projects={homepageProjectPhotos}
-          activeIndex={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-          onNavigate={(index) => {
-            setLightboxIndex(index);
-            setCurrentIndex(index);
-          }}
-        />
-      ) : null}
     </>
   );
 }
@@ -564,7 +560,6 @@ const homepageBeforeAfterProjects = [
 
 export function HomeProjectGallery() {
   const trackRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(null);
 
   const scrollProjects = (direction) => {
     const track = trackRef.current;
@@ -579,7 +574,7 @@ export function HomeProjectGallery() {
           <SectionIntro
             eyebrow="Project Gallery"
             title="A Look at Our Work"
-            body="Browse kitchen and bathroom project photos. Select any photo to view it larger."
+            body="Browse kitchen and bathroom project photos. Select a photo to open it in the full gallery."
           />
           <div className="home-gallery__controls" aria-label="Project gallery controls">
             <button type="button" onClick={() => scrollProjects(-1)} aria-label="Scroll to previous projects">←</button>
@@ -587,12 +582,11 @@ export function HomeProjectGallery() {
           </div>
         </div>
         <div className="home-gallery__track" id="home-project-gallery" ref={trackRef} aria-label="Kitchen and bathroom project photos" tabIndex="0">
-          {homepageProjectPhotos.map((project, index) => (
-            <button
+          {homepageProjectPhotos.map((project) => (
+            <a
               className="home-gallery__card"
               key={project.image}
-              type="button"
-              onClick={() => setActiveIndex(index)}
+              href={withBase(`projects/?project=${project.id}`)}
               aria-label={`Open photo: ${project.title}`}
             >
               <span className="home-gallery__photo">
@@ -603,19 +597,11 @@ export function HomeProjectGallery() {
                 <span className="home-gallery__category">{project.category}</span>
                 <strong>{project.title}</strong>
               </span>
-            </button>
+            </a>
           ))}
         </div>
         <p className="home-gallery__hint">Swipe or scroll to explore all project photos</p>
       </div>
-      {activeIndex !== null ? (
-        <ProjectLightbox
-          projects={homepageProjectPhotos}
-          activeIndex={activeIndex}
-          onClose={() => setActiveIndex(null)}
-          onNavigate={setActiveIndex}
-        />
-      ) : null}
     </section>
   );
 }
@@ -641,17 +627,43 @@ export function HomeBeforeAfterShowcase() {
 
 export function ProjectGallery() {
   const [filter, setFilter] = useState('All');
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const selectedId = new URLSearchParams(window.location.search).get('project');
+    const index = homepageProjectPhotos.findIndex((project) => project.id === selectedId);
+    return index >= 0 ? index : null;
+  });
 
   const filters = useMemo(
-    () => ['All', ...new Set(featuredProjects.map((project) => project.category))],
+    () => ['All', ...new Set(homepageProjectPhotos.map((project) => project.category))],
     []
   );
 
   const visibleProjects = useMemo(() => {
-    if (filter === 'All') return featuredProjects;
-    return featuredProjects.filter((project) => project.category === filter);
+    if (filter === 'All') return homepageProjectPhotos;
+    return homepageProjectPhotos.filter((project) => project.category === filter);
   }, [filter]);
+
+  const updateProjectQuery = (projectId) => {
+    const url = new URL(window.location.href);
+    if (projectId) url.searchParams.set('project', projectId);
+    else url.searchParams.delete('project');
+    window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+  };
+
+  const openProject = (index) => {
+    setActiveIndex(index);
+    updateProjectQuery(visibleProjects[index]?.id);
+  };
+
+  const closeProject = () => {
+    setActiveIndex(null);
+    updateProjectQuery(null);
+  };
+
+  const navigateProject = (index) => {
+    setActiveIndex(index);
+    updateProjectQuery(visibleProjects[index]?.id);
+  };
 
   return (
     <section className="section">
@@ -660,9 +672,9 @@ export function ProjectGallery() {
           <div className="project-gallery__header">
             <div className="project-gallery__copy">
               <p className="eyebrow">Portfolio</p>
-              <h1>Kitchen and bathroom remodel portfolio</h1>
+              <h1>Our Project Gallery</h1>
               <p className="project-gallery__body">
-                Browse finished room directions, layout ideas, and higher-end material palettes. Open any project to see the look more closely.
+                Browse our project photos, then open any image to view it full size.
               </p>
             </div>
           </div>
@@ -685,11 +697,11 @@ export function ProjectGallery() {
               key={project.title}
               className="project-card project-card--interactive"
               data-reveal
-              onClick={() => setActiveIndex(index)}
+              onClick={() => openProject(index)}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
                   event.preventDefault();
-                  setActiveIndex(index);
+                  openProject(index);
                 }
               }}
               role="button"
@@ -703,7 +715,7 @@ export function ProjectGallery() {
               <div className="project-card__body">
                 <div className="project-card__topline">
                   <h3>{project.title}</h3>
-                  <strong>{project.location}</strong>
+                  <strong>{String(index + 1).padStart(2, '0')}</strong>
                 </div>
                 <p>{project.summary}</p>
                 <div className="project-card__tags">
@@ -721,8 +733,8 @@ export function ProjectGallery() {
         <ProjectLightbox
           projects={visibleProjects}
           activeIndex={activeIndex}
-          onClose={() => setActiveIndex(null)}
-          onNavigate={setActiveIndex}
+          onClose={closeProject}
+          onNavigate={navigateProject}
         />
       ) : null}
     </section>
