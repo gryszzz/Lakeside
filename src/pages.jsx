@@ -45,17 +45,12 @@ function HomeHero() {
 function HomeServices() {
  return <section className="section home-services"><div className="container"><SectionIntro eyebrow="What We Do" title="Services Overview" body="From full kitchen and bathroom remodels to the details that bring a space together, every project gets experienced, hands-on care." /><div className="home-service-pair">{services.map((service,index)=>{
    const destinations = ['kitchen-remodeling','bathroom-remodeling'].includes(service.slug) ? `${service.slug}/` : `services/#${service.slug}`;
-   const visualLabels = {'kitchen-remodeling':'Kitchen plan','bathroom-remodeling':'Bath plan','design-material-selection':'Finish palette','tile-installation':'Tile layout','countertops':'Cabinet & counter'};
+   const visualLabels = {'kitchen-remodeling':'Kitchen','bathroom-remodeling':'Bathroom','design-material-selection':'Design & materials','tile-installation':'Tile','countertops':'Cabinets & counters'};
+   const visualIcons = {'kitchen-remodeling':'🍳','bathroom-remodeling':'🛁','design-material-selection':'🎨','tile-installation':'🧱','countertops':'🪵'};
    return <article key={service.slug} className={`home-service-feature home-service-feature--${service.slug}`}>
      <div className={`service-visual service-visual--${service.slug}`} aria-hidden="true">
        <span className="service-visual__index">0{index+1}</span><span className="service-visual__tag">{visualLabels[service.slug]}</span>
-       <svg viewBox="0 0 420 180" focusable="false">
-         {service.slug==='kitchen-remodeling' && <><path d="M48 119h324M62 60h112v58H62zM184 60h102v58H184zM296 60h62v58h-62zM48 119h324v15H48zM65 134v30m70-30v30m73-30v30m72-30v30m70-30v30M172 89h46m28 0h25"/><path className="service-visual__accent" d="M86 78h24v18H86zm52 0h24v18h-24zm72 0h25v18h-25z"/></>}
-         {service.slug==='bathroom-remodeling' && <><path d="M64 44h136v96H64zM200 44h144v96H200zM64 140h280v16H64zM80 156v10m72-10v10m72-10v10m72-10v10M228 72h88v45h-88zM241 84h62m-62 14h62m-62 14h62"/><path className="service-visual__accent" d="M92 102h80m-64 0v25m48-25v25m-58-2h68"/></>}
-         {service.slug==='design-material-selection' && <><path d="M60 44h88v112H60zM166 44h88v112h-88zM272 44h88v112h-88z"/><path className="service-visual__accent" d="M76 60h56v44H76zM182 60h56v44h-56zM288 60h56v44h-56z"/><path d="M78 122h52m-52 14h36m54-14h52m-52 14h36m54-14h52m-52 14h36"/></>}
-         {service.slug==='tile-installation' && <><path d="m74 50 126-19 146 22v96l-146 18-126-19zM200 31v136m73-125v115M74 98l126 17 146-14M74 70l126 17 146-15M74 126l126 17 146-14"/><path className="service-visual__accent" d="m102 54 61-9v42l-61-8zM226 48l42 6v42l-42-5zM293 57l39 6v38l-39 4z"/></>}
-         {service.slug==='countertops' && <><path d="M56 83h308v18H56zM72 101v58m76-58v58m72-58v58m76-58v58m-238 0h276M94 48h108v35H94zM218 48h116v35H218z"/><path className="service-visual__accent" d="M62 76h296M88 112h44m32 0h44m32 0h44m32 0h34"/></>}
-       </svg>
+       <span className="service-visual__emoji">{visualIcons[service.slug]}</span>
      </div>
      <div className="home-service-feature__content"><h3>{service.title}</h3><p>{service.short}</p><a className="service-card__link" aria-label={`Learn more about ${service.title}`} href={withBase(destinations)}>Learn more <span aria-hidden="true">→</span></a></div>
    </article>;
