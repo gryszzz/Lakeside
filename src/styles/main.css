@@ -461,6 +461,12 @@ p { line-height:1.8; }
 .home-process__steps li > span { display:grid; place-items:center; flex:0 0 42px; width:42px; height:42px; border-radius:12px; background:#e6f1f5; font-size:1.15rem; }
 .home-process__steps h3 { margin-bottom:.45rem; }
 .home-process__steps p { color:#4d626d; }
+.home-services { background:linear-gradient(180deg,#fff 0%,#f7f8f5 100%); }
+.home-process { background:linear-gradient(180deg,#edf4f6 0%,#f3f7f8 100%); border-block:1px solid #e2ebee; }
+.section--contrast { background:linear-gradient(135deg,#f8f6f0 0%,#f2f5f3 100%); border-block:1px solid #ecece5; }
+.brand-connections { background:linear-gradient(180deg,#eef5f7 0%,#f5f8f9 100%); border-block:1px solid #e3ecf1; }
+.coverage-section { background:linear-gradient(180deg,#fff 0%,#f7fafb 100%); }
+.section--faq { background:linear-gradient(180deg,#f7fafb 0%,#eef4f6 100%); border-block:1px solid #e7eef1; }
 @media(max-width:700px) {
  .hero,.page-hero { background-size:auto,36px 36px,36px 36px; }
  .home-service-feature,.home-service-feature:nth-child(n+3) { padding:1rem; }

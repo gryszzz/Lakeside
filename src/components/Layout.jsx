@@ -312,7 +312,7 @@ export function FinalCta({
 
 export function FAQSection({ items, intro = '' }) {
   return (
-    <section className="section">
+    <section className="section section--faq">
       <div className="container">
         <SectionIntro eyebrow="FAQ" title="FAQ" body={intro} />
         <div className="faq-list">
