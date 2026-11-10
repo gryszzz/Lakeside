@@ -530,6 +530,9 @@ p { line-height:1.8; }
 .hero-call__copy strong { font-size:.82rem; }
 .hero-signature { display:inline-flex; align-items:center; gap:.55rem; padding:.48rem .75rem; border:1px solid #d8e7eb; border-left:3px solid #69b9cc; border-radius:5px 12px 12px 5px; background:rgba(255,255,255,.78); color:#315464; font-size:.82rem; font-style:normal; font-weight:750; letter-spacing:0; text-transform:none; }
 .hero-signature__check { display:grid; place-items:center; width:21px; height:21px; border-radius:50%; background:#e2f1f4; color:var(--blue); font-size:.75rem; }
+.hero__content > .eyebrow { display:block; width:max-content; padding:0; border-radius:0; background:transparent; }
+.hero-signature { display:flex; width:max-content; max-width:100%; margin:1rem auto .4rem; }
+.hero-license { text-align:center; }
 @media(max-width:700px) {
  .hero,.page-hero { background-size:36px 36px,36px 36px; }
  .home-service-feature,.home-service-feature:nth-child(n+3) { padding:1rem; }
