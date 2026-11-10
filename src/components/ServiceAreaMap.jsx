@@ -19,18 +19,20 @@ const labelLocations = { Sussex: [-74.675, 41.18], Passaic: [-74.325, 41.055], M
 
 export function ServiceAreaMap({ full = false }) {
   const [selected, setSelected] = useState('Sussex County');
+  const countyEntries = Object.entries(serviceCounties);
+  const townCount = countyEntries.reduce((total, [, towns]) => total + towns.length, 0);
   return (
     <section className={`section coverage-section ${full ? 'coverage-section--full' : ''}`} id="coverage">
       <div className="container">
         <div className="coverage-heading">
-          <div><p className="eyebrow">Areas We Serve</p><h2>Proudly Serving Northern New Jersey</h2></div>
-          <p>Proudly serving homeowners throughout:</p>
+          <div><p className="eyebrow">{full ? 'Service Directory' : 'Local Service Area'}</p><h2>{full ? 'Explore Our Service Counties' : 'Remodeling Across Northern New Jersey'}</h2></div>
+          <p>{full ? 'Lakeside Kitchen & Bath serves homeowners throughout Sussex, Morris, Passaic, and Warren Counties.' : 'Based in Sparta, we bring dependable kitchen and bathroom remodeling to nearby communities across four counties.'}</p>
         </div>
         <div className="coverage-layout">
           <div className="coverage-map">
-            <div className="coverage-map__meta"><span>Northern New Jersey</span><span>Service area</span></div>
+            <div className="coverage-map__meta"><span>Northwest New Jersey</span><span><i aria-hidden="true" /> {Object.keys(serviceCounties).length} counties served</span></div>
             <svg viewBox="0 0 600 480" role="group" aria-label="Interactive map of Lakeside’s four New Jersey service counties" aria-describedby="coverage-map-description">
-              <desc id="coverage-map-description">Select Sussex, Morris, Passaic, or Warren County to see its towns. County outlines use the geographic boundary data supplied with this website.</desc>
+              <desc id="coverage-map-description">Select Sussex, Morris, Passaic, or Warren County to highlight the area. County outlines show Lakeside’s service region.</desc>
               {boundaries.features.map(feature => {
                 const county = `${feature.properties.NAME} County`;
                 const d = feature.geometry.coordinates.map(ring => ring.map((coordinate, index) => `${index ? 'L' : 'M'}${project(coordinate).map(value => value.toFixed(2)).join(' ')}`).join(' ') + ' Z').join(' ');
@@ -41,21 +43,31 @@ export function ServiceAreaMap({ full = false }) {
                 </g>;
               })}
             </svg>
-            <p className="coverage-map__hint">Select a county on the map or use the county buttons.</p>
+            <p className="coverage-map__hint"><span aria-hidden="true" />Select a county to highlight its service area</p>
           </div>
-          <div className="coverage-details">
+          {full ? <aside className="coverage-summary">
+            <p className="eyebrow">Close to home</p>
+            <h3>Local service.<br />Complete renovations.</h3>
+            <p>From initial planning to the final details, Ron works with homeowners throughout the area to complete kitchen and bathroom renovations.</p>
+            <div className="coverage-summary__stats"><div><strong>{Object.keys(serviceCounties).length}</strong><span>counties</span></div><div><strong>{townCount}</strong><span>communities</span></div></div>
+            <a className="button" href={withBase('contact/')}>Schedule a Consultation</a>
+            <a className="coverage-summary__phone" href={business.phoneHref}>Or call Ron · {business.phone}</a>
+          </aside> : <div className="coverage-details">
             <div className="coverage-tabs" aria-label="Choose a service county">
               {Object.keys(serviceCounties).map(county => <button key={county} type="button" aria-pressed={selected === county} className={selected === county ? 'is-selected' : ''} onClick={() => setSelected(county)}>{county.replace(' County', '')}</button>)}
             </div>
             <div className="coverage-town-panel" aria-live="polite" aria-atomic="true">
-              <p className="eyebrow">Kitchen & bath remodeling</p><h3>{selected}</h3>
+              <p className="eyebrow">Communities we serve</p><h3>{selected}</h3>
               <ul>{serviceCounties[selected].map(town => <li key={town}>{town}</li>)}</ul>
             </div>
 
-            <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a>{!full && <a className="text-link" href={withBase('service-area/')}>View all service areas</a>}</div>
-          </div>
+            <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a><a className="text-link" href={withBase('service-area/')}>View all towns</a></div>
+          </div>}
         </div>
-        {full && <div className="coverage-all-towns">{Object.entries(serviceCounties).map(([county, towns]) => <details key={county} open><summary>{county} <span>{towns.length} towns</span></summary><ul>{towns.map(town => <li key={town}>{town}</li>)}</ul></details>)}</div>}
+        {full && <div className="coverage-directory" aria-label="Service area towns">{countyEntries.map(([county, towns]) => <article key={county} className={`coverage-directory__county ${selected === county ? 'is-selected' : ''}`}>
+          <button type="button" className="coverage-directory__heading" aria-pressed={selected === county} onClick={() => setSelected(county)}><span>{county}</span><span>{towns.length} communities</span></button>
+          <ul>{towns.map(town => <li key={town}>{town}</li>)}</ul>
+        </article>)}</div>}
       </div>
     </section>
   );

@@ -543,3 +543,87 @@ p { line-height:1.8; }
  .hero-actions .button--hero-tech,.hero-actions .hero-call { width:100%; justify-content:center; }
  .hero-call__copy { align-items:center; }
 }
+
+/* A clearer service-area overview, with an interactive map and scannable town directory. */
+.coverage-section { position:relative; padding-block:clamp(3.2rem,6vw,5rem); background:linear-gradient(180deg,#f2f6f5 0%,#f7f8f5 100%); border-block:1px solid #e5ece9; }
+.coverage-heading { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr); gap:2rem; align-items:end; margin-bottom:1.6rem; }
+.coverage-heading .eyebrow { margin-bottom:.5rem; }
+.coverage-heading h2 { max-width:22ch; margin:0; font-size:clamp(1.8rem,3vw,2.45rem); }
+.coverage-heading > p { max-width:47ch; margin:0 0 .15rem auto; font-size:.93rem; line-height:1.7; }
+.coverage-layout { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:1rem; align-items:stretch; border:0; border-radius:0; overflow:visible; background:transparent; box-shadow:none; }
+.coverage-map { min-width:0; padding:1rem 1.2rem .8rem; border:1px solid #dce7e5; border-radius:20px; background-color:#edf3f1; background-image:linear-gradient(rgba(21,85,120,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(21,85,120,.045) 1px,transparent 1px); background-size:28px 28px; box-shadow:0 12px 30px rgba(16,42,57,.045); }
+.coverage-map__meta { align-items:center; color:#527080; font-size:.62rem; letter-spacing:.11em; }
+.coverage-map__meta span:last-child { display:inline-flex; align-items:center; gap:.45rem; }
+.coverage-map__meta i,.coverage-map__hint span { width:8px; height:8px; flex:0 0 8px; border-radius:50%; background:#48a4b2; box-shadow:0 0 0 3px #48a4b220; }
+.coverage-map svg { max-height:350px; }
+.coverage-map__county { fill:#d7e4e4; stroke:#8eabb2; stroke-width:1.5; }
+.coverage-map__county.is-selected { fill:#155578; stroke:#103f5a; stroke-width:2.5; }
+.coverage-map__county:hover { fill:#87b5bd; }
+.coverage-map__label { fill:#254e60; font-size:16px; font-weight:800; }
+.coverage-map g:has(.is-selected) .coverage-map__label { fill:#fff; }
+.coverage-map__hint { display:flex; align-items:center; gap:.6rem; margin:.1rem 0 0; color:#57717d; font-size:.72rem; }
+.coverage-details,.coverage-summary { min-width:0; padding:clamp(1.2rem,2.4vw,2rem); border:1px solid #dce7e5; border-radius:20px; background:#fff; box-shadow:0 12px 30px rgba(16,42,57,.045); }
+.coverage-details { display:flex; flex-direction:column; }
+.coverage-tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.45rem; padding:0 0 1.15rem; border-bottom:1px solid #e6edeb; }
+.coverage-tabs button { min-height:42px; padding:.45rem .35rem; border:1px solid #dce7e5; border-radius:8px; background:#f8faf9; color:#456170; font-size:.75rem; font-weight:750; transition:background .18s,color .18s,border-color .18s; }
+.coverage-tabs button.is-selected { border-color:#155578; background:#155578; color:#fff; }
+.coverage-tabs button:hover:not(.is-selected) { border-color:#96b8c0; background:#eff6f5; }
+.coverage-town-panel { flex:1; min-height:0; padding:1.2rem 0 1rem; }
+.coverage-town-panel .eyebrow { margin-bottom:.35rem; font-size:.62rem; }
+.coverage-town-panel h3 { margin-bottom:.5rem; color:#183d50; font-size:1.25rem; }
+.coverage-town-panel ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.25rem 1rem; margin:.55rem 0 0; color:#536975; font-size:.82rem; line-height:1.6; }
+.coverage-actions { display:flex; align-items:center; gap:.9rem; flex-wrap:wrap; margin-top:auto; padding-top:.75rem; border-top:1px solid #e6edeb; }
+.coverage-actions .button { min-height:44px; font-size:.78rem; }
+.coverage-actions .text-link { font-size:.78rem; }
+.coverage-summary { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; overflow:hidden; border-color:#174b66; background:linear-gradient(145deg,#103f5a,#155578 66%,#1b647b); color:#fff; }
+.coverage-summary .eyebrow { color:#b8e1e4; font-size:.62rem; }
+.coverage-summary h3 { margin:0 0 .75rem; color:#fff; font-size:clamp(1.45rem,2.4vw,1.95rem); line-height:1.2; letter-spacing:-.035em; }
+.coverage-summary > p:not(.eyebrow) { max-width:40ch; margin:0; color:#e2edf0; font-size:.85rem; line-height:1.75; }
+.coverage-summary__stats { display:flex; gap:2rem; margin:1.2rem 0 1.35rem; }
+.coverage-summary__stats div { display:grid; gap:.1rem; }
+.coverage-summary__stats strong { color:#fff; font-size:1.7rem; line-height:1; }
+.coverage-summary__stats span { color:#c8dde2; font-size:.7rem; }
+.coverage-summary .button { border-color:#fff; background:#fff; color:#155578; box-shadow:none; }
+.coverage-summary .button:hover { background:#e9f2f3; }
+.coverage-summary__phone { margin-top:.8rem; color:#e8f2f3; font-size:.77rem; font-weight:700; text-underline-offset:3px; }
+.coverage-summary__phone:hover { text-decoration:underline; }
+.coverage-directory { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1rem; }
+.coverage-directory__county { min-width:0; padding:1.2rem 1.25rem; border:1px solid #dce7e5; border-radius:16px; background:#fff; box-shadow:0 8px 22px rgba(16,42,57,.035); transition:border-color .18s,box-shadow .18s; }
+.coverage-directory__county.is-selected { border-color:#72a8b5; box-shadow:0 0 0 3px rgba(72,164,178,.1),0 8px 22px rgba(16,42,57,.035); }
+.coverage-directory__heading { display:flex; width:100%; align-items:center; justify-content:space-between; gap:1rem; padding:0 0 .8rem; border:0; border-bottom:1px solid #e7eeec; background:transparent; color:#183d50; text-align:left; }
+.coverage-directory__heading span:first-child { font-size:1.03rem; font-weight:800; }
+.coverage-directory__heading span:last-child { color:#66808b; font-size:.68rem; font-weight:650; white-space:nowrap; }
+.coverage-directory__heading:hover span:first-child { color:var(--blue); }
+.coverage-directory__county ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem .8rem; padding:0; margin:.85rem 0 0; list-style:none; color:#506570; font-size:.8rem; }
+.coverage-directory__county li::before { content:''; display:inline-block; width:6px; height:6px; margin:0 .5rem .08rem 0; border-radius:50%; background:#72aeb8; }
+.coverage-section--full .coverage-directory { margin-top:1.15rem; }
+@media(max-width:900px) {
+ .coverage-heading { grid-template-columns:1fr; gap:.6rem; }
+ .coverage-heading > p { margin:0; }
+ .coverage-layout { grid-template-columns:1fr; }
+ .coverage-map svg { max-height:400px; }
+ .coverage-summary { min-height:300px; }
+}
+@media(max-width:700px) {
+ .coverage-section { padding-block:2.6rem; }
+ .coverage-heading { margin-bottom:1.15rem; }
+ .coverage-heading h2 { font-size:1.8rem; }
+ .coverage-heading > p { font-size:.84rem; }
+ .coverage-map { padding:.85rem .85rem .75rem; border-radius:16px; }
+ .coverage-map__meta { font-size:.53rem; }
+ .coverage-map__label { font-size:20px; }
+ .coverage-map__hint { font-size:.66rem; }
+ .coverage-details,.coverage-summary { padding:1rem; border-radius:16px; }
+ .coverage-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; }
+ .coverage-tabs button { min-height:44px; }
+ .coverage-town-panel { padding:.95rem 0 .8rem; }
+ .coverage-town-panel ul { gap:.35rem .75rem; margin-top:.5rem; font-size:.78rem; }
+ .coverage-actions { align-items:stretch; flex-direction:column; gap:.35rem; }
+ .coverage-actions .button { width:100%; min-height:46px; }
+ .coverage-actions .text-link { align-self:center; }
+ .coverage-summary { min-height:0; }
+ .coverage-summary__stats { margin:1rem 0 1.1rem; }
+ .coverage-directory { grid-template-columns:1fr; gap:.7rem; }
+ .coverage-directory__county { padding:1rem; border-radius:14px; }
+ .coverage-directory__county ul { gap:.4rem .55rem; font-size:.77rem; }
+}
