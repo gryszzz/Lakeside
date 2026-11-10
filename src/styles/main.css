@@ -96,9 +96,6 @@ p { line-height:1.7; color:var(--muted); margin-bottom:1rem; }
 .coverage-map__county:focus-visible { outline:none; stroke:#000; stroke-width:5; }
 .coverage-map__label { fill:#102f41; font-size:17px; font-weight:750; pointer-events:none; }
 .coverage-map g:has(.is-selected) .coverage-map__label { fill:#fff; }
-.coverage-map__home { fill:#000; pointer-events:none; }
-.coverage-map__home circle { stroke:#fff; stroke-width:2; }
-.coverage-map__home text { font-size:12px; paint-order:stroke; stroke:#fff; stroke-width:2px; font-weight:700; }
 .coverage-map__hint { font-size:.7rem; margin:0; color:#4a687b; }
 .coverage-details { padding:1.5rem; display:flex; flex-direction:column; }
 .coverage-tabs { display:grid; grid-template-columns:repeat(4,1fr); gap:.35rem; border-bottom:1px solid var(--line); padding-bottom:1rem; }
@@ -210,7 +207,11 @@ p { line-height:1.7; color:var(--muted); margin-bottom:1rem; }
  .coverage-map { padding:1rem; }
  .coverage-map__label { font-size:20px; }
  .coverage-details { padding:1.1rem; }
- .coverage-town-panel { min-height:200px; }
+ .coverage-town-panel { min-height:0; padding:1.25rem 0 1rem; }
+ .coverage-town-panel ul { gap:.8rem 1.2rem; line-height:1.45; margin-top:1.1rem; }
+ .coverage-actions { flex-direction:column; align-items:stretch; gap:.55rem; margin-top:1rem; }
+ .coverage-actions .button { width:100%; min-height:48px; font-size:.8rem; }
+ .coverage-actions .text-link { align-self:center; margin:.1rem 0; padding:.65rem .4rem; font-size:.82rem; }
  .page-hero { padding:1.5rem 0; }
  .page-hero__grid,.story-grid { grid-template-columns:1fr; gap:1.5rem; }
  .page-hero h1 { font-size:1.9rem; }

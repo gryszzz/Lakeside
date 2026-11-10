@@ -16,7 +16,6 @@ function project(coordinate) {
   return [300 + (x - (extent[0] + extent[2]) / 2) * scale, 240 + (y - (extent[1] + extent[3]) / 2) * scale];
 }
 const labelLocations = { Sussex: [-74.675, 41.18], Passaic: [-74.325, 41.055], Morris: [-74.57, 40.865], Warren: [-75.005, 40.79] };
-const sparta = project([-74.63849, 41.03343]);
 
 export function ServiceAreaMap({ full = false }) {
   const [selected, setSelected] = useState('Sussex County');
@@ -31,7 +30,7 @@ export function ServiceAreaMap({ full = false }) {
           <div className="coverage-map">
             <div className="coverage-map__meta"><span>Northern New Jersey</span><span>Service area</span></div>
             <svg viewBox="0 0 600 480" role="group" aria-label="Interactive map of Lakeside’s four New Jersey service counties" aria-describedby="coverage-map-description">
-              <desc id="coverage-map-description">Select Sussex, Morris, Passaic, or Warren County to see its towns. County outlines use the geographic boundary data supplied with this website. Sparta marks the business’s home town.</desc>
+              <desc id="coverage-map-description">Select Sussex, Morris, Passaic, or Warren County to see its towns. County outlines use the geographic boundary data supplied with this website.</desc>
               {boundaries.features.map(feature => {
                 const county = `${feature.properties.NAME} County`;
                 const d = feature.geometry.coordinates.map(ring => ring.map((coordinate, index) => `${index ? 'L' : 'M'}${project(coordinate).map(value => value.toFixed(2)).join(' ')}`).join(' ') + ' Z').join(' ');
@@ -41,7 +40,6 @@ export function ServiceAreaMap({ full = false }) {
                   <text x={x} y={y} textAnchor="middle" className="coverage-map__label" aria-hidden="true">{feature.properties.NAME}</text>
                 </g>;
               })}
-              <g className="coverage-map__home" aria-hidden="true"><circle cx={sparta[0]} cy={sparta[1]} r="5" /><text x={sparta[0] + 10} y={sparta[1] + 4}>Sparta</text></g>
             </svg>
             <p className="coverage-map__hint">Select a county on the map or use the county buttons.</p>
           </div>
