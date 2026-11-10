@@ -763,3 +763,12 @@ p { line-height:1.8; }
  .estimate-contact-row__copy strong { font-size:.86rem; }
  .estimate-panel__area { margin-top:.8rem; padding-top:.75rem; }
 }
+
+/* Keep the request estimate action distinct against the blue final callout. */
+.final-cta .hero-actions .button--hero-tech { display:inline-flex; grid-template-columns:none; justify-content:center; width:auto; min-width:220px; min-height:50px; padding:.8rem 1.2rem; border:1px solid #fff; border-radius:10px; background:#fff; color:#155578; box-shadow:0 8px 22px rgba(4,34,49,.18); text-align:center; }
+.final-cta .hero-actions .button--hero-tech:hover { border-color:#e7f1f3; background:#e7f1f3; color:#103f5a; }
+.final-cta .hero-actions .button--hero-tech::after { content:'→'; margin-left:.55rem; color:#155578; font-size:1.05rem; }
+@media(max-width:700px) {
+ .final-cta .hero-actions { width:100%; }
+ .final-cta .hero-actions .button--hero-tech { width:min(100%,320px); min-width:0; min-height:52px; }
+}
