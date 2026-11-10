@@ -20,7 +20,6 @@ const labelLocations = { Sussex: [-74.675, 41.18], Passaic: [-74.325, 41.055], M
 export function ServiceAreaMap({ full = false }) {
   const [selected, setSelected] = useState('Sussex County');
   const countyEntries = Object.entries(serviceCounties);
-  const townCount = countyEntries.reduce((total, [, towns]) => total + towns.length, 0);
   return (
     <section className={`section coverage-section ${full ? 'coverage-section--full' : ''}`} id="coverage">
       <div className="container">
@@ -30,7 +29,7 @@ export function ServiceAreaMap({ full = false }) {
         </div>
         <div className="coverage-layout">
           <div className="coverage-map">
-            <div className="coverage-map__meta"><span>Northwest New Jersey</span><span><i aria-hidden="true" /> {Object.keys(serviceCounties).length} counties served</span></div>
+            <div className="coverage-map__meta"><span>Northwest New Jersey</span><span>Service coverage</span></div>
             <svg viewBox="0 0 600 480" role="group" aria-label="Interactive map of Lakeside’s four New Jersey service counties" aria-describedby="coverage-map-description">
               <desc id="coverage-map-description">Select Sussex, Morris, Passaic, or Warren County to highlight the area. County outlines show Lakeside’s service region.</desc>
               {boundaries.features.map(feature => {
@@ -45,14 +44,7 @@ export function ServiceAreaMap({ full = false }) {
             </svg>
             <p className="coverage-map__hint"><span aria-hidden="true" />Select a county to highlight its service area</p>
           </div>
-          {full ? <aside className="coverage-summary">
-            <p className="eyebrow">Close to home</p>
-            <h3>Local service.<br />Complete renovations.</h3>
-            <p>From initial planning to the final details, Ron works with homeowners throughout the area to complete kitchen and bathroom renovations.</p>
-            <div className="coverage-summary__stats"><div><strong>{Object.keys(serviceCounties).length}</strong><span>counties</span></div><div><strong>{townCount}</strong><span>communities</span></div></div>
-            <a className="button" href={withBase('contact/')}>Schedule a Consultation</a>
-            <a className="coverage-summary__phone" href={business.phoneHref}>Or call Ron · {business.phone}</a>
-          </aside> : <div className="coverage-details">
+          <div className="coverage-details">
             <div className="coverage-tabs" aria-label="Choose a service county">
               {Object.keys(serviceCounties).map(county => <button key={county} type="button" aria-pressed={selected === county} className={selected === county ? 'is-selected' : ''} onClick={() => setSelected(county)}>{county.replace(' County', '')}</button>)}
             </div>
@@ -61,11 +53,11 @@ export function ServiceAreaMap({ full = false }) {
               <ul>{serviceCounties[selected].map(town => <li key={town}>{town}</li>)}</ul>
             </div>
 
-            <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a><a className="text-link" href={withBase('service-area/')}>View all towns</a></div>
-          </div>}
+            <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a><a className="text-link" href={full ? '#coverage-directory' : withBase('service-area/')}>View all towns</a></div>
+          </div>
         </div>
-        {full && <div className="coverage-directory" aria-label="Service area towns">{countyEntries.map(([county, towns]) => <article key={county} className={`coverage-directory__county ${selected === county ? 'is-selected' : ''}`}>
-          <button type="button" className="coverage-directory__heading" aria-pressed={selected === county} onClick={() => setSelected(county)}><span>{county}</span><span>{towns.length} communities</span></button>
+        {full && <div className="coverage-directory" id="coverage-directory" aria-label="Service area towns">{countyEntries.map(([county, towns]) => <article key={county} className={`coverage-directory__county ${selected === county ? 'is-selected' : ''}`}>
+          <button type="button" className="coverage-directory__heading" aria-pressed={selected === county} onClick={() => setSelected(county)}><span>{county}</span></button>
           <ul>{towns.map(town => <li key={town}>{town}</li>)}</ul>
         </article>)}</div>}
       </div>
