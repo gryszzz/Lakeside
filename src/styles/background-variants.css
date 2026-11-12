@@ -1,0 +1,66 @@
+/* Background previews. Switch with ?bg=plain|gradient|texture|wave.
+   No query param (and any unknown value) uses plain, the clean default.
+   main.jsx sets html[data-bg] before the page renders. These rules also
+   describe plain when the attribute is missing, so the swoosh artwork
+   cannot flash back in. */
+
+html .site-shell #main-content > * {
+  background-color:#fff;
+  background-image:none;
+}
+
+html .site-shell #main-content > :nth-child(even) {
+  background-color:#f3f6f8;
+  background-image:none;
+}
+
+html .hero-trust-band::before,
+html .final-cta::before {
+  content:none;
+}
+
+html .hero-trust-band {
+  margin-top:clamp(1.75rem,3.2vw,2.6rem);
+}
+
+/* Soft brand wash. Navy #103f5a, blue #155578, teal #20728a at low opacity. */
+html[data-bg="gradient"] .site-shell #main-content {
+  background-color:#f7fafb;
+  background-image:
+    radial-gradient(920px 540px at 100% 60px,rgba(21,85,120,.10),transparent 68%),
+    radial-gradient(720px 480px at -6% 680px,rgba(32,114,138,.08),transparent 70%),
+    radial-gradient(640px 420px at 82% 1320px,rgba(16,63,90,.055),transparent 72%),
+    linear-gradient(180deg,rgba(21,85,120,.04),rgba(21,85,120,0) 780px);
+  background-repeat:no-repeat;
+}
+
+html[data-bg="gradient"] .site-shell #main-content > * {
+  background-color:transparent;
+  background-image:none;
+}
+
+/* Faint warm stone: a tiny tiled grain plus a quiet tonal wash. */
+html[data-bg="texture"] .site-shell #main-content {
+  background-color:#f7f5f2;
+  background-image:
+    url('/images/branding/stone-grain.png'),
+    radial-gradient(880px 460px at 18% 12%,rgba(255,255,255,.7),transparent 62%),
+    linear-gradient(180deg,#fbfaf7 0%,#f4f1eb 100%);
+  background-size:128px 128px,auto,auto;
+  background-repeat:repeat,no-repeat,no-repeat;
+}
+
+html[data-bg="texture"] .site-shell #main-content > * {
+  background-color:transparent;
+  background-image:none;
+}
+
+/* Same clean sections as plain, with the stats-bar wave put back. */
+html[data-bg="wave"] .hero-trust-band::before,
+html[data-bg="wave"] .final-cta::before {
+  content:'';
+}
+
+html[data-bg="wave"] .hero-trust-band {
+  margin-top:clamp(3.5rem,6vw,5.5rem);
+}

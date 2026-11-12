@@ -103,33 +103,23 @@ body { background:#fff; }
   .site-shell .about-approach ul { grid-template-columns:minmax(0,1fr); }
 }
 
-/* Logo-inspired layers with restrained blue and silver hues. */
+/* Pointed swooshes used to tile from public/images/branding/lakeside-layered-curves.svg
+   (--brand-flow) across #main-content. Preview variants in background-variants.css
+   replace that artwork. The gentle stats-bar wave is a separate mask
+   (lakeside-wave.png on .hero-trust-band::before) and is kept only for ?bg=wave. */
 :root {
-  --brand-flow:url('/images/branding/lakeside-layered-curves.svg');
-  --architecture-opening:var(--brand-flow);
-  --architecture-pearl:var(--brand-flow);
-  --architecture-mist:var(--brand-flow);
-}
-.site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening,.home-services,.services-collection,.room-priorities,.room-planning,.home-gallery,.home-process.process-journey,.room-scope,.room-process,.section--faq,.coverage-section,.brand-connections) {
-  background-color:#fff;
-  background-image:var(--brand-flow);
-  background-size:100% 100%;
-  background-position:center;
-  background-repeat:no-repeat;
+  --brand-flow:none;
 }
 .site-shell :is(.lakeside-opening .hero__body p,.page-hero__body,.services-opening__lead,.process-opening .container > p:not(.eyebrow),.room-opening__intro) { color:#3b5667; }
 
-/* One shared canvas: section boundaries no longer crop or restart the artwork. */
 .site-shell { background:#fff; }
 .site-shell #main-content {
   background-color:#fff;
-  background-image:var(--brand-flow);
-  background-size:100% 1800px;
-  background-position:center top;
-  background-repeat:repeat-y;
+  background-image:none;
 }
 .site-shell #main-content > .section,
 .site-shell #main-content :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening,.home-services,.services-collection,.room-priorities,.room-questions,.room-planning,.process-journey,.home-gallery,.room-scope,.room-process,.section--soft,.section--faq,.coverage-section,.brand-connections,.section--contrast,.services-next,.process-start,.room-closing) {
-  background:transparent;
+  background-color:transparent;
+  background-image:none;
   border-block-color:transparent;
 }
