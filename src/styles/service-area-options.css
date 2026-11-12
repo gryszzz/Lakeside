@@ -1,0 +1,128 @@
+/* Refined service-area map: blueprint card, pills, and a soft selected glow. */
+
+.coverage-map__pin { display: none; }
+
+.coverage-section .coverage-map {
+  position: relative;
+  overflow: hidden;
+  border-color: #c9dbe3;
+  background-color: #f4f8f8;
+  background-image: none;
+  box-shadow: 0 16px 36px rgba(16, 47, 68, 0.08);
+}
+
+.coverage-section .coverage-map::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(21, 85, 120, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 85, 120, 0.075) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 70% 30%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 80% at 70% 30%, #000 20%, transparent 78%);
+}
+
+.coverage-section .coverage-map > * {
+  position: relative;
+  z-index: 1;
+}
+
+.coverage-section .coverage-map__county {
+  fill: #d5e4e6;
+  stroke: #8eafb6;
+  transition: fill .28s ease, stroke .28s ease, filter .28s ease;
+}
+
+.coverage-section .coverage-map__county.is-selected {
+  fill: #155578;
+  stroke: #0e6f80;
+  stroke-width: 2.4;
+  filter: drop-shadow(0 0 7px rgba(32, 140, 156, 0.55));
+}
+
+.coverage-section .coverage-map__county:hover:not(.is-selected) {
+  fill: #d5e4e6;
+}
+
+.coverage-section g:has(.is-selected) .coverage-map__label {
+  fill: #fff;
+  font-weight: 800;
+  filter: drop-shadow(0 1px 1px rgba(8, 28, 42, 0.55));
+}
+
+.coverage-section g:has(.is-selected) .coverage-map__pin {
+  display: block;
+  fill: #d4bc8a;
+  stroke: #fff;
+  stroke-width: 1.2;
+}
+
+.coverage-section .coverage-map__county:focus-visible {
+  outline: none;
+  stroke: #0e7c8a;
+  stroke-width: 3;
+}
+
+.coverage-section .coverage-tabs {
+  gap: 0.45rem;
+  border-bottom-color: #e4eef0;
+}
+
+.coverage-section .coverage-tabs button {
+  border-radius: 999px;
+  background: #f7fbfb;
+  box-shadow: inset 0 1px 0 #fff;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.coverage-section .coverage-tabs button.is-selected {
+  background: #155578;
+  border-color: #155578;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(21, 85, 120, 0.22);
+}
+
+.coverage-section .coverage-tabs button:hover:not(.is-selected) {
+  background: #f7fbfb;
+  border-color: #dce7e5;
+  color: #456170;
+}
+
+.coverage-section .coverage-tabs button:focus-visible {
+  outline: 2px solid #0e7c8a;
+  outline-offset: 2px;
+}
+
+.coverage-section .coverage-town-panel__swap {
+  animation: service-area-swap .28s ease;
+}
+
+@keyframes service-area-swap {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (hover: hover) {
+  .coverage-section .coverage-map__county:hover:not(.is-selected) {
+    fill: #b7d0d4;
+  }
+
+  .coverage-section .coverage-tabs button:hover:not(.is-selected) {
+    border-color: #8eb4bc;
+    background: #eef6f6;
+    color: #155578;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coverage-section .coverage-map__county,
+  .coverage-section .coverage-tabs button {
+    transition: none;
+  }
+
+  .coverage-section .coverage-town-panel__swap {
+    animation: none;
+  }
+}

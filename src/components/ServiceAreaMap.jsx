@@ -38,6 +38,7 @@ export function ServiceAreaMap({ full = false }) {
                 const [x, y] = project(labelLocations[feature.properties.NAME]);
                 return <g key={county}>
                   <path d={d} className={`coverage-map__county ${selected === county ? 'is-selected' : ''}`} role="button" tabIndex={0} aria-label={`Show towns in ${county}`} aria-pressed={selected === county} onClick={() => setSelected(county)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelected(county); } }} />
+                  <circle className="coverage-map__pin" cx={x} cy={y - 30} r="3.2" aria-hidden="true" />
                   <text x={x} y={y} textAnchor="middle" className="coverage-map__label" aria-hidden="true">{feature.properties.NAME}</text>
                 </g>;
               })}
@@ -49,9 +50,11 @@ export function ServiceAreaMap({ full = false }) {
               {Object.keys(serviceCounties).map(county => <button key={county} type="button" aria-pressed={selected === county} className={selected === county ? 'is-selected' : ''} onClick={() => setSelected(county)}>{county.replace(' County', '')}</button>)}
             </div>
             <div className="coverage-town-panel" aria-live="polite" aria-atomic="true">
-              <h3>{selected}</h3>
-              <p className="coverage-town-label">Communities we serve</p>
-              <ul>{serviceCounties[selected].map(town => <li key={town}>{town}</li>)}</ul>
+              <div className="coverage-town-panel__swap" key={selected}>
+                <h3>{selected}</h3>
+                <p className="coverage-town-label">Communities we serve</p>
+                <ul>{serviceCounties[selected].map(town => <li key={town}>{town}</li>)}</ul>
+              </div>
             </div>
 
             <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a><a className="text-link" href={full ? '#coverage-directory' : withBase('service-area/')}>View all towns</a></div>
