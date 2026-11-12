@@ -55,10 +55,12 @@ export function ServiceAreaMap({ full = false }) {
             <div className="coverage-tabs" aria-label="Choose a service county">
               {Object.keys(serviceCounties).map(county => <button key={county} type="button" aria-pressed={selected === county} className={selected === county ? 'is-selected' : ''} onClick={() => setSelected(county)}>{county.replace(' County', '')}</button>)}
             </div>
-            <div className="coverage-town-panel" key={selected} aria-live="polite" aria-atomic="true">
-              <h3>{selected}</h3>
-              <p className="coverage-town-label">Communities we serve</p>
-              <ul>{serviceCounties[selected].map(town => <li key={town}>{town}</li>)}</ul>
+            <div className="coverage-town-panel" aria-live="polite" aria-atomic="true">
+              <div className="coverage-town-panel__swap" key={selected}>
+                <h3>{selected}</h3>
+                <p className="coverage-town-label">Communities we serve</p>
+                <ul>{serviceCounties[selected].map(town => <li key={town}>{town}</li>)}</ul>
+              </div>
             </div>
 
             <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a><a className="text-link" href={full ? '#coverage-directory' : withBase('service-area/')}>View all towns</a></div>

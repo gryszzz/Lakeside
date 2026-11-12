@@ -98,7 +98,7 @@
   outline-offset: 2px;
 }
 
-.coverage-section.map-option--a .coverage-town-panel {
+.coverage-section.map-option--a .coverage-town-panel__swap {
   animation: service-area-swap .28s ease;
 }
 
@@ -208,7 +208,7 @@
   content: none;
 }
 
-.coverage-section.map-option--b .coverage-town-panel {
+.coverage-section.map-option--b .coverage-town-panel__swap {
   animation: service-area-swap .28s ease;
 }
 
@@ -253,8 +253,8 @@
     transition: none;
   }
 
-  .coverage-section.map-option--a .coverage-town-panel,
-  .coverage-section.map-option--b .coverage-town-panel {
+  .coverage-section.map-option--a .coverage-town-panel__swap,
+  .coverage-section.map-option--b .coverage-town-panel__swap {
     animation: none;
   }
 }
