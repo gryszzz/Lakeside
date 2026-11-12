@@ -273,14 +273,14 @@ export function HeroProjectCarousel() {
           <span>Lakeside · Project Gallery</span>
           <span>{String(currentIndex + 1).padStart(2, '0')} / {String(heroProjectPhotos.length).padStart(2, '0')}</span>
         </div>
-        <div className="hero-photo-carousel__viewport" style={{ aspectRatio: project.frameAspect || '3 / 2' }}>
+        <div className="hero-photo-carousel__viewport" style={{ aspectRatio: '3 / 2' }}>
           <img className="hero-photo-carousel__ambient" src={withBase(project.image)} alt="" aria-hidden="true" />
           <a
             className="hero-photo-carousel__photo"
             href={withBase(`projects/?project=${project.id}`)}
             aria-label={`Open the gallery at ${project.title}`}
           >
-            <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
+            <img style={{ objectPosition: project.galleryFocalPoint || project.focalPoint, objectFit: 'cover', transform: 'none' }} src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
           </a>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
