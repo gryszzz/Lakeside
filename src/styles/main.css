@@ -1503,3 +1503,33 @@ p { line-height:1.8; }
 }
 
 .home-process__more { display:inline-flex; align-items:center; min-height:44px; margin-top:1rem; }
+
+/* A coordinated range of lighter homepage blues, anchored by the logo navy. */
+body[data-page="home"] { --blue:#155578; --blue-dark:#103f5a; }
+body[data-page="home"] .site-header__phone { background:#174f70; border-color:#174f70; }
+body[data-page="home"] .lakeside-opening .hero-actions .button--hero-tech {
+ background:linear-gradient(110deg,#155578,#26728d);
+ border-color:#1e6280;
+ box-shadow:0 5px 16px #174a591a,inset 0 1px 0 #ffffff26;
+}
+body[data-page="home"] .coverage-actions .button { background:#256582; border-color:#256582; }
+body[data-page="home"] .coverage-tabs button.is-selected { background:#2c6783; border-color:#2c6783; }
+body[data-page="home"] .coverage-map__county.is-selected { fill:#28617e; stroke:#1c526f; }
+body[data-page="home"] .lakeside-opening .hero-call,
+body[data-page="home"] .lakeside-opening .hero-call__copy strong,
+body[data-page="home"] .home-process .text-link,
+body[data-page="home"] .home-services .text-link { color:#28617e; }
+@media(hover:hover) {
+ body[data-page="home"] .site-header__phone:hover { background:#103f5a; border-color:#103f5a; }
+ body[data-page="home"] .lakeside-opening .hero-actions .button--hero-tech:hover { background:linear-gradient(110deg,#124b6b,#1f6380); border-color:#155578; }
+ body[data-page="home"] .coverage-actions .button:hover { background:#1c5673; border-color:#1c5673; }
+}
+
+/* Preserve the original photo-navigation styling. */
+body[data-page="home"] .hero-photo-carousel__arrow { background:rgba(13,57,78,.82); }
+body[data-page="home"] .hero-photo-carousel__dots { background:rgba(16,63,90,.66); }
+body[data-page="home"] .home-gallery__controls button { background:#fff; color:#155578; border-color:#a9c4cf; }
+@media(hover:hover) {
+ body[data-page="home"] .hero-photo-carousel__arrow:hover { background:#155578; }
+ body[data-page="home"] .home-gallery__controls button:hover { background:#155578; border-color:#155578; color:#fff; }
+}
