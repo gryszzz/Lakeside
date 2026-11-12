@@ -406,10 +406,6 @@ export function ProjectGallery() {
                 Explore a selection of finished kitchens, bathrooms, and custom cabinetry. Open any spotlight photo to see the full image.
               </p>
             </div>
-            <div className="project-gallery__count" aria-live="polite">
-              <strong>{visibleProjects.length}</strong>
-              <span>{visibleProjects.length === 1 ? 'project photo' : 'project photos'}</span>
-            </div>
           </div>
           <div className="project-filter" role="group" aria-label="Filter project photos">
             {filters.map((item) => (
