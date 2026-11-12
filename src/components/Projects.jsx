@@ -255,6 +255,17 @@ const homepageProjectPhotos = [
     summary: 'A refreshed laundry room with custom cabinetry and marble-look tile flooring.',
     tags: ['Laundry Room', 'Cabinetry', 'Tile']
   },
+  {
+    id: 'tile-tub-shower',
+    title: 'Tile Tub & Shower',
+    category: 'Bathroom',
+    image: 'images/projects/portfolio/lakeside-tile-tub-shower.webp',
+    galleryFocalPoint: '50% 65%',
+    alt: 'Tub and shower with large gray tiles, a recessed niche, and matte black fixtures and grab bar',
+    summary: 'Large-format tile surrounds a white tub, with a recessed shower niche and coordinated black fixtures.',
+    tags: ['Bathroom', 'Tile', 'Tub & Shower']
+  },
+
 ];
 
 const heroProjectPhotos = homepageProjectPhotos.slice(0, 3);
@@ -297,7 +308,49 @@ export function HeroProjectCarousel() {
   </div>;
 }
 
-const galleryProjectPhotos = homepageProjectPhotos;
+const galleryProjectPhotos = [
+  ...homepageProjectPhotos,
+  {
+    id: 'wood-vanity-black-fixtures',
+    title: 'Wood Vanity & Black Fixtures',
+    category: 'Bathroom',
+    image: 'images/projects/portfolio/lakeside-wood-vanity-black-fixtures.webp',
+    galleryFocalPoint: '50% 65%',
+    alt: 'Dark wood bathroom vanity with a white countertop, black faucet, wide mirror, and glass-shade lights',
+    summary: 'A warm wood vanity paired with a bright white countertop, a wide mirror, and coordinated black fittings.',
+    tags: ['Bathroom', 'Vanity', 'Fixtures']
+  },
+  {
+    id: 'black-framed-vanity',
+    title: 'Black-Framed Vanity Mirror',
+    category: 'Bathroom',
+    image: 'images/projects/portfolio/lakeside-black-framed-vanity.webp',
+    galleryFocalPoint: '50% 55%',
+    alt: 'Black-framed bathroom mirror above a white sink with a matte black faucet and matching towel ring',
+    summary: 'A black-framed mirror, glass light fixture, and matching faucet give this white vanity a clean finish.',
+    tags: ['Bathroom', 'Vanity', 'Lighting']
+  },
+  {
+    id: 'mosaic-vanity-details',
+    title: 'Vanity & Mosaic Details',
+    category: 'Bathroom',
+    image: 'images/projects/portfolio/lakeside-mosaic-vanity-details.webp',
+    galleryFocalPoint: '50% 65%',
+    alt: 'Bathroom vanity with a mosaic-framed mirror, two wall sconces, and gray tile backsplash',
+    summary: 'A textured mirror frame and layered tile details complement the vanity and wall lighting.',
+    tags: ['Bathroom', 'Tile', 'Vanity']
+  },
+  {
+    id: 'marble-look-tile-shower',
+    title: 'Marble-Look Tile Shower',
+    category: 'Bathroom',
+    image: 'images/projects/portfolio/lakeside-marble-look-tile-shower.webp',
+    galleryFocalPoint: '50% 50%',
+    alt: 'Glass shower enclosure with white marble-look tile, gray mosaic accents, and a corner shelf',
+    summary: 'Marble-look shower tile is finished with a glass enclosure, corner shelf, and coordinating mosaic accents.',
+    tags: ['Bathroom', 'Shower', 'Tile']
+  }
+];
 
 export function HomeProjectGallery() {
   const trackRef = useRef(null);
@@ -323,7 +376,7 @@ export function HomeProjectGallery() {
           </div>
         </div>
         <div className="home-gallery__track" id="home-project-gallery" ref={trackRef} aria-label="Kitchen and bathroom project photos" tabIndex="0">
-          {galleryProjectPhotos.map((project) => (
+          {homepageProjectPhotos.map((project) => (
             <a
               className="home-gallery__card"
               key={project.image}
