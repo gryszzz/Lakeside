@@ -242,15 +242,6 @@ const homepageProjectPhotos = [
     tags: ['Kitchen', 'Cabinetry', 'Countertops']
   },
   {
-    id: 'kitchen-installation-progress',
-    title: 'Kitchen Installation in Progress',
-    category: 'In Progress',
-    image: 'images/projects/portfolio/lakeside-kitchen-installation.jpg',
-    alt: 'White kitchen cabinetry and island during installation, with tools still in the room',
-    summary: 'A kitchen installation in progress, showing cabinetry and island work before the finishing details.',
-    tags: ['Kitchen', 'Installation', 'In Progress']
-  },
-  {
     id: 'laundry-room-custom-cabinetry',
     title: 'Laundry Room with Custom Cabinetry',
     category: 'Laundry Room',
@@ -259,15 +250,6 @@ const homepageProjectPhotos = [
     summary: 'A refreshed laundry room with custom cabinetry and marble-look tile flooring.',
     tags: ['Laundry Room', 'Cabinetry', 'Tile']
   },
-  {
-    id: 'rebuilt-deck-stairs',
-    title: 'Rebuilt Deck & Stairs',
-    category: 'Outdoor',
-    image: 'images/projects/portfolio/lakeside-deck-after.jpg',
-    alt: 'New wood deck with rebuilt stairs and railing leading to the backyard',
-    summary: 'A rebuilt outdoor stairway and deck with new wood decking and railing.',
-    tags: ['Deck', 'Stairs', 'Railing']
-  }
 ];
 
 const heroProjectPhotos = homepageProjectPhotos.slice(0, 3);
@@ -316,46 +298,7 @@ export function HeroProjectCarousel() {
   );
 }
 
-const homepageBeforeAfterProjects = [
-  {
-    title: 'Laundry Room Renovation',
-    summary: 'Compare the crowded utility space with the refreshed laundry room.',
-    beforeImage: 'images/projects/portfolio/lakeside-laundry-before.jpg',
-    afterImage: 'images/projects/portfolio/lakeside-laundry-after.jpg',
-    altBefore: 'Laundry room before renovation, crowded with hanging clothes, shelves, and stored items',
-    altAfter: 'Laundry room after renovation with gray custom cabinetry and marble-look tile flooring',
-    scope: 'Laundry room update'
-  },
-  {
-    title: 'Deck & Stair Renovation',
-    summary: 'Compare the weathered deck with its rebuilt wood stairs and railing.',
-    beforeImage: 'images/projects/portfolio/lakeside-deck-before.jpg',
-    afterImage: 'images/projects/portfolio/lakeside-deck-after.jpg',
-    altBefore: 'Weathered wood deck and stairs before renovation',
-    altAfter: 'Rebuilt wood deck, stairs, and railing after renovation',
-    scope: 'Decking, stairs, and railing'
-  }
-];
-
-// Add a before photo only when this project has a matching source photo.
-// Keep its existing after-photo ID so saved gallery links still work.
-const galleryProjectPhotos = homepageProjectPhotos.flatMap((project) => {
-  const comparison = homepageBeforeAfterProjects.find((pair) => pair.afterImage === project.image);
-  if (!comparison) return [project];
-  const comparisonIndex = homepageBeforeAfterProjects.indexOf(comparison);
-  return [
-    {
-      ...project,
-      id: `comparison-${comparisonIndex + 1}-before`,
-      title: `${comparison.title} · Before`,
-      image: comparison.beforeImage,
-      alt: comparison.altBefore,
-      summary: comparison.summary,
-      tags: ['Before', comparison.scope]
-    },
-    { ...project, title: `${comparison.title} · After`, tags: ['After', comparison.scope] }
-  ];
-});
+const galleryProjectPhotos = homepageProjectPhotos;
 
 export function HomeProjectGallery() {
   const trackRef = useRef(null);
@@ -371,7 +314,7 @@ export function HomeProjectGallery() {
       <div className="container">
         <div className="home-gallery__heading">
           <SectionIntro
-            eyebrow="Project Gallery"
+            eyebrow="Project Spotlights"
             title="A Look at Our Work"
             body="Browse kitchen and bathroom project photos. Select a photo to open it in the full gallery."
           />
@@ -400,25 +343,6 @@ export function HomeProjectGallery() {
           ))}
         </div>
         <p className="home-gallery__hint">Swipe or scroll to explore all project photos</p>
-      </div>
-    </section>
-  );
-}
-
-export function HomeBeforeAfterShowcase() {
-  return (
-    <section className="section home-before-after">
-      <div className="container">
-        <SectionIntro
-          eyebrow="Before & After"
-          title="Two Projects, Before and After"
-          body="Drag each divider to compare the original project with the finished work."
-        />
-        <div className="before-after-showcase home-before-after__comparison">
-          {homepageBeforeAfterProjects.map((project) => (
-            <BeforeAfterSlider key={project.title} compact project={project} />
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -473,10 +397,10 @@ export function ProjectGallery() {
         <div className="project-gallery__shell" data-reveal>
           <div className="project-gallery__header">
             <div className="project-gallery__copy">
-              <p className="eyebrow">Lakeside · Project Gallery</p>
+              <p className="eyebrow">Lakeside · Project Spotlights</p>
               <h1>Our Work, Up Close</h1>
               <p className="project-gallery__body">
-                Browse our kitchen, bathroom, cabinetry, and outdoor projects. Open any photo to see the full image. Before and after photos appear back to back.
+                Explore a selection of finished kitchens, bathrooms, and custom cabinetry. Open any spotlight photo to see the full image.
               </p>
             </div>
             <div className="project-gallery__count" aria-live="polite">

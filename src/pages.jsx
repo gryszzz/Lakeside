@@ -1,5 +1,5 @@
 import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
-import { HeroProjectCarousel, HomeBeforeAfterShowcase, HomeProjectGallery, ProjectGallery } from './components/Projects';
+import { HeroProjectCarousel, HomeProjectGallery, ProjectGallery } from './components/Projects';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
@@ -80,7 +80,6 @@ export function HomePage() {
       <HomeHero />
       <HomeServices />
       <HomeProjectGallery />
-      <HomeBeforeAfterShowcase />
       <HomeProcess /><WhyChooseUs compact />
       <BrandConnections />
       <ServiceAreaMap />
