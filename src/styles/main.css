@@ -1150,3 +1150,23 @@ p { line-height:1.8; }
 .coverage-directory__heading span:first-child { color:var(--county-accent); }
 .coverage-directory__theme { margin:.75rem 0 0; color:var(--county-accent); font-size:.73rem; font-weight:650; }
 .coverage-directory__county li::before { background:var(--county-accent); }
+
+/* Match the opening carousel frame to the portrait photo as well. */
+.hero-blueprint.hero-photo-carousel {
+ align-self:start;
+ min-height:0;
+ height:auto;
+ gap:.75rem;
+}
+.hero-photo-carousel__viewport {
+ position:relative;
+ inset:auto;
+ width:100%;
+ flex:none;
+}
+.hero-photo-carousel__dots { top:3.2rem; }
+@media(max-width:700px) {
+ .hero-blueprint.hero-photo-carousel { min-height:0; }
+ .hero-photo-carousel__viewport { inset:auto; }
+ .hero-photo-carousel__dots { top:2.8rem; }
+}

@@ -272,7 +272,7 @@ export function HeroProjectCarousel() {
           <span>Lakeside · Project Gallery</span>
           <span>{String(currentIndex + 1).padStart(2, '0')} / {String(heroProjectPhotos.length).padStart(2, '0')}</span>
         </div>
-        <div className="hero-photo-carousel__viewport">
+        <div className="hero-photo-carousel__viewport" style={{ aspectRatio: project.frameAspect || '3 / 2' }}>
           <img className="hero-photo-carousel__ambient" src={withBase(project.image)} alt="" aria-hidden="true" />
           <a
             className="hero-photo-carousel__photo"
