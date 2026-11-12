@@ -116,7 +116,7 @@ function BathroomPage() { return <RemodelingPage />; }
 function ProcessPage() { return <SiteShell showFinalCta={false}><ProcessExperience /></SiteShell>; }
 function ServiceAreaPage() { return <SiteShell><PageHero eyebrow="Service Area" title="Proudly Serving Northern New Jersey" body={business.serviceAreaLabel} actions={<ConsultationLink />} /><ServiceAreaMap full /></SiteShell>; }
 
-function FaqPage() { return <SiteShell><PageHero eyebrow="FAQ" title="FAQ" actions={<ConsultationLink />} /><FAQSection items={faqs} /></SiteShell>; }
+function FaqPage() { return <SiteShell><PageHero eyebrow="FAQ" title="FAQ" /><FAQSection items={faqs} /></SiteShell>; }
 function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero />} /><section className="section"><div className="container story-grid"><div><h2>Service Area</h2><p>{business.serviceAreaLabel}</p><p>Ronald Augustine, Owner</p><p>{business.license} · {business.licenseNumber}</p></div><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></div></section></SiteShell>; }
 
 function ReviewsPage() {
