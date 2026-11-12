@@ -1,147 +1,103 @@
-/* Shared cool architectural surfaces. Keep imagery and controls unchanged. */
+/* Shared, static gradient surfaces: depth without flat blocks or busy drawings. */
 :root {
   --surface:#eaf1f6;
   --line:#ccdce6;
-  --architecture-pearl:#f1f5f8;
-  --architecture-blue:#e3edf5;
   --architecture-border:#cfdee8;
-  --architecture-grid:rgba(29,83,119,.025);
+  --architecture-dark:radial-gradient(ellipse 90% 70% at 110% 4%,rgba(99,149,177,.52),transparent 72%),radial-gradient(ellipse 70% 40% at 75% 52%,rgba(49,98,132,.45),transparent 78%),radial-gradient(ellipse 80% 55% at -15% 105%,rgba(78,99,136,.6),transparent 72%),linear-gradient(145deg,#0d2132 0%,#183b53 42%,#244b65 70%,#102d42 100%);
+  --architecture-pearl:radial-gradient(ellipse 80% 100% at 100% 0%,rgba(144,184,211,.3),transparent 65%),radial-gradient(ellipse 85% 70% at 0% 100%,rgba(199,214,230,.5),transparent 70%),linear-gradient(130deg,#f8fafc 5%,#e9f0f6 55%,#d8e6f0 100%);
+  --architecture-mist:radial-gradient(ellipse 90% 75% at 0% 0%,rgba(255,255,255,.9),transparent 60%),radial-gradient(ellipse 75% 100% at 100% 100%,rgba(116,162,196,.22),transparent 70%),linear-gradient(125deg,#e9f1f7,#d6e5f0 60%,#e9f1f7);
 }
-body { background:#edf3f7; }
-.site-shell {
-  background-color:var(--architecture-pearl);
-  background-image:radial-gradient(ellipse at 100% 0,rgba(126,172,205,.13),transparent 45%),linear-gradient(150deg,#f4f7fa,#e9f1f7);
-}
+body { background:#e9f0f6; }
+.site-shell { background:var(--architecture-pearl); }
 .site-shell .site-header {
-  background:linear-gradient(110deg,rgba(255,255,255,.94),rgba(234,243,249,.93));
+  background:linear-gradient(110deg,rgba(255,255,255,.95),rgba(231,240,248,.93));
   border-bottom-color:#cbdce8;
   box-shadow:0 4px 22px rgba(21,61,91,.055);
   -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
 }
-.site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening) {
-  background-color:#edf3f8;
-  background-image:radial-gradient(ellipse at 96% 18%,rgba(94,155,198,.17),transparent 45%),linear-gradient(var(--architecture-grid) 1px,transparent 1px),linear-gradient(90deg,var(--architecture-grid) 1px,transparent 1px),linear-gradient(120deg,#f6f9fb,#e7eff6 72%,#dce9f3);
-  background-size:auto,64px 64px,64px 64px,auto;
-  background-repeat:no-repeat,repeat,repeat,no-repeat;
-  border-bottom-color:var(--architecture-border);
-}
-.site-shell main > :where(.section) {
-  background-color:#eff4f8;
-  background-image:radial-gradient(ellipse at 95% 70%,rgba(126,172,205,.08),transparent 50%),linear-gradient(130deg,#f4f7fa,#eaf2f7);
-  border-color:var(--architecture-border);
-}
+.site-shell main > :where(.section),
 .site-shell :is(.home-services,.services-collection,.room-priorities,.room-questions,.room-planning,.process-journey) {
-  background-color:#eff4f8;
-  background-image:radial-gradient(ellipse at 90% 30%,rgba(120,170,207,.09),transparent 45%),linear-gradient(140deg,#f4f7fa,#eaf1f7);
+  background-color:#edf3f8;
+  background-image:var(--architecture-pearl);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   border-color:var(--architecture-border);
 }
-.site-shell :is(.home-gallery,.home-process.process-journey,.room-scope,.room-process,.section--soft,.section--faq,.coverage-section,.brand-connections) {
-  background-color:#e6eff6;
-  background-image:radial-gradient(ellipse at 90% 8%,rgba(99,158,200,.12),transparent 45%),linear-gradient(var(--architecture-grid) 1px,transparent 1px),linear-gradient(90deg,var(--architecture-grid) 1px,transparent 1px),linear-gradient(140deg,#edf4f9,#deebf4);
-  background-size:auto,64px 64px,64px 64px,auto;
-  background-repeat:no-repeat,repeat,repeat,no-repeat;
-  border-color:var(--architecture-border);
-}
-.site-shell .section--contrast {
-  background-color:#eaf1f7;
-  background-image:radial-gradient(ellipse at 8% 10%,#f8fbfd,transparent 55%),linear-gradient(125deg,#edf3f8,#e1edf5);
+.site-shell :is(.home-process.process-journey,.room-scope,.room-process,.section--soft,.section--faq,.coverage-section,.brand-connections,.section--contrast) {
+  background-color:#e3edf5;
+  background-image:var(--architecture-mist);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   border-color:var(--architecture-border);
 }
 .site-shell :is(.services-experience,.process-experience,.room-experience) { background:transparent; }
-.site-shell :is(.services-next,.process-start,.room-closing) {
-  background:linear-gradient(120deg,#e8f1f8,#dae9f3);
-  border-color:#c7dbe9;
-}
+.site-shell :is(.services-next,.process-start,.room-closing) { background:var(--architecture-mist); border-color:#c7dbe9; }
 .site-shell :is(.home-service-feature,.home-gallery__card,.project-card,.service-story,.room-scope__grid article,.process-timeline__guidance,.reason-card,.coverage-details,.coverage-directory__county,.process-prep) {
   border-color:var(--architecture-border);
   box-shadow:0 5px 18px rgba(28,70,101,.04);
 }
 .site-shell :is(.home-service-feature__content,.home-gallery__caption,.project-card__body,.service-story__copy,.room-scope__grid article,.process-timeline__guidance,.reason-card,.coverage-details,.process-prep) { background:#fff; }
-.site-shell :is(.room-intention,.room-planning aside) { background:linear-gradient(140deg,rgba(255,255,255,.88),rgba(231,241,248,.86)); border-color:#c9dce9; }
+.site-shell :is(.room-intention,.room-planning aside) { background:linear-gradient(140deg,rgba(255,255,255,.95),rgba(229,239,248,.94)); border-color:#c9dce9; }
 .site-shell .coverage-map {
-  background-color:rgba(247,251,254,.9);
-  background-image:linear-gradient(rgba(21,85,120,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(21,85,120,.035) 1px,transparent 1px);
+  background-color:rgba(247,251,254,.94);
+  background-image:linear-gradient(rgba(21,85,120,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(21,85,120,.03) 1px,transparent 1px);
   background-size:32px 32px;
   border-color:var(--architecture-border);
 }
 .site-shell .coverage-directory__county { background:linear-gradient(130deg,#fff,#edf5fa); }
 .site-shell .section-intro__rail { background:linear-gradient(90deg,#779fb9,#cbdde9); }
-@media(max-width:700px) {
-  :root { --architecture-grid:rgba(29,83,119,.019); }
-  .site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening,.home-gallery,.home-process.process-journey,.room-scope,.room-process,.section--soft,.section--faq,.coverage-section,.brand-connections) {
-    background-size:auto,48px 48px,48px 48px,auto;
-  }
-  .site-shell .site-header { -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
-}
-
 .site-shell .service-visual { background-color:#eaf2f7; }
 .site-shell .process-timeline__marker { background:#e7f1f8; border-color:#bfd4e3; color:#376b87; }
 .site-shell .process-timeline__step:first-child .process-timeline__marker { background:var(--blue); border-color:var(--blue); color:#fff; }
 .site-shell .hero-signature__check { background:#e2eff7; color:var(--blue); }
 .site-shell .about-story-layout > * { min-width:0; }
-@media(max-width:370px) {
-  .site-shell .about-approach ul { grid-template-columns:minmax(0,1fr); }
-}
 
-/* Stronger architectural identity: navy drawing fields and crisp work surfaces. */
+/* Layered midnight, slate and steel highlights carry the opening sections. */
 .site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening) {
-  background-color:#102c40;
-  background-image:linear-gradient(90deg,rgba(10,30,45,.96) 0%,rgba(13,39,57,.8) 46%,rgba(18,54,77,.23) 100%),url('/images/branding/architectural-plan.svg'),radial-gradient(ellipse at 96% 20%,#245a78,transparent 65%),linear-gradient(rgba(161,203,229,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(161,203,229,.045) 1px,transparent 1px);
-  background-size:auto,min(1000px,90vw) auto,auto,64px 64px,64px 64px;
-  background-position:center,right center,center,center,center;
-  background-repeat:no-repeat,no-repeat,no-repeat,repeat,repeat;
-  border-bottom-color:#28516a;
+  background-color:#16364e;
+  background-image:var(--architecture-dark);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border-bottom-color:#42677f;
 }
 .site-shell :is(.lakeside-opening .opening-title,.page-hero__content h1,.services-opening h1,.process-opening h1,.room-opening h1) { color:#fff; }
-.site-shell :is(.opening-title > span,.services-opening h1 em,.process-opening h1 em) { color:#badbed; }
-.site-shell :is(.lakeside-opening .hero__content > .eyebrow,.page-hero__eyebrow,.services-opening__copy > .eyebrow,.process-opening .eyebrow,.room-opening__layout > div > .eyebrow) { color:#a6c4d7; }
-.site-shell :is(.lakeside-opening .hero__body p,.page-hero__body,.services-opening__lead,.process-opening .container > p:not(.eyebrow),.room-opening__intro) { color:#c3d4df; }
-.site-shell .lakeside-opening .hero__body .opening-lead { color:#e0eaf0; }
-.site-shell .lakeside-opening .opening-experience { color:#bbd0dd; }
+.site-shell :is(.opening-title > span,.services-opening h1 em,.process-opening h1 em) { color:#d2e7f3; }
+.site-shell :is(.lakeside-opening .hero__content > .eyebrow,.page-hero__eyebrow,.services-opening__copy > .eyebrow,.process-opening .eyebrow,.room-opening__layout > div > .eyebrow) { color:#c0d7e5; }
+.site-shell :is(.lakeside-opening .hero__body p,.page-hero__body,.services-opening__lead,.process-opening .container > p:not(.eyebrow),.room-opening__intro) { color:#d2dfe9; }
+.site-shell .lakeside-opening .hero__body .opening-lead { color:#edf4f8; }
+.site-shell .lakeside-opening .opening-experience { color:#cbdde9; }
 .site-shell .opening-experience strong { color:#fff; }
-.site-shell :is(.lakeside-opening .hero-call,.lakeside-opening .hero-call__copy strong,.room-opening__actions .text-link,.services-opening__actions .text-link) { color:#d5e9f4; }
-.site-shell .lakeside-opening .hero-call__copy > span { color:#b5cede; }
-.site-shell .lakeside-opening .hero-blueprint__topline { color:#c3dce9; }
+.site-shell :is(.lakeside-opening .hero-call,.lakeside-opening .hero-call__copy strong,.room-opening__actions .text-link,.services-opening__actions .text-link) { color:#e6f2fa; }
+.site-shell .lakeside-opening .hero-call__copy > span { color:#c5dce9; }
+.site-shell .lakeside-opening .hero-blueprint__topline { color:#cfe3ef; }
 .site-shell .hero-photo-carousel__caption strong { color:#edf6fc; }
-.site-shell .lakeside-opening .hero-signature { color:#d6e9f4; }
-.site-shell .lakeside-opening .hero-license { color:#a9c2d2; }
-.site-shell :is(.lakeside-opening .hero-photo-carousel__viewport) { border-color:#557b92; box-shadow:0 16px 40px #0003; }
-.site-shell :is(.room-intention) { background:linear-gradient(145deg,#fff,#e8f1f7); box-shadow:0 16px 44px #0002; }
-.site-shell :is(.lakeside-opening,.services-opening,.process-opening,.room-opening) .button { border-color:#6e9eb7; }
-.site-shell :is(.home-services,.services-collection,.room-priorities,.room-planning) {
-  background-color:#edf3f7;
-  background-image:linear-gradient(105deg,rgba(247,250,252,.94),rgba(235,243,249,.78)),url('/images/branding/architectural-plan.svg');
-  background-size:auto,850px auto;
-  background-position:center,right center;
-  background-repeat:no-repeat;
-  border-color:#c3d6e3;
-}
+.site-shell .lakeside-opening .hero-signature { color:#dfedf5; }
+.site-shell .lakeside-opening .hero-license { color:#c2d6e3; }
+.site-shell .lakeside-opening .hero-photo-carousel__viewport { border-color:#7393a9; box-shadow:0 16px 40px #0003; }
+.site-shell .room-intention { box-shadow:0 16px 44px #0002; }
+.site-shell :is(.lakeside-opening,.services-opening,.process-opening,.room-opening) .button { border-color:#82acc3; }
+
 .site-shell .home-gallery {
-  background-color:#153b53;
-  background-image:linear-gradient(110deg,rgba(14,37,54,.92),rgba(22,65,89,.67)),url('/images/branding/architectural-plan.svg'),linear-gradient(rgba(172,213,239,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(172,213,239,.05) 1px,transparent 1px);
-  background-size:auto,1000px auto,64px 64px,64px 64px;
-  background-position:center,right center,center,center;
-  background-repeat:no-repeat,no-repeat,repeat,repeat;
-  border-color:#2d536b;
+  background-color:#1b4059;
+  background-image:radial-gradient(ellipse 90% 130% at 100% 0%,rgba(94,149,179,.48),transparent 65%),radial-gradient(ellipse 70% 80% at 5% 100%,rgba(83,111,147,.4),transparent 70%),linear-gradient(118deg,#102b40,#28546e 65%,#18384f);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border-color:#52778f;
 }
 .site-shell .home-gallery .section-intro h2 { color:#fff; }
-.site-shell .home-gallery :is(.section-intro .eyebrow,.section-intro__body,.home-gallery__hint) { color:#c4d9e6; }
+.site-shell .home-gallery :is(.section-intro .eyebrow,.section-intro__body,.home-gallery__hint) { color:#d6e6f0; }
 .site-shell .home-gallery .home-gallery__controls button { color:#e0eff8; }
 .site-shell .home-gallery .home-gallery__controls button:hover { color:#fff; }
-.site-shell .home-gallery .home-gallery__card { border-color:#6c8a9c; box-shadow:0 10px 24px #061c2929; }
-.site-shell .home-gallery .section-intro__rail { background:linear-gradient(90deg,#8ab4ce,rgba(138,180,206,.2)); }
-.site-shell :is(.home-process.process-journey,.room-process,.room-questions,.section--faq,.coverage-section,.brand-connections) {
-  background-image:radial-gradient(ellipse at 100% 0%,rgba(67,123,163,.14),transparent 50%),linear-gradient(rgba(34,88,126,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(34,88,126,.045) 1px,transparent 1px),linear-gradient(135deg,#f0f5f9,#dce9f3);
-  background-size:auto,64px 64px,64px 64px,auto;
-  background-repeat:no-repeat,repeat,repeat,no-repeat;
-}
+.site-shell .home-gallery .home-gallery__card { border-color:#8da9ba; box-shadow:0 12px 30px #061c2938; }
+.site-shell .home-gallery .section-intro__rail { background:linear-gradient(90deg,#b8d7e8,rgba(138,180,206,.2)); }
 @media(max-width:700px) {
-  .site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening) {
-    background-image:linear-gradient(100deg,rgba(10,30,45,.87),rgba(18,48,68,.52)),url('/images/branding/architectural-plan.svg'),linear-gradient(rgba(161,203,229,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(161,203,229,.045) 1px,transparent 1px);
-    background-size:auto,750px auto,48px 48px,48px 48px;
-    background-position:center,right center,center,center;
-    background-repeat:no-repeat,no-repeat,repeat,repeat;
-  }
-  .site-shell .home-gallery { background-size:auto,780px auto,48px 48px,48px 48px; }
+  .site-shell .site-header { -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+}
+@media(max-width:370px) {
+  .site-shell .about-approach ul { grid-template-columns:minmax(0,1fr); }
 }
