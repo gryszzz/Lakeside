@@ -1540,3 +1540,5 @@ p { line-height:1.8; }
  .mobile-nav__cta .mobile-nav__call:hover { background:#103f5a; border-color:#103f5a; }
  .mobile-nav__cta .button--ghost:hover { background:#e9f2f6; color:#103f5a; border-color:#6e9fb5; }
 }
+
+.lightbox__nav svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
