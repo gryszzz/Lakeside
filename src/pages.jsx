@@ -63,12 +63,12 @@ function DirectEstimatePanel({ inHero = false }) {
      <a className="estimate-contact-row" href={business.phoneHref}>
        <span className="estimate-contact-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.6a15 15 0 0 0 4.9 4.9L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4Z"/><path d="M14 5a5 5 0 0 1 5 5M14 2a8 8 0 0 1 8 8"/></svg></span>
        <span className="estimate-contact-row__copy"><span className="eyebrow">Call</span><strong>{business.phone}</strong></span>
-       <span className="estimate-contact-row__arrow" aria-hidden="true">↗</span>
+       <span className="estimate-contact-row__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" /></svg></span>
      </a>
      <a className="estimate-contact-row" href={business.emailHref}>
        <span className="estimate-contact-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
        <span className="estimate-contact-row__copy"><span className="eyebrow">Email</span><strong>{business.email}</strong></span>
-       <span className="estimate-contact-row__arrow" aria-hidden="true">↗</span>
+       <span className="estimate-contact-row__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" /></svg></span>
      </a>
    </div>
    <div className="estimate-panel__area"><span className="estimate-panel__area-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.3"/></svg></span><div><strong>Sparta, NJ</strong><p>{business.serviceAreaLabel}</p></div></div>
@@ -118,7 +118,7 @@ function ProcessPage() { return <SiteShell showFinalCta={false}><ProcessExperien
 function ServiceAreaPage() { return <SiteShell><ServiceAreaMap full /></SiteShell>; }
 
 function FaqPage() { return <SiteShell><FAQSection items={faqs} /></SiteShell>; }
-function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero />} /><section className="section"><div className="container story-grid"><div><h2>Service Area</h2><p>{business.serviceAreaLabel}</p><p>Ronald Augustine, Owner</p><p>{business.license} · {business.licenseNumber}</p></div><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></div></section></SiteShell>; }
+function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero />} /><section className="section contact-next"><div className="container"><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p></div><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></section></SiteShell>; }
 
 function ReviewsPage() {
  return <SiteShell><PageHero title="Reviews" body="Google reviews coming soon." /><section className="section"><div className="container reviews-page-content"><GoogleReviewPreview /></div></section></SiteShell>;

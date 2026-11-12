@@ -1669,3 +1669,16 @@ p { line-height:1.8; }
  .room-opening__layout { gap:1.25rem; }
  .room-crosslink { justify-content:flex-start; padding-block:1rem; }
 }
+
+/* Clean contact actions without emoji glyphs or icon enclosures. */
+.estimate-panel--contact .estimate-contact-row__arrow { border:0; border-radius:0; background:transparent; box-shadow:none; }
+.estimate-contact-row__arrow svg { display:block; width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.estimate-panel--contact .estimate-contact-row__icon { border:0; border-radius:0; background:transparent; box-shadow:none; }
+.contact-next .container { display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+.contact-next h2 { margin-bottom:.7rem; }
+.contact-next p { max-width:58ch; margin-bottom:0; }
+.contact-next .button { flex-shrink:0; }
+@media(max-width:700px) {
+ .contact-next .container { flex-direction:column; align-items:flex-start; gap:1.25rem; }
+ .contact-next .button { width:100%; }
+}
