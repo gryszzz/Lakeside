@@ -55,19 +55,13 @@ const roomContent = {
   }
 };
 
-function RoomIcon({ kind }) {
-  return <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
-    {kind === 'kitchen' ? <><path d="M8 29h48v6H8zM12 35v20h40V35M26 35v20M40 35v20M12 10h14v13H12zM38 10h14v13H38zM30 9h4l5 14H25zM32 4v5" /><path d="M16 41h6m8 0h6m8 0h4" /></> : <><path d="M8 9h25v46H8zM23 9v46M12 22h17M12 36h17M39 33h18v5H39zM41 38v17h14V38M40 12h15v15H40z" /><path d="M12 16h6v5m26 12v-4h5" /></>}
-  </svg>;
-}
-
 export function RemodelingExperience({ kitchen = false }) {
   const kind = kitchen ? 'kitchen' : 'bathroom';
   const room = roomContent[kind];
   return <div className={`room-experience room-experience--${kind}`}>
     <section className="room-opening"><div className="container room-opening__layout">
       <div><p className="eyebrow">Lakeside Kitchen & Bath · {kitchen ? 'Kitchens' : 'Bathrooms'}</p><h1>{room.title}</h1><p className="room-opening__intro">{room.intro}</p><div className="room-opening__actions"><a className="button" href={withBase('contact/')}>Schedule a Consultation <span aria-hidden="true">→</span></a><a className="text-link" href={business.phoneHref}>Call Ron · {business.phone}</a></div></div>
-      <aside className="room-intention"><RoomIcon kind={kind} /><p className="eyebrow">Designed for real life</p><h2>{room.invitation}</h2><p>{room.note}</p><a className="text-link room-intention__link" href={`#${kind}-services`}>See what’s included <span aria-hidden="true">→</span></a></aside>
+      <aside className="room-intention"><p className="eyebrow">Designed for real life</p><h2>{room.invitation}</h2><p>{room.note}</p><a className="text-link room-intention__link" href={`#${kind}-services`}>See what’s included <span aria-hidden="true">→</span></a></aside>
     </div></section>
     <section className="section room-priorities"><div className="container"><div className="room-section-heading"><p className="eyebrow">Start with what matters</p><h2>{kitchen ? 'More than a new look.' : 'More comfort. Better function.'}</h2></div><div className="room-priorities__grid">{room.priorities.map(([title,text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
     <section className="section room-scope" id={`${kind}-services`}><div className="container"><div className="room-section-heading room-section-heading--split"><div><p className="eyebrow">{kitchen ? 'Kitchen' : 'Bathroom'} remodeling services</p><h2>{room.overview}</h2></div><p>{room.overviewText}</p></div><div className="room-scope__grid">{room.groups.map(group => <article key={group.title}><h3>{group.title}</h3><p>{group.text}</p><ul>{group.items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div></div></section>

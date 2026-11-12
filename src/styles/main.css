@@ -1567,7 +1567,6 @@ p { line-height:1.8; }
 .room-opening__actions .button { gap:1rem; border-radius:10px; background:linear-gradient(110deg,#155578,#26728d); }
 .room-opening__actions .text-link { display:inline-flex; align-items:center; min-height:44px; font-size:.77rem; }
 .room-intention { position:relative; padding:clamp(1.5rem,3vw,2.5rem); border:1px solid var(--room-border); border-radius:18px; background:rgba(255,255,255,.65); }
-.room-intention > svg { width:56px; height:56px; margin-bottom:1.5rem; stroke:var(--room-accent); stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
 .room-intention h2 { margin:0 0 .8rem; color:var(--room-ink); font-size:clamp(1.6rem,2.2vw,2.1rem); line-height:1.2; letter-spacing:-.035em; }
 .room-intention > p:not(.eyebrow) { margin:0; color:#5c767b; font-size:.83rem; line-height:1.8; }
 .room-section-heading { margin-bottom:1.65rem; }
@@ -1632,7 +1631,6 @@ p { line-height:1.8; }
  .room-opening__actions .button { min-height:50px; justify-content:space-between; font-size:.79rem; }
  .room-opening__actions .text-link { justify-content:center; }
  .room-intention { padding:1.25rem; }
- .room-intention > svg { float:right; margin:0 0 .5rem .8rem; width:44px; height:44px; }
  .room-intention .eyebrow { font-size:.54rem; }
  .room-intention h2 { font-size:1.6rem; }
  .room-intention > p:not(.eyebrow) { font-size:.8rem; }
