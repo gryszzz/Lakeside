@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { pages } from './pages';
 import './styles/main.css';
+import './styles/architectural.css';
 
 const pageId = document.body.dataset.page || 'home';
 const Page = pages[pageId] || pages.home;

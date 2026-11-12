@@ -1,0 +1,85 @@
+/* Shared cool architectural surfaces. Keep imagery and controls unchanged. */
+:root {
+  --surface:#eaf1f6;
+  --line:#ccdce6;
+  --architecture-pearl:#f1f5f8;
+  --architecture-blue:#e3edf5;
+  --architecture-border:#cfdee8;
+  --architecture-grid:rgba(29,83,119,.025);
+}
+body { background:#edf3f7; }
+.site-shell {
+  background-color:var(--architecture-pearl);
+  background-image:radial-gradient(ellipse at 100% 0,rgba(126,172,205,.13),transparent 45%),linear-gradient(150deg,#f4f7fa,#e9f1f7);
+}
+.site-shell .site-header {
+  background:linear-gradient(110deg,rgba(255,255,255,.94),rgba(234,243,249,.93));
+  border-bottom-color:#cbdce8;
+  box-shadow:0 4px 22px rgba(21,61,91,.055);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+}
+.site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening) {
+  background-color:#edf3f8;
+  background-image:radial-gradient(ellipse at 96% 18%,rgba(94,155,198,.17),transparent 45%),linear-gradient(var(--architecture-grid) 1px,transparent 1px),linear-gradient(90deg,var(--architecture-grid) 1px,transparent 1px),linear-gradient(120deg,#f6f9fb,#e7eff6 72%,#dce9f3);
+  background-size:auto,64px 64px,64px 64px,auto;
+  background-repeat:no-repeat,repeat,repeat,no-repeat;
+  border-bottom-color:var(--architecture-border);
+}
+.site-shell main > :where(.section) {
+  background-color:#eff4f8;
+  background-image:radial-gradient(ellipse at 95% 70%,rgba(126,172,205,.08),transparent 50%),linear-gradient(130deg,#f4f7fa,#eaf2f7);
+  border-color:var(--architecture-border);
+}
+.site-shell :is(.home-services,.services-collection,.room-priorities,.room-questions,.room-planning,.process-journey) {
+  background-color:#eff4f8;
+  background-image:radial-gradient(ellipse at 90% 30%,rgba(120,170,207,.09),transparent 45%),linear-gradient(140deg,#f4f7fa,#eaf1f7);
+  border-color:var(--architecture-border);
+}
+.site-shell :is(.home-gallery,.home-process.process-journey,.room-scope,.room-process,.section--soft,.section--faq,.coverage-section,.brand-connections) {
+  background-color:#e6eff6;
+  background-image:radial-gradient(ellipse at 90% 8%,rgba(99,158,200,.12),transparent 45%),linear-gradient(var(--architecture-grid) 1px,transparent 1px),linear-gradient(90deg,var(--architecture-grid) 1px,transparent 1px),linear-gradient(140deg,#edf4f9,#deebf4);
+  background-size:auto,64px 64px,64px 64px,auto;
+  background-repeat:no-repeat,repeat,repeat,no-repeat;
+  border-color:var(--architecture-border);
+}
+.site-shell .section--contrast {
+  background-color:#eaf1f7;
+  background-image:radial-gradient(ellipse at 8% 10%,#f8fbfd,transparent 55%),linear-gradient(125deg,#edf3f8,#e1edf5);
+  border-color:var(--architecture-border);
+}
+.site-shell :is(.services-experience,.process-experience,.room-experience) { background:transparent; }
+.site-shell :is(.services-next,.process-start,.room-closing) {
+  background:linear-gradient(120deg,#e8f1f8,#dae9f3);
+  border-color:#c7dbe9;
+}
+.site-shell :is(.home-service-feature,.home-gallery__card,.project-card,.service-story,.room-scope__grid article,.process-timeline__guidance,.reason-card,.coverage-details,.coverage-directory__county,.process-prep) {
+  border-color:var(--architecture-border);
+  box-shadow:0 5px 18px rgba(28,70,101,.04);
+}
+.site-shell :is(.home-service-feature__content,.home-gallery__caption,.project-card__body,.service-story__copy,.room-scope__grid article,.process-timeline__guidance,.reason-card,.coverage-details,.process-prep) { background:#fff; }
+.site-shell :is(.room-intention,.room-planning aside) { background:linear-gradient(140deg,rgba(255,255,255,.88),rgba(231,241,248,.86)); border-color:#c9dce9; }
+.site-shell .coverage-map {
+  background-color:rgba(247,251,254,.9);
+  background-image:linear-gradient(rgba(21,85,120,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(21,85,120,.035) 1px,transparent 1px);
+  background-size:32px 32px;
+  border-color:var(--architecture-border);
+}
+.site-shell .coverage-directory__county { background:linear-gradient(130deg,#fff,#edf5fa); }
+.site-shell .section-intro__rail { background:linear-gradient(90deg,#779fb9,#cbdde9); }
+@media(max-width:700px) {
+  :root { --architecture-grid:rgba(29,83,119,.019); }
+  .site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening,.home-gallery,.home-process.process-journey,.room-scope,.room-process,.section--soft,.section--faq,.coverage-section,.brand-connections) {
+    background-size:auto,48px 48px,48px 48px,auto;
+  }
+  .site-shell .site-header { -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+}
+
+.site-shell .service-visual { background-color:#eaf2f7; }
+.site-shell .process-timeline__marker { background:#e7f1f8; border-color:#bfd4e3; color:#376b87; }
+.site-shell .process-timeline__step:first-child .process-timeline__marker { background:var(--blue); border-color:var(--blue); color:#fff; }
+.site-shell .hero-signature__check { background:#e2eff7; color:var(--blue); }
+.site-shell .about-story-layout > * { min-width:0; }
+@media(max-width:370px) {
+  .site-shell .about-approach ul { grid-template-columns:minmax(0,1fr); }
+}
