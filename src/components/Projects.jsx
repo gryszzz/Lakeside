@@ -159,7 +159,7 @@ export function ProjectPreview() {
           {previews.map((project) => (
             <article key={project.title} className="project-card" data-reveal>
               <div className="project-card__media">
-                <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} />
+                <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} />
                 <span>{project.category}</span>
               </div>
               <div className="project-card__body">
@@ -208,7 +208,8 @@ const homepageProjectPhotos = [
     title: 'Custom Cabinetry & Storage',
     category: 'Cabinetry',
     image: 'images/projects/portfolio/lakeside-custom-builtins.jpg',
-    focalPoint: '50% 80%',
+    focalPoint: '50% 50%',
+    imageFit: 'contain',
     alt: 'Custom light wood cabinetry with glass-front storage and built-in shelves',
     summary: 'A custom cabinetry installation with glass-front storage and built-in shelving.',
     tags: ['Cabinetry', 'Built-ins', 'Storage']
@@ -275,7 +276,7 @@ export function HeroProjectCarousel() {
             href={withBase(`projects/?project=${project.id}`)}
             aria-label={`Open the gallery at ${project.title}`}
           >
-            <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
+            <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
           </a>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
@@ -332,7 +333,7 @@ export function HomeProjectGallery() {
               aria-label={`Open photo: ${project.title}`}
             >
               <span className="home-gallery__photo">
-                <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
+                <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
               </span>
               <span className="home-gallery__caption">
                 <span className="home-gallery__category">{project.category}</span>
@@ -439,7 +440,7 @@ export function ProjectGallery() {
               aria-label={`Open details for ${project.title}`}
             >
               <div className="project-card__media">
-                <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
+                <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
                 <span>{project.category}</span>
               </div>
               <div className="project-card__body">
