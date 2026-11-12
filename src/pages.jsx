@@ -1,3 +1,4 @@
+import { RemodelingExperience } from './components/RemodelingExperience';
 import { ProcessExperience, ProcessTimeline } from './components/ProcessExperience';
 import { ServicesExperience } from './components/ServicesExperience';
 import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
@@ -108,11 +109,8 @@ export function QuotePage() {
  return <SiteShell showFinalCta={false}><PageHero eyebrow="Consultation" title="Schedule Your Consultation Today" body="Let's discuss your project and create a renovation plan that works for your home and budget." aside={<DirectEstimatePanel inHero />} /></SiteShell>;
 }
 
-function ConsultationLink() { return <a className="button" href={withBase('contact/')}>Schedule Your Consultation Today</a>; }
 function RemodelingPage({ kitchen = false }) {
- const service = services.find(item => item.slug === (kitchen ? 'kitchen-remodeling' : 'bathroom-remodeling'));
- const items = kitchen ? ['Design','Material Selection Guidance','Cabinet Installation','Quartz Countertops','Granite Countertops','Tile Backsplashes','Flooring','Lighting','Plumbing Fixtures','Appliance Installation','Trim Work','Painting'] : ['Design','Material Selection Guidance','Custom Tile Showers','Waterproofing Systems','Vanities','Countertops','Flooring','Lighting','Plumbing Fixtures','Shower Doors','Trim Work','Painting'];
- return <SiteShell><PageHero eyebrow={service.title} title={kitchen ? 'Kitchen Remodeling in Northern New Jersey' : 'Bathroom Remodeling Experts'} body={kitchen ? "The kitchen is the heart of the home. Whether you're planning a complete renovation or updating key features, Lakeside Kitchen & Bath LLC delivers kitchens that combine functionality, beauty, and long-term value." : 'Your bathroom should be comfortable, functional, and built to withstand daily use. We specialize in complete bathroom renovations that improve appearance, functionality, and value.'} actions={<ConsultationLink />} /><section className="section"><div className="container"><SectionIntro eyebrow="Services" title={`${service.title} Services`} /><ul className="package-list">{items.map(item=><li key={item}>{item}</li>)}</ul>{!kitchen && <><h2>Built for Long-Term Performance</h2><p>Every bathroom renovation is completed using professional installation practices designed to provide years of dependable performance.</p></>}{kitchen && <><h2>Why Homeowners Choose Lakeside</h2><ul className="package-list">{['Over 40 Years Experience','Licensed, Insured & Bonded','Daily Cleanup','Professional Communication','Quality Craftsmanship','2-Year Warranty'].map(item=><li key={item}>{item}</li>)}</ul></>}</div></section></SiteShell>;
+ return <SiteShell showFinalCta={false}><RemodelingExperience kitchen={kitchen} /></SiteShell>;
 }
 function KitchenPage() { return <RemodelingPage kitchen />; }
 function BathroomPage() { return <RemodelingPage />; }
