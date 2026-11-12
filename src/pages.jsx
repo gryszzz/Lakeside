@@ -1,3 +1,4 @@
+import { ServicesExperience } from './components/ServicesExperience';
 import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
 import { HeroProjectCarousel, HomeProjectGallery, ProjectGallery } from './components/Projects';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
@@ -8,7 +9,6 @@ import {
 import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
   ProcessSteps,
-  ServiceCards,
   ValuesGrid,
   WhyChooseUs
 } from './components/Marketing';
@@ -89,27 +89,7 @@ export function HomePage() {
 }
 
 export function ServicesPage() {
-  return (
-    <SiteShell>
-      <PageHero
-        eyebrow="Services"
-        title="Services"
-
-        actions={
-          <>
-            <a className="button" href={withBase('quote/')}>
-              Request Estimate
-            </a>
-            <a className="button button--ghost" href={withBase('projects/')}>
-              View Portfolio
-            </a>
-          </>
-        }
-
-      />
-      <ServiceCards detailed />
-    </SiteShell>
-  );
+  return <SiteShell><ServicesExperience /></SiteShell>;
 }
 
 export function ProjectsPage() {

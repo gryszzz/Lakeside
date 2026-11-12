@@ -271,7 +271,6 @@ export function HeroProjectCarousel() {
       <div className="hero-blueprint hero-photo-carousel" aria-label="Project photo carousel">
         <div className="hero-blueprint__topline">
           <span>Lakeside · Project Gallery</span>
-          <span>{String(currentIndex + 1).padStart(2, '0')} / {String(heroProjectPhotos.length).padStart(2, '0')}</span>
         </div>
         <div className="hero-photo-carousel__viewport" style={{ aspectRatio: '3 / 2' }}>
           <img className="hero-photo-carousel__ambient" src={withBase(project.image)} alt="" aria-hidden="true" />
@@ -285,7 +284,7 @@ export function HeroProjectCarousel() {
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
         </div>
-        <span className="hero-blueprint__stamp">{project.category} · {currentIndex + 1} of {heroProjectPhotos.length}</span>
+        <span className="hero-blueprint__stamp">{project.category}</span>
         <div className="hero-photo-carousel__dots" aria-label="Choose a project photo">
           {heroProjectPhotos.map((photo, index) => (
             <button
@@ -293,7 +292,7 @@ export function HeroProjectCarousel() {
               type="button"
               className={index === currentIndex ? 'is-active' : ''}
               onClick={() => setCurrentIndex(index)}
-              aria-label={`Show photo ${index + 1}: ${photo.title}`}
+              aria-label={`Show ${photo.title}`}
               aria-current={index === currentIndex ? 'true' : undefined}
             />
           ))}
