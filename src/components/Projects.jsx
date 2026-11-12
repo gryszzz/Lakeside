@@ -333,7 +333,6 @@ export function HomeProjectGallery() {
             >
               <span className="home-gallery__photo">
                 <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
-                <span className="home-gallery__zoom" aria-hidden="true">↗</span>
               </span>
               <span className="home-gallery__caption">
                 <span className="home-gallery__category">{project.category}</span>
@@ -442,12 +441,10 @@ export function ProjectGallery() {
               <div className="project-card__media">
                 <img style={{ objectPosition: project.focalPoint }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
                 <span>{project.category}</span>
-                <span className="project-card__open" aria-hidden="true">↗</span>
               </div>
               <div className="project-card__body">
                 <div className="project-card__topline">
                   <h3>{project.title}</h3>
-                  <strong>{String(index + 1).padStart(2, '0')}</strong>
                 </div>
                 <p>{project.summary}</p>
                 <div className="project-card__tags">
