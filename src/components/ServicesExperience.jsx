@@ -55,7 +55,6 @@ export function ServicesExperience() {
     </section>
     <section className="section services-collection" id="our-services"><div className="container">
       <div className="services-collection__intro"><div><p className="eyebrow">Made for your home</p><h2>One trusted team.<br />Every finishing detail.</h2></div><p>Explore a complete renovation or focus on the upgrades your space needs. We’ll help you find the right starting point.</p></div>
-      <nav className="services-jump" aria-label="Explore remodeling services">{services.map(service => <a key={service.slug} href={`#${service.slug}`}>{service.title}<span aria-hidden="true">↗</span></a>)}</nav>
       <div className="services-stories">{services.map(service => {
         const style = serviceStyle[service.slug];
         const detailPage = ['kitchen-remodeling', 'bathroom-remodeling'].includes(service.slug);
