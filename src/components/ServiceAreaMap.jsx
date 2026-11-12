@@ -17,17 +17,11 @@ function project(coordinate) {
 }
 const labelLocations = { Sussex: [-74.675, 41.18], Passaic: [-74.325, 41.055], Morris: [-74.57, 40.865], Warren: [-75.005, 40.79] };
 
-function mapOption() {
-  const value = (new URLSearchParams(window.location.search).get('map') || '').toLowerCase();
-  return value === 'a' || value === 'b' ? value : '';
-}
-
 export function ServiceAreaMap({ full = false }) {
   const [selected, setSelected] = useState('Sussex County');
   const countyEntries = Object.entries(serviceCounties);
-  const option = mapOption();
   return (
-    <section className={`section coverage-section ${full ? 'coverage-section--full' : ''}${option ? ` map-option map-option--${option}` : ''}`} id="coverage">
+    <section className={`section coverage-section ${full ? 'coverage-section--full' : ''}`} id="coverage">
       <div className="container">
         <div className="coverage-heading">
           <div><p className="eyebrow">{full ? 'Service Directory' : 'Local Service Area'}</p><h2>{full ? 'Explore Our Service Counties' : 'Remodeling Across Northern New Jersey'}</h2></div>
@@ -43,7 +37,7 @@ export function ServiceAreaMap({ full = false }) {
                 const d = feature.geometry.coordinates.map(ring => ring.map((coordinate, index) => `${index ? 'L' : 'M'}${project(coordinate).map(value => value.toFixed(2)).join(' ')}`).join(' ') + ' Z').join(' ');
                 const [x, y] = project(labelLocations[feature.properties.NAME]);
                 return <g key={county}>
-                  <path d={d} data-county={county} className={`coverage-map__county ${selected === county ? 'is-selected' : ''}`} role="button" tabIndex={0} aria-label={`Show towns in ${county}`} aria-pressed={selected === county} onClick={() => setSelected(county)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelected(county); } }} />
+                  <path d={d} className={`coverage-map__county ${selected === county ? 'is-selected' : ''}`} role="button" tabIndex={0} aria-label={`Show towns in ${county}`} aria-pressed={selected === county} onClick={() => setSelected(county)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelected(county); } }} />
                   <circle className="coverage-map__pin" cx={x} cy={y - 30} r="3.2" aria-hidden="true" />
                   <text x={x} y={y} textAnchor="middle" className="coverage-map__label" aria-hidden="true">{feature.properties.NAME}</text>
                 </g>;
