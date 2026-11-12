@@ -1123,3 +1123,30 @@ p { line-height:1.8; }
  .lightbox__panel--project .lightbox__media-shell { max-width:calc(100% - .7rem); }
  .lightbox__panel--project .lightbox__image { max-height:min(58dvh,560px); }
 }
+
+/* County-shaped interaction, with local landscape palettes. */
+.coverage-map__county {
+ outline:none;
+ -webkit-tap-highlight-color:transparent;
+ cursor:pointer;
+ transition:fill .18s,stroke .18s;
+}
+.coverage-map__county.is-selected { fill:var(--county-accent,#155578); stroke:var(--county-accent,#155578); }
+.coverage-map__county:focus-visible { outline:none; stroke:#103f5a; stroke-width:5; stroke-linejoin:round; }
+.coverage-map__label { pointer-events:none; }
+.coverage-details { background:linear-gradient(155deg,#fff 35%,var(--county-wash,#edf5f1)); }
+.coverage-tabs button.is-selected { background:var(--county-accent); border-color:var(--county-accent); }
+.county-theme { position:relative; overflow:hidden; padding:.9rem 1rem 0; border-radius:12px; background:var(--county-wash); }
+.county-theme .eyebrow,.county-theme h3 { color:var(--county-accent); }
+.county-theme__description { max-width:43ch; margin:0; color:#536975; font-size:.8rem; line-height:1.6; }
+.county-landscape { display:block; width:calc(100% + 2rem); height:85px; margin:0 -1rem; color:var(--county-accent); }
+.county-landscape__distant { fill:currentColor; opacity:.12; }
+.county-landscape__near { fill:currentColor; opacity:.22; }
+.county-landscape__water { fill:currentColor; opacity:.4; }
+.county-landscape__town { fill:var(--county-wash); stroke:currentColor; stroke-width:2; opacity:.75; }
+.coverage-town-label { margin:1rem 0 .4rem; color:var(--county-accent); font-size:.68rem; font-weight:750; }
+.coverage-directory__county { border-top:3px solid var(--county-accent); background:linear-gradient(155deg,#fff 45%,var(--county-wash)); }
+.coverage-directory__county.is-selected { border-color:var(--county-accent); box-shadow:0 8px 22px rgba(16,42,57,.07); }
+.coverage-directory__heading span:first-child { color:var(--county-accent); }
+.coverage-directory__theme { margin:.75rem 0 0; color:var(--county-accent); font-size:.73rem; font-weight:650; }
+.coverage-directory__county li::before { background:var(--county-accent); }
