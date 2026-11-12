@@ -1682,3 +1682,8 @@ p { line-height:1.8; }
  .contact-next .container { flex-direction:column; align-items:flex-start; gap:1.25rem; }
  .contact-next .button { width:100%; }
 }
+
+.hero-gallery-link { display:inline-flex; align-items:center; gap:.5rem; min-height:36px; color:inherit; }
+.hero-gallery-link svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.hero-gallery-link:hover { color:var(--blue); text-decoration:underline; text-underline-offset:4px; }
+.lakeside-opening .hero-blueprint__topline:has(.hero-gallery-link) { padding-bottom:.35rem; }

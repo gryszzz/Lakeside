@@ -282,7 +282,7 @@ export function HeroProjectCarousel() {
   const showProject = (direction) => goToProject((currentIndex + direction + heroProjectPhotos.length) % heroProjectPhotos.length);
 
   return <div className="hero-blueprint hero-photo-carousel" aria-label="Project photo carousel">
-    <div className="hero-blueprint__topline"><span>Lakeside · Project Gallery</span></div>
+    <div className="hero-blueprint__topline"><a className="hero-gallery-link" href={withBase('projects/')}>Lakeside · Project Gallery<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a></div>
     <div className="hero-photo-carousel__viewport" style={{ aspectRatio: '3 / 2' }}>
       <div className="hero-photo-carousel__track" ref={trackRef} onScroll={(event) => {
         const track = event.currentTarget;
