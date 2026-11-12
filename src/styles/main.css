@@ -1689,9 +1689,9 @@ p { line-height:1.8; }
 .lakeside-opening .hero-blueprint__topline:has(.hero-gallery-link) { padding-bottom:.35rem; }
 
 /* Custom service-specific emoji artwork, keeping the architectural grid. */
-.service-visual .service-emoji { width:116px; height:110px; max-width:100%; object-fit:contain; }
-.service-story__visual .service-emoji { display:block; width:220px; height:210px; max-width:100%; object-fit:contain; margin:1.5rem auto; }
+.service-visual .service-emoji { width:128px; height:116px; max-width:100%; object-fit:contain; }
+.service-story__visual .service-emoji { display:block; width:230px; height:210px; max-width:100%; object-fit:contain; margin:1.5rem auto; }
 @media(max-width:700px) {
- .service-visual .service-emoji { width:86px; height:82px; }
- .service-story__visual .service-emoji { width:155px; height:148px; margin:1rem auto; }
+ .service-visual .service-emoji { width:98px; height:90px; }
+ .service-story__visual .service-emoji { width:165px; height:150px; margin:1rem auto; }
 }
