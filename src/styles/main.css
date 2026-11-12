@@ -1687,3 +1687,11 @@ p { line-height:1.8; }
 .hero-gallery-link svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .hero-gallery-link:hover { color:var(--blue); text-decoration:underline; text-underline-offset:4px; }
 .lakeside-opening .hero-blueprint__topline:has(.hero-gallery-link) { padding-bottom:.35rem; }
+
+/* Custom service-specific emoji artwork, keeping the architectural grid. */
+.service-visual .service-emoji { width:116px; height:110px; max-width:100%; object-fit:contain; }
+.service-story__visual .service-emoji { display:block; width:220px; height:210px; max-width:100%; object-fit:contain; margin:1.5rem auto; }
+@media(max-width:700px) {
+ .service-visual .service-emoji { width:86px; height:82px; }
+ .service-story__visual .service-emoji { width:155px; height:148px; margin:1rem auto; }
+}
