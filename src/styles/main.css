@@ -1260,3 +1260,56 @@ p { line-height:1.8; }
 
 /* Keep the Services introduction focused on the copy and next steps. */
 .services-opening__copy { max-width:880px; }
+
+/* A focused, readable process page with a continuous process timeline. */
+.process-experience { background:#f8f9f5; color:#183e50; }
+.process-opening { padding:clamp(2.25rem,4.5vw,4rem) 0; background:radial-gradient(ellipse at 95% 20%,#c7dde070,transparent 55%),linear-gradient(120deg,#fafbf8,#eaf1ef); }
+.process-opening h1 { margin:.75rem 0 1rem; font-size:clamp(2.3rem,4.2vw,3.7rem); letter-spacing:-.05em; line-height:1.1; }
+.process-opening h1 em { color:#397a83; font-family:Georgia,serif; font-weight:400; }
+.process-opening .container > p:not(.eyebrow) { max-width:58ch; margin:0 0 1.5rem; color:#536e76; font-size:.95rem; line-height:1.85; }
+.process-opening .button { border-radius:9px; }
+.process-journey { padding-block:clamp(2.25rem,4vw,4rem); }
+.process-journey__layout { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:start; gap:clamp(2rem,6vw,6rem); }
+.process-journey__intro { position:sticky; top:120px; }
+.process-journey h2,.process-start h2 { margin:0 0 1rem; color:#183e50; font-size:clamp(1.9rem,3vw,2.65rem); line-height:1.15; letter-spacing:-.04em; }
+.process-journey__intro > p:not(.eyebrow) { max-width:32ch; color:#536e76; font-size:.88rem; line-height:1.8; }
+.process-journey__intro .text-link { min-height:44px; display:inline-flex; align-items:center; }
+.process-timeline { list-style:none; margin:0; padding:0; }
+.process-timeline__step { position:relative; display:grid; grid-template-columns:48px minmax(0,1fr); gap:1.4rem; padding:0 0 2rem; }
+.process-timeline__step:not(:last-child)::before { content:''; position:absolute; top:48px; bottom:0; left:23px; width:1px; background:#c8dbd5; }
+.process-timeline__step:last-child { padding-bottom:0; }
+.process-timeline__marker { position:relative; z-index:1; display:grid; place-items:center; width:48px; height:48px; border:1px solid #bfd4ce; border-radius:50%; background:#edf3ee; color:#356c70; font-size:.85rem; font-weight:750; }
+.process-timeline__step:first-child .process-timeline__marker { background:#155578; color:#fff; border-color:#155578; }
+.process-timeline__body { padding-top:.4rem; }
+.process-timeline__body h3 { margin:0 0 .6rem; font-size:clamp(1.25rem,2vw,1.55rem); line-height:1.25; letter-spacing:-.025em; }
+.process-timeline__body > p { margin:0 0 1rem; color:#536e76; font-size:.88rem; line-height:1.8; }
+.process-timeline__guidance { padding:1rem 1.15rem; border:1px solid #dce6df; border-radius:10px; background:#fff; }
+.process-timeline__guidance h4 { margin:0 0 .4rem; color:#3d6d6c; font-size:.77rem; font-weight:750; }
+.process-timeline__guidance p { margin:0; color:#63787e; font-size:.8rem; line-height:1.75; }
+.process-start { padding:clamp(2.25rem,4vw,3.5rem) 0; background:#e8efea; border-top:1px solid #d4e0d8; }
+.process-start__layout { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:clamp(2rem,6vw,5rem); }
+.process-start__layout > div > p:not(.eyebrow) { max-width:46ch; color:#536e76; font-size:.9rem; line-height:1.8; }
+.process-start__actions { display:flex; flex-wrap:wrap; gap:.8rem 1.5rem; align-items:center; margin-top:1.4rem; }
+.process-start__actions .text-link { display:inline-flex; align-items:center; min-height:44px; font-size:.8rem; }
+.process-prep { border:1px solid #cbded4; border-radius:14px; padding:clamp(1.25rem,2.5vw,2rem); background:#f9fbf7; }
+.process-prep h3 { margin:0 0 1rem; font-size:1.1rem; color:#28555c; }
+.process-prep ul { display:grid; gap:.8rem; margin:0; padding-left:1.1rem; color:#526e74; font-size:.82rem; line-height:1.65; }
+.process-prep li::marker { color:#639589; }
+.process-prep > p { border-top:1px solid #dce6df; padding-top:1rem; margin:1rem 0 0; color:#657f82; font-size:.75rem; line-height:1.7; }
+@media(max-width:700px) {
+ .process-opening .eyebrow { font-size:.6rem; }
+ .process-opening .container > p:not(.eyebrow) { font-size:.88rem; }
+ .process-journey__layout { grid-template-columns:1fr; gap:1.5rem; }
+ .process-journey__intro { position:static; }
+ .process-journey__intro > p:not(.eyebrow) { max-width:none; font-size:.83rem; }
+ .process-timeline__step { grid-template-columns:38px minmax(0,1fr); gap:.85rem; padding-bottom:1.6rem; }
+ .process-timeline__marker { width:38px; height:38px; font-size:.72rem; }
+ .process-timeline__step:not(:last-child)::before { top:38px; left:18px; }
+ .process-timeline__body { padding-top:.3rem; }
+ .process-timeline__body > p { font-size:.82rem; }
+ .process-timeline__guidance { padding:.85rem; }
+ .process-timeline__guidance p { font-size:.76rem; }
+ .process-start__layout { grid-template-columns:1fr; gap:1.5rem; }
+ .process-start__layout > div > p:not(.eyebrow) { font-size:.83rem; }
+ .process-start__actions { gap:.5rem 1rem; }
+}

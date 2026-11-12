@@ -1,3 +1,4 @@
+import { ProcessExperience } from './components/ProcessExperience';
 import { ServicesExperience } from './components/ServicesExperience';
 import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
 import { HeroProjectCarousel, HomeProjectGallery, ProjectGallery } from './components/Projects';
@@ -112,7 +113,7 @@ function RemodelingPage({ kitchen = false }) {
 }
 function KitchenPage() { return <RemodelingPage kitchen />; }
 function BathroomPage() { return <RemodelingPage />; }
-function ProcessPage() { return <SiteShell><PageHero eyebrow="Our Process" title="Our Remodeling Process"  actions={<ConsultationLink />} /><ProcessSteps /></SiteShell>; }
+function ProcessPage() { return <SiteShell showFinalCta={false}><ProcessExperience /></SiteShell>; }
 function ServiceAreaPage() { return <SiteShell><PageHero eyebrow="Service Area" title="Proudly Serving Northern New Jersey" body={business.serviceAreaLabel} actions={<ConsultationLink />} /><ServiceAreaMap full /></SiteShell>; }
 
 function FaqPage() { return <SiteShell><PageHero eyebrow="FAQ" title="FAQ" actions={<ConsultationLink />} /><FAQSection items={faqs} /></SiteShell>; }
