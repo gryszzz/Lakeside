@@ -102,3 +102,23 @@ body { background:#fff; }
 @media(max-width:370px) {
   .site-shell .about-approach ul { grid-template-columns:minmax(0,1fr); }
 }
+
+/* Sculpted gradient folds give the white surfaces a visible material character. */
+.site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening) {
+  background-image:url('/images/branding/luminous-ribbons.svg'),var(--architecture-opening);
+  background-size:100% 100%,cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.site-shell :is(.home-services,.services-collection,.room-priorities,.room-planning) {
+  background-image:url('/images/branding/luminous-ribbons.svg'),var(--architecture-pearl);
+  background-size:100% 100%,cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.site-shell :is(.home-gallery,.home-process.process-journey,.room-scope,.room-process,.section--faq,.coverage-section,.brand-connections) {
+  background-image:url('/images/branding/luminous-ribbons.svg'),var(--architecture-mist);
+  background-size:100% 100%,cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}

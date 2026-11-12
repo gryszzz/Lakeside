@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="none" fill="none">
+<defs>
+<linearGradient id="outer" x1="1190" y1="0" x2="1570" y2="850" gradientUnits="userSpaceOnUse"><stop stop-color="#eef3f7"/><stop offset=".26" stop-color="#b9cbd8" stop-opacity=".7"/><stop offset=".49" stop-color="#f8fbfd"/><stop offset=".72" stop-color="#91b0c6" stop-opacity=".43"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="fold" x1="1360" y1="190" x2="1510" y2="700" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset=".35" stop-color="#9fb7c9" stop-opacity=".56"/><stop offset=".52" stop-color="#edf4f9"/><stop offset="1" stop-color="#bfd4e3" stop-opacity="0"/></linearGradient>
+<linearGradient id="edge" x1="1260" y1="0" x2="1580" y2="850" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".3" stop-color="#fff" stop-opacity=".96"/><stop offset=".55" stop-color="#6393b1" stop-opacity=".32"/><stop offset=".85" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="lower" x1="0" y1="750" x2="700" y2="1060" gradientUnits="userSpaceOnUse"><stop stop-color="#aebdce" stop-opacity=".3"/><stop offset=".27" stop-color="#fff" stop-opacity=".8"/><stop offset=".65" stop-color="#a5c4d9" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="16"/></filter>
+</defs>
+<path d="M1230-70C1190 110 1515 190 1420 410S1490 700 1640 880" stroke="#7593aa" stroke-opacity=".13" stroke-width="36" filter="url(#soft)"/>
+<path d="M1245-80C1170 115 1510 185 1420 410S1470 705 1640 880L1700-80Z" fill="url(#outer)"/>
+<path d="M1415-40C1290 180 1585 220 1495 455S1510 735 1650 840L1660-40Z" fill="url(#fold)"/>
+<path d="M1245-80C1170 115 1510 185 1420 410S1470 705 1640 880" stroke="url(#edge)" stroke-width="2.5"/>
+<path d="M1415-40C1290 180 1585 220 1495 455S1510 735 1650 840" stroke="url(#edge)" stroke-width="1.5"/>
+<path d="M-90 730C90 755 160 890 350 880S600 940 740 1060L-90 1060Z" fill="url(#lower)"/>
+<path d="M-90 730C90 755 160 890 350 880S600 940 740 1060" stroke="#fff" stroke-opacity=".85" stroke-width="2"/>
+</svg>
