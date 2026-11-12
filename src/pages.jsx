@@ -89,7 +89,7 @@ export function HomePage() {
 }
 
 export function ServicesPage() {
-  return <SiteShell><ServicesExperience /></SiteShell>;
+  return <SiteShell showFinalCta={false}><ServicesExperience /></SiteShell>;
 }
 
 export function ProjectsPage() {
