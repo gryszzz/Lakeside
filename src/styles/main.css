@@ -1136,19 +1136,10 @@ p { line-height:1.8; }
 .coverage-map__label { pointer-events:none; }
 .coverage-details { background:linear-gradient(155deg,#fff 35%,var(--county-wash,#edf5f1)); }
 .coverage-tabs button.is-selected { background:var(--county-accent); border-color:var(--county-accent); }
-.county-theme { position:relative; overflow:hidden; padding:.9rem 1rem 0; border-radius:12px; background:var(--county-wash); }
-.county-theme .eyebrow,.county-theme h3 { color:var(--county-accent); }
-.county-theme__description { max-width:43ch; margin:0; color:#536975; font-size:.8rem; line-height:1.6; }
-.county-landscape { display:block; width:calc(100% + 2rem); height:85px; margin:0 -1rem; color:var(--county-accent); }
-.county-landscape__distant { fill:currentColor; opacity:.12; }
-.county-landscape__near { fill:currentColor; opacity:.22; }
-.county-landscape__water { fill:currentColor; opacity:.4; }
-.county-landscape__town { fill:var(--county-wash); stroke:currentColor; stroke-width:2; opacity:.75; }
 .coverage-town-label { margin:1rem 0 .4rem; color:var(--county-accent); font-size:.68rem; font-weight:750; }
 .coverage-directory__county { border-top:3px solid var(--county-accent); background:linear-gradient(155deg,#fff 45%,var(--county-wash)); }
 .coverage-directory__county.is-selected { border-color:var(--county-accent); box-shadow:0 8px 22px rgba(16,42,57,.07); }
 .coverage-directory__heading span:first-child { color:var(--county-accent); }
-.coverage-directory__theme { margin:.75rem 0 0; color:var(--county-accent); font-size:.73rem; font-weight:650; }
 .coverage-directory__county li::before { background:var(--county-accent); }
 
 /* Match the opening carousel frame to the portrait photo as well. */
@@ -1369,3 +1360,31 @@ p { line-height:1.8; }
 }
 
 .opening-actions__services svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.7; }
+
+/* Real regional photography sets the atmosphere; controls retain Lakeside blue. */
+.coverage-section {
+ --county-accent:#155578;
+ --county-wash:#eff5f6;
+ background-color:#e7eff0;
+ background-image:linear-gradient(110deg,rgba(246,249,247,.94),rgba(236,244,244,.78)),var(--coverage-image);
+ background-size:cover;
+ background-position:center;
+}
+.coverage-map { background-color:rgba(246,250,249,.9); }
+.coverage-details { background:rgba(255,255,255,.94); }
+.coverage-map__county.is-selected { fill:#155578; stroke:#103f5a; }
+.coverage-tabs button.is-selected { background:#155578; border-color:#155578; }
+.coverage-town-panel h3 { margin:.15rem 0 .6rem; color:#183d50; }
+.coverage-directory__county {
+ border-top:1px solid #cbdde1;
+ background-color:#f7faf9;
+ background-image:linear-gradient(105deg,rgba(255,255,255,.95),rgba(248,252,251,.85)),var(--county-image);
+ background-size:cover;
+ background-position:center;
+}
+.coverage-directory__county.is-selected { border-color:#155578; }
+.coverage-photo-credits { margin-top:1rem; color:#456471; font-size:.6rem; }
+.coverage-photo-credits summary { width:fit-content; min-height:32px; display:list-item; align-content:center; cursor:pointer; }
+.coverage-photo-credits ul { padding:1rem 1.5rem; margin:0; background:rgba(255,255,255,.93); border-radius:8px; line-height:1.9; }
+.coverage-photo-credits a { text-decoration:underline; text-underline-offset:3px; }
+.coverage-directory__heading span:only-child { color:#183d50; font-size:1.03rem; font-weight:800; }
