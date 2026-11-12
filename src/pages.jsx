@@ -50,8 +50,8 @@ function HomeServices() {
 
 function HomeProcess() {
   return <section className="section home-process process-journey" aria-labelledby="home-process-title"><div className="container process-journey__layout">
-    <div className="process-journey__intro"><p className="eyebrow">What to expect</p><h2 id="home-process-title">Our Remodeling Process</h2><p>From the first conversation to the final walkthrough, each stage builds on the last.</p><a className="text-link" href={withBase('process/')}>Explore the full process →</a></div>
-    <ProcessTimeline compact />
+    <div className="process-journey__intro"><p className="eyebrow">What to expect</p><h2 id="home-process-title">Our Remodeling Process</h2><p>From the first conversation to the final walkthrough, each stage builds on the last.</p></div>
+    <div className="home-process__preview"><ProcessTimeline compact limit={3} /><a className="text-link home-process__more" href={withBase('process/')}>Explore the process →</a></div>
   </div></section>;
 }
 

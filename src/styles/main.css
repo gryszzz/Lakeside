@@ -1501,3 +1501,5 @@ p { line-height:1.8; }
  }
  .home-gallery__controls button:hover { background:var(--blue); border-color:var(--blue); color:#fff; }
 }
+
+.home-process__more { display:inline-flex; align-items:center; min-height:44px; margin-top:1rem; }

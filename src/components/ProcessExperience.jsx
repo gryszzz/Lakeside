@@ -11,9 +11,9 @@ const stepGuidance = [
   { heading: 'Support after the final walkthrough', detail: 'Keep your project details handy and contact Ron with questions about the workmanship warranty.' }
 ];
 
-export function ProcessTimeline({ compact = false }) {
+export function ProcessTimeline({ compact = false, limit = processSteps.length }) {
   return <ol className={`process-timeline ${compact ? 'process-timeline--compact' : ''}`}>
-    {processSteps.map((step, index) => <li className="process-timeline__step" key={step.title}>
+    {processSteps.slice(0, limit).map((step, index) => <li className="process-timeline__step" key={step.title}>
       <span className="process-timeline__marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
       <div className="process-timeline__body"><h3>{step.title}</h3><p>{step.text}</p>{!compact && <div className="process-timeline__guidance"><h4>{stepGuidance[index].heading}</h4><p>{stepGuidance[index].detail}</p></div>}</div>
     </li>)}
