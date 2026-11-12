@@ -261,46 +261,40 @@ const heroProjectPhotos = homepageProjectPhotos.slice(0, 3);
 
 export function HeroProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const trackRef = useRef(null);
   const project = heroProjectPhotos[currentIndex];
-  const showProject = (direction) => {
-    setCurrentIndex((index) => (index + direction + heroProjectPhotos.length) % heroProjectPhotos.length);
+  const goToProject = (index) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollTo({ left: index * track.clientWidth, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
+  const showProject = (direction) => goToProject((currentIndex + direction + heroProjectPhotos.length) % heroProjectPhotos.length);
 
-  return (
-    <>
-      <div className="hero-blueprint hero-photo-carousel" aria-label="Project photo carousel">
-        <div className="hero-blueprint__topline">
-          <span>Lakeside · Project Gallery</span>
-        </div>
-        <div className="hero-photo-carousel__viewport" style={{ aspectRatio: '3 / 2' }}>
-          <img className="hero-photo-carousel__ambient" src={withBase(project.image)} alt="" aria-hidden="true" />
-          <a
-            className="hero-photo-carousel__photo"
-            href={withBase(`projects/?project=${project.id}`)}
-            aria-label={`Open the gallery at ${project.title}`}
-          >
-            <img style={{ objectPosition: project.galleryFocalPoint || project.focalPoint, objectFit: 'cover', transform: 'none' }} src={withBase(project.image)} alt={project.alt} fetchPriority={currentIndex === 0 ? 'high' : 'auto'} />
-          </a>
-          <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
-          <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
-        <div className="hero-photo-carousel__dots" aria-label="Choose a project photo">
-          {heroProjectPhotos.map((photo, index) => (
-            <button
-              key={photo.image}
-              type="button"
-              className={index === currentIndex ? 'is-active' : ''}
-              onClick={() => setCurrentIndex(index)}
-              aria-label={`Show ${photo.title}`}
-              aria-current={index === currentIndex ? 'true' : undefined}
-            />
-          ))}
-        </div>
-        </div>
-        <div className="hero-photo-carousel__caption"><strong>{project.title}</strong></div>
-
+  return <div className="hero-blueprint hero-photo-carousel" aria-label="Project photo carousel">
+    <div className="hero-blueprint__topline"><span>Lakeside · Project Gallery</span></div>
+    <div className="hero-photo-carousel__viewport" style={{ aspectRatio: '3 / 2' }}>
+      <div className="hero-photo-carousel__track" ref={trackRef} onScroll={(event) => {
+        const track = event.currentTarget;
+        setCurrentIndex(Math.max(0, Math.min(heroProjectPhotos.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
+      }} aria-label="Swipe through project photos">
+        {heroProjectPhotos.map((photo, index) => <a
+          className="hero-photo-carousel__photo"
+          key={photo.id}
+          href={withBase(`projects/?project=${photo.id}`)}
+          aria-label={`Open the gallery at ${photo.title}`}
+          draggable="false"
+        >
+          <img style={{ objectPosition: photo.galleryFocalPoint || photo.focalPoint, objectFit: 'cover', transform: 'none' }} src={withBase(photo.image)} alt={photo.alt} fetchPriority={index === 0 ? 'high' : 'auto'} draggable="false" />
+        </a>)}
       </div>
-    </>
-  );
+      <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg></button>
+      <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+      <div className="hero-photo-carousel__dots" aria-label="Choose a project photo">
+        {heroProjectPhotos.map((photo, index) => <button key={photo.id} type="button" className={index === currentIndex ? 'is-active' : ''} onClick={() => goToProject(index)} aria-label={`Show ${photo.title}`} aria-current={index === currentIndex ? 'true' : undefined} />)}
+      </div>
+    </div>
+    <div className="hero-photo-carousel__caption" aria-live="polite"><strong>{project.title}</strong></div>
+  </div>;
 }
 
 const galleryProjectPhotos = homepageProjectPhotos;

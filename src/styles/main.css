@@ -1542,3 +1542,15 @@ p { line-height:1.8; }
 }
 
 .lightbox__nav svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+
+/* Native horizontal swiping with simple, unframed photo arrows. */
+.hero-photo-carousel__track { display:flex; width:100%; height:100%; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.hero-photo-carousel__track::-webkit-scrollbar { display:none; }
+.hero-photo-carousel__track .hero-photo-carousel__photo { position:relative; inset:auto; display:block; flex:0 0 100%; height:100%; scroll-snap-align:start; scroll-snap-stop:always; }
+.hero-photo-carousel__viewport .hero-photo-carousel__arrow { width:44px; height:44px; border:0; border-radius:0; background:transparent; box-shadow:none; color:#fff; filter:drop-shadow(0 1px 3px #000b); }
+.hero-photo-carousel__arrow svg { width:25px; height:25px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.home-gallery .home-gallery__controls button { border:0; border-radius:0; background:transparent; box-shadow:none; color:#155578; }
+@media(hover:hover) {
+ .hero-photo-carousel__viewport .hero-photo-carousel__arrow:hover { background:transparent; border:0; box-shadow:none; }
+ .home-gallery .home-gallery__controls button:hover { background:transparent; border:0; box-shadow:none; color:#103f5a; }
+}
