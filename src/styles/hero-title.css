@@ -1,0 +1,391 @@
+/* Homepage hero title only. ?title=serif|metallic|editorial|modern; no param uses serif.
+   Cormorant Garamond 500 + italic, Outfit 300. Latin subset. SIL OFL: /fonts/OFL-Hero-Title.txt */
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-500-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Cormorant Garamond Fallback";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Times New Roman");
+  ascent-override: 84.81%;
+  descent-override: 26.34%;
+  line-gap-override: 0%;
+  size-adjust: 108.95%;
+}
+@font-face {
+  font-family: "Cormorant Garamond Fallback";
+  font-style: italic;
+  font-weight: 500;
+  src: local("Times New Roman Italic"), local("Times New Roman");
+  ascent-override: 94.65%;
+  descent-override: 29.4%;
+  line-gap-override: 0%;
+  size-adjust: 97.62%;
+}
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/outfit-300.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Outfit Fallback";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Arial");
+  ascent-override: 89.29%;
+  descent-override: 23.21%;
+  line-gap-override: 0%;
+  size-adjust: 112%;
+}
+
+.lakeside-opening[class*="hero-title--"] {
+  --hero-serif: "Cormorant Garamond", "Cormorant Garamond Fallback", Georgia, "Times New Roman", serif;
+  --hero-sans: "Outfit", "Outfit Fallback", Arial, Helvetica, sans-serif;
+  --hero-ink: #173e50;
+  --hero-blue: #155578;
+  --hero-quiet: #3e5966;
+  --hero-brass: #8a6a38;
+}
+
+.lakeside-opening[class*="hero-title--"] h1 {
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.lakeside-opening[class*="hero-title--"] .hero__content > .eyebrow {
+  color: var(--hero-quiet);
+  font-family: var(--hero-sans);
+  font-weight: 300;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  line-height: 1.4;
+}
+
+.lakeside-opening[class*="hero-title--"] .opening-experience {
+  color: #4a6270;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.lakeside-opening[class*="hero-title--"] .opening-experience strong {
+  font-weight: 500;
+}
+
+/* A — high-contrast display serif. Default, and ?title=serif. */
+.lakeside-opening.hero-title--serif .hero__content > .eyebrow,
+.lakeside-opening.hero-title--metallic .hero__content > .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 0.85rem;
+}
+
+.lakeside-opening.hero-title--serif .hero__content > .eyebrow::before,
+.lakeside-opening.hero-title--serif .hero__content > .eyebrow::after,
+.lakeside-opening.hero-title--metallic .hero__content > .eyebrow::before,
+.lakeside-opening.hero-title--metallic .hero__content > .eyebrow::after {
+  content: "";
+  flex: 1 0 1.15rem;
+  width: 1.65rem;
+  max-width: 1.65rem;
+  height: 1px;
+  background: #173e50;
+  opacity: 0.4;
+}
+
+.lakeside-opening.hero-title--serif .opening-title,
+.lakeside-opening.hero-title--metallic .opening-title {
+  font-size: clamp(3.15rem, 4.6vw, 4.35rem);
+  line-height: 0.92;
+}
+
+.lakeside-opening.hero-title--serif .opening-line,
+.lakeside-opening.hero-title--metallic .opening-line,
+.lakeside-opening.hero-title--serif .opening-accent,
+.lakeside-opening.hero-title--metallic .opening-accent {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.lakeside-opening.hero-title--serif .opening-line,
+.lakeside-opening.hero-title--metallic .opening-line {
+  color: var(--hero-ink);
+  font-family: var(--hero-serif);
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+}
+
+.lakeside-opening.hero-title--serif .opening-accent,
+.lakeside-opening.hero-title--metallic .opening-accent {
+  margin-top: 0.08em;
+  color: var(--hero-blue);
+  font-family: var(--hero-serif);
+  font-size: 0.94em;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+
+.lakeside-opening.hero-title--serif .opening-experience,
+.lakeside-opening.hero-title--metallic .opening-experience {
+  margin-top: 0.85rem;
+  font-family: var(--hero-serif);
+  font-size: clamp(1.2rem, 1.55vw, 1.48rem);
+  font-variant-numeric: oldstyle-nums;
+  line-height: 1.25;
+}
+
+.lakeside-opening.hero-title--serif .opening-experience strong,
+.lakeside-opening.hero-title--metallic .opening-experience strong {
+  color: var(--hero-ink);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* B — the serif lockup, with a narrow champagne glint on navy. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .lakeside-opening.hero-title--metallic .opening-line,
+  .lakeside-opening.hero-title--metallic .opening-accent {
+    background-image:
+      linear-gradient(180deg, rgba(255, 250, 240, 0.2) 0%, rgba(255, 250, 240, 0) 32%, rgba(12, 32, 46, 0.16) 100%),
+      linear-gradient(102deg, #102c40 0%, #184862 42%, #7d6540 48.6%, #eadcc0 50%, #6a5432 51.6%, #163e56 58%, #102c40 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* C — tracked sans kicker, large serif italic, brass hairline. */
+.lakeside-opening.hero-title--editorial .hero__content > .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 1.15rem;
+  letter-spacing: 0.32em;
+}
+
+.lakeside-opening.hero-title--editorial .hero__content > .eyebrow::before {
+  content: "";
+  flex: 0 0 1.75rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--hero-brass), #d4bc8a);
+}
+
+.lakeside-opening.hero-title--editorial .opening-line {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  color: var(--hero-quiet);
+  font-family: var(--hero-sans);
+  font-size: clamp(0.92rem, 1.25vw, 1.08rem);
+  font-weight: 300;
+  letter-spacing: 0.46em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.lakeside-opening.hero-title--editorial .opening-accent {
+  display: block;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0.35rem;
+  padding-top: 0.72rem;
+  color: var(--hero-ink);
+  font-family: var(--hero-serif);
+  font-size: clamp(2.55rem, 4.5vw, 4.15rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 0.9;
+  text-transform: none;
+}
+
+.lakeside-opening.hero-title--editorial .opening-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4.25rem;
+  height: 1px;
+  background: linear-gradient(90deg, #9a7840, #e4d0a4 70%, rgba(154, 120, 64, 0));
+}
+
+.lakeside-opening.hero-title--editorial .opening-experience {
+  margin-top: 0.95rem;
+  color: var(--hero-quiet);
+  font-family: var(--hero-sans);
+  font-size: 0.74rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.lakeside-opening.hero-title--editorial .opening-experience strong {
+  color: var(--hero-ink);
+  font-weight: 300;
+}
+
+/* D — light luxury sans, navy with a short teal rule. */
+.lakeside-opening.hero-title--modern .hero__content > .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 0.95rem;
+  letter-spacing: 0.3em;
+}
+
+.lakeside-opening.hero-title--modern .hero__content > .eyebrow::before {
+  content: "";
+  flex: 0 0 1.85rem;
+  height: 1px;
+  background: #20728a;
+}
+
+.lakeside-opening.hero-title--modern .opening-title {
+  font-size: clamp(2.05rem, 3.5vw, 3.2rem);
+}
+
+.lakeside-opening.hero-title--modern .opening-line,
+.lakeside-opening.hero-title--modern .opening-accent {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  font-family: var(--hero-sans);
+  font-weight: 300;
+}
+
+.lakeside-opening.hero-title--modern .opening-line {
+  color: var(--hero-ink);
+  font-size: 1em;
+  letter-spacing: 0.115em;
+  line-height: 1.08;
+}
+
+.lakeside-opening.hero-title--modern .opening-accent {
+  margin-top: 0.18em;
+  color: var(--hero-blue);
+  font-size: 0.9em;
+  letter-spacing: 0.035em;
+  line-height: 1.12;
+}
+
+.lakeside-opening.hero-title--modern .opening-experience {
+  margin-top: 0.9rem;
+  color: #4a6270;
+  font-family: var(--hero-sans);
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  font-weight: 300;
+  letter-spacing: 0.045em;
+  line-height: 1.45;
+}
+
+.lakeside-opening.hero-title--modern .opening-experience strong {
+  color: var(--hero-blue);
+  font-weight: 300;
+}
+
+@media (max-width: 700px) {
+  .lakeside-opening.hero-title--serif .hero__content > .eyebrow,
+  .lakeside-opening.hero-title--metallic .hero__content > .eyebrow,
+  .lakeside-opening.hero-title--editorial .hero__content > .eyebrow,
+  .lakeside-opening.hero-title--modern .hero__content > .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    gap: 0.55rem;
+  }
+
+  .lakeside-opening.hero-title--serif .hero__content > .eyebrow::before,
+  .lakeside-opening.hero-title--serif .hero__content > .eyebrow::after,
+  .lakeside-opening.hero-title--metallic .hero__content > .eyebrow::before,
+  .lakeside-opening.hero-title--metallic .hero__content > .eyebrow::after {
+    flex-basis: 0.85rem;
+    width: 0.85rem;
+    max-width: 0.85rem;
+  }
+
+  .lakeside-opening.hero-title--editorial .hero__content > .eyebrow {
+    letter-spacing: 0.14em;
+  }
+
+  .lakeside-opening.hero-title--editorial .hero__content > .eyebrow::before,
+  .lakeside-opening.hero-title--modern .hero__content > .eyebrow::before {
+    flex-basis: 1.1rem;
+  }
+
+  .lakeside-opening.hero-title--serif .opening-title,
+  .lakeside-opening.hero-title--metallic .opening-title {
+    font-size: clamp(2.55rem, 12.2vw, 3.15rem);
+  }
+
+  .lakeside-opening.hero-title--editorial .opening-line {
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+  }
+
+  .lakeside-opening.hero-title--editorial .opening-accent {
+    font-size: clamp(2.4rem, 11.4vw, 3rem);
+  }
+
+  .lakeside-opening.hero-title--editorial .opening-experience {
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+  }
+
+  .lakeside-opening.hero-title--modern .opening-title {
+    font-size: clamp(1.85rem, 8.6vw, 2.25rem);
+  }
+
+  .lakeside-opening.hero-title--modern .opening-line {
+    letter-spacing: 0.1em;
+  }
+
+  .lakeside-opening.hero-title--modern .opening-accent {
+    letter-spacing: 0.028em;
+  }
+
+  .lakeside-opening.hero-title--modern .hero__content > .eyebrow {
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (forced-colors: active), (prefers-contrast: more) {
+  .lakeside-opening.hero-title--metallic .opening-line,
+  .lakeside-opening.hero-title--metallic .opening-accent {
+    background: none;
+    color: #102c40;
+    -webkit-text-fill-color: #102c40;
+  }
+}
