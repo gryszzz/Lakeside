@@ -860,9 +860,12 @@ p { line-height:1.8; }
 .hero-trust-band {
  margin-top:clamp(3.5rem,6vw,5.5rem);
  padding:.85rem 0;
+ background:linear-gradient(90deg,#103f5a 0%,#155578 56%,#20728a 100%);
 }
 .hero-trust-band::before {
  height:clamp(95px,13vw,180px);
+ bottom:calc(100% - 2px);
+ background:inherit;
  mask-size:100% 100%;
  -webkit-mask-size:100% 100%;
  mask-position:center bottom;
