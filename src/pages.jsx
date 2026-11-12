@@ -1,11 +1,11 @@
-import { ProcessExperience } from './components/ProcessExperience';
+import { ProcessExperience, ProcessTimeline } from './components/ProcessExperience';
 import { ServicesExperience } from './components/ServicesExperience';
 import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
 import { HeroProjectCarousel, HomeProjectGallery, ProjectGallery } from './components/Projects';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
   business,
-  faqs, services, processSteps
+  faqs, services
 } from './content/site';
 import { FAQSection, PageHero, SectionIntro, SiteShell } from './components/Layout';
 import {
@@ -49,7 +49,10 @@ function HomeServices() {
 }
 
 function HomeProcess() {
- return <section className="section home-process"><div className="container"><SectionIntro title="Our Remodeling Process" /><ol className="home-process__steps">{processSteps.slice(0,3).map((step,index)=><li key={step.title}><span>0{index+1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol><a className="text-link" href={withBase('process/')}>View our complete seven-step process</a></div></section>;
+  return <section className="section home-process process-journey" aria-labelledby="home-process-title"><div className="container process-journey__layout">
+    <div className="process-journey__intro"><p className="eyebrow">What to expect</p><h2 id="home-process-title">Our Remodeling Process</h2><p>From the first conversation to the final walkthrough, each stage builds on the last.</p><a className="text-link" href={withBase('process/')}>Explore the full process →</a></div>
+    <ProcessTimeline compact />
+  </div></section>;
 }
 
 function DirectEstimatePanel({ inHero = false }) {
