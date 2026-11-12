@@ -1,4 +1,3 @@
-import { countyImagery } from '../content/county-imagery';
 import { useState } from 'react';
 import boundaries from '../content/service-counties.json';
 import { serviceCounties } from '../content/service-areas';
@@ -21,9 +20,8 @@ const labelLocations = { Sussex: [-74.675, 41.18], Passaic: [-74.325, 41.055], M
 export function ServiceAreaMap({ full = false }) {
   const [selected, setSelected] = useState('Sussex County');
   const countyEntries = Object.entries(serviceCounties);
-  const imagery = countyImagery[selected];
   return (
-    <section className={`section coverage-section ${full ? 'coverage-section--full' : ''}`} id="coverage" style={{ '--coverage-image': `url("${withBase(imagery.image)}")` }}>
+    <section className={`section coverage-section ${full ? 'coverage-section--full' : ''}`} id="coverage">
       <div className="container">
         <div className="coverage-heading">
           <div><p className="eyebrow">{full ? 'Service Directory' : 'Local Service Area'}</p><h2>{full ? 'Explore Our Service Counties' : 'Remodeling Across Northern New Jersey'}</h2></div>
@@ -59,11 +57,10 @@ export function ServiceAreaMap({ full = false }) {
             <div className="coverage-actions"><a className="button" href={business.phoneHref}>Call Ron · {business.phone}</a><a className="text-link" href={full ? '#coverage-directory' : withBase('service-area/')}>View all towns</a></div>
           </div>
         </div>
-        {full && <div className="coverage-directory" id="coverage-directory" aria-label="Service area towns">{countyEntries.map(([county, towns]) => <article key={county} className={`coverage-directory__county ${selected === county ? 'is-selected' : ''}`} style={{ '--county-image': `url("${withBase(countyImagery[county].image)}")` }}>
+        {full && <div className="coverage-directory" id="coverage-directory" aria-label="Service area towns">{countyEntries.map(([county, towns]) => <article key={county} className={`coverage-directory__county ${selected === county ? 'is-selected' : ''}`}>
           <button type="button" className="coverage-directory__heading" aria-pressed={selected === county} onClick={() => setSelected(county)}><span>{county}</span></button>
           <ul>{towns.map(town => <li key={town}>{town}</li>)}</ul>
         </article>)}</div>}
-        <details className="coverage-photo-credits"><summary>Photo credits</summary><ul>{Object.values(countyImagery).map(photo => <li key={photo.image}><a href={photo.source} target="_blank" rel="noreferrer">{photo.place}</a> · {photo.artist} · <a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license}</a> · resized and converted to WebP</li>)}</ul></details>
       </div>
     </section>
   );

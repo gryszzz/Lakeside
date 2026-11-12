@@ -1300,12 +1300,12 @@ p { line-height:1.8; }
  .process-start__actions { gap:.5rem 1rem; }
 }
 
-/* Real regional photography sets the atmosphere; controls retain Lakeside blue. */
+/* Quiet service-area backgrounds with consistent Lakeside blue controls. */
 .coverage-section {
  --county-accent:#155578;
  --county-wash:#eff5f6;
  background-color:#e7eff0;
- background-image:linear-gradient(110deg,rgba(246,249,247,.94),rgba(236,244,244,.78)),var(--coverage-image);
+ background-image:linear-gradient(110deg,#f6f9f7,#ecf4f4);
  background-size:cover;
  background-position:center;
 }
@@ -1317,15 +1317,11 @@ p { line-height:1.8; }
 .coverage-directory__county {
  border-top:1px solid #cbdde1;
  background-color:#f7faf9;
- background-image:linear-gradient(105deg,rgba(255,255,255,.95),rgba(248,252,251,.85)),var(--county-image);
+ background-image:linear-gradient(105deg,#fff,#f8fcfb);
  background-size:cover;
  background-position:center;
 }
 .coverage-directory__county.is-selected { border-color:#155578; }
-.coverage-photo-credits { margin-top:1rem; color:#456471; font-size:.6rem; }
-.coverage-photo-credits summary { width:fit-content; min-height:32px; display:list-item; align-content:center; cursor:pointer; }
-.coverage-photo-credits ul { padding:1rem 1.5rem; margin:0; background:rgba(255,255,255,.93); border-radius:8px; line-height:1.9; }
-.coverage-photo-credits a { text-decoration:underline; text-underline-offset:3px; }
 .coverage-directory__heading span:only-child { color:#183d50; font-size:1.03rem; font-weight:800; }
 
 
@@ -1406,3 +1402,5 @@ p { line-height:1.8; }
  .lakeside-opening .hero-signature { font-size:.66rem; }
  .lakeside-opening .hero-license { font-size:.49rem; }
 }
+
+.coverage-section--full { padding-top:clamp(1.75rem,3.5vw,3rem); }
