@@ -1436,3 +1436,11 @@ p { line-height:1.8; }
  .lakeside-opening .hero-call__copy strong { font-size:.83rem; }
  .lakeside-opening .hero-blueprint.hero-photo-carousel { padding:.7rem; }
 }
+
+.lakeside-opening .hero-actions .hero-call {
+ width:min(100%,340px);
+ justify-content:center;
+}
+@media(max-width:700px) {
+ .lakeside-opening .hero-actions .hero-call { width:100%; }
+}
