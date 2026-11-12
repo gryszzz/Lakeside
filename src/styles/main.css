@@ -1094,3 +1094,32 @@ p { line-height:1.8; }
  .lightbox__tags { grid-column:1; }
  .lightbox__cta { grid-column:1; grid-row:auto; width:100%; min-height:42px; }
 }
+
+/* Let the viewer frame follow each photo's natural proportions. */
+.lightbox__panel--project {
+ grid-template-rows:auto auto auto;
+ overflow-y:auto;
+}
+.lightbox__panel--project .lightbox__media-shell {
+ justify-self:center;
+ width:fit-content;
+ max-width:calc(100% - 1.4rem);
+ margin:0 auto;
+}
+.lightbox__panel--project .lightbox__media {
+ display:block;
+ width:fit-content;
+ max-width:100%;
+ height:auto;
+ min-height:0;
+}
+.lightbox__panel--project .lightbox__image {
+ width:auto;
+ height:auto;
+ max-width:100%;
+ max-height:min(64dvh,680px);
+}
+@media(max-width:700px) {
+ .lightbox__panel--project .lightbox__media-shell { max-width:calc(100% - .7rem); }
+ .lightbox__panel--project .lightbox__image { max-height:min(58dvh,560px); }
+}
