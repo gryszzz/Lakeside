@@ -346,17 +346,21 @@
   }
 }
 
-/* Why Choose cards. Styling only; the same treatment is the default, not only a polish preview. */
+/* Why Choose cards. Always 2 columns, including phones. Styling is the default, not only a polish preview. */
 .site-shell .why-choose .reason-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.15rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0.7rem;
 }
 
 .site-shell .why-choose .reason-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow: hidden;
   min-height: 0;
-  padding: 1.45rem 1.25rem 1.35rem;
+  padding: 15px 14px 14px;
   border: 1px solid #d5e3ea;
   border-radius: 16px;
   background: #fff;
@@ -375,29 +379,32 @@
 
 .site-shell .why-choose__icon {
   display: block;
-  width: 28px;
-  height: 28px;
-  margin: 0 0 0.8rem;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0.4rem;
   color: #155578;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.6;
+  stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .site-shell .why-choose .reason-card h3 {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
   color: #14384c;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .site-shell .why-choose .reason-card p {
-  max-width: 36ch;
+  max-width: none;
+  margin-bottom: 0;
   color: #4d6470;
-  font-size: 0.9rem;
-  line-height: 1.75;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 .site-shell .why-choose .section-intro h2::after {
@@ -421,20 +428,28 @@
   }
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 700px) {
   .site-shell .why-choose .reason-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 599px) {
-  .site-shell .why-choose .reason-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.85rem;
+    gap: 1rem;
   }
 
   .site-shell .why-choose .reason-card {
-    padding: 1.25rem 1.1rem 1.15rem;
+    padding: 16px;
+  }
+
+  .site-shell .why-choose__icon {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 0.55rem;
+  }
+
+  .site-shell .why-choose .reason-card h3 {
+    font-size: 1.02rem;
+  }
+
+  .site-shell .why-choose .reason-card p {
+    font-size: 0.86rem;
+    line-height: 1.6;
   }
 }
 
