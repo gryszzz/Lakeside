@@ -54,7 +54,6 @@ export function ServicesExperience() {
 
       </div>
     </section>
-    <div className="services-assurance"><div className="container"><span>Over 40 years of experience</span><span>Licensed, insured & bonded</span><span>2-year workmanship warranty</span></div></div>
     <section className="section services-collection" id="our-services"><div className="container">
       <div className="services-collection__intro"><div><p className="eyebrow">Made for your home</p><h2>One trusted team.<br />Every finishing detail.</h2></div><p>Explore a complete renovation or focus on the upgrades your space needs. We’ll help you find the right starting point.</p></div>
       <nav className="services-jump" aria-label="Explore remodeling services">{services.map(service => <a key={service.slug} href={`#${service.slug}`}>{service.title}<span aria-hidden="true">↗</span></a>)}</nav>
