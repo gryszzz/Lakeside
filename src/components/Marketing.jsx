@@ -199,11 +199,18 @@ export function ServiceQuoteSection() {
   );
 }
 
+const reasonIconPaths = {
+  'Experience You Can Trust': 'M12 3 5 6v6c0 4.2 2.8 7.4 7 9 4.2-1.6 7-4.8 7-9V6l-7-3Z',
+  'Clean & Professional': 'M4 11h16M7 11V7.5L12 4l5 3.5V11M8 15h8M9 19h6',
+  'Clear Communication': 'M4 6h16v9H8l-4 3V6Z',
+  'Quality Workmanship': 'M5 12.5 9.2 17 19 7'
+};
+
 export function WhyChooseUs({ compact = false }) {
   const visibleReasons = reasons;
 
   return (
-    <section className="section section--contrast">
+    <section className="section section--contrast why-choose">
       <div className="container">
         <SectionIntro
 
@@ -213,6 +220,7 @@ export function WhyChooseUs({ compact = false }) {
         <div className="reason-grid">
           {visibleReasons.map((reason) => (
             <article key={reason.title} className={`reason-card ${compact ? 'reason-card--compact' : ''}`} data-reveal>
+              {reasonIconPaths[reason.title] ? <svg className="why-choose__icon" viewBox="0 0 24 24" aria-hidden="true"><path d={reasonIconPaths[reason.title]} /></svg> : null}
               <h3>{reason.title}</h3>
               <p>{reason.text}</p>
             </article>
