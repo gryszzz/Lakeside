@@ -107,14 +107,25 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.classList.toggle('menu-open', open);
-    return () => document.body.classList.remove('menu-open');
+    if (!open) return;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const previous = { position: body.style.position, top: body.style.top, width: body.style.width };
+    body.classList.add('menu-open');
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.width = '100%';
+    return () => {
+      body.classList.remove('menu-open');
+      Object.assign(body.style, previous);
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+    };
   }, [open]);
 
   useEffect(() => {
     if (!open) return;
     const panel = menuPanelRef.current;
-    panel?.querySelector('button')?.focus();
+    panel?.querySelector('button')?.focus({ preventScroll: true });
     const onKeyDown = (event) => {
       if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
       if (event.key !== 'Tab' || !panel) return;
@@ -128,7 +139,7 @@ export function Header() {
     const onDesktop = (event) => { if (event.matches) setOpen(false); };
     desktop.addEventListener('change', onDesktop);
     document.addEventListener('keydown', onKeyDown);
-    return () => { desktop.removeEventListener('change', onDesktop); document.removeEventListener('keydown', onKeyDown); menuTriggerRef.current?.focus(); };
+    return () => { desktop.removeEventListener('change', onDesktop); document.removeEventListener('keydown', onKeyDown); menuTriggerRef.current?.focus({ preventScroll: true }); };
   }, [open]);
 
   return (
