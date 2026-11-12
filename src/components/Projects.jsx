@@ -284,7 +284,7 @@ export function HeroProjectCarousel() {
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--prev" type="button" onClick={() => showProject(-1)} aria-label="Previous project photo">←</button>
           <button className="hero-photo-carousel__arrow hero-photo-carousel__arrow--next" type="button" onClick={() => showProject(1)} aria-label="Next project photo">→</button>
         </div>
-        <span className="hero-blueprint__stamp">{project.category}</span>
+        <div className="hero-photo-carousel__caption"><strong>{project.title}</strong><span>{project.category}</span></div>
         <div className="hero-photo-carousel__dots" aria-label="Choose a project photo">
           {heroProjectPhotos.map((photo, index) => (
             <button
