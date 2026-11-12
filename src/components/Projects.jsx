@@ -158,7 +158,7 @@ export function ProjectPreview() {
         <div className="project-grid">
           {previews.map((project) => (
             <article key={project.title} className="project-card" data-reveal>
-              <div className="project-card__media" style={{ aspectRatio: project.frameAspect }}>
+              <div className="project-card__media">
                 <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} />
                 <span>{project.category}</span>
               </div>
@@ -211,6 +211,7 @@ const homepageProjectPhotos = [
     focalPoint: '50% 50%',
     imageFit: 'contain',
     frameAspect: '986 / 1280',
+    galleryFocalPoint: '50% 65%',
     alt: 'Custom light wood cabinetry with glass-front storage and built-in shelves',
     summary: 'A custom cabinetry installation with glass-front storage and built-in shelving.',
     tags: ['Cabinetry', 'Built-ins', 'Storage']
@@ -335,8 +336,8 @@ export function HomeProjectGallery() {
               href={withBase(`projects/?project=${project.id}`)}
               aria-label={`Open photo: ${project.title}`}
             >
-              <span className="home-gallery__photo" style={{ aspectRatio: project.frameAspect }}>
-                <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
+              <span className="home-gallery__photo">
+                <img style={{ objectPosition: project.galleryFocalPoint || project.focalPoint, objectFit: 'cover', transform: 'none' }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
               </span>
               <span className="home-gallery__caption">
                 <span className="home-gallery__category">{project.category}</span>
@@ -438,8 +439,8 @@ export function ProjectGallery() {
               tabIndex={0}
               aria-label={`Open details for ${project.title}`}
             >
-              <div className="project-card__media" style={{ aspectRatio: project.frameAspect }}>
-                <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
+              <div className="project-card__media">
+                <img style={{ objectPosition: project.galleryFocalPoint || project.focalPoint, objectFit: 'cover', transform: 'none' }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
                 <span>{project.category}</span>
               </div>
               <div className="project-card__body">
