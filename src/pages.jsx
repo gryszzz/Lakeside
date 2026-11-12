@@ -16,12 +16,16 @@ import {
 import { withBase } from './utils';
 
 function HomeHero() {
-  return <section className="hero hero--refined hero--compact"><div className="container hero__grid">
+  return <section className="hero hero--refined hero--compact lakeside-opening"><div className="container hero__grid">
     <div className="hero__content" data-reveal>
-      <p className="eyebrow">Lakeside Kitchen & Bath LLC</p>
-      <h1>Transforming Kitchens &amp; Bathrooms With Over 40 Years of Experience</h1>
-      <p className="hero__body">Beautiful renovations begin with quality craftsmanship, clear communication, and a contractor you can trust. At Lakeside Kitchen &amp; Bath LLC, we specialize in kitchen and bathroom remodeling throughout Sussex, Morris, Passaic, and Warren Counties, delivering professional results designed to last.</p>
-      <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}><svg className="hero-cta__calendar" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01" /></svg><span>Schedule a Consultation</span><span className="hero-cta__arrow" aria-hidden="true">→</span></a><a className="hero-call" href={business.phoneHref} aria-label={`Call Ron at ${business.phone}`}><span className="header-call-icon" aria-hidden="true" /><span className="hero-call__copy"><span>Call Ron</span><strong>{business.phone}</strong></span></a></div>
+      <p className="eyebrow"><span aria-hidden="true" />Northern New Jersey · Kitchen & Bath</p>
+      <h1>Beautiful spaces.<br /><em>Built around you.</em></h1>
+      <p className="hero__body">Thoughtful kitchen and bathroom remodeling. Experienced craftsmanship, clear communication, and care for the place you call home.</p>
+      <div className="opening-actions">
+        <a className="button opening-actions__primary" href={withBase('contact/')}><span>Let’s plan your remodel</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+        <a className="opening-actions__services" href={withBase('services/')}>Explore our services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a>
+      </div>
+      <a className="opening-contact" href={business.phoneHref}><span>Talk with Ron</span><strong>{business.phone}</strong></a>
     </div>
     <HeroProjectCarousel />
     <div className="hero-proof"><p className="hero-signature"><span className="hero-signature__check" aria-hidden="true">✓</span>We do the complete job!</p><p className="hero-license">NJ HIC #13VH13915600</p></div>
