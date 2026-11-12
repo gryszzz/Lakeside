@@ -326,7 +326,7 @@ export function FAQSection({ items, intro = '' }) {
   );
 }
 
-export function SiteShell({ children, showFinalCta = true, finalCtaProps }) {
+export function SiteShell({ children, showFinalCta = true, finalCtaProps, className = '' }) {
   const shellRef = useRef(null);
 
   useRevealAnimations();
@@ -378,7 +378,7 @@ export function SiteShell({ children, showFinalCta = true, finalCtaProps }) {
   }, []);
 
   return (
-    <div className="site-shell" ref={shellRef}>
+    <div className={className ? `site-shell ${className}` : 'site-shell'} ref={shellRef}>
       <SiteBackground />
       <div className="site-shell__content">
         <Header />

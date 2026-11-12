@@ -17,17 +17,8 @@ import {
 } from './components/Marketing';
 import { withBase } from './utils';
 
-const HERO_TITLE_STYLES = new Set(['refined', 'depth', 'accent']);
-
-function heroTitleStyle() {
-  const requested = new URLSearchParams(window.location.search).get('title');
-  const style = (requested || '').toLowerCase();
-  return HERO_TITLE_STYLES.has(style) ? style : 'refined';
-}
-
 function HomeHero() {
-  const titleStyle = heroTitleStyle();
-  return <section className={`hero hero--refined hero--compact lakeside-opening hero-title--${titleStyle}`}><div className="container hero__grid">
+  return <section className="hero hero--refined hero--compact lakeside-opening"><div className="container hero__grid">
     <div className="hero__content" data-reveal>
       <p className="eyebrow">Lakeside Kitchen & Bath LLC</p>
       <h1><span className="opening-title"><span className="opening-line">Transforming </span><span className="opening-accent">Kitchens &amp; Bathrooms</span></span><span className="opening-experience">With Over <strong>40 Years</strong> of Experience</span></h1>
@@ -79,9 +70,16 @@ function DirectEstimatePanel({ inHero = false }) {
  </div>;
 }
 
+function homePolishClass() {
+  const value = (new URLSearchParams(window.location.search).get('polish') || '').toLowerCase();
+  if (value === 'crisp' || value === 'premium' || value === 'luxe') return `polish polish--${value}`;
+  return '';
+}
+
 export function HomePage() {
   return (
     <SiteShell
+      className={homePolishClass()}
       finalCtaProps={{
         buttonVariant: 'tech'
       }}
