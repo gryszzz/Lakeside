@@ -127,6 +127,3 @@ body { background:#fff; }
   background-color:transparent;
   background-image:none;
 }
-.hero-trust-band {
-  margin-top:clamp(1.75rem,3.2vw,2.6rem);
-}
