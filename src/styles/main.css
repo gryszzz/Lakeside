@@ -858,11 +858,11 @@ p { line-height:1.8; }
 
 /* Show the complete brand wave instead of cropping it with a fixed mask offset. */
 .hero-trust-band {
- margin-top:clamp(5.5rem,10vw,9rem);
- padding:1.6rem 0;
+ margin-top:clamp(3.5rem,6vw,5.5rem);
+ padding:.85rem 0;
 }
 .hero-trust-band::before {
- height:clamp(140px,20vw,280px);
+ height:clamp(95px,13vw,180px);
  mask-size:100% 100%;
  -webkit-mask-size:100% 100%;
  mask-position:center bottom;
@@ -873,15 +873,15 @@ p { line-height:1.8; }
  display:flex;
  align-items:center;
  justify-content:center;
- min-height:3.25rem;
+ min-height:2.5rem;
  padding:0 1.25rem;
- font-size:clamp(.9rem,1.2vw,1.1rem);
+ font-size:clamp(.85rem,1.05vw,1rem);
  line-height:1.45;
  text-wrap:balance;
 }
 @media(max-width:700px) {
- .hero-trust-band { margin-top:4.5rem; padding:1.15rem 0; }
- .hero-trust-band span { min-height:3.5rem; padding:0 .5rem; font-size:clamp(.7rem,2.7vw,.9rem); }
+ .hero-trust-band { margin-top:3.25rem; padding:.75rem 0; }
+ .hero-trust-band span { min-height:3rem; padding:0 .5rem; font-size:clamp(.7rem,2.7vw,.9rem); }
 }
 
 .home-gallery { overflow:hidden; background-color:#e7eff1; background-image:radial-gradient(ellipse at 88% 12%,rgba(102,157,176,.19),transparent 37%),linear-gradient(rgba(21,85,120,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(21,85,120,.035) 1px,transparent 1px),linear-gradient(140deg,#f6f8f5 0%,#e6eef0 56%,#d4e2e6 100%); background-size:auto,42px 42px,42px 42px,auto; }
