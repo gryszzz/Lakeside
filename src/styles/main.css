@@ -1352,7 +1352,7 @@ p { line-height:1.8; }
 .lakeside-opening .hero__body p { margin:0; color:#60737c; font-size:.86rem; line-height:1.8; }
 .lakeside-opening .hero__body .opening-lead { margin-bottom:.9rem; color:#345462; font-size:.97rem; line-height:1.75; }
 .lakeside-opening .hero-actions { display:flex; flex-direction:column; align-items:flex-start; gap:.4rem; margin-top:1.6rem; }
-.lakeside-opening .hero-actions .button--hero-tech { width:min(100%,350px); min-height:55px; padding:.65rem .8rem .65rem 1rem; border-radius:8px; background:linear-gradient(110deg,#155578,#206b83); box-shadow:0 6px 15px #174a5912; font-size:.82rem; }
+.lakeside-opening .hero-actions .button--hero-tech { width:min(100%,350px); grid-template-columns:32px minmax(0,1fr) 24px; gap:.75rem; min-height:60px; padding:.7rem .9rem; border:1px solid #174f6b; border-radius:12px; background:linear-gradient(110deg,#124b6a,#1b6480); box-shadow:0 5px 14px #174a591a,inset 0 1px 0 #ffffff20; font-size:.85rem; font-weight:750; line-height:1.35; transition:background .18s,box-shadow .18s,transform .18s; }
 .lakeside-opening .hero-actions .hero-call { display:flex; width:min(100%,350px); justify-content:center; min-height:44px; padding:.4rem 0; margin:0; }
 .lakeside-opening .hero-call__copy { display:flex; flex-direction:row; align-items:center; gap:.5rem; }
 .lakeside-opening .hero-call__copy > span { color:#617c86; font-size:.58rem; letter-spacing:.09em; }
@@ -1389,7 +1389,7 @@ p { line-height:1.8; }
  .lakeside-opening .hero__body .opening-lead { font-size:.9rem; line-height:1.7; margin-bottom:.75rem; }
  .lakeside-opening .hero__body p { font-size:.81rem; line-height:1.8; }
  .lakeside-opening .hero-actions { margin-top:1.25rem; gap:.3rem; }
- .lakeside-opening .hero-actions .button--hero-tech { width:100%; min-height:52px; font-size:.78rem; }
+ .lakeside-opening .hero-actions .button--hero-tech { width:100%; min-height:58px; padding:.65rem .8rem; gap:.65rem; font-size:.8rem; }
  .lakeside-opening .hero-actions .hero-call { width:100%; }
  .lakeside-opening .hero-call__copy strong { font-size:.82rem; }
  .lakeside-opening .hero-blueprint.hero-photo-carousel { padding:0; }
@@ -1404,3 +1404,16 @@ p { line-height:1.8; }
 }
 
 .coverage-section--full { padding-top:clamp(1.75rem,3.5vw,3rem); }
+
+.lakeside-opening .button--hero-tech .hero-cta__calendar { width:32px; height:32px; padding:6px; border:1px solid #ffffff30; border-radius:8px; background:#ffffff0d; stroke-width:1.6; }
+.lakeside-opening .button--hero-tech .hero-cta__arrow { width:24px; height:24px; }
+.lakeside-opening .hero-cta__arrow svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.lakeside-opening .button--hero-tech:focus-visible { outline:3px solid #4e91aa; outline-offset:4px; }
+@media(hover:hover) {
+ .lakeside-opening .hero-actions .button--hero-tech:hover { background:linear-gradient(110deg,#103f5a,#155578); box-shadow:0 8px 20px #174a5926,inset 0 1px 0 #ffffff20; transform:translateY(-1px); }
+}
+.lakeside-opening .hero-actions .button--hero-tech:active { transform:translateY(0); }
+@media(prefers-reduced-motion:reduce) {
+ .lakeside-opening .hero-actions .button--hero-tech,.lakeside-opening .hero-cta__arrow { transition:none; }
+ .lakeside-opening .hero-actions .button--hero-tech:hover,.lakeside-opening .button--hero-tech:hover .hero-cta__arrow { transform:none; }
+}
