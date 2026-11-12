@@ -1,0 +1,105 @@
+/* Permanent homepage hero title. Manrope, same family as the original headline. */
+
+.site-shell .lakeside-opening {
+  --hero-navy: #0e3146;
+  --hero-blue: #124a6c;
+  --hero-quiet: #3f5c6c;
+}
+
+.site-shell .lakeside-opening .hero__content > .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 0.95rem;
+  color: var(--hero-quiet);
+  font-family: Manrope, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.site-shell .lakeside-opening .hero__content > .eyebrow::before {
+  content: "";
+  flex: 0 0 1.35rem;
+  width: 1.35rem;
+  height: 1px;
+  background: #155578;
+}
+
+.site-shell .lakeside-opening .opening-title {
+  font-family: Manrope, Arial, Helvetica, sans-serif;
+  font-size: clamp(2rem, 3.1vw, 3.1rem);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.site-shell .lakeside-opening .opening-line,
+.site-shell .lakeside-opening .opening-accent {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  font-family: Manrope, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-variant-ligatures: none;
+}
+
+.site-shell .lakeside-opening .opening-line {
+  color: var(--hero-navy);
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.site-shell .lakeside-opening .opening-accent {
+  margin-top: 0.06em;
+  color: var(--hero-blue);
+  font-size: 1.16em;
+  font-weight: 700;
+  letter-spacing: -0.042em;
+  line-height: 1.05;
+}
+
+.site-shell .lakeside-opening .opening-accent::after {
+  content: "";
+  display: block;
+  width: 2.75rem;
+  height: 1px;
+  margin-top: 0.55rem;
+  background: linear-gradient(90deg, #9aafba, #e7dcc4 62%, rgba(231, 220, 196, 0));
+}
+
+.site-shell .lakeside-opening .opening-experience,
+.site-shell .lakeside-opening .opening-experience strong {
+  font-family: Manrope, Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+@media (max-width: 700px) {
+  .site-shell .lakeside-opening .hero__content > .eyebrow {
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+  }
+
+  .site-shell .lakeside-opening .hero__content > .eyebrow::before {
+    flex-basis: 0.95rem;
+    width: 0.95rem;
+  }
+
+  .site-shell .lakeside-opening .opening-title {
+    font-size: clamp(1.85rem, 7.9vw, 2.9rem);
+  }
+
+  .site-shell .lakeside-opening .opening-accent {
+    letter-spacing: -0.045em;
+  }
+}

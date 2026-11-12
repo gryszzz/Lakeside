@@ -1,0 +1,462 @@
+/* Homepage front polish. ?polish=crisp|premium|luxe|bold. No param leaves the current styling.
+   Bold is premium plus stronger type. It does not restyle the stats-bar wave. */
+
+/* A — spacing, type, header, buttons, and the hero photo frame. */
+.site-shell[class*="polish--"] .site-header {
+  background: rgba(247, 250, 251, 0.84);
+  border-bottom: 1px solid rgba(16, 63, 90, 0.14);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+}
+
+.site-shell[class*="polish--"] .site-header::after {
+  display: none;
+}
+
+.site-shell[class*="polish--"] .site-nav a {
+  letter-spacing: 0.01em;
+}
+
+.site-shell[class*="polish--"] .lakeside-opening {
+  padding-top: clamp(2.4rem, 5vw, 4.6rem);
+}
+
+.site-shell[class*="polish--"] .lakeside-opening .hero__grid {
+  row-gap: 1.25rem;
+}
+
+.site-shell[class*="polish--"] .lakeside-opening .hero__body .opening-lead {
+  letter-spacing: -0.011em;
+}
+
+.site-shell[class*="polish--"] .lakeside-opening .hero-actions .button--hero-tech,
+.site-shell[class*="polish--"] .site-header__phone {
+  border-radius: 10px;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+
+.site-shell[class*="polish--"] .lakeside-opening .hero-actions .button--hero-tech {
+  box-shadow: 0 8px 18px rgba(16, 63, 90, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+@media (hover: hover) {
+  .site-shell[class*="polish--"] .lakeside-opening .hero-actions .button--hero-tech:hover,
+  .site-shell[class*="polish--"] .site-header__phone:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(16, 63, 90, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.36);
+  }
+}
+
+.site-shell[class*="polish--"] .lakeside-opening .hero-photo-carousel__viewport {
+  border-radius: 22px;
+  border-color: rgba(176, 196, 206, 0.9);
+  box-shadow: 0 22px 48px rgba(16, 47, 68, 0.12);
+}
+
+.site-shell[class*="polish--"] .home-services {
+  padding-top: clamp(2.5rem, 4.5vw, 3.8rem);
+}
+
+.site-shell[class*="polish--"] .home-services .section-intro {
+  margin-bottom: 2rem;
+}
+
+.site-shell[class*="polish--"] .home-services .section-intro .eyebrow {
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
+.site-shell[class*="polish--"] .home-services .section-intro h2 {
+  letter-spacing: -0.03em;
+}
+
+/* B — silver/champagne rules, richer stats band, scroll fade. */
+.site-shell.polish--premium .lakeside-opening .hero__content > .eyebrow::before,
+.site-shell.polish--luxe .lakeside-opening .hero__content > .eyebrow::before,
+.site-shell.polish--premium .home-services .section-intro__rail,
+.site-shell.polish--luxe .home-services .section-intro__rail {
+  height: 1px;
+  background: linear-gradient(90deg, #b7c6ce, #e7dcc4 70%, rgba(231, 220, 196, 0));
+}
+
+.site-shell.polish--premium .home-services .section-intro h2::after,
+.site-shell.polish--luxe .home-services .section-intro h2::after {
+  width: 2.75rem;
+  height: 1px;
+  border-radius: 0;
+  background: linear-gradient(90deg, #9aafba, #e7dcc4 68%, rgba(231, 220, 196, 0));
+}
+
+.site-shell.polish--premium .hero-trust-band,
+.site-shell.polish--luxe .hero-trust-band {
+  background: linear-gradient(108deg, #0e3348 0%, #14506e 54%, #1c6d86 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 236, 0.34);
+}
+
+.site-shell.polish--premium .hero-trust-band span,
+.site-shell.polish--luxe .hero-trust-band span {
+  border-right-color: rgba(231, 220, 196, 0.42);
+}
+
+.site-shell.polish--premium .lakeside-opening .button--hero-tech .hero-cta__calendar,
+.site-shell.polish--luxe .lakeside-opening .button--hero-tech .hero-cta__calendar {
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.site-shell.polish--premium .lakeside-opening [data-reveal],
+.site-shell.polish--luxe .lakeside-opening [data-reveal],
+.site-shell.polish--premium .home-services .section-intro[data-reveal],
+.site-shell.polish--luxe .home-services .section-intro[data-reveal],
+.site-shell.polish--premium .why-choose [data-reveal],
+.site-shell.polish--luxe .why-choose [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+
+.site-shell.polish--premium .lakeside-opening [data-reveal].is-visible,
+.site-shell.polish--luxe .lakeside-opening [data-reveal].is-visible,
+.site-shell.polish--premium .home-services .section-intro[data-reveal].is-visible,
+.site-shell.polish--luxe .home-services .section-intro[data-reveal].is-visible,
+.site-shell.polish--premium .why-choose [data-reveal].is-visible,
+.site-shell.polish--luxe .why-choose [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* C — grain, deeper shadows, glassy actions, refined focus. */
+.site-shell.polish--luxe #main-content {
+  position: relative;
+}
+
+.site-shell.polish--luxe #main-content::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2100px;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  -webkit-mask-image: linear-gradient(#000 0 62%, transparent);
+  mask-image: linear-gradient(#000 0 62%, transparent);
+}
+
+.site-shell.polish--luxe #main-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+.site-shell.polish--luxe .lakeside-opening .hero-photo-carousel__viewport {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 2px 6px rgba(16, 42, 62, 0.08),
+    0 24px 50px rgba(16, 42, 62, 0.16);
+}
+
+.site-shell.polish--luxe .lakeside-opening .hero-actions .button--hero-tech,
+.site-shell.polish--luxe .site-header__phone {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 46%), linear-gradient(110deg, #155578, #1d6884);
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 10px 24px rgba(16, 47, 68, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.site-shell.polish--luxe .lakeside-opening .hero-actions .hero-call {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid rgba(186, 204, 214, 0.85);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.46);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 8px 18px rgba(16, 47, 68, 0.06);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.site-shell.polish--luxe .site-header a:focus-visible,
+.site-shell.polish--luxe .lakeside-opening a:focus-visible,
+.site-shell.polish--luxe .lakeside-opening button:focus-visible {
+  outline: 2px solid #7f9aab;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .site-shell.polish--luxe .lakeside-opening .hero-actions .button--hero-tech:hover,
+  .site-shell.polish--luxe .site-header__phone:hover {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0) 46%), linear-gradient(110deg, #124b6b, #1c6280);
+  }
+
+  .site-shell.polish--luxe .lakeside-opening .hero-photo-carousel__viewport:hover {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.7) inset,
+      0 4px 10px rgba(16, 42, 62, 0.08),
+      0 28px 56px rgba(16, 42, 62, 0.18);
+  }
+}
+
+@media (max-width: 700px) {
+  .site-shell[class*="polish--"] .lakeside-opening {
+    padding-top: 2rem;
+  }
+
+  .site-shell[class*="polish--"] .lakeside-opening .hero-photo-carousel__viewport {
+    border-radius: 16px;
+  }
+
+  .site-shell[class*="polish--"] .home-services {
+    padding-top: 1.85rem;
+  }
+
+  .site-shell[class*="polish--"] .home-services .section-intro {
+    margin-bottom: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-shell.polish--premium .lakeside-opening [data-reveal],
+  .site-shell.polish--luxe .lakeside-opening [data-reveal],
+  .site-shell.polish--premium .home-services .section-intro[data-reveal],
+  .site-shell.polish--luxe .home-services .section-intro[data-reveal],
+  .site-shell.polish--premium .why-choose [data-reveal],
+  .site-shell.polish--luxe .why-choose [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .site-shell[class*="polish--"] .lakeside-opening .hero-actions .button--hero-tech,
+  .site-shell[class*="polish--"] .site-header__phone,
+  .site-shell[class*="polish--"] .lakeside-opening .hero-actions .button--hero-tech:hover,
+  .site-shell[class*="polish--"] .site-header__phone:hover {
+    transition: none;
+    transform: none;
+  }
+
+  .site-shell.polish--bold .lakeside-opening .hero-actions .button--hero-tech,
+  .site-shell.polish--bold .site-header__phone {
+    background-position: 0 0, 0 0;
+    transition: none;
+  }
+}
+
+/* Bold — premium, with heavier type. Same Manrope, upright ampersand. */
+.site-shell.polish--bold .lakeside-opening .opening-line {
+  color: #0c2c40;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.site-shell.polish--bold .lakeside-opening .opening-accent {
+  color: #0f4560;
+  font-size: 1.08em;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  filter: drop-shadow(0 7px 12px rgba(16, 63, 90, 0.16));
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .site-shell.polish--bold .lakeside-opening .opening-accent {
+    background-image: linear-gradient(102deg, #0e4560 0%, #156078 42%, #c6a56e 49.5%, #156078 57%, #0e3d56 100%);
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.site-shell.polish--bold .lakeside-opening .hero__content > .eyebrow,
+.site-shell.polish--bold .home-services .section-intro .eyebrow {
+  color: #6d5428;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.site-shell.polish--bold .home-services .section-intro h2 {
+  font-weight: 800;
+  letter-spacing: -0.038em;
+}
+
+.site-shell.polish--bold .home-services .section-intro h2::after {
+  width: 3.4rem;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #155578, #d4bc8a);
+}
+
+.site-shell.polish--bold .hero-trust-band span {
+  color: #f6ead2;
+  font-weight: 800;
+  letter-spacing: 0.012em;
+}
+
+.site-shell.polish--bold .lakeside-opening .hero-actions .button--hero-tech,
+.site-shell.polish--bold .site-header__phone {
+  background-image:
+    linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.42) 48%, transparent 56%),
+    linear-gradient(110deg, #155578, #1f6884);
+  background-size: 240% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 120% 0, 0 0;
+}
+
+@media (min-width: 701px) {
+  .site-shell.polish--bold .hero-trust-band span {
+    font-size: 1.02rem;
+  }
+}
+
+@media (hover: hover) {
+  .site-shell.polish--bold .lakeside-opening .hero-actions .button--hero-tech:hover,
+  .site-shell.polish--bold .site-header__phone:hover {
+    background-image:
+      linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.5) 48%, transparent 56%),
+      linear-gradient(110deg, #124b6b, #1c6280);
+    background-position: -40% 0, 0 0;
+    transition: background-position .65s ease, transform .2s ease, box-shadow .2s ease;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-shell.polish--bold .lakeside-opening .opening-accent {
+    letter-spacing: -0.048em;
+  }
+
+  .site-shell.polish--bold .lakeside-opening .hero__content > .eyebrow,
+  .site-shell.polish--bold .home-services .section-intro .eyebrow {
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (forced-colors: active), (prefers-contrast: more) {
+  .site-shell.polish--bold .lakeside-opening .opening-accent {
+    background: none;
+    color: #0c2c40;
+    -webkit-text-fill-color: #0c2c40;
+    filter: none;
+  }
+}
+
+/* Why Choose cards. Always 2 columns, including phones. Styling is the default, not only a polish preview. */
+.site-shell .why-choose .reason-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0.7rem;
+}
+
+.site-shell .why-choose .reason-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  min-height: 0;
+  padding: 15px 14px 14px;
+  border: 1px solid #d5e3ea;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(16, 47, 68, 0.04), 0 12px 28px rgba(16, 47, 68, 0.07);
+}
+
+.site-shell .why-choose .reason-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #155578, #d4bc8a);
+}
+
+.site-shell .why-choose__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0.4rem;
+  color: #155578;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-shell .why-choose .reason-card h3 {
+  margin-bottom: 0.35rem;
+  color: #14384c;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.site-shell .why-choose .reason-card p {
+  max-width: none;
+  margin-bottom: 0;
+  color: #4d6470;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.site-shell .why-choose .section-intro h2::after {
+  width: 3.4rem;
+  height: 3px;
+  margin-top: 0.75rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #155578, #d4bc8a);
+}
+
+@media (hover: hover) and (min-width: 900px) {
+  .site-shell .why-choose .reason-card {
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .site-shell .why-choose .reason-card:hover,
+  .site-shell.polish--premium .why-choose .reason-card.is-visible:hover,
+  .site-shell.polish--luxe .why-choose .reason-card.is-visible:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 4px rgba(16, 47, 68, 0.05), 0 18px 36px rgba(16, 47, 68, 0.11);
+  }
+}
+
+@media (min-width: 700px) {
+  .site-shell .why-choose .reason-grid {
+    gap: 1rem;
+  }
+
+  .site-shell .why-choose .reason-card {
+    padding: 16px;
+  }
+
+  .site-shell .why-choose__icon {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 0.55rem;
+  }
+
+  .site-shell .why-choose .reason-card h3 {
+    font-size: 1.02rem;
+  }
+
+  .site-shell .why-choose .reason-card p {
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-shell .why-choose .reason-card,
+  .site-shell .why-choose .reason-card:hover {
+    transition: none;
+    transform: none;
+  }
+}

@@ -21,7 +21,7 @@ function HomeHero() {
   return <section className="hero hero--refined hero--compact lakeside-opening"><div className="container hero__grid">
     <div className="hero__content" data-reveal>
       <p className="eyebrow">Lakeside Kitchen & Bath LLC</p>
-      <h1><span className="opening-title">Transforming <span>Kitchens &amp; Bathrooms</span></span><span className="opening-experience">With Over <strong>40 Years</strong> of Experience</span></h1>
+      <h1><span className="opening-title"><span className="opening-line">Transforming </span><span className="opening-accent">Kitchens &amp; Bathrooms</span></span><span className="opening-experience">With Over <strong>40 Years</strong> of Experience</span></h1>
       <div className="hero__body"><p className="opening-lead">Beautiful renovations begin with quality craftsmanship, clear communication, and a contractor you can trust.</p><p>At Lakeside Kitchen &amp; Bath LLC, we specialize in kitchen and bathroom remodeling throughout Sussex, Morris, Passaic, and Warren Counties, delivering professional results designed to last.</p></div>
       <div className="hero-actions"><a className="button button--hero-tech" href={withBase('contact/')}><svg className="hero-cta__calendar" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01" /></svg><span>Schedule a Consultation</span><span className="hero-cta__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span></a><a className="hero-call" href={business.phoneHref} aria-label={`Call Ron at ${business.phone}`}><span className="header-call-icon" aria-hidden="true" /><span className="hero-call__copy"><span>Call Ron</span><strong>{business.phone}</strong></span></a></div>
     </div>
@@ -70,9 +70,17 @@ function DirectEstimatePanel({ inHero = false }) {
  </div>;
 }
 
+function homePolishClass() {
+  const value = (new URLSearchParams(window.location.search).get('polish') || '').toLowerCase();
+  if (value === 'bold') return 'polish polish--premium polish--bold';
+  if (value === 'crisp' || value === 'premium' || value === 'luxe') return `polish polish--${value}`;
+  return '';
+}
+
 export function HomePage() {
   return (
     <SiteShell
+      className={homePolishClass()}
       finalCtaProps={{
         buttonVariant: 'tech'
       }}
