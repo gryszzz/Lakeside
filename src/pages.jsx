@@ -72,6 +72,7 @@ function DirectEstimatePanel({ inHero = false }) {
 
 function homePolishClass() {
   const value = (new URLSearchParams(window.location.search).get('polish') || '').toLowerCase();
+  if (value === 'bold') return 'polish polish--premium polish--bold';
   if (value === 'crisp' || value === 'premium' || value === 'luxe') return `polish polish--${value}`;
   return '';
 }

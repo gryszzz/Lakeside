@@ -1,4 +1,5 @@
-/* Homepage front polish. ?polish=crisp|premium|luxe. No param leaves the current styling. */
+/* Homepage front polish. ?polish=crisp|premium|luxe|bold. No param leaves the current styling.
+   Bold is premium plus stronger type. It does not restyle the stats-bar wave. */
 
 /* A — spacing, type, header, buttons, and the hero photo frame. */
 .site-shell[class*="polish--"] .site-header {
@@ -230,5 +231,111 @@
   .site-shell[class*="polish--"] .site-header__phone:hover {
     transition: none;
     transform: none;
+  }
+
+  .site-shell.polish--bold .lakeside-opening .hero-actions .button--hero-tech,
+  .site-shell.polish--bold .site-header__phone {
+    background-position: 0 0, 0 0;
+    transition: none;
+  }
+}
+
+/* Bold — premium, with heavier type. Same Manrope, upright ampersand. */
+.site-shell.polish--bold .lakeside-opening .opening-line {
+  color: #0c2c40;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.site-shell.polish--bold .lakeside-opening .opening-accent {
+  color: #0f4560;
+  font-size: 1.08em;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  filter: drop-shadow(0 7px 12px rgba(16, 63, 90, 0.16));
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .site-shell.polish--bold .lakeside-opening .opening-accent {
+    background-image: linear-gradient(102deg, #0e4560 0%, #156078 42%, #c6a56e 49.5%, #156078 57%, #0e3d56 100%);
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.site-shell.polish--bold .lakeside-opening .hero__content > .eyebrow,
+.site-shell.polish--bold .home-services .section-intro .eyebrow {
+  color: #6d5428;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.site-shell.polish--bold .home-services .section-intro h2 {
+  font-weight: 800;
+  letter-spacing: -0.038em;
+}
+
+.site-shell.polish--bold .home-services .section-intro h2::after {
+  width: 3.4rem;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #155578, #d4bc8a);
+}
+
+.site-shell.polish--bold .hero-trust-band span {
+  color: #f6ead2;
+  font-weight: 800;
+  letter-spacing: 0.012em;
+}
+
+.site-shell.polish--bold .lakeside-opening .hero-actions .button--hero-tech,
+.site-shell.polish--bold .site-header__phone {
+  background-image:
+    linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.42) 48%, transparent 56%),
+    linear-gradient(110deg, #155578, #1f6884);
+  background-size: 240% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 120% 0, 0 0;
+}
+
+@media (min-width: 701px) {
+  .site-shell.polish--bold .hero-trust-band span {
+    font-size: 1.02rem;
+  }
+}
+
+@media (hover: hover) {
+  .site-shell.polish--bold .lakeside-opening .hero-actions .button--hero-tech:hover,
+  .site-shell.polish--bold .site-header__phone:hover {
+    background-image:
+      linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.5) 48%, transparent 56%),
+      linear-gradient(110deg, #124b6b, #1c6280);
+    background-position: -40% 0, 0 0;
+    transition: background-position .65s ease, transform .2s ease, box-shadow .2s ease;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-shell.polish--bold .lakeside-opening .opening-accent {
+    letter-spacing: -0.048em;
+  }
+
+  .site-shell.polish--bold .lakeside-opening .hero__content > .eyebrow,
+  .site-shell.polish--bold .home-services .section-intro .eyebrow {
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (forced-colors: active), (prefers-contrast: more) {
+  .site-shell.polish--bold .lakeside-opening .opening-accent {
+    background: none;
+    color: #0c2c40;
+    -webkit-text-fill-color: #0c2c40;
+    filter: none;
   }
 }
