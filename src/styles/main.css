@@ -855,6 +855,35 @@ p { line-height:1.8; }
  .hero-trust-band::before { height:28px; mask-size:100% 125px; -webkit-mask-size:100% 125px; mask-position:center -61px; -webkit-mask-position:center -61px; }
 }
 
+
+/* Show the complete brand wave instead of cropping it with a fixed mask offset. */
+.hero-trust-band {
+ margin-top:clamp(5.5rem,10vw,9rem);
+ padding:1.6rem 0;
+}
+.hero-trust-band::before {
+ height:clamp(140px,20vw,280px);
+ mask-size:100% 100%;
+ -webkit-mask-size:100% 100%;
+ mask-position:center bottom;
+ -webkit-mask-position:center bottom;
+}
+.hero-trust-band .container { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.hero-trust-band span {
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ min-height:3.25rem;
+ padding:0 1.25rem;
+ font-size:clamp(.9rem,1.2vw,1.1rem);
+ line-height:1.45;
+ text-wrap:balance;
+}
+@media(max-width:700px) {
+ .hero-trust-band { margin-top:4.5rem; padding:1.15rem 0; }
+ .hero-trust-band span { min-height:3.5rem; padding:0 .5rem; font-size:clamp(.7rem,2.7vw,.9rem); }
+}
+
 .home-gallery { overflow:hidden; background-color:#e7eff1; background-image:radial-gradient(ellipse at 88% 12%,rgba(102,157,176,.19),transparent 37%),linear-gradient(rgba(21,85,120,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(21,85,120,.035) 1px,transparent 1px),linear-gradient(140deg,#f6f8f5 0%,#e6eef0 56%,#d4e2e6 100%); background-size:auto,42px 42px,42px 42px,auto; }
 .home-gallery__heading { display:flex; align-items:end; justify-content:space-between; gap:1.5rem; margin-bottom:1.25rem; }
 .home-gallery__heading .section-intro { margin:0; }
