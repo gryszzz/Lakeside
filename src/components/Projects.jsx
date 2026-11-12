@@ -158,7 +158,7 @@ export function ProjectPreview() {
         <div className="project-grid">
           {previews.map((project) => (
             <article key={project.title} className="project-card" data-reveal>
-              <div className="project-card__media">
+              <div className="project-card__media" style={{ aspectRatio: project.frameAspect }}>
                 <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} />
                 <span>{project.category}</span>
               </div>
@@ -210,6 +210,7 @@ const homepageProjectPhotos = [
     image: 'images/projects/portfolio/lakeside-custom-builtins.jpg',
     focalPoint: '50% 50%',
     imageFit: 'contain',
+    frameAspect: '986 / 1280',
     alt: 'Custom light wood cabinetry with glass-front storage and built-in shelves',
     summary: 'A custom cabinetry installation with glass-front storage and built-in shelving.',
     tags: ['Cabinetry', 'Built-ins', 'Storage']
@@ -219,7 +220,9 @@ const homepageProjectPhotos = [
     title: 'Tile Shower & Bathroom',
     category: 'Bathroom',
     image: 'images/projects/portfolio/lakeside-bathroom-shower.jpg',
-    focalPoint: '50% 60%',
+    focalPoint: '50% 50%',
+    imageFit: 'contain',
+    frameAspect: '965 / 1280',
     alt: 'White subway tile shower with glass doors and gray bathroom cabinetry',
     summary: 'A tiled walk-in shower with glass doors, grab bars, and coordinating finishes.',
     tags: ['Bathroom', 'Tile', 'Shower']
@@ -332,7 +335,7 @@ export function HomeProjectGallery() {
               href={withBase(`projects/?project=${project.id}`)}
               aria-label={`Open photo: ${project.title}`}
             >
-              <span className="home-gallery__photo">
+              <span className="home-gallery__photo" style={{ aspectRatio: project.frameAspect }}>
                 <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
               </span>
               <span className="home-gallery__caption">
@@ -439,7 +442,7 @@ export function ProjectGallery() {
               tabIndex={0}
               aria-label={`Open details for ${project.title}`}
             >
-              <div className="project-card__media">
+              <div className="project-card__media" style={{ aspectRatio: project.frameAspect }}>
                 <img style={{ objectPosition: project.focalPoint, objectFit: project.imageFit, transform: project.imageFit === 'contain' ? 'none' : undefined }} src={withBase(project.image)} alt={project.alt} loading="lazy" decoding="async" />
                 <span>{project.category}</span>
               </div>
