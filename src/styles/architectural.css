@@ -3,11 +3,12 @@
   --surface:#eaf1f6;
   --line:#ccdce6;
   --architecture-border:#cfdee8;
-  --architecture-dark:radial-gradient(ellipse 90% 70% at 110% 4%,rgba(99,149,177,.52),transparent 72%),radial-gradient(ellipse 70% 40% at 75% 52%,rgba(49,98,132,.45),transparent 78%),radial-gradient(ellipse 80% 55% at -15% 105%,rgba(78,99,136,.6),transparent 72%),linear-gradient(145deg,#0d2132 0%,#183b53 42%,#244b65 70%,#102d42 100%);
-  --architecture-pearl:radial-gradient(ellipse 80% 100% at 100% 0%,rgba(144,184,211,.3),transparent 65%),radial-gradient(ellipse 85% 70% at 0% 100%,rgba(199,214,230,.5),transparent 70%),linear-gradient(130deg,#f8fafc 5%,#e9f0f6 55%,#d8e6f0 100%);
-  --architecture-mist:radial-gradient(ellipse 90% 75% at 0% 0%,rgba(255,255,255,.9),transparent 60%),radial-gradient(ellipse 75% 100% at 100% 100%,rgba(116,162,196,.22),transparent 70%),linear-gradient(125deg,#e9f1f7,#d6e5f0 60%,#e9f1f7);
+  --architecture-opening:radial-gradient(ellipse 50% 75% at 110% 20%,rgba(117,159,194,.3),transparent 75%),radial-gradient(ellipse 65% 55% at -15% 105%,rgba(151,169,190,.22),transparent 78%),linear-gradient(115deg,#fff 0%,#fff 42%,#f9fbfd 70%,#eaf1f7 100%);
+  --architecture-pearl:radial-gradient(ellipse 50% 95% at 110% 0%,rgba(142,177,205,.23),transparent 72%),radial-gradient(ellipse 60% 65% at -20% 100%,rgba(190,200,214,.24),transparent 75%),linear-gradient(120deg,#fff 12%,#fff 55%,#f0f5f9 100%);
+  --architecture-mist:radial-gradient(ellipse 60% 90% at -10% 0%,rgba(157,185,209,.2),transparent 70%),radial-gradient(ellipse 50% 90% at 110% 100%,rgba(129,167,199,.26),transparent 75%),linear-gradient(130deg,#fbfcfe,#fff 45%,#f8fbfd 75%,#edf3f8);
+
 }
-body { background:#e9f0f6; }
+body { background:#fff; }
 .site-shell { background:var(--architecture-pearl); }
 .site-shell .site-header {
   background:linear-gradient(110deg,rgba(255,255,255,.95),rgba(231,240,248,.93));
@@ -18,7 +19,7 @@ body { background:#e9f0f6; }
 }
 .site-shell main > :where(.section),
 .site-shell :is(.home-services,.services-collection,.room-priorities,.room-questions,.room-planning,.process-journey) {
-  background-color:#edf3f8;
+  background-color:#fff;
   background-image:var(--architecture-pearl);
   background-size:cover;
   background-position:center;
@@ -26,7 +27,7 @@ body { background:#e9f0f6; }
   border-color:var(--architecture-border);
 }
 .site-shell :is(.home-process.process-journey,.room-scope,.room-process,.section--soft,.section--faq,.coverage-section,.brand-connections,.section--contrast) {
-  background-color:#e3edf5;
+  background-color:#fff;
   background-image:var(--architecture-mist);
   background-size:cover;
   background-position:center;
@@ -55,46 +56,46 @@ body { background:#e9f0f6; }
 .site-shell .hero-signature__check { background:#e2eff7; color:var(--blue); }
 .site-shell .about-story-layout > * { min-width:0; }
 
-/* Layered midnight, slate and steel highlights carry the opening sections. */
+/* White remains dominant; silver and blue light is concentrated at the edges. */
 .site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening) {
-  background-color:#16364e;
-  background-image:var(--architecture-dark);
+  background-color:#fff;
+  background-image:var(--architecture-opening);
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  border-bottom-color:#42677f;
+  border-bottom-color:#d2e0ea;
 }
-.site-shell :is(.lakeside-opening .opening-title,.page-hero__content h1,.services-opening h1,.process-opening h1,.room-opening h1) { color:#fff; }
-.site-shell :is(.opening-title > span,.services-opening h1 em,.process-opening h1 em) { color:#d2e7f3; }
-.site-shell :is(.lakeside-opening .hero__content > .eyebrow,.page-hero__eyebrow,.services-opening__copy > .eyebrow,.process-opening .eyebrow,.room-opening__layout > div > .eyebrow) { color:#c0d7e5; }
-.site-shell :is(.lakeside-opening .hero__body p,.page-hero__body,.services-opening__lead,.process-opening .container > p:not(.eyebrow),.room-opening__intro) { color:#d2dfe9; }
-.site-shell .lakeside-opening .hero__body .opening-lead { color:#edf4f8; }
-.site-shell .lakeside-opening .opening-experience { color:#cbdde9; }
-.site-shell .opening-experience strong { color:#fff; }
-.site-shell :is(.lakeside-opening .hero-call,.lakeside-opening .hero-call__copy strong,.room-opening__actions .text-link,.services-opening__actions .text-link) { color:#e6f2fa; }
-.site-shell .lakeside-opening .hero-call__copy > span { color:#c5dce9; }
-.site-shell .lakeside-opening .hero-blueprint__topline { color:#cfe3ef; }
-.site-shell .hero-photo-carousel__caption strong { color:#edf6fc; }
-.site-shell .lakeside-opening .hero-signature { color:#dfedf5; }
-.site-shell .lakeside-opening .hero-license { color:#c2d6e3; }
-.site-shell .lakeside-opening .hero-photo-carousel__viewport { border-color:#7393a9; box-shadow:0 16px 40px #0003; }
-.site-shell .room-intention { box-shadow:0 16px 44px #0002; }
+.site-shell :is(.lakeside-opening .opening-title,.page-hero__content h1,.services-opening h1,.process-opening h1,.room-opening h1) { color:#173e50; }
+.site-shell :is(.opening-title > span,.services-opening h1 em,.process-opening h1 em) { color:#155578; }
+.site-shell :is(.lakeside-opening .hero__content > .eyebrow,.page-hero__eyebrow,.services-opening__copy > .eyebrow,.process-opening .eyebrow,.room-opening__layout > div > .eyebrow) { color:#526f7e; }
+.site-shell :is(.lakeside-opening .hero__body p,.page-hero__body,.services-opening__lead,.process-opening .container > p:not(.eyebrow),.room-opening__intro) { color:#536b78; }
+.site-shell .lakeside-opening .hero__body .opening-lead { color:#345462; }
+.site-shell .lakeside-opening .opening-experience { color:#536f7b; }
+.site-shell .opening-experience strong { color:#173e50; }
+.site-shell :is(.lakeside-opening .hero-call,.lakeside-opening .hero-call__copy strong,.room-opening__actions .text-link,.services-opening__actions .text-link) { color:#28617e; }
+.site-shell .lakeside-opening .hero-call__copy > span { color:#617c86; }
+.site-shell .lakeside-opening .hero-blueprint__topline { color:#527580; }
+.site-shell .hero-photo-carousel__caption strong { color:#284e5b; }
+.site-shell .lakeside-opening .hero-signature { color:#345c6d; }
+.site-shell .lakeside-opening .hero-license { color:#627c88; }
+.site-shell .lakeside-opening .hero-photo-carousel__viewport { border-color:#c4d7e3; box-shadow:0 16px 40px #173d4b14; }
+.site-shell .room-intention { box-shadow:0 12px 32px #173d4b0d; }
 .site-shell :is(.lakeside-opening,.services-opening,.process-opening,.room-opening) .button { border-color:#82acc3; }
 
 .site-shell .home-gallery {
-  background-color:#1b4059;
-  background-image:radial-gradient(ellipse 90% 130% at 100% 0%,rgba(94,149,179,.48),transparent 65%),radial-gradient(ellipse 70% 80% at 5% 100%,rgba(83,111,147,.4),transparent 70%),linear-gradient(118deg,#102b40,#28546e 65%,#18384f);
+  background-color:#fff;
+  background-image:var(--architecture-mist);
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  border-color:#52778f;
+  border-color:#d0e0eb;
 }
-.site-shell .home-gallery .section-intro h2 { color:#fff; }
-.site-shell .home-gallery :is(.section-intro .eyebrow,.section-intro__body,.home-gallery__hint) { color:#d6e6f0; }
-.site-shell .home-gallery .home-gallery__controls button { color:#e0eff8; }
-.site-shell .home-gallery .home-gallery__controls button:hover { color:#fff; }
-.site-shell .home-gallery .home-gallery__card { border-color:#8da9ba; box-shadow:0 12px 30px #061c2938; }
-.site-shell .home-gallery .section-intro__rail { background:linear-gradient(90deg,#b8d7e8,rgba(138,180,206,.2)); }
+.site-shell .home-gallery .section-intro h2 { color:#173e50; }
+.site-shell .home-gallery :is(.section-intro .eyebrow,.section-intro__body,.home-gallery__hint) { color:#536d7b; }
+.site-shell .home-gallery .home-gallery__controls button { color:#155578; }
+.site-shell .home-gallery .home-gallery__controls button:hover { color:#103f5a; }
+.site-shell .home-gallery .home-gallery__card { border-color:#cedee8; box-shadow:0 8px 24px #173d4b0e; }
+.site-shell .home-gallery .section-intro__rail { background:linear-gradient(90deg,#87aac2,#d2e1eb); }
 @media(max-width:700px) {
   .site-shell .site-header { -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
 }
