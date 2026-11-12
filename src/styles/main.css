@@ -1699,3 +1699,15 @@ p { line-height:1.8; }
 .spotlights-gallery-link { display:inline-flex; align-items:center; gap:.55rem; min-height:44px; color:inherit; }
 .spotlights-gallery-link svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .spotlights-gallery-link:hover { text-decoration:underline; text-underline-offset:4px; }
+
+/* Reserve separate rows for labels and artwork so they never collide. */
+.service-visual:has(.service-emoji) { grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto minmax(0,1fr); gap:.65rem; padding:.85rem; }
+.service-visual:has(.service-emoji) .service-visual__index { position:static; grid-column:1; grid-row:1; }
+.service-visual:has(.service-emoji) .service-visual__tag { position:static; grid-column:2; grid-row:1; justify-self:end; text-align:right; }
+.service-visual .service-emoji { grid-column:1 / -1; grid-row:2; align-self:center; }
+@media(max-width:700px) {
+ .service-visual:has(.service-emoji) { grid-template-columns:minmax(0,1fr); grid-template-rows:auto auto minmax(80px,1fr); gap:.35rem; padding:.7rem .5rem; }
+ .service-visual:has(.service-emoji) .service-visual__index { grid-column:1; grid-row:1; justify-self:start; }
+ .service-visual:has(.service-emoji) .service-visual__tag { grid-column:1; grid-row:2; justify-self:start; text-align:left; max-width:100%; line-height:1.5; }
+ .service-visual .service-emoji { grid-column:1; grid-row:3; width:86px; height:80px; margin-top:.3rem; }
+}
