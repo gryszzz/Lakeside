@@ -1,4 +1,4 @@
-:root { color-scheme:light; --blue:#155578; --blue-dark:#103f5a; --ink:#141b20; --muted:#55616a; --line:#d7e0e5; --surface:#f3f6f7; font-family:Arial,Helvetica,sans-serif; font-synthesis:none; text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; background:#fff; color:var(--ink); }
+:root { color-scheme:light; --blue:#013f6d; --blue-dark:#003253; --ink:#141b20; --muted:#55616a; --line:#d7e0e5; --surface:#f3f6f7; font-family:Arial,Helvetica,sans-serif; font-synthesis:none; text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; background:#fff; color:var(--ink); }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:90px; }
 body { margin:0; min-width:320px; background:#fff; color:var(--ink); }
@@ -1352,7 +1352,7 @@ p { line-height:1.8; }
 .lakeside-opening .hero__body p { margin:0; color:#60737c; font-size:.86rem; line-height:1.8; }
 .lakeside-opening .hero__body .opening-lead { margin-bottom:.9rem; color:#345462; font-size:.97rem; line-height:1.75; }
 .lakeside-opening .hero-actions { display:flex; flex-direction:column; align-items:flex-start; gap:.4rem; margin-top:1.6rem; }
-.lakeside-opening .hero-actions .button--hero-tech { width:min(100%,350px); grid-template-columns:32px minmax(0,1fr) 24px; gap:.75rem; min-height:60px; padding:.7rem .9rem; border:1px solid #174f6b; border-radius:12px; background:linear-gradient(110deg,#124b6a,#1b6480); box-shadow:0 5px 14px #174a591a,inset 0 1px 0 #ffffff20; font-size:.85rem; font-weight:750; line-height:1.35; transition:background .18s,box-shadow .18s,transform .18s; }
+.lakeside-opening .hero-actions .button--hero-tech { width:min(100%,350px); grid-template-columns:32px minmax(0,1fr) 24px; gap:.75rem; min-height:60px; padding:.7rem .9rem; border:1px solid var(--blue); border-radius:12px; background:var(--blue); box-shadow:0 5px 14px #174a591a,inset 0 1px 0 #ffffff20; font-size:.85rem; font-weight:750; line-height:1.35; transition:background .18s,box-shadow .18s,transform .18s; }
 .lakeside-opening .hero-actions .hero-call { display:flex; width:min(100%,350px); justify-content:center; min-height:44px; padding:.4rem 0; margin:0; }
 .lakeside-opening .hero-call__copy { display:flex; flex-direction:row; align-items:center; gap:.5rem; }
 .lakeside-opening .hero-call__copy > span { color:#617c86; font-size:.58rem; letter-spacing:.09em; }
@@ -1410,7 +1410,7 @@ p { line-height:1.8; }
 .lakeside-opening .hero-cta__arrow svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .lakeside-opening .button--hero-tech:focus-visible { outline:3px solid #4e91aa; outline-offset:4px; }
 @media(hover:hover) {
- .lakeside-opening .hero-actions .button--hero-tech:hover { background:linear-gradient(110deg,#103f5a,#155578); box-shadow:0 8px 20px #174a5926,inset 0 1px 0 #ffffff20; transform:translateY(-1px); }
+ .lakeside-opening .hero-actions .button--hero-tech:hover { background:var(--blue-dark); box-shadow:0 8px 20px #174a5926,inset 0 1px 0 #ffffff20; transform:translateY(-1px); }
 }
 .lakeside-opening .hero-actions .button--hero-tech:active { transform:translateY(0); }
 @media(prefers-reduced-motion:reduce) {
@@ -1468,4 +1468,36 @@ p { line-height:1.8; }
 .process-timeline--compact .process-timeline__body > p { margin-bottom:0; }
 @media(max-width:700px) {
  .process-timeline--compact .process-timeline__body h3 { font-size:1.05rem; }
+}
+
+/* Interactive blues follow the blue sampled from the Lakeside logo. */
+.site-header__phone,
+.lakeside-opening .hero-actions .button--hero-tech,
+.coverage-actions .button,
+.mobile-nav__cta .mobile-nav__call {
+ background:var(--blue);
+ border-color:var(--blue);
+ color:#fff;
+}
+.hero-photo-carousel__arrow,.hero-photo-carousel__dots,.lightbox__nav {
+ background:var(--blue);
+}
+.home-gallery__controls button { color:var(--blue); border-color:var(--blue); }
+.lakeside-opening .hero-call,.lakeside-opening .hero-call__copy strong,
+.home-process .text-link,.home-services .text-link { color:var(--blue); }
+.coverage-tabs button.is-selected { background:var(--blue); border-color:var(--blue); }
+.coverage-map__county.is-selected { fill:var(--blue); stroke:var(--blue-dark); }
+.final-cta .hero-actions .button--hero-tech { color:var(--blue); }
+.final-cta .hero-actions .button--hero-tech::after { color:var(--blue); }
+@media(hover:hover) {
+ .site-header__phone:hover,
+ .lakeside-opening .hero-actions .button--hero-tech:hover,
+ .coverage-actions .button:hover,
+ .mobile-nav__cta .mobile-nav__call:hover,
+ .hero-photo-carousel__arrow:hover,.lightbox__nav:hover {
+  background:var(--blue-dark);
+  border-color:var(--blue-dark);
+  color:#fff;
+ }
+ .home-gallery__controls button:hover { background:var(--blue); border-color:var(--blue); color:#fff; }
 }
