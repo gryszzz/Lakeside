@@ -103,9 +103,9 @@ body { background:#fff; }
   .site-shell .about-approach ul { grid-template-columns:minmax(0,1fr); }
 }
 
-/* Soft multitone color flow, with a white reading area and no outlined shapes. */
+/* Logo-inspired layers with restrained blue and silver hues. */
 :root {
-  --brand-flow:linear-gradient(90deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.62) 100%),url('/images/branding/brand-gradient-flow.webp');
+  --brand-flow:url('/images/branding/lakeside-layered-curves.svg');
   --architecture-opening:var(--brand-flow);
   --architecture-pearl:var(--brand-flow);
   --architecture-mist:var(--brand-flow);
