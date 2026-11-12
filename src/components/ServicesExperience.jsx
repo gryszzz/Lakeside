@@ -51,7 +51,7 @@ export function ServicesExperience() {
           <div className="services-opening__actions"><a className="button" href={withBase('quote/')}>Let’s plan your project <span aria-hidden="true">↗</span></a><a className="text-link" href="#our-services">Explore our services ↓</a></div>
           <p className="services-opening__local">Based in Sparta · Serving Sussex, Morris, Passaic & Warren</p>
         </div>
-        <div className="services-concept"><div className="services-concept__top"><span>The Lakeside approach</span><span>Designed around you</span></div><ServiceDrawing /><div className="services-concept__bottom"><span>From first ideas to finishing touches</span><strong>We do the complete job.</strong></div></div>
+
       </div>
     </section>
     <div className="services-assurance"><div className="container"><span>Over 40 years of experience</span><span>Licensed, insured & bonded</span><span>2-year workmanship warranty</span></div></div>

@@ -1273,3 +1273,8 @@ p { line-height:1.8; }
  .services-next p:not(.eyebrow) { font-size:.83rem; }
 }
 @media(prefers-reduced-motion:reduce) { .services-experience * { scroll-behavior:auto; } }
+
+/* Keep the Services introduction focused on the copy and next steps. */
+.services-opening__grid { grid-template-columns:1fr; }
+.services-opening__copy { max-width:800px; }
+.services-opening__lead { max-width:65ch; }
