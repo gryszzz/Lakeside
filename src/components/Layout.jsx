@@ -312,7 +312,7 @@ export function FAQSection({ items, intro = '' }) {
   return (
     <section className="section section--faq">
       <div className="container">
-        <SectionIntro eyebrow="FAQ" title="FAQ" body={intro} />
+        <SectionIntro title="FAQ" body={intro} />
         <div className="faq-list">
           {items.map((item) => (
             <details key={item.question} className="faq-item" data-reveal>
