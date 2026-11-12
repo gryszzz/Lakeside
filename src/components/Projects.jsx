@@ -366,7 +366,7 @@ export function HomeProjectGallery() {
       <div className="container">
         <div className="home-gallery__heading">
           <SectionIntro
-            eyebrow="Project Spotlights"
+            eyebrow={<a className="spotlights-gallery-link" href={withBase('projects/')}>Project Spotlights<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a>}
             title="A Look at Our Work"
             body="Browse kitchen and bathroom project photos. Select a photo to open it in the full gallery."
           />

@@ -1695,3 +1695,7 @@ p { line-height:1.8; }
  .service-visual .service-emoji { width:98px; height:90px; }
  .service-story__visual .service-emoji { width:165px; height:150px; margin:1rem auto; }
 }
+
+.spotlights-gallery-link { display:inline-flex; align-items:center; gap:.55rem; min-height:44px; color:inherit; }
+.spotlights-gallery-link svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.spotlights-gallery-link:hover { text-decoration:underline; text-underline-offset:4px; }
