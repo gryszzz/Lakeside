@@ -103,22 +103,18 @@ body { background:#fff; }
   .site-shell .about-approach ul { grid-template-columns:minmax(0,1fr); }
 }
 
-/* Diffused swirls of the brand palette, fading gently into white. */
+/* Soft multitone color flow, with a white reading area and no outlined shapes. */
 :root {
-  --brand-swirl:
-    radial-gradient(ellipse 80% 34% at 105% 12%,rgba(1,63,109,.19) 0%,rgba(57,124,170,.24) 22%,rgba(150,207,231,.27) 44%,rgba(182,190,206,.15) 66%,transparent 91%),
-    radial-gradient(ellipse 76% 34% at -8% 57%,rgba(26,79,128,.17) 0%,rgba(86,143,189,.23) 23%,rgba(179,218,237,.25) 47%,rgba(192,199,213,.13) 68%,transparent 92%),
-    radial-gradient(ellipse 60% 18% at 74% 94%,rgba(21,85,120,.16) 0%,rgba(83,145,183,.22) 23%,rgba(163,209,232,.24) 47%,rgba(189,198,215,.13) 68%,transparent 91%),
-    radial-gradient(ellipse 62% 15% at 48% 34%,rgba(190,199,214,.12),rgba(213,232,243,.12) 38%,transparent 83%),
-    linear-gradient(145deg,#fff 12%,#fff 78%,#fbfcfe);
-  --architecture-opening:var(--brand-swirl);
-  --architecture-pearl:var(--brand-swirl);
-  --architecture-mist:var(--brand-swirl);
+  --brand-flow:linear-gradient(90deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.62) 100%),url('/images/branding/brand-gradient-flow.webp');
+  --architecture-opening:var(--brand-flow);
+  --architecture-pearl:var(--brand-flow);
+  --architecture-mist:var(--brand-flow);
 }
 .site-shell :is(.lakeside-opening,.page-hero,.services-opening,.process-opening,.room-opening,.home-services,.services-collection,.room-priorities,.room-planning,.home-gallery,.home-process.process-journey,.room-scope,.room-process,.section--faq,.coverage-section,.brand-connections) {
   background-color:#fff;
-  background-image:var(--brand-swirl);
+  background-image:var(--brand-flow);
   background-size:100% 100%;
   background-position:center;
   background-repeat:no-repeat;
 }
+.site-shell :is(.lakeside-opening .hero__body p,.page-hero__body,.services-opening__lead,.process-opening .container > p:not(.eyebrow),.room-opening__intro) { color:#3b5667; }
