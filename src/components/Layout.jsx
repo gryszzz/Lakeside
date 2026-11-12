@@ -6,11 +6,24 @@ const navItems = [
   { label: 'Kitchens', href: 'kitchen-remodeling/' },
   { label: 'Bathrooms', href: 'bathroom-remodeling/' },
   { label: 'Our Process', href: 'process/' },
-
+  { label: 'Project Photos', href: 'projects/' },
   { label: 'Service Area', href: 'service-area/' },
   { label: 'Reviews', href: 'reviews/' },
   { label: 'About', href: 'about/' },
   { label: 'Contact', href: 'contact/' }
+];
+
+const footerLinks = [
+  { label: 'Kitchens', href: 'kitchen-remodeling/' },
+  { label: 'Bathrooms', href: 'bathroom-remodeling/' },
+  { label: 'Our Process', href: 'process/' },
+  { label: 'Our Work', href: 'projects/' },
+  { label: 'Service Area', href: 'service-area/' },
+  { label: 'Reviews', href: 'reviews/' },
+  { label: 'About', href: 'about/' },
+  { label: 'Contact', href: 'contact/' },
+  { label: 'Services', href: 'services/' },
+  { label: 'FAQ', href: 'faq/' }
 ];
 
 function Logo() {
@@ -125,7 +138,7 @@ export function Header() {
   useEffect(() => {
     if (!open) return;
     const panel = menuPanelRef.current;
-    panel?.querySelector('button')?.focus({ preventScroll: true });
+    panel?.focus({ preventScroll: true });
     const onKeyDown = (event) => {
       if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
       if (event.key !== 'Tab' || !panel) return;
@@ -184,11 +197,11 @@ export function Header() {
         </div>
       </header>
       <div id="mobile-menu" className={`mobile-nav ${open ? 'is-open' : ''}`} aria-hidden={!open} onClick={event => { if (event.target === event.currentTarget) setOpen(false); }}>
-        <div className="mobile-nav__panel" ref={menuPanelRef} role={open ? 'dialog' : undefined} aria-modal={open ? true : undefined} aria-label="Lakeside site menu">
+        <div className="mobile-nav__panel" ref={menuPanelRef} tabIndex={-1} role={open ? 'dialog' : undefined} aria-modal={open ? true : undefined} aria-label="Lakeside site menu">
           <div className="mobile-nav__header"><Logo /><button type="button" className="mobile-nav__close" aria-label="Close menu" onClick={() => setOpen(false)}><span className="mobile-nav__close-icon" aria-hidden="true" /></button></div>
           <nav aria-label="Mobile navigation">
             <ul className="mobile-nav__list">
-              {[{label: 'Home', href: ''}, ...navItems, {label: 'Services', href: 'services/'}, {label: 'Project Photos', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
+              {[{label: 'Home', href: ''}, ...navItems, {label: 'Services', href: 'services/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
                 <li key={item.href || 'mobile-home'}>
                   <a href={withBase(item.href)} className={isActivePath(item.href) ? 'is-active' : ''} aria-current={isActivePath(item.href) ? 'page' : undefined} onClick={() => setOpen(false)}>{item.label}</a>
                 </li>
@@ -215,7 +228,7 @@ export function Footer() {
         <div>
           <h3>Quick Links</h3>
           <ul className="footer-list">
-            {[...navItems, {label: 'Services', href: 'services/'}, {label: 'Our Work', href: 'projects/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
+            {footerLinks.map((item) => (
               <li key={item.href || 'footer-home'}>
                 <a href={withBase(item.href)}>{item.label}</a>
               </li>
