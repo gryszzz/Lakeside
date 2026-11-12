@@ -17,12 +17,12 @@ import {
 } from './components/Marketing';
 import { withBase } from './utils';
 
-const HERO_TITLE_STYLES = new Set(['serif', 'metallic', 'editorial', 'modern']);
+const HERO_TITLE_STYLES = new Set(['refined', 'depth', 'accent']);
 
 function heroTitleStyle() {
   const requested = new URLSearchParams(window.location.search).get('title');
   const style = (requested || '').toLowerCase();
-  return HERO_TITLE_STYLES.has(style) ? style : 'serif';
+  return HERO_TITLE_STYLES.has(style) ? style : 'refined';
 }
 
 function HomeHero() {
