@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { pages } from './pages';
 import './styles/main.css';
 import './styles/architectural.css';
+import './styles/why-choose.css';
 import './styles/gallery-hero.css';
 
 const pageId = document.body.dataset.page || 'home';
