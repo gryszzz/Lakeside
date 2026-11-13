@@ -509,6 +509,26 @@ export const galleryProjectPhotos = [
       "Shower",
       "Vanity"
     ]
+  },
+  {
+    id: 'white-cabinetry-installation',
+    title: 'White Cabinetry & Island · In Progress',
+    category: 'Cabinetry',
+    image: 'images/projects/portfolio/lakeside-white-cabinetry-installation.webp',
+    galleryFocalPoint: '50% 60%',
+    alt: 'White cabinet installation in progress with glass-front upper cabinets, tall pantry storage, an island, and lantern pendant lights',
+    summary: 'White cabinetry, glass-front storage, and island cabinets during installation, before countertops and finishing work.',
+    tags: ['Cabinetry', 'Island', 'In Progress']
+  },
+  {
+    id: 'freestanding-tub-glass-shower',
+    title: 'Freestanding Tub & Glass Shower',
+    category: 'Bathroom',
+    image: 'images/projects/portfolio/lakeside-freestanding-tub-glass-shower.webp',
+    galleryFocalPoint: '50% 65%',
+    alt: 'White freestanding bathtub beneath a wide window, with a brass wall-mounted faucet, marble-look floor, and adjacent glass shower',
+    summary: 'A freestanding tub, wall-mounted faucet, and glass shower paired with bright marble-look flooring.',
+    tags: ['Bathroom', 'Tub', 'Shower']
   }
 ];
 
