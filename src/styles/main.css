@@ -1734,3 +1734,32 @@ p { line-height:1.8; }
  .reviews-location__card { width:calc(100% - 16px); padding:.85rem; }
  .reviews-location__card h3 { font-size:1rem; }
 }
+
+
+/* Room pages: real project imagery and services visible in the opening. */
+.room-experience { --room-accent:#356b83; --room-wash:#eaf3f8; --room-border:#cfdee8; }
+.room-opening__layout { grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:clamp(1.5rem,4vw,3.5rem); align-items:start; }
+.room-opening h1 { font-size:clamp(2rem,3.2vw,3.1rem); margin-bottom:1rem; }
+.room-opening__intro { font-size:.86rem; line-height:1.75; }
+.room-services-preview { margin-top:1.25rem; padding-top:1rem; border-top:1px solid #cbdfe9; }
+.room-services-preview h2 { margin:0 0 .75rem; color:#183e50; font-size:1rem; letter-spacing:-.02em; }
+.room-services-preview ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem 1rem; margin:0; padding:0; list-style:none; }
+.room-services-preview li { display:flex; align-items:baseline; gap:.45rem; color:#3b5d70; font-size:.75rem; line-height:1.5; }
+.room-services-preview li::before { content:'✓'; flex-shrink:0; color:#267ca2; font-weight:700; }
+.room-project-feature { min-width:0; margin:0; overflow:hidden; border:1px solid #ccdee7; border-radius:18px; background:#fff; box-shadow:0 14px 35px #173d4b0d; }
+.room-project-feature__image { position:relative; aspect-ratio:1 / 1; overflow:hidden; background:#e5eef2; }
+.room-project-feature__image img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; }
+.room-project-feature figcaption { display:grid; gap:.3rem; padding:1rem 1.2rem; }
+.room-project-feature figcaption .eyebrow { margin:0; font-size:.54rem; color:#527687; }
+.room-project-feature figcaption strong { color:#183e50; font-size:.92rem; }
+.room-project-feature figcaption > span:last-child { color:#607985; font-size:.75rem; line-height:1.6; }
+@media(max-width:700px) {
+ .room-opening__layout { grid-template-columns:1fr; gap:1.4rem; }
+ .room-opening h1 { font-size:clamp(2rem,8vw,2.8rem); }
+ .room-opening__intro { font-size:.82rem; }
+ .room-services-preview { margin-top:1rem; padding-top:.85rem; }
+ .room-services-preview ul { gap:.45rem .75rem; }
+ .room-services-preview li { font-size:.71rem; }
+ .room-project-feature__image { aspect-ratio:4 / 3; }
+ .room-project-feature figcaption { padding:.85rem 1rem; }
+}
