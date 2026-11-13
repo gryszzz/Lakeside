@@ -1763,3 +1763,23 @@ p { line-height:1.8; }
  .room-project-feature__image { aspect-ratio:4 / 3; }
  .room-project-feature figcaption { padding:.85rem 1rem; }
 }
+
+
+/* Wide, swipeable room project displays; keep the service text column intact. */
+.room-project-feature__image { aspect-ratio:3 / 2; }
+.room-project-feature__track { position:absolute; inset:0; display:flex; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory; scrollbar-width:none; overscroll-behavior-x:contain; }
+.room-project-feature__track::-webkit-scrollbar { display:none; }
+.room-project-feature__slide { position:relative; display:block; flex:0 0 100%; min-width:0; height:100%; scroll-snap-align:start; scroll-snap-stop:always; }
+.room-project-feature__slide:focus-visible { outline:3px solid #78b6d5; outline-offset:-4px; }
+.room-project-feature__arrow { position:absolute; z-index:1; top:50%; display:grid; place-items:center; width:44px; height:44px; padding:0; border:1px solid #ffffffb3; border-radius:50%; background:#103f5ad9; color:#fff; font-size:1.25rem; transform:translateY(-50%); cursor:pointer; }
+.room-project-feature__arrow--prev { left:.7rem; }
+.room-project-feature__arrow--next { right:.7rem; }
+.room-project-feature__footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.room-project-feature__footer .text-link { display:inline-flex; align-items:center; gap:.4rem; min-height:44px; font-size:.76rem; }
+.room-project-feature__dots { display:flex; align-items:center; gap:2px; }
+.room-project-feature__dots button { position:relative; width:32px; height:44px; padding:0; border:0; background:transparent; cursor:pointer; }
+.room-project-feature__dots button::before { content:''; position:absolute; top:18px; left:12px; width:8px; height:8px; border-radius:50%; background:#ccdee8; }
+.room-project-feature__dots button[aria-current="true"]::before { background:#155578; }
+@media(min-width:1024px) {
+ .room-project-feature { width:calc(100% + clamp(0px,calc((100vw - 1160px) / 2 - 24px),116px)); }
+}

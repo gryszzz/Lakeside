@@ -308,7 +308,7 @@ export function HeroProjectCarousel() {
   </div>;
 }
 
-const galleryProjectPhotos = [
+export const galleryProjectPhotos = [
   ...homepageProjectPhotos,
   {
     id: 'wood-vanity-black-fixtures',

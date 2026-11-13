@@ -1,3 +1,5 @@
+import { useRef, useState } from 'react';
+import { galleryProjectPhotos } from './Projects';
 import { business } from '../content/site';
 import { ProcessTimeline } from './ProcessExperience';
 import { withBase } from '../utils';
@@ -5,10 +7,6 @@ import { withBase } from '../utils';
 const roomContent = {
   kitchen: {
     title: 'Kitchen Remodeling in Northern New Jersey',
-    photo: 'images/projects/portfolio/lakeside-kitchen-island.jpg',
-    photoAlt: 'White kitchen cabinetry with a carved wood island, stone countertop, and three stools',
-    photoCaption: 'Custom Kitchen & Island',
-    photoPosition: '50% 65%',
     intro: "The kitchen is the heart of the home. Whether you're planning a complete renovation or updating key features, Lakeside Kitchen & Bath LLC delivers kitchens that combine functionality, beauty, and long-term value.",
     invitation: 'A kitchen that works as beautifully as it looks.',
     note: 'For everyday meals, busy mornings, and everyone gathering in the same room.',
@@ -34,10 +32,6 @@ const roomContent = {
   },
   bathroom: {
     title: 'Bathroom Remodeling Experts',
-    photo: 'images/projects/portfolio/lakeside-wood-vanity-black-fixtures.webp',
-    photoAlt: 'Wood bathroom vanity with a white countertop, black fixtures, and a large mirror',
-    photoCaption: 'Wood Vanity & Coordinated Fixtures',
-    photoPosition: '50% 65%',
     intro: 'Your bathroom should be comfortable, functional, and built to withstand daily use. We specialize in complete bathroom renovations that improve appearance, functionality, and value.',
     invitation: 'Everyday comfort. Carefully considered.',
     note: 'A better shower, practical storage, and finishes that make the whole room feel complete.',
@@ -63,6 +57,45 @@ const roomContent = {
   }
 };
 
+const roomPhotoIds = {
+  kitchen: ['custom-kitchen-island', 'kitchen-cabinetry-island', 'kitchen-herringbone-tile'],
+  bathroom: ['wood-vanity-black-fixtures', 'tile-shower-bathroom', 'marble-look-tile-shower']
+};
+
+function RoomProjectCarousel({ kind }) {
+  const photos = roomPhotoIds[kind].map(id => galleryProjectPhotos.find(photo => photo.id === id));
+  const trackRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const showPhoto = (index) => {
+    const track = trackRef.current;
+    const nextIndex = (index + photos.length) % photos.length;
+    track.scrollTo({ left: nextIndex * track.clientWidth, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  };
+
+  return <figure className="room-project-feature" aria-label={`${kind === 'kitchen' ? 'Kitchen' : 'Bathroom'} project photos`}>
+    <div className="room-project-feature__image">
+      <div className="room-project-feature__track" ref={trackRef} onScroll={event => {
+        const track = event.currentTarget;
+        setActiveIndex(Math.max(0, Math.min(photos.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
+      }}>
+        {photos.map((photo, index) => <a key={photo.id} className="room-project-feature__slide" href={withBase(`projects/?project=${photo.id}`)} aria-label={`Open ${photo.title} in Project Photos`} tabIndex={activeIndex === index ? 0 : -1}>
+          <img src={withBase(photo.image)} alt={photo.alt} style={{ objectPosition: photo.galleryFocalPoint || photo.focalPoint || '50% 60%' }} loading={index === 0 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : 'auto'} decoding="async" />
+        </a>)}
+      </div>
+      <button className="room-project-feature__arrow room-project-feature__arrow--prev" type="button" onClick={() => showPhoto(activeIndex - 1)} aria-label="Previous project photo">←</button>
+      <button className="room-project-feature__arrow room-project-feature__arrow--next" type="button" onClick={() => showPhoto(activeIndex + 1)} aria-label="Next project photo">→</button>
+    </div>
+    <figcaption>
+      <span className="eyebrow">Lakeside projects · {activeIndex + 1} of {photos.length}</span>
+      <strong aria-live="polite">{photos[activeIndex].title}</strong>
+      <div className="room-project-feature__footer">
+        <div className="room-project-feature__dots" aria-label="Choose a project photo">{photos.map((photo, index) => <button type="button" key={photo.id} onClick={() => showPhoto(index)} aria-label={`Show photo ${index + 1}: ${photo.title}`} aria-current={activeIndex === index ? 'true' : undefined} />)}</div>
+        <a className="text-link" href={withBase('projects/')}>Project Photos <span aria-hidden="true">↗</span></a>
+      </div>
+    </figcaption>
+  </figure>;
+}
+
 export function RemodelingExperience({ kitchen = false }) {
   const kind = kitchen ? 'kitchen' : 'bathroom';
   const room = roomContent[kind];
@@ -74,10 +107,7 @@ export function RemodelingExperience({ kitchen = false }) {
         <ul>{room.groups.flatMap(group => group.items).map(item => <li key={item}>{item}</li>)}</ul>
       </div>
       <div className="room-opening__actions"><a className="button" href={withBase('contact/')}>Schedule a Consultation <span aria-hidden="true">→</span></a><a className="text-link" href={business.phoneHref}>Call Ron · {business.phone}</a></div></div>
-      <figure className="room-project-feature">
-        <div className="room-project-feature__image"><img src={withBase(room.photo)} alt={room.photoAlt} style={{ objectPosition: room.photoPosition }} width={kitchen ? 1280 : 962} height={kitchen ? 838 : 1280} fetchPriority="high" decoding="async" /></div>
-        <figcaption><span className="eyebrow">Lakeside project</span><strong>{room.photoCaption}</strong><span>{room.invitation}</span></figcaption>
-      </figure>
+      <RoomProjectCarousel kind={kind} />
     </div></section>
     <section className="section room-scope" id={`${kind}-services`}><div className="container"><div className="room-section-heading room-section-heading--split"><div><p className="eyebrow">{kitchen ? 'Kitchen' : 'Bathroom'} remodeling services</p><h2>{room.overview}</h2></div><p>{room.overviewText}</p></div><div className="room-scope__grid">{room.groups.map(group => <article key={group.title}><h3>{group.title}</h3><p>{group.text}</p><ul>{group.items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div></div></section>
     <section className="section room-priorities"><div className="container"><div className="room-section-heading"><p className="eyebrow">Start with what matters</p><h2>{kitchen ? 'More than a new look.' : 'More comfort. Better function.'}</h2></div><div className="room-priorities__grid">{room.priorities.map(([title,text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
