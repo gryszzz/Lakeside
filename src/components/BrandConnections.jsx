@@ -1,3 +1,4 @@
+import { business } from '../content/site';
 import { withBase } from '../utils';
 
 // Add Ron's verified profile URLs here when he supplies them.
@@ -6,6 +7,28 @@ export const brandProfiles = { google: null, instagram: null, facebook: null };
 function SocialProfile({ name, asset, profile }) {
   const content = <><span className="social-profile__icon"><img src={withBase(`images/brands/${asset}.svg`)} alt="" width="24" height="24" /></span><span className="social-profile__copy"><strong>{name}</strong><small>{profile ? `Follow Lakeside on ${name}` : 'Profile link coming soon'}</small></span><span className="connection-status">{profile ? 'Visit profile' : 'Coming soon'}</span></>;
   return profile ? <a className="social-profile" href={profile} target="_blank" rel="noreferrer">{content}</a> : <div className="social-profile">{content}</div>;
+}
+
+export function ReviewsLocationMap() {
+  return <div className="reviews-location" aria-label="Lakeside map and service area">
+    <iframe
+      className="reviews-location__map"
+      title="Map of the Sparta, New Jersey area"
+      src="https://maps.google.com/maps?hl=en&q=Sparta%2C%20NJ&z=10&output=embed"
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      allowFullScreen
+    />
+    <div className="reviews-location__card">
+      <p className="eyebrow">Sparta, New Jersey</p>
+      <h3>{business.name}</h3>
+      <p>{business.serviceAreaLabel}</p>
+      <span className="reviews-location__status">Google business listing coming soon</span>
+      <a className="button" href={business.mapUrl} target="_blank" rel="noreferrer">
+        Open in Maps <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>;
 }
 
 export function GoogleReviewPreview({ showPageLink = false }) {
@@ -20,6 +43,7 @@ export function GoogleReviewPreview({ showPageLink = false }) {
 
 export function BrandConnections() {
   return <section className="section brand-connections" id="reviews" aria-labelledby="connections-title"><div className="container">
+    <ReviewsLocationMap />
     <div className="connection-heading"><div><p className="eyebrow">Lakeside Kitchen & Bath LLC</p><h2 id="connections-title">Google Reviews & Social</h2></div><p>Reviews and social profile links coming soon.</p></div>
     <div className="connection-grid">
       <GoogleReviewPreview showPageLink />

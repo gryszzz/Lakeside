@@ -2,7 +2,7 @@ import { ServiceEmoji } from './components/ServiceEmoji';
 import { RemodelingExperience } from './components/RemodelingExperience';
 import { ProcessExperience, ProcessTimeline } from './components/ProcessExperience';
 import { ServicesExperience } from './components/ServicesExperience';
-import { BrandConnections, GoogleReviewPreview } from './components/BrandConnections';
+import { BrandConnections, GoogleReviewPreview, ReviewsLocationMap } from './components/BrandConnections';
 import { HeroProjectCarousel, HomeProjectGallery, ProjectGallery } from './components/Projects';
 import { ServiceAreaMap } from './components/ServiceAreaMap';
 import {
@@ -116,7 +116,7 @@ function FaqPage() { return <SiteShell><FAQSection items={faqs} /></SiteShell>; 
 function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero />} /><section className="section contact-next"><div className="container"><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p></div><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></section></SiteShell>; }
 
 function ReviewsPage() {
- return <SiteShell><PageHero title="Reviews" body="Google reviews coming soon." /><section className="section"><div className="container reviews-page-content"><GoogleReviewPreview /></div></section></SiteShell>;
+ return <SiteShell><PageHero title="Reviews" body="Google reviews coming soon." /><section className="section"><div className="container reviews-page-content"><ReviewsLocationMap /><GoogleReviewPreview /></div></section></SiteShell>;
 }
 
 export const pages = {
