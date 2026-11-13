@@ -1846,3 +1846,7 @@ p { line-height:1.8; }
  .room-experience .room-question,.room-experience .room-question:first-child { padding-inline:1rem; }
  .room-experience .room-closing > .container { padding:1.25rem; border-radius:18px; }
 }
+
+
+/* Portrait bathroom photos need a taller frame to show the room, not a close crop. */
+.room-experience--bathroom .room-project-feature__image { aspect-ratio:4 / 5; }
