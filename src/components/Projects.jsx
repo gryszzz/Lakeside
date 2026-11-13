@@ -419,6 +419,26 @@ export const galleryProjectPhotos = [
       "Tub",
       "Tile"
     ]
+  },
+  {
+    id: 'white-kitchen-island-seating',
+    title: 'White Kitchen & Island Seating',
+    category: 'Kitchen',
+    image: 'images/projects/portfolio/lakeside-white-kitchen-island-seating.webp',
+    galleryFocalPoint: '50% 60%',
+    alt: 'White kitchen cabinetry with glass-front storage, a stainless refrigerator, and a stone-topped island with four stools',
+    summary: 'White cabinetry, glass-front storage, pendant lighting, and an island with seating bring this kitchen together.',
+    tags: ['Kitchen', 'Island', 'Cabinetry']
+  },
+  {
+    id: 'white-kitchen-island-range',
+    title: 'White Kitchen · Range & Island View',
+    category: 'Kitchen',
+    image: 'images/projects/portfolio/lakeside-white-kitchen-island-range.webp',
+    galleryFocalPoint: '50% 60%',
+    alt: 'Another view of the white kitchen showing the island, stainless range and hood, tile backsplash, and wood floor',
+    summary: 'A second view of the same kitchen highlights the island storage, stainless range and hood, and tiled backsplash.',
+    tags: ['Kitchen', 'Island', 'Tile']
   }
 ];
 
