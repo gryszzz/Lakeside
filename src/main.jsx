@@ -7,6 +7,7 @@ import './styles/why-choose.css';
 import './styles/gallery-hero.css';
 import './styles/mobile-menu.css';
 import './styles/service-area-options.css';
+import './styles/header-options.css';
 
 const pageId = document.body.dataset.page || 'home';
 const Page = pages[pageId] || pages.home;
