@@ -58,7 +58,7 @@ const roomContent = {
 };
 
 const roomPhotoIds = {
-  kitchen: ['custom-kitchen-island', 'kitchen-cabinetry-island', 'kitchen-herringbone-tile'],
+  kitchen: ['white-kitchen-island-seating', 'kitchen-cabinetry-island', 'kitchen-herringbone-tile'],
   bathroom: ['white-subway-dual-shower', 'tile-shower-bathroom', 'marble-look-tile-shower']
 };
 
