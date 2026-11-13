@@ -59,7 +59,7 @@ const roomContent = {
 
 const roomPhotoIds = {
   kitchen: ['white-kitchen-island-seating', 'kitchen-cabinetry-island', 'kitchen-herringbone-tile'],
-  bathroom: ['white-subway-dual-shower', 'tile-shower-bathroom', 'marble-look-tile-shower']
+  bathroom: ['stone-look-shower-soaking-tub', 'marble-look-shower-folding-seat', 'gray-tile-shower-white-vanity']
 };
 
 function RoomProjectCarousel({ kind }) {
