@@ -1783,3 +1783,66 @@ p { line-height:1.8; }
 @media(min-width:1024px) {
  .room-project-feature { width:calc(100% + clamp(0px,calc((100vw - 1160px) / 2 - 24px),116px)); }
 }
+
+
+/* Room-page details: blue surfaces, clear cards, and a calmer reading rhythm. */
+.room-experience .room-scope { padding-top:1.25rem; }
+.room-experience .room-scope__grid { gap:1.15rem; }
+.room-experience .room-scope__grid article { position:relative; padding:1.6rem; border:1px solid #cfdee8; border-radius:18px; background:linear-gradient(145deg,#fff 45%,#f0f7fb); box-shadow:0 10px 28px #173d4b08; }
+.room-experience .room-scope__grid article::before { content:''; position:absolute; top:0; left:20px; right:20px; height:3px; border-radius:0 0 4px 4px; background:linear-gradient(90deg,#155578,#91c9e1,#d5eaf5); }
+.room-scope__card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.35rem; }
+.room-scope__card-top > span { color:#65889b; font-size:.65rem; font-weight:750; letter-spacing:.12em; }
+.room-scope__card-top svg { width:40px; height:40px; padding:9px; border:1px solid #d1e5ef; border-radius:12px; background:#eaf5fb; fill:none; stroke:#246987; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.room-experience .room-scope__grid article > p { min-height:0; }
+.room-experience .room-scope__grid ul { margin-top:auto; border-top-color:#dbe8ef; }
+.room-experience .room-scope__grid li { padding-left:1.1rem; }
+.room-experience .room-scope__grid li::before { top:.1em; width:auto; height:auto; border-radius:0; background:none; content:'✓'; color:#3884a6; font-size:.8rem; }
+.room-experience .room-priorities { padding-block:1rem clamp(2rem,4vw,3.5rem); }
+.room-experience .room-priorities > .container { padding:clamp(1.5rem,3vw,2.5rem); border:1px solid #2d6e8b; border-radius:24px; background:radial-gradient(ellipse at 100% 0%,#347f9c55,transparent 60%),linear-gradient(120deg,#103f5a,#1b5c78); box-shadow:0 16px 40px #163e5012; }
+.room-experience .room-priorities .eyebrow { color:#b5d9eb; }
+.room-experience .room-priorities h2 { color:#fff; }
+.room-experience .room-priorities__grid { gap:1.5rem; }
+.room-experience .room-priorities__grid article { padding-top:1.15rem; border-top:1px solid #8bb8cd66; }
+.room-priorities__number { display:block; margin-bottom:.85rem; color:#a5d5eb; font-size:.65rem; font-weight:750; letter-spacing:.12em; }
+.room-experience .room-priorities__grid h3 { color:#fff; }
+.room-experience .room-priorities__grid p { color:#d4e6ef; }
+.room-experience .room-planning { padding-top:.5rem; }
+.room-experience .room-planning__layout { padding:clamp(1.4rem,3vw,2.4rem); border:1px solid #d2e2eb; border-radius:22px; background:linear-gradient(135deg,#fff,#edf6fb); gap:clamp(1.5rem,3vw,3rem); }
+.room-experience .room-planning aside { padding:1.4rem; border:1px solid #cfe1ec; border-radius:16px; background:#ffffffd9; }
+.room-experience .room-planning aside ul { list-style:none; padding:0; }
+.room-experience .room-planning aside li { position:relative; padding-left:1.4rem; }
+.room-experience .room-planning aside li::before { content:'✓'; position:absolute; left:0; color:#3482a4; font-weight:750; }
+.room-process__layout { display:block; }
+.room-experience .room-process .process-journey__intro { position:static; display:grid; grid-template-columns:1fr 1fr; gap:.5rem 2rem; align-items:end; margin-bottom:1.75rem; }
+.room-experience .room-process .process-journey__intro .eyebrow { grid-column:1 / -1; margin-bottom:.25rem; }
+.room-experience .room-process .process-journey__intro h2 { margin-bottom:0; }
+.room-experience .room-process .process-journey__intro > p:not(.eyebrow) { max-width:44ch; margin:0; }
+.room-experience .room-process .process-timeline { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.room-experience .room-process .process-timeline__step { display:block; padding:1.4rem; border:1px solid #cfdee8; border-radius:18px; background:#fff; box-shadow:0 8px 24px #173d4b06; }
+.room-experience .room-process .process-timeline__step::before { display:none; }
+.room-experience .room-process .process-timeline__marker { width:40px; height:40px; margin-bottom:1rem; border-color:#c5dfed; background:#eaf5fb; color:#296c8c; }
+.room-experience .room-process .process-timeline__step:first-child .process-timeline__marker { background:#155578; color:#fff; }
+.room-experience .room-process .process-timeline__body { padding-top:0; }
+.room-experience .room-process__link { margin-top:1.25rem; }
+.room-experience .room-question,.room-experience .room-question:first-child { margin-bottom:.7rem; padding:0 1.2rem; border:1px solid #d0e1eb; border-radius:14px; background:#fff; box-shadow:0 5px 18px #173d4b04; }
+.room-experience .room-question[open] { border-color:#8ebbd1; background:linear-gradient(145deg,#fff,#f2f9fc); }
+.room-experience .room-question summary::after { display:grid; place-items:center; flex:0 0 26px; width:26px; height:26px; border-radius:50%; background:#eaf4fa; color:#276e8e; }
+.room-experience .room-closing { padding-block:1rem 2rem; }
+.room-experience .room-closing > .container { padding:clamp(1.5rem,3vw,2.5rem); border:1px solid #c4dce9; border-radius:22px; background:linear-gradient(115deg,#e5f2f9,#f8fbfd); }
+.room-experience .room-crosslink { padding-inline:1.25rem; }
+@media(max-width:700px) {
+ .room-experience .room-scope__grid { gap:.85rem; }
+ .room-experience .room-scope__grid article { padding:1.25rem; }
+ .room-scope__card-top { margin-bottom:1rem; }
+ .room-experience .room-priorities > .container { border-radius:18px; }
+ .room-experience .room-priorities__grid { gap:1.2rem; }
+ .room-experience .room-planning__layout { padding:1.15rem; border-radius:18px; }
+ .room-experience .room-planning aside { padding:1.1rem; }
+ .room-experience .room-process .process-journey__intro { grid-template-columns:1fr; gap:.65rem; }
+ .room-experience .room-process .process-journey__intro .eyebrow { grid-column:auto; }
+ .room-experience .room-process .process-timeline { grid-template-columns:1fr; gap:.8rem; }
+ .room-experience .room-process .process-timeline__step { display:grid; grid-template-columns:36px minmax(0,1fr); gap:.8rem; padding:1.15rem; }
+ .room-experience .room-process .process-timeline__marker { width:36px; height:36px; margin:0; }
+ .room-experience .room-question,.room-experience .room-question:first-child { padding-inline:1rem; }
+ .room-experience .room-closing > .container { padding:1.25rem; border-radius:18px; }
+}
