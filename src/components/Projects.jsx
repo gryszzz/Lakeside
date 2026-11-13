@@ -349,6 +349,76 @@ export const galleryProjectPhotos = [
     alt: 'Glass shower enclosure with white marble-look tile, gray mosaic accents, and a corner shelf',
     summary: 'Marble-look shower tile is finished with a glass enclosure, corner shelf, and coordinating mosaic accents.',
     tags: ['Bathroom', 'Shower', 'Tile']
+  },
+  {
+    "id": "gray-stone-tile-shower",
+    "title": "Gray Stone-Look Tile Shower",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-gray-stone-tile-shower.webp",
+    "galleryFocalPoint": "50% 55%",
+    "alt": "Gray stone-look shower tile with a glass enclosure, chrome handheld shower, and recessed niche",
+    "summary": "A glass shower enclosure with large gray tile, chrome fixtures, and a recessed storage niche.",
+    "tags": [
+      "Bathroom",
+      "Shower",
+      "Tile"
+    ]
+  },
+  {
+    "id": "beige-mosaic-glass-shower",
+    "title": "Beige Tile & Mosaic Shower",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-beige-mosaic-glass-shower.webp",
+    "galleryFocalPoint": "50% 60%",
+    "alt": "Beige tile shower with a mosaic accent band, corner shelves, glass doors, and grab bars",
+    "summary": "Warm beige tile and a mosaic accent band frame a glass shower with corner shelving and grab bars.",
+    "tags": [
+      "Bathroom",
+      "Shower",
+      "Mosaic"
+    ]
+  },
+  {
+    "id": "subway-tile-tub-mosaic",
+    "title": "Subway Tile Tub & Mosaic Accent",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-subway-tile-tub-mosaic.webp",
+    "galleryFocalPoint": "55% 65%",
+    "alt": "White subway tile tub surround with a blue-gray mosaic band and black-and-white patterned floor",
+    "summary": "A white subway tile tub surround pairs a blue-gray accent band with a black-and-white floor.",
+    "tags": [
+      "Bathroom",
+      "Tub",
+      "Tile"
+    ]
+  },
+  {
+    "id": "white-subway-dual-shower",
+    "title": "White Subway Tile & Chrome Shower",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-white-subway-dual-shower.webp",
+    "galleryFocalPoint": "50% 0%",
+    "alt": "White subway tile shower with chrome rain and handheld showerheads, a glass shelf, and grab bars",
+    "summary": "White subway tile, a glass enclosure, and coordinated chrome shower fixtures create a bright shower space.",
+    "tags": [
+      "Bathroom",
+      "Shower",
+      "Fixtures"
+    ]
+  },
+  {
+    "id": "warm-stone-tile-tub",
+    "title": "Warm Stone-Look Tile Tub",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-warm-stone-tile-tub.webp",
+    "galleryFocalPoint": "50% 60%",
+    "alt": "White bathtub surrounded by warm stone-look tile with chrome shower fixtures and corner shelves",
+    "summary": "Warm stone-look tile continues across the tub walls and ceiling, with chrome fixtures and corner shelving.",
+    "tags": [
+      "Bathroom",
+      "Tub",
+      "Tile"
+    ]
   }
 ];
 
