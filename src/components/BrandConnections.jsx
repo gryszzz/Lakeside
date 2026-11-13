@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { business } from '../content/site';
 import { withBase } from '../utils';
 
@@ -10,15 +11,33 @@ function SocialProfile({ name, asset, profile }) {
 }
 
 export function ReviewsLocationMap() {
-  return <div className="reviews-location" aria-label="Lakeside map and service area">
-    <iframe
+  const mapRef = useRef(null);
+  const [loadMap, setLoadMap] = useState(false);
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      setLoadMap(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setLoadMap(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '200px' });
+    observer.observe(mapRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return <div ref={mapRef} className="reviews-location" aria-label="Lakeside map and service area">
+    {loadMap && <iframe
       className="reviews-location__map"
       title="Map of the Sparta, New Jersey area"
       src="https://maps.google.com/maps?hl=en&q=Sparta%2C%20NJ&z=10&output=embed"
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
       allowFullScreen
-    />
+    />}
     <div className="reviews-location__card">
       <p className="eyebrow">Sparta, New Jersey</p>
       <h3>{business.name}</h3>
