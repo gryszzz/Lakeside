@@ -57,26 +57,27 @@
   }
 }
 
+/* Move the timeline beside the opening without compressing the original design. */
 @media (min-width: 1024px) {
   .process-experience .process-stage {
     display: grid;
-    grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr);
-    column-gap: 1.1rem;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    column-gap: clamp(2rem, 6vw, 6rem);
     align-items: start;
-    width: min(1340px, calc(100% - 16px));
+    width: min(1160px, calc(100% - 48px));
     margin-inline: auto;
-    padding-top: 0.15rem;
+    padding-block: clamp(2.25rem, 4.5vw, 4rem);
   }
 
   .process-experience .process-stage__lead {
     position: sticky;
-    top: 98px;
+    top: 120px;
     align-self: start;
   }
 
-  .process-experience .process-opening {
+  .process-experience .process-opening,
+  .process-experience .process-journey {
     padding: 0;
-    background: transparent;
   }
 
   .process-experience .process-opening .container,
@@ -86,68 +87,12 @@
     margin: 0;
   }
 
-  .process-experience .process-opening h1 {
-    margin: 0.15rem 0 0.3rem;
-  }
-
-  .process-experience .process-opening .container > p:not(.eyebrow) {
-    margin-bottom: 0.55rem;
-  }
-
-  .process-experience .process-journey {
-    padding: 0;
-    background: transparent;
-  }
-
   .process-experience .process-journey__layout {
     display: block;
   }
 
   .process-experience .process-journey__intro {
-    margin-top: 0.7rem;
-  }
-
-  .process-experience .process-journey__intro h2 {
-    margin-bottom: 0.3rem;
-  }
-
-  .process-experience .process-journey__intro > p:not(.eyebrow) {
-    margin-bottom: 0.15rem;
-  }
-
-  .process-experience .process-timeline__step {
-    grid-template-columns: 32px minmax(0, 1fr);
-    gap: 0.5rem;
-    padding-bottom: 0.28rem;
-  }
-
-  .process-experience .process-timeline__step:not(:last-child)::before {
-    top: 32px;
-    left: 15px;
-  }
-
-  .process-experience .process-timeline__marker {
-    width: 32px;
-    height: 32px;
-  }
-
-  .process-experience .process-timeline__body {
-    padding-top: 0;
-  }
-
-  .process-experience .process-timeline__body h3 {
-    margin-bottom: 0.06rem;
-  }
-
-  .process-experience .process-timeline__body > p {
-    margin-bottom: 0.18rem;
-  }
-
-  .process-experience .process-timeline__guidance {
-    padding: 0.22rem 0.5rem;
-  }
-
-  .process-experience .process-timeline__guidance h4 {
-    margin-bottom: 0;
+    position: static;
+    margin-top: clamp(2.25rem, 4vw, 4rem);
   }
 }
