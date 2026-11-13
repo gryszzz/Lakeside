@@ -4,7 +4,7 @@ import { withBase } from '../utils';
 
 const roomContent = {
   kitchen: {
-    title: 'Kitchen Remodeling in Northern New Jersey',
+    title: 'Kitchen Remodeling Experts',
     intro: "The kitchen is the heart of the home. Whether you're planning a complete renovation or updating key features, Lakeside Kitchen & Bath LLC delivers kitchens that combine functionality, beauty, and long-term value.",
     invitation: 'A kitchen that works as beautifully as it looks.',
     note: 'For everyday meals, busy mornings, and everyone gathering in the same room.',
