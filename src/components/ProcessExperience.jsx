@@ -22,16 +22,20 @@ export function ProcessTimeline({ compact = false, limit = processSteps.length }
 
 export function ProcessExperience() {
   return <div className="process-experience">
-    <section className="process-opening"><div className="container">
-      <p className="eyebrow">Our Process</p>
-      <h1>A clear plan.<br /><em>From idea to finish.</em></h1>
-      <p>A remodel has a lot of moving parts. Here’s how we bring the decisions, details, and work together—one step at a time.</p>
-      <a className="button" href={withBase('quote/')}>Let’s talk about your project</a>
-    </div></section>
-    <section className="section process-journey" aria-labelledby="process-journey-title"><div className="container process-journey__layout">
-      <div className="process-journey__intro"><p className="eyebrow">What to expect</p><h2 id="process-journey-title">Your remodel,<br />step by step.</h2><p>From the first conversation to the final walkthrough, each stage builds on the last.</p><a className="text-link" href={withBase('services/')}>Explore our services →</a></div>
-      <ProcessTimeline />
-    </div></section>
+    <div className="process-stage">
+      <div className="process-stage__lead">
+        <section className="process-opening"><div className="container">
+          <p className="eyebrow">Our Process</p>
+          <h1>A clear plan.<br /><em>From idea to finish.</em></h1>
+          <p>A remodel has a lot of moving parts. Here’s how we bring the decisions, details, and work together—one step at a time.</p>
+          <a className="button" href={withBase('quote/')}>Let’s talk about your project</a>
+        </div></section>
+        <div className="process-journey__intro"><p className="eyebrow">What to expect</p><h2 id="process-journey-title">Your remodel,<br />step by step.</h2><p>From the first conversation to the final walkthrough, each stage builds on the last.</p><a className="text-link" href={withBase('services/')}>Explore our services →</a></div>
+      </div>
+      <section className="section process-journey" aria-labelledby="process-journey-title"><div className="container process-journey__layout">
+        <ProcessTimeline />
+      </div></section>
+    </div>
     <section className="process-start"><div className="container process-start__layout"><div><p className="eyebrow">Your first step</p><h2>Let’s start with<br />what you have in mind.</h2><p>You don’t need every answer before reaching out. Tell Ron about your space and what you’d like it to become.</p><div className="process-start__actions"><a className="button" href={withBase('quote/')}>Schedule a consultation</a><a className="text-link" href={business.phoneHref}>Call Ron · {business.phone}</a></div></div><aside className="process-prep"><h3>A few helpful starting points</h3><ul><li>The room or areas you want to update</li><li>What works—and what doesn’t—in your current space</li><li>Your priorities, budget, and preferred timing</li><li>Ideas or inspiration you’d like to share</li></ul><p>Have a question first? We’re happy to talk it through.</p></aside></div></section>
   </div>;
 }
