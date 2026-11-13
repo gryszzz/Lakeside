@@ -439,6 +439,76 @@ export const galleryProjectPhotos = [
     alt: 'Another view of the white kitchen showing the island, stainless range and hood, tile backsplash, and wood floor',
     summary: 'A second view of the same kitchen highlights the island storage, stainless range and hood, and tiled backsplash.',
     tags: ['Kitchen', 'Island', 'Tile']
+  },
+  {
+    "id": "textured-tile-shower-bench",
+    "title": "Textured Tile Shower & Bench \u00b7 In Progress",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-textured-tile-shower-bench.webp",
+    "galleryFocalPoint": "50% 70%",
+    "alt": "Shower installation in progress with multitone horizontal tile, a built-in bench, corner shelves, and unfinished surrounding wall",
+    "summary": "Multitone shower tile, a built-in bench, and corner shelving during installation.",
+    "tags": [
+      "Bathroom",
+      "Shower",
+      "In Progress"
+    ]
+  },
+  {
+    "id": "stone-look-shower-soaking-tub",
+    "title": "Stone-Look Shower & Soaking Tub",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-stone-look-shower-soaking-tub.webp",
+    "galleryFocalPoint": "45% 65%",
+    "alt": "Glass shower enclosure with stone-look tile and pebble-style floor beside a white soaking tub and wood-look floor",
+    "summary": "A glass shower and separate soaking tub paired with stone-look wall tile and wood-look flooring.",
+    "tags": [
+      "Bathroom",
+      "Shower",
+      "Tub"
+    ]
+  },
+  {
+    "id": "marble-look-shower-folding-seat",
+    "title": "Marble-Look Shower & Folding Seat",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-marble-look-shower-folding-seat.webp",
+    "galleryFocalPoint": "50% 65%",
+    "alt": "Glass shower with beige marble-look walls, folding wood seat, grab bars, corner shelves, and a rain showerhead",
+    "summary": "A glass shower with marble-look walls, a folding seat, grab bars, and corner shelves.",
+    "tags": [
+      "Bathroom",
+      "Shower",
+      "Seating"
+    ]
+  },
+  {
+    "id": "white-subway-tub-vanity",
+    "title": "White Subway Tub & Vanity",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-white-subway-tub-vanity.webp",
+    "galleryFocalPoint": "50% 65%",
+    "alt": "White subway-tile bathtub enclosure with glass doors and corner shelves beside a white vanity and wood-look tile floor",
+    "summary": "White subway tile and glass tub doors paired with a white vanity and wood-look flooring.",
+    "tags": [
+      "Bathroom",
+      "Tub",
+      "Vanity"
+    ]
+  },
+  {
+    "id": "gray-tile-shower-white-vanity",
+    "title": "Gray Tile Shower & White Vanity",
+    "category": "Bathroom",
+    "image": "images/projects/portfolio/lakeside-gray-tile-shower-white-vanity.webp",
+    "galleryFocalPoint": "50% 65%",
+    "alt": "Bathroom with gray stone-look wall and floor tile, a glass shower enclosure, recessed niches, and a white vanity",
+    "summary": "Coordinated gray tile, a glass shower with recessed niches, and a white vanity create a unified bathroom.",
+    "tags": [
+      "Bathroom",
+      "Shower",
+      "Vanity"
+    ]
   }
 ];
 
