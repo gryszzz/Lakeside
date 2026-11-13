@@ -1,0 +1,19 @@
+/* Desktop process page only. Pull the steps up toward the hero. */
+
+@media (min-width: 1024px) {
+  .process-experience .process-opening {
+    padding: 1.35rem 0 0.7rem;
+  }
+
+  .process-experience .process-opening h1 {
+    margin: 0.4rem 0 0.6rem;
+  }
+
+  .process-experience .process-opening .container > p:not(.eyebrow) {
+    margin-bottom: 1rem;
+  }
+
+  .process-experience .process-journey {
+    padding-top: 0.85rem;
+  }
+}
