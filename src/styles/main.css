@@ -1711,3 +1711,12 @@ p { line-height:1.8; }
  .service-visual:has(.service-emoji) .service-visual__tag { grid-column:1; grid-row:2; justify-self:start; text-align:left; max-width:100%; line-height:1.5; }
  .service-visual .service-emoji { grid-column:1; grid-row:3; width:86px; height:80px; margin-top:.3rem; }
 }
+
+/* Give the opening project photo more room on desktop. */
+@media (min-width:1024px) {
+ .lakeside-opening .hero__grid {
+  width:min(1340px,calc(100% - 48px));
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);
+  column-gap:clamp(2rem,4vw,4rem);
+ }
+}
