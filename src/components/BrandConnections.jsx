@@ -62,8 +62,8 @@ export function GoogleReviewPreview({ showPageLink = false }) {
 
 export function BrandConnections() {
   return <section className="section brand-connections" id="reviews" aria-labelledby="connections-title"><div className="container">
-    <ReviewsLocationMap />
     <div className="connection-heading"><div><p className="eyebrow">Lakeside Kitchen & Bath LLC</p><h2 id="connections-title">Google Reviews & Social</h2></div><p>Reviews and social profile links coming soon.</p></div>
+    <ReviewsLocationMap />
     <div className="connection-grid">
       <GoogleReviewPreview showPageLink />
       <div className="social-preview"><p className="eyebrow">Stay connected</p><h3>Instagram & Facebook</h3><p>Profile links coming soon.</p><div className="social-preview__profiles"><SocialProfile name="Instagram" asset="instagram" profile={brandProfiles.instagram} /><SocialProfile name="Facebook" asset="facebook" profile={brandProfiles.facebook} /></div><p className="social-preview__note">Lakeside’s social profiles will be linked here soon.</p></div>
