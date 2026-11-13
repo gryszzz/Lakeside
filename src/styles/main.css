@@ -1714,9 +1714,7 @@ p { line-height:1.8; }
 
 /* Give the opening project photo more room on desktop. */
 @media (min-width:1024px) {
- .lakeside-opening .hero__grid {
-  width:min(1340px,calc(100% - 48px));
-  grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);
-  column-gap:clamp(2rem,4vw,4rem);
+ .lakeside-opening .hero-blueprint.hero-photo-carousel {
+  width:calc(100% + clamp(0px,calc((100vw - 1160px) / 2 - 24px),116px));
  }
 }
