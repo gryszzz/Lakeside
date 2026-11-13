@@ -111,10 +111,16 @@ function headerOption() {
   return value === 'a' || value === 'b' || value === 'c' ? value : '';
 }
 
+function navOption() {
+  const value = new URLSearchParams(window.location.search).get('nav') || '';
+  return value === '1' || value === '2' || value === '3' ? value : '';
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const option = headerOption();
+  const nav = navOption();
   const menuTriggerRef = useRef(null);
   const menuPanelRef = useRef(null);
 
@@ -166,7 +172,7 @@ export function Header() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className={`site-header${option ? ` header-option header-option--${option}` : ''}${scrolled ? ' site-header--scrolled' : ''}`}>
+      <header className={`site-header${option ? ` header-option header-option--${option}` : ''}${nav ? ` nav-option nav-option--${nav}` : ''}${scrolled ? ' site-header--scrolled' : ''}`}>
         <div className="container site-header__inner">
           <Logo />
           <nav className="site-nav" aria-label="Primary navigation">
