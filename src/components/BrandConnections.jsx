@@ -54,13 +54,9 @@ export function ReviewsLocationMap() {
   );
 }
 
-export function GoogleReviewPreview({ showPageLink = false, showPlaceholders = true }) {
+export function GoogleReviewPreview({ showPageLink = false }) {
   return <div className="google-review-preview">
-    <div className="google-review-preview__header"><h3 className="google-review-brand"><img src={withBase('images/brands/google.svg')} alt="Google" width="92" height="30" /><span>Reviews</span></h3>{showPlaceholders && <span className="connection-status">Coming soon</span>}</div>
-    {showPlaceholders && <>
-    <p>Customer reviews will be added here.</p>
-    <div className="review-placeholder-grid" aria-label="Customer review placeholders"><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div></div>
-    </>}
+    <div className="google-review-preview__header"><h3 className="google-review-brand"><img src={withBase('images/brands/google.svg')} alt="Google" width="92" height="30" /><span>Reviews</span></h3></div>
     <div className="google-review-actions">
       {business.googleProfile.writeReviewUrl && <a className="button google-review-primary" href={business.googleProfile.writeReviewUrl} target="_blank" rel="noreferrer">Leave a review</a>}
       {showPageLink && <a className="google-review-secondary" href={withBase('reviews/')}>Reviews page</a>}
@@ -73,7 +69,7 @@ export function BrandConnections() {
     <div className="connection-heading"><div><p className="eyebrow">Lakeside Kitchen & Bath LLC</p><h2 id="connections-title">Google Reviews & Social</h2></div><p>Find Lakeside on Google and leave a review.</p></div>
     <ReviewsLocationMap />
     <div className="connection-grid">
-      <GoogleReviewPreview showPageLink showPlaceholders={false} />
+      <GoogleReviewPreview showPageLink />
       <div className="social-preview"><p className="eyebrow">Stay connected</p><h3>Instagram & Facebook</h3><p>Profile links coming soon.</p><div className="social-preview__profiles"><SocialProfile name="Instagram" asset="instagram" profile={brandProfiles.instagram} /><SocialProfile name="Facebook" asset="facebook" profile={brandProfiles.facebook} /></div><p className="social-preview__note">Lakeside’s social profiles will be linked here soon.</p></div>
     </div>
   </div></section>;
