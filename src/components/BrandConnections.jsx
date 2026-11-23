@@ -10,12 +10,15 @@ function SocialProfile({ name, asset, profile }) {
 }
 
 export function ReviewsLocationMap() {
+  const { rating, reviewCountLabel, readReviewsUrl, reviewsMapEmbedUrl } = business.googleProfile;
+  const hasRating = Number.isFinite(rating);
+
   return (
     <div className="reviews-location">
       <iframe
         className="reviews-location__map"
         title={`${business.name} on Google Maps`}
-        src={business.googleProfile.reviewsMapEmbedUrl}
+        src={reviewsMapEmbedUrl}
         loading="lazy"
         tabIndex={-1}
         referrerPolicy="no-referrer-when-downgrade"
@@ -23,7 +26,15 @@ export function ReviewsLocationMap() {
       />
       <div className="reviews-location__card">
         <h3>{business.name}</h3>
+        <div className="reviews-location__rating">
+          {hasRating && <span aria-label={`Google rating: ${rating} out of 5`}>{rating.toFixed(1)}</span>}
+          <span className="reviews-location__star" aria-hidden="true">★</span>
+          <a href={readReviewsUrl} target="_blank" rel="noreferrer">
+            {hasRating && reviewCountLabel ? reviewCountLabel : hasRating ? 'Google reviews' : 'No rating shown'}
+          </a>
+        </div>
         <a className="reviews-location__link" href={business.mapUrl} target="_blank" rel="noreferrer">
+          <span className="reviews-location__external" aria-hidden="true">↗</span>
           Open in Maps
         </a>
       </div>
