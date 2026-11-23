@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import { business } from '../content/site';
 import { withBase } from '../utils';
 
@@ -11,40 +10,18 @@ function SocialProfile({ name, asset, profile }) {
 }
 
 export function ReviewsLocationMap() {
-  const mapRef = useRef(null);
-  const [loadMap, setLoadMap] = useState(false);
-
-  useEffect(() => {
-    if (!('IntersectionObserver' in window)) {
-      setLoadMap(true);
-      return;
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setLoadMap(true);
-        observer.disconnect();
-      }
-    }, { rootMargin: '200px' });
-    observer.observe(mapRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return <div ref={mapRef} className="reviews-location" aria-label="Lakeside map and service area">
-    <div className="reviews-location__viewport">
-    {loadMap && <iframe
-      className="reviews-location__map"
-      title={`${business.name} on Google Maps`}
-      src={business.googleProfile.mapEmbedUrl}
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      allowFullScreen
-    />}
+  return (
+    <div className="reviews-location">
+      <iframe
+        className="reviews-location__map"
+        title={`${business.name} on Google Maps`}
+        src={business.googleProfile.reviewsMapEmbedUrl}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+      />
     </div>
-    <div className="reviews-location__info">
-      <div className="reviews-location__details"><h3>{business.name}</h3><p>Sparta, NJ</p></div>
-      <a className="button" href={business.mapUrl} target="_blank" rel="noreferrer">Open in Maps</a>
-    </div>
-  </div>;
+  );
 }
 
 export function GoogleReviewPreview({ showPageLink = false }) {
