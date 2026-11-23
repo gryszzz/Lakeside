@@ -1746,7 +1746,7 @@ p { line-height:1.8; }
  display:flex;
  align-items:center;
  gap:6px;
- margin:0 0 9px;
+ margin:0;
  color:#4b5563;
  font-size:.8rem;
 }
@@ -1754,24 +1754,13 @@ p { line-height:1.8; }
 .reviews-location__rating a { display:inline-flex; align-items:center; gap:7px; color:#1557a6; text-decoration:none; }
 .reviews-location__rating a:hover { text-decoration:underline; }
 .reviews-location__info-icon { color:#606970; }
-.reviews-location__link {
- display:inline-flex;
- align-items:center;
- justify-content:center;
- gap:6px;
- min-height:44px;
- padding:0 12px;
- border:1px solid rgb(16 63 90 / 35%);
- border-radius:999px;
- background:linear-gradient(135deg,#17658a,#104566);
- box-shadow:0 3px 8px rgb(16 69 102 / 24%);
- color:#fff;
- font-size:.8125rem;
- font-weight:700;
- text-decoration:none;
-}
-.reviews-location__link:hover { background:#103f5a; color:#fff; }
+.reviews-location__title-link { color:inherit; text-decoration:underline; text-decoration-color:#7a9cac; text-underline-offset:3px; }
+.reviews-location__title-link:hover { color:var(--blue); text-decoration-color:currentColor; }
 .reviews-location__card a:focus-visible { outline:2px solid #155578; outline-offset:3px; }
+@media(min-width:701px) {
+ /* Cover the taller built-in Google Maps card in wider embeds. */
+ .reviews-location__card { min-height:108px; }
+}
 @media(max-width:700px) {
  .reviews-location { margin-bottom:1.25rem; border-radius:10px; }
  .reviews-location__map { height:260px; }

@@ -25,7 +25,11 @@ export function ReviewsLocationMap() {
         allowFullScreen
       />
       <div className="reviews-location__card">
-        <h3>{business.name}</h3>
+        <h3>
+          <a className="reviews-location__title-link" href={business.mapUrl} target="_blank" rel="noreferrer">
+            {business.name}
+          </a>
+        </h3>
         <div className="reviews-location__rating">
           {hasRating && <span aria-label={`Google rating: ${rating} out of 5`}>{rating.toFixed(1)}</span>}
           <span className="reviews-location__star" aria-hidden="true">★</span>
@@ -43,12 +47,6 @@ export function ReviewsLocationMap() {
             </svg>
           </a>
         </div>
-        <a className="reviews-location__link" href={business.mapUrl} target="_blank" rel="noreferrer">
-          <svg aria-hidden="true" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M10 4H4v12h12v-6M12 4h4v4m0-4-7 7" />
-          </svg>
-          Open in Maps
-        </a>
       </div>
     </div>
   );
