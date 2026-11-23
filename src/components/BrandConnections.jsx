@@ -29,12 +29,24 @@ export function ReviewsLocationMap() {
         <div className="reviews-location__rating">
           {hasRating && <span aria-label={`Google rating: ${rating} out of 5`}>{rating.toFixed(1)}</span>}
           <span className="reviews-location__star" aria-hidden="true">★</span>
-          <a href={readReviewsUrl} target="_blank" rel="noreferrer">
-            {hasRating && reviewCountLabel ? reviewCountLabel : hasRating ? 'Google reviews' : 'No rating shown'}
+          <a
+            href={readReviewsUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={reviewCountLabel ? undefined : '0 Google reviews. View Google listing'}
+          >
+            {reviewCountLabel || '(0)'}
+            <svg className="reviews-location__info-icon" aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="6.25" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M8 7.5v3.5" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="8" cy="5.25" r=".75" fill="currentColor" />
+            </svg>
           </a>
         </div>
         <a className="reviews-location__link" href={business.mapUrl} target="_blank" rel="noreferrer">
-          <span className="reviews-location__external" aria-hidden="true">↗</span>
+          <svg aria-hidden="true" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10 4H4v12h12v-6M12 4h4v4m0-4-7 7" />
+          </svg>
           Open in Maps
         </a>
       </div>
