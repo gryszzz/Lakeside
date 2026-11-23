@@ -48,13 +48,15 @@ export function ReviewsLocationMap() {
 }
 
 export function GoogleReviewPreview({ showPageLink = false }) {
-  return (<div className="google-review-preview">
-        <div className="google-review-preview__header"><div className="google-review-brand"><img src={withBase('images/brands/google.svg')} alt="Google" width="92" height="30" /><span>Reviews</span></div><span className="connection-status">Coming soon</span></div>
-        <h3>Google Reviews</h3><p>Customer reviews will be added here.</p>
-        <div className="review-placeholder-grid" aria-label="Customer review placeholders"><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div></div>
-        {showPageLink && <a className="text-link" href={withBase('reviews/')}>Reviews</a>}
-        <div className="google-review-actions">{brandProfiles.google && <a className="text-link" href={brandProfiles.google} target="_blank" rel="noreferrer">View on Google</a>}{business.googleProfile.writeReviewUrl && <a className="text-link" href={business.googleProfile.writeReviewUrl} target="_blank" rel="noreferrer">Leave a review</a>}</div>
-      </div>);
+  return <div className="google-review-preview">
+    <div className="google-review-preview__header"><h3 className="google-review-brand"><img src={withBase('images/brands/google.svg')} alt="Google" width="92" height="30" /><span>Reviews</span></h3><span className="connection-status">Coming soon</span></div>
+    <p>Customer reviews will be added here.</p>
+    <div className="review-placeholder-grid" aria-label="Customer review placeholders"><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div></div>
+    <div className="google-review-actions">
+      {business.googleProfile.writeReviewUrl && <a className="button google-review-primary" href={business.googleProfile.writeReviewUrl} target="_blank" rel="noreferrer">Leave a review</a>}
+      {showPageLink && <a className="google-review-secondary" href={withBase('reviews/')}>Reviews page</a>}
+    </div>
+  </div>;
 }
 
 export function BrandConnections() {
