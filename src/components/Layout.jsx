@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { business } from '../content/site';
-import { isActivePath, useRevealAnimations, withBase } from '../utils';
+import { PagePathContext, isActivePath, useRevealAnimations, withBase } from '../utils';
 
 const navItems = [
   { label: 'Kitchens', href: 'kitchen-remodeling/' },
@@ -107,6 +107,7 @@ export function SectionIntro({ eyebrow, title, body, align = 'left' }) {
 }
 
 export function Header() {
+  const pagePath = useContext(PagePathContext);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuTriggerRef = useRef(null);
@@ -168,7 +169,7 @@ export function Header() {
               <a
                 key={item.href || 'home'}
                 href={withBase(item.href)}
-                className={isActivePath(item.href) ? 'is-active' : ''}
+                className={isActivePath(item.href, pagePath) ? 'is-active' : ''}
               >
                 {item.label}
               </a>
@@ -203,7 +204,7 @@ export function Header() {
             <ul className="mobile-nav__list">
               {[{label: 'Home', href: ''}, ...navItems, {label: 'Services', href: 'services/'}, {label: 'FAQ', href: 'faq/'}].map((item) => (
                 <li key={item.href || 'mobile-home'}>
-                  <a href={withBase(item.href)} className={isActivePath(item.href) ? 'is-active' : ''} aria-current={isActivePath(item.href) ? 'page' : undefined} onClick={() => setOpen(false)}>{item.label}</a>
+                  <a href={withBase(item.href)} className={isActivePath(item.href, pagePath) ? 'is-active' : ''} aria-current={isActivePath(item.href, pagePath) ? 'page' : undefined} onClick={() => setOpen(false)}>{item.label}</a>
                 </li>
               ))}
             </ul>

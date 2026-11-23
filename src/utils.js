@@ -1,4 +1,6 @@
-import { useEffect } from 'react';
+import { createContext, useEffect } from 'react';
+
+export const PagePathContext = createContext('/');
 
 export function withBase(path = '') {
   if (!path) return import.meta.env.BASE_URL;
@@ -23,8 +25,8 @@ function stripBase(pathname) {
   return pathname;
 }
 
-export function isActivePath(target) {
-  const pathname = stripBase(window.location.pathname);
+export function isActivePath(target, pagePath) {
+  const pathname = stripBase(pagePath).replace(/\/index\.html$/, '/');
   const normalizedTarget = `/${target}`.replace(/\/+/g, '/').replace(/\/$/, '') || '/';
   const normalizedPath = pathname.replace(/\/$/, '') || '/';
   return normalizedTarget === normalizedPath;
