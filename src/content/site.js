@@ -22,16 +22,18 @@ export const business = {
   years: 'Over 40 years',
   licenseNumber: 'NJ HIC #13VH13915600',
   reviewsLabel: '2-year workmanship warranty',
-  mapUrl: 'https://maps.google.com/?q=Sparta+NJ',
-  // Replace the Google URLs below with your real Business Profile links.
+  mapUrl: 'https://www.google.com/maps?cid=4412758660454185674',
+  // Verified against Ron's two Google share links on 2026-11-23.
   googleProfile: {
+    placeId: 'ChIJLwRamtj6oA8RynrmM59EPT0',
+    shareUrls: ['https://share.google/6dNDx4jAq2gOqozmS', 'https://share.google/9cBi2uHowBmtPlhUW'],
     rating: null,
     reviewCountLabel: '',
-    summary: 'Read the rating, review history, and map in one place before you reach out.',
-    profileUrl: 'https://maps.google.com/?q=Lakeside+Kitchen+Bath+Sparta+NJ',
-    readReviewsUrl: 'https://maps.google.com/?q=Lakeside+Kitchen+Bath+Sparta+NJ',
-    writeReviewUrl: 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID',
-    mapEmbedUrl: 'https://maps.google.com/maps?hl=en&q=41.02,-74.73&z=10&output=embed',
+    summary: 'Customer reviews will be added here.',
+    profileUrl: 'https://share.google/6dNDx4jAq2gOqozmS',
+    readReviewsUrl: 'https://www.google.com/maps?cid=4412758660454185674',
+    writeReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJLwRamtj6oA8RynrmM59EPT0',
+    mapEmbedUrl: 'https://maps.google.com/maps?cid=4412758660454185674&hl=en&output=embed',
     // Replace these with the exact physical service-center coordinates if needed.
     coverageCenter: {
       lat: 41.03343,

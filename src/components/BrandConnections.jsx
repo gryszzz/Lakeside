@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { business } from '../content/site';
 import { withBase } from '../utils';
 
-// Add Ron's verified profile URLs here when he supplies them.
-export const brandProfiles = { google: null, instagram: null, facebook: null };
+// Google is connected; social links remain placeholders until Ron supplies them.
+export const brandProfiles = { google: business.googleProfile.profileUrl, instagram: null, facebook: null };
 
 function SocialProfile({ name, asset, profile }) {
   const content = <><span className="social-profile__icon"><img src={withBase(`images/brands/${asset}.svg`)} alt="" width="24" height="24" /></span><span className="social-profile__copy"><strong>{name}</strong><small>{profile ? `Follow Lakeside on ${name}` : 'Profile link coming soon'}</small></span><span className="connection-status">{profile ? 'Visit profile' : 'Coming soon'}</span></>;
@@ -32,8 +32,8 @@ export function ReviewsLocationMap() {
   return <div ref={mapRef} className="reviews-location" aria-label="Lakeside map and service area">
     {loadMap && <iframe
       className="reviews-location__map"
-      title="Map of the Sparta, New Jersey area"
-      src="https://maps.google.com/maps?hl=en&q=Sparta%2C%20NJ&z=10&output=embed"
+      title={`${business.name} on Google Maps`}
+      src={business.googleProfile.mapEmbedUrl}
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
       allowFullScreen
@@ -42,7 +42,7 @@ export function ReviewsLocationMap() {
       <p className="eyebrow">Sparta, New Jersey</p>
       <h3>{business.name}</h3>
       <p>{business.serviceAreaLabel}</p>
-      <span className="reviews-location__status">Google business listing coming soon</span>
+      <span className="reviews-location__status">Google Business Profile</span>
       <a className="button" href={business.mapUrl} target="_blank" rel="noreferrer">
         Open in Maps <span aria-hidden="true">↗</span>
       </a>
@@ -56,13 +56,13 @@ export function GoogleReviewPreview({ showPageLink = false }) {
         <h3>Google Reviews</h3><p>Customer reviews will be added here.</p>
         <div className="review-placeholder-grid" aria-label="Customer review placeholders"><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div><div className="review-placeholder"><span>Customer review</span><small>Coming soon</small></div></div>
         {showPageLink && <a className="text-link" href={withBase('reviews/')}>Reviews</a>}
-        {brandProfiles.google && <a className="text-link" href={brandProfiles.google} target="_blank" rel="noreferrer">Read reviews on Google</a>}
+        <div className="google-review-actions">{brandProfiles.google && <a className="text-link" href={brandProfiles.google} target="_blank" rel="noreferrer">View on Google</a>}{business.googleProfile.writeReviewUrl && <a className="text-link" href={business.googleProfile.writeReviewUrl} target="_blank" rel="noreferrer">Leave a review</a>}</div>
       </div>);
 }
 
 export function BrandConnections() {
   return <section className="section brand-connections" id="reviews" aria-labelledby="connections-title"><div className="container">
-    <div className="connection-heading"><div><p className="eyebrow">Lakeside Kitchen & Bath LLC</p><h2 id="connections-title">Google Reviews & Social</h2></div><p>Reviews and social profile links coming soon.</p></div>
+    <div className="connection-heading"><div><p className="eyebrow">Lakeside Kitchen & Bath LLC</p><h2 id="connections-title">Google Reviews & Social</h2></div><p>Find Lakeside on Google. Customer reviews and social profile links coming soon.</p></div>
     <ReviewsLocationMap />
     <div className="connection-grid">
       <GoogleReviewPreview showPageLink />
