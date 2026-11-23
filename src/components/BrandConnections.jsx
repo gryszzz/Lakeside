@@ -57,6 +57,10 @@ export function ReviewsLocationMap() {
 export function GoogleReviewPreview({ showPageLink = false }) {
   return <div className="google-review-preview">
     <div className="google-review-preview__header"><h3 className="google-review-brand"><img src={withBase('images/brands/google.svg')} alt="Google" width="92" height="30" /><span>Reviews</span></h3></div>
+    <ul className="review-placeholder-grid" aria-label="Customer review placeholders">
+      <li>Customer review</li>
+      <li>Customer review</li>
+    </ul>
     <div className="google-review-actions">
       {business.googleProfile.writeReviewUrl && <a className="button google-review-primary" href={business.googleProfile.writeReviewUrl} target="_blank" rel="noreferrer">Leave a review</a>}
       {showPageLink && <a className="google-review-secondary" href={withBase('reviews/')}>Reviews page</a>}

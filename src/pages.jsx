@@ -116,7 +116,20 @@ function FaqPage() { return <SiteShell><FAQSection items={faqs} /></SiteShell>; 
 function ContactPage() { return <SiteShell showFinalCta={false}><PageHero eyebrow="Contact" title="Let's Discuss Your Project" body="Whether you're planning a kitchen renovation, bathroom remodel, or tile installation project, we'd love to hear from you." aside={<DirectEstimatePanel inHero />} /><section className="section contact-next"><div className="container"><div><h2>Ready to Transform Your Home?</h2><p>Let's discuss your project and create a renovation plan that works for your home and budget.</p></div><a className="button" href={business.phoneHref}>Call {business.phone}</a></div></section></SiteShell>; }
 
 function ReviewsPage() {
- return <SiteShell><PageHero title="Reviews" body="Find Lakeside on Google and leave a review." /><section className="section"><div className="container reviews-page-content"><ReviewsLocationMap /><GoogleReviewPreview /></div></section></SiteShell>;
+  return (
+    <SiteShell>
+      <section className="section reviews-page" aria-labelledby="reviews-title">
+        <div className="container reviews-page-content">
+          <header className="reviews-page-intro">
+            <h1 id="reviews-title">Reviews</h1>
+            <p>Find Lakeside on Google and leave a review.</p>
+          </header>
+          <ReviewsLocationMap />
+          <GoogleReviewPreview />
+        </div>
+      </section>
+    </SiteShell>
+  );
 }
 
 export const pages = {
