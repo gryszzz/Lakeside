@@ -30,6 +30,7 @@ export function ReviewsLocationMap() {
   }, []);
 
   return <div ref={mapRef} className="reviews-location" aria-label="Lakeside map and service area">
+    <div className="reviews-location__viewport">
     {loadMap && <iframe
       className="reviews-location__map"
       title={`${business.name} on Google Maps`}
@@ -38,14 +39,10 @@ export function ReviewsLocationMap() {
       referrerPolicy="no-referrer-when-downgrade"
       allowFullScreen
     />}
-    <div className="reviews-location__card">
-      <p className="eyebrow">Sparta, New Jersey</p>
-      <h3>{business.name}</h3>
-      <p>{business.serviceAreaLabel}</p>
-      <span className="reviews-location__status">Google Business Profile</span>
-      <a className="button" href={business.mapUrl} target="_blank" rel="noreferrer">
-        Open in Maps <span aria-hidden="true">↗</span>
-      </a>
+    </div>
+    <div className="reviews-location__info">
+      <div className="reviews-location__details"><h3>{business.name}</h3><p>Sparta, NJ</p></div>
+      <a className="button" href={business.mapUrl} target="_blank" rel="noreferrer">Open in Maps</a>
     </div>
   </div>;
 }
