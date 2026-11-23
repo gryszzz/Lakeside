@@ -34,7 +34,7 @@ export const business = {
     readReviewsUrl: 'https://www.google.com/maps?cid=4412758660454185674',
     writeReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJLwRamtj6oA8RynrmM59EPT0',
     mapEmbedUrl: 'https://maps.google.com/maps?cid=4412758660454185674&hl=en&output=embed',
-    reviewsMapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d385575.6727513104!2d-74.6553535!3d40.97469155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfa0fad89a5a042f%3A0x3d3d449f33e67aca!2sLakeside%20Kitchen%20%26%20Bath%20LLC!5e0!3m2!1sen!2sus',
+    reviewsMapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d260000!2d-74.6553535!3d41.015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfa0fad89a5a042f%3A0x3d3d449f33e67aca!2sLakeside%20Kitchen%20%26%20Bath%20LLC!5e0!3m2!1sen!2sus',
     // Replace these with the exact physical service-center coordinates if needed.
     coverageCenter: {
       lat: 41.03343,

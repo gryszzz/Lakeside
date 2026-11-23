@@ -17,9 +17,16 @@ export function ReviewsLocationMap() {
         title={`${business.name} on Google Maps`}
         src={business.googleProfile.reviewsMapEmbedUrl}
         loading="lazy"
+        tabIndex={-1}
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen
       />
+      <div className="reviews-location__card">
+        <h3>{business.name}</h3>
+        <a className="reviews-location__link" href={business.mapUrl} target="_blank" rel="noreferrer">
+          Open in Maps
+        </a>
+      </div>
     </div>
   );
 }
