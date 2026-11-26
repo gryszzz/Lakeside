@@ -1884,9 +1884,6 @@ p { line-height:1.8; }
 }
 
 
-/* Portrait bathroom photos need a taller frame to show the room, not a close crop. */
-.room-experience--bathroom .room-project-feature__image { aspect-ratio:4 / 5; }
-
 .review-placeholder-grid {
  display:grid;
  grid-template-columns:repeat(2,minmax(0,1fr));
