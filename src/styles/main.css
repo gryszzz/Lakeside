@@ -1758,8 +1758,13 @@ p { line-height:1.8; }
 .reviews-location__title-link:hover { color:var(--blue); text-decoration-color:currentColor; }
 .reviews-location__card a:focus-visible { outline:2px solid #155578; outline-offset:3px; }
 @media(min-width:701px) {
- /* Cover the taller built-in Google Maps card in wider embeds. */
- .reviews-location__card { min-height:108px; }
+ /* Keep the native Google panel inside the rounded overlay, including its corners. */
+ .reviews-location__card {
+  inset:4px auto auto 4px;
+  min-width:min(268px,calc(100% - 8px));
+  min-height:122px;
+  background:linear-gradient(145deg,#f9fcfd,#e7f5fa);
+ }
 }
 @media(max-width:700px) {
  .reviews-location { margin-bottom:1.25rem; border-radius:10px; }
